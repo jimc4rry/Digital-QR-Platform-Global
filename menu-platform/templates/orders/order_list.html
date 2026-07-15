@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+<div class="container py-4">
+    <h1>{% trans "Παραγγελίες" %}</h1>
+
+    <div class="mb-3">
+        <a href="{% url 'order_list' %}" class="btn btn-outline-primary btn-sm">{% trans "Όλες" %}</a>
+        {% for status_code, status_label in status_choices %}
+            <a href="?status={{ status_code }}" class="btn btn-outline-secondary btn-sm">{{ status_label }}</a>
+        {% endfor %}
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>{% trans "Αρ. Παραγγελίας" %}</th>
+                    <th>{% trans "Πελάτης" %}</th>
+                    <th>{% trans "Τραπέζι/Ξαπλώστρα" %}</th>
+                    <th>{% trans "Σύνολο" %}</th>
+                    <th>{% trans "Κατάσταση" %}</th>
+                    <th>{% trans "Ημερομηνία" %}</th>
+                    <th>{% trans "Ενέργειες" %}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for order in orders %}
+                    <tr>
+                        <td>#{{ order.order_number }}</td>
+                        <td>{{ order.customer_name|default:"-" }}</td>
+                        <td>{% if order.table_number %}{{ order.get_table_type_display }} {{ order.table_number }}{% else %}-{% endif %}</td>
+                        <td>{{ order.total|floatformat:2 }}€</td>
+                        <td>
+                            <span class="status-{{ order.status }}">
+                                {{ order.get_status_display }}
+                            </span>
+                        </td>
+                        <td>{{ order.created_at|date:"d/m/Y H:i" }}</td>
+                        <td>
+                            <a href="{% url 'order_detail' order.id %}" class="btn btn-sm btn-primary">{% trans "Λεπτομέρειες" %}</a>
+                            {% if can_manage_menu %}
+                                <form method="post" action="{% url 'order_delete' order.id %}" class="d-inline" onsubmit="return confirm('{% trans "Σίγουρα θέλεις να διαγράψεις αυτή την παραγγελία;" %}')">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-sm btn-danger">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                </form>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="7" class="text-center text-muted">{% trans "Δεν υπάρχουν παραγγελίες" %}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    {% if page_obj.paginator.num_pages > 1 %}
+        <nav aria-label="{% trans 'Σελιδοποίηση παραγγελιών' %}">
+            <ul class="pagination">
+                {% if page_obj.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.previous_page_number }}{% if current_status %}&status={{ current_status }}{% endif %}">&laquo;</a>
+                    </li>
+                {% endif %}
+                <li class="page-item disabled">
+                    <span class="page-link">{% blocktrans with current=page_obj.number total=page_obj.paginator.num_pages %}Σελίδα {{ current }} από {{ total }}{% endblocktrans %}</span>
+                </li>
+                {% if page_obj.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.next_page_number }}{% if current_status %}&status={{ current_status }}{% endif %}">&raquo;</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </nav>
+    {% endif %}
+</div>
+{% endblock %}

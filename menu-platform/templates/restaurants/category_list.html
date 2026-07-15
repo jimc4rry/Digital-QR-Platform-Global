@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags i18n %}
+
+{% block content %}
+<div class="container py-4">
+    <h1>{% trans "Κατηγορίες" %}</h1>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">{% trans "Νέα Κατηγορία" %}</div>
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <button type="submit" class="btn btn-primary w-100">{% trans "Δημιουργία" %}</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{% trans "Λίστα Κατηγοριών" %}</div>
+                <div class="card-body">
+                    <ul class="list-group">
+                        {% for category in categories %}
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <div>
+                                    <strong>{{ category.name }}</strong>
+                                    <span class="badge bg-secondary">{{ category.product_count }} {% trans "προϊόντα" %}</span>
+                                </div>
+                                <form method="post" action="{% url 'category_delete' category.id %}" style="display:inline;">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('{% trans "Σίγουρα θέλεις να διαγράψεις αυτή την κατηγορία;" %}')">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                </form>
+                            </li>
+                        {% empty %}
+                            <li class="list-group-item text-center text-muted">{% trans "Δεν υπάρχουν κατηγορίες" %}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

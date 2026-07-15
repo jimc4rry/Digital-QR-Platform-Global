@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Loyalty Πελατών" %} - {{ restaurant.name }}{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <h1>{% trans "Loyalty Πελατών" %}</h1>
+    <p class="text-muted">{% trans "Οι πελάτες κερδίζουν 1 πόντο ανά ευρώ που ξοδεύουν, με βάση το τηλέφωνό τους." %}</p>
+
+    {% if not restaurant.loyalty_enabled %}
+        <div class="alert alert-warning d-flex justify-content-between align-items-center">
+            <span>{% trans "Το Loyalty είναι απενεργοποιημένο αυτή τη στιγμή - οι πελάτες δεν κερδίζουν πόντους." %}</span>
+            <a href="{% url 'restaurant_settings' %}" class="btn btn-sm btn-warning">{% trans "Ενεργοποίηση από τις Ρυθμίσεις" %}</a>
+        </div>
+    {% endif %}
+
+    <form method="get" class="mb-3">
+        <div class="input-group" style="max-width: 350px;">
+            <input type="text" name="q" class="form-control" placeholder="{% trans 'Αναζήτηση με τηλέφωνο...' %}" value="{{ search_query }}">
+            <button type="submit" class="btn btn-outline-primary">
+                <i class="bi bi-search"></i> {% trans "Αναζήτηση" %}
+            </button>
+            {% if search_query %}
+                <a href="{% url 'loyalty_list' %}" class="btn btn-outline-secondary">{% trans "Καθαρισμός" %}</a>
+            {% endif %}
+        </div>
+    </form>
+
+    <div class="card">
+        <div class="card-header">{% trans "Κατάταξη Πόντων" %}</div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>{% trans "Τηλέφωνο" %}</th>
+                            <th>{% trans "Πόντοι" %}</th>
+                            <th>{% trans "Τελευταία Ενημέρωση" %}</th>
+                            <th>{% trans "Ενέργειες" %}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for account in loyalty_accounts %}
+                            <tr>
+                                <td>{{ account.phone }}</td>
+                                <td><span class="badge bg-primary">{{ account.points }}</span></td>
+                                <td>{{ account.updated_at|date:"d/m/Y H:i" }}</td>
+                                <td>
+                                    <a href="{% url 'loyalty_edit' account.id %}" class="btn btn-sm btn-secondary">
+                                        <i class="bi bi-pencil"></i>
+                                    </a>
+                                    <form method="post" action="{% url 'loyalty_delete' account.id %}" class="d-inline" onsubmit="return confirm('{% trans "Σίγουρα θέλεις να διαγράψεις αυτόν τον λογαριασμό loyalty;" %}')">
+                                        {% csrf_token %}
+                                        <button type="submit" class="btn btn-sm btn-danger">
+                                            <i class="bi bi-trash"></i>
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        {% empty %}
+                            <tr>
+                                <td colspan="4" class="text-center text-muted">
+                                    {% if search_query %}
+                                        {% trans "Δεν βρέθηκαν αποτελέσματα" %}
+                                    {% else %}
+                                        {% trans "Δεν υπάρχουν ακόμα πόντοι loyalty" %}
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            {% if page_obj.paginator.num_pages > 1 %}
+                <nav aria-label="{% trans 'Σελιδοποίηση loyalty' %}">
+                    <ul class="pagination mb-0">
+                        {% if page_obj.has_previous %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ page_obj.previous_page_number }}{% if search_query %}&q={{ search_query }}{% endif %}">&laquo;</a>
+                            </li>
+                        {% endif %}
+                        <li class="page-item disabled">
+                            <span class="page-link">{% blocktrans with current=page_obj.number total=page_obj.paginator.num_pages %}Σελίδα {{ current }} από {{ total }}{% endblocktrans %}</span>
+                        </li>
+                        {% if page_obj.has_next %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ page_obj.next_page_number }}{% if search_query %}&q={{ search_query }}{% endif %}">&raquo;</a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

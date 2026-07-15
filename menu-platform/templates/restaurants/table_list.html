@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags i18n %}
+
+{% block title %}{% trans "Τραπέζια & Ξαπλώστρες" %} - {{ restaurant.name }}{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <h1>{% trans "Τραπέζια & Ξαπλώστρες" %}</h1>
+    <p class="text-muted">{% blocktrans %}Δημιούργησε ένα QR code για κάθε τραπέζι ή ξαπλώστρα. Όποιος το σκανάρει βλέπει το μενού με τη θέση του ήδη επιλεγμένη και μπορεί να παραγγείλει κατευθείαν.{% endblocktrans %}</p>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">{% trans "Νέα Θέση" %}</div>
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <button type="submit" class="btn btn-primary w-100">{% trans "Δημιουργία" %}</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="row">
+                {% for table in tables %}
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="card text-center">
+                            <div class="card-body">
+                                {% if table.qr_code %}
+                                    <img src="{{ table.qr_code.url }}" alt="{{ table.get_table_type_display }} {{ table.number }}" class="img-fluid mb-2">
+                                {% endif %}
+                                <h5 class="mb-0">
+                                    <i class="bi {% if table.table_type == 'sunbed' %}bi-umbrella{% else %}bi-grid-3x3-gap{% endif %}"></i>
+                                    {{ table.get_table_type_display }} {{ table.number }}
+                                </h5>
+                                <p class="small text-muted mb-2">{{ restaurant.name }}</p>
+                                <div class="d-flex gap-2 justify-content-center">
+                                    {% if table.qr_code %}
+                                        <a href="{{ table.qr_code.url }}" download class="btn btn-sm btn-secondary">
+                                            <i class="bi bi-download"></i> {% trans "Λήψη" %}
+                                        </a>
+                                    {% endif %}
+                                    <form method="post" action="{% url 'table_delete' table.id %}">
+                                        {% csrf_token %}
+                                        <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('{% trans "Σίγουρα θέλεις να το διαγράψεις;" %}')">
+                                            <i class="bi bi-trash"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% empty %}
+                    <div class="col-12">
+                        <p class="text-center text-muted">{% trans "Δεν υπάρχουν τραπέζια ή ξαπλώστρες ακόμα" %}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

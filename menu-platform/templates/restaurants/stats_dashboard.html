@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Στατιστικά" %} - {{ restaurant.name }}{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="d-flex justify-content-between align-items-center">
+        <h1>{% trans "Στατιστικά Πωλήσεων" %}</h1>
+        <a href="{% url 'export_orders_csv' %}" class="btn btn-outline-primary">
+            <i class="bi bi-download"></i> {% trans "Εξαγωγή CSV" %}
+        </a>
+    </div>
+
+    <div class="row mt-4 g-3">
+        <div class="col-md-4">
+            <div class="card text-center h-100">
+                <div class="card-body">
+                    <h6 class="text-muted">{% trans "Σήμερα" %}</h6>
+                    <h3>{{ stats_today.revenue|floatformat:2 }}€</h3>
+                    <p class="text-muted mb-0">{{ stats_today.count }} {% trans "παραγγελίες" %}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-center h-100">
+                <div class="card-body">
+                    <h6 class="text-muted">{% trans "Αυτή την εβδομάδα" %}</h6>
+                    <h3>{{ stats_week.revenue|floatformat:2 }}€</h3>
+                    <p class="text-muted mb-0">{{ stats_week.count }} {% trans "παραγγελίες" %}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-center h-100">
+                <div class="card-body">
+                    <h6 class="text-muted">{% trans "Αυτόν τον μήνα" %}</h6>
+                    <h3>{{ stats_month.revenue|floatformat:2 }}€</h3>
+                    <p class="text-muted mb-0">{{ stats_month.count }} {% trans "παραγγελίες" %}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4 g-3">
+        <div class="col-lg-8">
+            <div class="card h-100">
+                <div class="card-header">{% trans "Έσοδα τελευταίων 14 ημερών" %}</div>
+                <div class="card-body">
+                    <canvas id="revenueTrendChart" height="120"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card h-100">
+                <div class="card-header">{% trans "Δημοφιλή Προϊόντα" %}</div>
+                <div class="card-body p-0">
+                    <ul class="list-group list-group-flush">
+                        {% for product in top_products %}
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <span>{{ product.name }}</span>
+                                <span class="badge bg-primary rounded-pill">{{ product.total_quantity }}x</span>
+                            </li>
+                        {% empty %}
+                            <li class="list-group-item text-muted text-center">{% trans "Δεν υπάρχουν ακόμα πωλήσεις" %}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+{{ trend_labels|json_script:"trend-labels-data" }}
+{{ trend_values|json_script:"trend-values-data" }}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script>
+    const trendLabels = JSON.parse(document.getElementById('trend-labels-data').textContent);
+    const trendValues = JSON.parse(document.getElementById('trend-values-data').textContent);
+
+    new Chart(document.getElementById('revenueTrendChart'), {
+        type: 'line',
+        data: {
+            labels: trendLabels,
+            datasets: [{
+                label: '{% trans "Έσοδα (€)" %}',
+                data: trendValues,
+                borderColor: '#4f46e5',
+                backgroundColor: 'rgba(79, 70, 229, 0.1)',
+                tension: 0.3,
+                fill: true,
+            }]
+        },
+        options: {
+            plugins: { legend: { display: false } },
+            scales: { y: { beginAtZero: true } }
+        }
+    });
+</script>
+{% endblock %}

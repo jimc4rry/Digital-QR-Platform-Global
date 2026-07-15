@@ -1,0 +1,391 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block title %}{{ restaurant.name }} - {% trans "Μενού" %}{% endblock %}
+
+{% block content %}
+<div class="menu-header">
+    <div class="container text-center">
+        {% if restaurant.logo %}
+            <img src="{{ restaurant.logo.url }}" alt="{{ restaurant.name }}" style="max-height: 100px;">
+        {% endif %}
+        <h1 class="display-4 mt-3">{{ restaurant.name }}</h1>
+        <p class="lead">{{ restaurant.description }}</p>
+        {% if allow_ordering %}
+            <span class="badge bg-success fs-6">{% trans "Δέχεται παραγγελίες" %}</span>
+        {% endif %}
+        {% if table %}
+            <div class="mt-2">
+                <span class="badge bg-primary fs-6"><i class="bi bi-qr-code"></i> {{ table.get_table_type_display }} {{ table.number }}</span>
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+<div class="container py-4 {% if allow_ordering %}pb-5{% endif %}">
+    <div class="row">
+        {% for category in categories %}
+            <div class="col-12 mb-4">
+                <h2 class="category-header">{{ category.name }}</h2>
+                <div class="row">
+                    {% for product in category.products.all %}
+                        {% if product.is_available %}
+                            <div class="col-md-6 col-lg-4 mb-4">
+                                <div class="card product-card" data-product-id="{{ product.id }}" data-product-name="{{ product.get_display_name }}" data-product-price="{{ product.price }}">
+                                    {% if product.image %}
+                                        <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.get_display_name }}" style="height: 200px; object-fit: cover;">
+                                    {% endif %}
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-start">
+                                            <h5 class="card-title">{{ product.get_display_name }}</h5>
+                                            <span class="badge bg-primary fs-6">{{ product.price|floatformat:2 }}€</span>
+                                        </div>
+                                        <p class="card-text small">{{ product.description|truncatewords:20 }}</p>
+
+                                        {% if allow_ordering %}
+                                            {% if product.options.all %}
+                                                <div class="product-options small mb-2">
+                                                    {% for option in product.options.all %}
+                                                        <div class="form-check">
+                                                            <input class="form-check-input product-option-checkbox" type="checkbox"
+                                                                   value="{{ option.id }}"
+                                                                   data-price-adjustment="{{ option.price_adjustment }}"
+                                                                   data-option-name="{{ option.name }}"
+                                                                   id="opt-{{ option.id }}"
+                                                                   {% if option.is_default %}checked{% endif %}>
+                                                            <label class="form-check-label" for="opt-{{ option.id }}">
+                                                                {{ option.name }}{% if option.price_adjustment %} (+{{ option.price_adjustment|floatformat:2 }}€){% endif %}
+                                                            </label>
+                                                        </div>
+                                                    {% endfor %}
+                                                </div>
+                                            {% endif %}
+                                            <button type="button" class="btn btn-sm btn-primary w-100 add-to-cart-btn">
+                                                <i class="bi bi-cart-plus"></i> {% trans "Προσθήκη" %}
+                                            </button>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        {% empty %}
+            <div class="col-12 text-center py-5">
+                <i class="bi bi-emoji-frown display-1 text-muted"></i>
+                <h3>{% trans "Δεν υπάρχουν διαθέσιμα προϊόντα" %}</h3>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% if allow_ordering %}
+<div id="cart-bar" class="d-none bg-dark text-white fixed-bottom shadow-lg">
+    <div class="container d-flex justify-content-between align-items-center py-2">
+        <div><strong id="cart-count">0</strong> {% trans "προϊόντα" %} &middot; <strong id="cart-total">0,00€</strong></div>
+        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#cartModal">
+            <i class="bi bi-bag-check"></i> {% trans "Δες την παραγγελία" %}
+        </button>
+    </div>
+</div>
+
+<div class="modal fade" id="cartModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">{% trans "Η παραγγελία σου" %}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div id="cart-items-list"></div>
+                <hr>
+                <div class="d-flex justify-content-between fw-bold mb-3">
+                    <span>{% trans "Σύνολο" %}</span>
+                    <span id="cart-modal-total">0,00€</span>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">
+                        {% if table %}{{ table.get_table_type_display }}{% else %}{% trans "Αριθμός τραπεζιού" %}{% endif %}
+                    </label>
+                    {% if table %}
+                        <input type="text" class="form-control" id="order-table-number" value="{{ table.number }}" readonly>
+                        <input type="hidden" id="order-table-type" value="{{ table.table_type }}">
+                    {% else %}
+                        <input type="text" class="form-control" id="order-table-number">
+                        <input type="hidden" id="order-table-type" value="table">
+                    {% endif %}
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">{% trans "Όνομα (προαιρετικό)" %}</label>
+                    <input type="text" class="form-control" id="order-customer-name">
+                </div>
+                {% if restaurant.loyalty_enabled %}
+                    <div class="mb-3">
+                        <label class="form-label">{% trans "Τηλέφωνο (προαιρετικό, για πόντους Loyalty)" %}</label>
+                        <input type="tel" class="form-control" id="order-customer-phone" autocomplete="tel">
+                    </div>
+                {% endif %}
+                <div class="mb-3">
+                    <label class="form-label">{% trans "Κωδικός έκπτωσης (προαιρετικό)" %}</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="order-promo-code">
+                        <button type="button" class="btn btn-outline-secondary" id="apply-promo-btn">{% trans "Εφαρμογή" %}</button>
+                    </div>
+                    <div id="promo-feedback" class="small mt-1"></div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">{% trans "Σημειώσεις (προαιρετικό)" %}</label>
+                    <textarea class="form-control" id="order-notes" rows="2"></textarea>
+                </div>
+                <div id="order-error" class="alert alert-danger d-none"></div>
+                <div id="order-success" class="alert alert-success d-none"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">{% trans "Κλείσιμο" %}</button>
+                <button type="button" class="btn btn-primary" id="submit-order-btn">{% trans "Αποστολή Παραγγελίας" %}</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endblock %}
+
+{% block extra_js %}
+{% if allow_ordering %}
+<script>
+(function() {
+    const csrftoken = "{{ csrf_token }}";
+    const orderApiUrl = "{% url 'create_order_api' restaurant.qr_code_token %}";
+    const validatePromoUrl = "{% url 'validate_promo_code' restaurant.qr_code_token %}";
+    const i18nText = {
+        cartEmpty: "{% trans 'Το καλάθι είναι άδειο.' %}",
+        added: "{% trans 'Προστέθηκε' %}",
+        sending: "{% trans 'Αποστολή...' %}",
+        sendOrder: "{% trans 'Αποστολή Παραγγελίας' %}",
+        genericError: "{% trans 'Κάτι πήγε στραβά. Δοκίμασε ξανά.' %}",
+        connectionError: "{% trans 'Σφάλμα σύνδεσης. Δοκίμασε ξανά.' %}",
+        orderSentPrefix: "{% trans 'Η παραγγελία στάλθηκε! Αριθμός' %}",
+        totalLabel: "{% trans 'Σύνολο' %}",
+        loyaltyPointsPending: "{% trans 'Θα κερδίσεις πόντους loyalty μόλις επιβεβαιωθεί η παραγγελία σου.' %}",
+        invalidPromo: "{% trans 'Μη έγκυρος κωδικός έκπτωσης.' %}",
+        promoApplied: "{% trans 'Ο κωδικός εφαρμόστηκε!' %}",
+    };
+    let cart = [];
+    let appliedPromo = null;
+
+    function formatMoney(v) {
+        return v.toFixed(2).replace('.', ',') + '€';
+    }
+
+    function optionsKey(options) {
+        return options.map(o => o.id).sort().join(',');
+    }
+
+    function cartSubtotal() {
+        return cart.reduce((s, i) => s + i.unitPrice * i.quantity, 0);
+    }
+
+    function cartTotal() {
+        const subtotal = cartSubtotal();
+        if (appliedPromo) {
+            return subtotal * (1 - appliedPromo.discount_percent / 100);
+        }
+        return subtotal;
+    }
+
+    function renderCartBar() {
+        const bar = document.getElementById('cart-bar');
+        if (!bar) return;
+        const count = cart.reduce((s, i) => s + i.quantity, 0);
+        const total = cartTotal();
+        document.getElementById('cart-count').textContent = count;
+        document.getElementById('cart-total').textContent = formatMoney(total);
+        document.getElementById('cart-modal-total').textContent = formatMoney(total);
+        bar.classList.toggle('d-none', count === 0);
+    }
+
+    function renderCartItems() {
+        const list = document.getElementById('cart-items-list');
+        if (!list) return;
+        list.textContent = '';
+
+        if (cart.length === 0) {
+            const empty = document.createElement('p');
+            empty.className = 'text-muted mb-0';
+            empty.textContent = i18nText.cartEmpty;
+            list.appendChild(empty);
+            return;
+        }
+
+        cart.forEach((item, idx) => {
+            // Built with DOM APIs (not innerHTML) so product/option names - set by the
+            // restaurant owner - can never be interpreted as HTML/script by the browser.
+            const row = document.createElement('div');
+            row.className = 'd-flex justify-content-between align-items-start mb-2';
+
+            const infoDiv = document.createElement('div');
+            const titleDiv = document.createElement('div');
+            titleDiv.textContent = `${item.quantity}x ${item.name}`;
+            infoDiv.appendChild(titleDiv);
+
+            if (item.options.length) {
+                const optionsSmall = document.createElement('small');
+                optionsSmall.className = 'text-muted';
+                optionsSmall.textContent = item.options.map(o => o.name).join(', ');
+                infoDiv.appendChild(optionsSmall);
+            }
+
+            const actionsDiv = document.createElement('div');
+            actionsDiv.className = 'd-flex align-items-center gap-2';
+
+            const priceSpan = document.createElement('span');
+            priceSpan.textContent = formatMoney(item.unitPrice * item.quantity);
+
+            const removeBtn = document.createElement('button');
+            removeBtn.type = 'button';
+            removeBtn.className = 'btn btn-sm btn-outline-danger remove-item-btn';
+            removeBtn.textContent = '×';
+            removeBtn.addEventListener('click', () => {
+                cart.splice(idx, 1);
+                renderCartBar();
+                renderCartItems();
+            });
+
+            actionsDiv.appendChild(priceSpan);
+            actionsDiv.appendChild(removeBtn);
+            row.appendChild(infoDiv);
+            row.appendChild(actionsDiv);
+            list.appendChild(row);
+        });
+    }
+
+    document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const card = btn.closest('.product-card');
+            const productId = parseInt(card.dataset.productId, 10);
+            const name = card.dataset.productName;
+            const basePrice = parseFloat(card.dataset.productPrice);
+            const options = Array.from(card.querySelectorAll('.product-option-checkbox:checked')).map(cb => ({
+                id: parseInt(cb.value, 10),
+                name: cb.dataset.optionName,
+                priceAdjustment: parseFloat(cb.dataset.priceAdjustment)
+            }));
+            const unitPrice = options.reduce((sum, o) => sum + o.priceAdjustment, basePrice);
+
+            const key = optionsKey(options);
+            const existing = cart.find(i => i.productId === productId && optionsKey(i.options) === key);
+            if (existing) {
+                existing.quantity += 1;
+            } else {
+                cart.push({ productId, name, unitPrice, quantity: 1, options });
+            }
+            renderCartBar();
+            renderCartItems();
+
+            const originalHtml = btn.innerHTML;
+            btn.innerHTML = `<i class="bi bi-check2"></i> ${i18nText.added}`;
+            setTimeout(() => { btn.innerHTML = originalHtml; }, 1200);
+        });
+    });
+
+    const applyPromoBtn = document.getElementById('apply-promo-btn');
+    if (applyPromoBtn) {
+        applyPromoBtn.addEventListener('click', async () => {
+            const code = document.getElementById('order-promo-code').value.trim();
+            const feedback = document.getElementById('promo-feedback');
+            if (!code) return;
+            try {
+                const res = await fetch(validatePromoUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'X-CSRFToken': csrftoken },
+                    body: JSON.stringify({ code, subtotal: cartSubtotal().toFixed(2) })
+                });
+                const data = await res.json();
+                if (res.ok && data.valid) {
+                    appliedPromo = { code: data.code, discount_percent: data.discount_percent };
+                    feedback.textContent = `${i18nText.promoApplied} (-${data.discount_percent}%)`;
+                    feedback.className = 'small mt-1 text-success';
+                } else {
+                    appliedPromo = null;
+                    feedback.textContent = (data && data.error) || i18nText.invalidPromo;
+                    feedback.className = 'small mt-1 text-danger';
+                }
+            } catch (e) {
+                feedback.textContent = i18nText.connectionError;
+                feedback.className = 'small mt-1 text-danger';
+            }
+            renderCartBar();
+        });
+    }
+
+    const submitBtn = document.getElementById('submit-order-btn');
+    if (submitBtn) {
+        submitBtn.addEventListener('click', async () => {
+            const errorBox = document.getElementById('order-error');
+            const successBox = document.getElementById('order-success');
+            errorBox.classList.add('d-none');
+            successBox.classList.add('d-none');
+
+            if (cart.length === 0) {
+                errorBox.textContent = i18nText.cartEmpty;
+                errorBox.classList.remove('d-none');
+                return;
+            }
+
+            const phoneField = document.getElementById('order-customer-phone');
+            const payload = {
+                table_number: document.getElementById('order-table-number').value,
+                table_type: document.getElementById('order-table-type').value,
+                customer_name: document.getElementById('order-customer-name').value,
+                customer_phone: phoneField ? phoneField.value : '',
+                notes: document.getElementById('order-notes').value,
+                promo_code: appliedPromo ? appliedPromo.code : '',
+                items: cart.map(i => ({
+                    product_id: i.productId,
+                    quantity: i.quantity,
+                    options: i.options.map(o => o.id)
+                }))
+            };
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = i18nText.sending;
+
+            try {
+                const res = await fetch(orderApiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'X-CSRFToken': csrftoken },
+                    body: JSON.stringify(payload)
+                });
+                const data = await res.json();
+                if (res.ok && data.success) {
+                    let msg = `${i18nText.orderSentPrefix} #${data.order_number} · ${i18nText.totalLabel} ${data.total}€`;
+                    if (payload.customer_phone) {
+                        msg += ` · ${i18nText.loyaltyPointsPending}`;
+                    }
+                    successBox.textContent = msg;
+                    successBox.classList.remove('d-none');
+                    cart = [];
+                    appliedPromo = null;
+                    renderCartBar();
+                    renderCartItems();
+                } else {
+                    errorBox.textContent = (data && data.error) || i18nText.genericError;
+                    errorBox.classList.remove('d-none');
+                }
+            } catch (e) {
+                errorBox.textContent = i18nText.connectionError;
+                errorBox.classList.remove('d-none');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = i18nText.sendOrder;
+            }
+        });
+    }
+
+    renderCartBar();
+    renderCartItems();
+})();
+</script>
+{% endif %}
+{% endblock %}

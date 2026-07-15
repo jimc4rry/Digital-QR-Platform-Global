@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Upgrade Plan" %}{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="alert alert-info text-center">
+                <i class="bi bi-shield-lock"></i>
+                {% trans "You'll pay through Paddle's secure embedded checkout. Your card details never pass through our servers." %}
+            </div>
+
+            {% if plan_rows %}
+                <div class="row g-3">
+                    {% for row in plan_rows %}
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-body d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h4 class="mb-0">{{ row.code|title }}</h4>
+                                        <span class="text-muted">${{ row.price }}/{% trans "month" %}</span>
+                                    </div>
+                                    {% if row.price_id %}
+                                        <button type="button" class="btn btn-primary open-paddle-checkout"
+                                                data-price-id="{{ row.price_id }}">
+                                            <i class="bi bi-lock"></i> {% trans "Upgrade" %}
+                                        </button>
+                                    {% else %}
+                                        <button type="button" class="btn btn-secondary" disabled>
+                                            {% trans "Not available yet" %}
+                                        </button>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div class="alert alert-secondary mb-0 text-center">{% trans "You already have the top plan (Business)." %}</div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
+<script id="paddle-config" type="application/json">
+    {
+        "clientToken": "{{ paddle_client_token }}",
+        "env": "{{ paddle_env }}",
+        "customerEmail": "{{ customer_email|escapejs }}",
+        "successUrl": "{{ request.scheme }}://{{ request.get_host }}{% url 'payment_success' %}"
+    }
+</script>
+<script>
+    (function () {
+        var config = JSON.parse(document.getElementById('paddle-config').textContent);
+        if (config.env === 'sandbox') {
+            Paddle.Environment.set('sandbox');
+        }
+        Paddle.Initialize({
+            token: config.clientToken,
+            eventCallback: function (event) {
+                if (event.name === 'checkout.completed' && event.data && event.data.transaction_id) {
+                    window.location.href = config.successUrl + '?txn_id=' + encodeURIComponent(event.data.transaction_id);
+                }
+            }
+        });
+
+        document.querySelectorAll('.open-paddle-checkout').forEach(function (button) {
+            button.addEventListener('click', function () {
+                Paddle.Checkout.open({
+                    items: [{ priceId: button.dataset.priceId, quantity: 1 }],
+                    customer: config.customerEmail ? { email: config.customerEmail } : undefined
+                });
+            });
+        });
+    })();
+</script>
+{% endblock %}

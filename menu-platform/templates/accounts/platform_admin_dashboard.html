@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Πίνακας Διαχείρισης Πλατφόρμας" %}{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="d-flex justify-content-between align-items-center">
+        <h1>{% trans "Πίνακας Διαχείρισης Πλατφόρμας" %}</h1>
+        <a href="{% url 'platform_admin_payments' %}" class="btn btn-outline-primary">
+            <i class="bi bi-credit-card"></i> {% trans "Πληρωμές" %}
+        </a>
+    </div>
+    <p class="text-muted">{% trans "Όλες οι επιχειρήσεις που έχουν εγγραφεί στο MenuHub - πλάνα, συνδρομές και support." %}</p>
+
+    <form method="get" class="row g-2 mb-3 align-items-end">
+        <div class="col-auto">
+            <label class="form-label small mb-1">{% trans "Αναζήτηση" %}</label>
+            <input type="text" name="q" class="form-control" placeholder="{% trans 'Όνομα χρήστη, email, επιχείρηση...' %}" value="{{ search_query }}">
+        </div>
+        <div class="col-auto">
+            <label class="form-label small mb-1">{% trans "Πλάνο" %}</label>
+            <select name="plan" class="form-select">
+                <option value="">{% trans "Όλα" %}</option>
+                {% for plan_code, plan_label in plan_choices %}
+                    <option value="{{ plan_code }}" {% if plan_filter == plan_code %}selected{% endif %}>{{ plan_label }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-auto">
+            <button type="submit" class="btn btn-primary"><i class="bi bi-search"></i> {% trans "Φίλτρο" %}</button>
+            {% if search_query or plan_filter %}
+                <a href="{% url 'platform_admin_dashboard' %}" class="btn btn-outline-secondary">{% trans "Καθαρισμός" %}</a>
+            {% endif %}
+        </div>
+    </form>
+
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>{% trans "Επιχείρηση" %}</th>
+                            <th>{% trans "Χρήστης" %}</th>
+                            <th>Email</th>
+                            <th>{% trans "Πλάνο" %}</th>
+                            <th>{% trans "Κατάσταση" %}</th>
+                            <th>{% trans "Παραγγελίες" %}</th>
+                            <th>{% trans "Έσοδα" %}</th>
+                            <th>{% trans "Εγγραφή" %}</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for business in businesses %}
+                            <tr>
+                                <td>{{ business.restaurant.name }}</td>
+                                <td>{{ business.username }}</td>
+                                <td>{{ business.email|default:"-" }}</td>
+                                <td>
+                                    <span class="badge {% if business.subscription_plan == 'business' %}bg-success{% elif business.subscription_plan == 'pro' %}bg-primary{% else %}bg-secondary{% endif %}">
+                                        {{ business.get_subscription_plan_display }}
+                                    </span>
+                                </td>
+                                <td>
+                                    {% if business.subscription_active %}
+                                        <span class="badge bg-success-subtle text-success">{% trans "Ενεργό" %}</span>
+                                    {% else %}
+                                        <span class="badge bg-danger-subtle text-danger">{% trans "Ανενεργό" %}</span>
+                                    {% endif %}
+                                </td>
+                                <td>{{ business.order_count }}</td>
+                                <td>{{ business.total_revenue|default:0|floatformat:2 }}€</td>
+                                <td>{{ business.created_at|date:"d/m/Y" }}</td>
+                                <td>
+                                    <a href="{% url 'platform_admin_business_detail' business.id %}" class="btn btn-sm btn-primary">
+                                        {% trans "Διαχείριση" %}
+                                    </a>
+                                </td>
+                            </tr>
+                        {% empty %}
+                            <tr>
+                                <td colspan="9" class="text-center text-muted">{% trans "Δεν βρέθηκαν επιχειρήσεις" %}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            {% if page_obj.paginator.num_pages > 1 %}
+                <nav aria-label="{% trans 'Σελιδοποίηση επιχειρήσεων' %}">
+                    <ul class="pagination mb-0">
+                        {% if page_obj.has_previous %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ page_obj.previous_page_number }}{% if search_query %}&q={{ search_query }}{% endif %}{% if plan_filter %}&plan={{ plan_filter }}{% endif %}">&laquo;</a>
+                            </li>
+                        {% endif %}
+                        <li class="page-item disabled">
+                            <span class="page-link">{% blocktrans with current=page_obj.number total=page_obj.paginator.num_pages %}Σελίδα {{ current }} από {{ total }}{% endblocktrans %}</span>
+                        </li>
+                        {% if page_obj.has_next %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ page_obj.next_page_number }}{% if search_query %}&q={{ search_query }}{% endif %}{% if plan_filter %}&plan={{ plan_filter }}{% endif %}">&raquo;</a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

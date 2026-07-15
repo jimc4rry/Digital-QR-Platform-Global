@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags i18n %}
+
+{% block title %}{% trans "Κωδικοί Έκπτωσης" %} - {{ restaurant.name }}{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <h1>{% trans "Κωδικοί Έκπτωσης" %}</h1>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">{% trans "Νέος Κωδικός" %}</div>
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <button type="submit" class="btn btn-primary w-100">{% trans "Δημιουργία" %}</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{% trans "Λίστα Κωδικών" %}</div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>{% trans "Κωδικός Έκπτωσης" %}</th>
+                                    <th>{% trans "Έκπτωση" %}</th>
+                                    <th>{% trans "Χρήσεις" %}</th>
+                                    <th>{% trans "Ισχύει έως" %}</th>
+                                    <th>{% trans "Κατάσταση" %}</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for promo in promo_codes %}
+                                    <tr>
+                                        <td><code>{{ promo.code }}</code></td>
+                                        <td>{{ promo.discount_percent }}%</td>
+                                        <td>{{ promo.used_count }}{% if promo.max_uses %} / {{ promo.max_uses }}{% endif %}</td>
+                                        <td>{{ promo.valid_until|date:"d/m/Y H:i"|default:"-" }}</td>
+                                        <td>
+                                            {% if promo.is_valid_now %}
+                                                <span class="badge bg-success">{% trans "Ενεργός" %}</span>
+                                            {% else %}
+                                                <span class="badge bg-secondary">{% trans "Ανενεργός" %}</span>
+                                            {% endif %}
+                                        </td>
+                                        <td>
+                                            <form method="post" action="{% url 'promo_code_delete' promo.id %}" style="display:inline;">
+                                                {% csrf_token %}
+                                                <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('{% trans "Σίγουρα θέλεις να διαγράψεις αυτόν τον κωδικό;" %}')">
+                                                    <i class="bi bi-trash"></i>
+                                                </button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                {% empty %}
+                                    <tr>
+                                        <td colspan="6" class="text-center text-muted">{% trans "Δεν υπάρχουν κωδικοί έκπτωσης" %}</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

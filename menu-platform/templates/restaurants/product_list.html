@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags i18n %}
+
+{% block content %}
+<div class="container py-4">
+    <h1>{% trans "Προϊόντα" %}</h1>
+    <div class="row">
+        {% if can_manage %}
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">{% trans "Νέο Προϊόν" %}</div>
+                <div class="card-body">
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <button type="submit" class="btn btn-primary w-100">{% trans "Δημιουργία" %}</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        <div class="col-md-{% if can_manage %}8{% else %}12{% endif %}">
+            <div class="card">
+                <div class="card-header">{% trans "Λίστα Προϊόντων" %}</div>
+                <div class="card-body">
+                    <div class="list-group">
+                        {% for product in products %}
+                            <div class="list-group-item">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h5>{{ product.name }}{% if product.name_en %} <small class="text-muted fw-normal">/ {{ product.name_en }}</small>{% endif %}</h5>
+                                        <small class="text-muted">{{ product.category.name }} - {{ product.price|floatformat:2 }}€</small>
+                                        {% if product.is_available %}
+                                            <span class="badge bg-success">{% trans "Διαθέσιμο" %}</span>
+                                        {% else %}
+                                            <span class="badge bg-danger">{% trans "Μη Διαθέσιμο" %}</span>
+                                        {% endif %}
+                                    </div>
+                                    {% if can_manage %}
+                                    <span>
+                                        <a href="{% url 'product_edit' product.id %}" class="btn btn-sm btn-primary">
+                                            <i class="bi bi-pencil"></i>
+                                        </a>
+                                        <form method="post" action="{% url 'product_delete' product.id %}" style="display:inline;">
+                                            {% csrf_token %}
+                                            <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('{% trans "Σίγουρα θέλεις να διαγράψεις αυτό το προϊόν;" %}')">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </form>
+                                    </span>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        {% empty %}
+                            <p class="text-center text-muted">{% trans "Δεν υπάρχουν προϊόντα" %}</p>
+                        {% endfor %}
+                    </div>
+
+                    {% if page_obj.paginator.num_pages > 1 %}
+                        <nav aria-label="{% trans 'Σελιδοποίηση προϊόντων' %}" class="mt-3">
+                            <ul class="pagination justify-content-center mb-0">
+                                {% if page_obj.has_previous %}
+                                    <li class="page-item">
+                                        <a class="page-link" href="?page={{ page_obj.previous_page_number }}">&laquo;</a>
+                                    </li>
+                                {% endif %}
+                                <li class="page-item disabled">
+                                    <span class="page-link">{% blocktrans with current=page_obj.number total=page_obj.paginator.num_pages %}Σελίδα {{ current }} από {{ total }}{% endblocktrans %}</span>
+                                </li>
+                                {% if page_obj.has_next %}
+                                    <li class="page-item">
+                                        <a class="page-link" href="?page={{ page_obj.next_page_number }}">&raquo;</a>
+                                    </li>
+                                {% endif %}
+                            </ul>
+                        </nav>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

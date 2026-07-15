@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+<div class="container py-5">
+    <h1>{% trans "My Profile" %}</h1>
+    <div class="card">
+        <div class="card-body">
+            <p><strong>Username:</strong> {{ user.username }}</p>
+            {% if active_restaurant %}
+                <p><strong>Email:</strong> {{ user.email }}</p>
+                <p><strong>{% trans "Business Name" %}:</strong> {{ user.business_name }}</p>
+                <p><strong>{% trans "Type" %}:</strong> {{ user.get_business_type_display }}</p>
+                <p><strong>{% trans "Tax ID" %}:</strong> {{ user.tax_id|default:"-" }}</p>
+                {% with plan_owner=active_restaurant.user %}
+                    <p>
+                        <strong>{% trans "Subscription Plan" %}:</strong>
+                        <span class="badge {% if plan_owner.subscription_plan == 'business' %}bg-success{% elif plan_owner.subscription_plan == 'pro' %}bg-primary{% else %}bg-secondary{% endif %}">
+                            {{ plan_owner.get_subscription_plan_display }}
+                        </span>
+                        {% if plan_owner.has_active_subscription %}
+                            <span class="badge bg-success-subtle text-success">{% trans "Active" %}</span>
+                        {% else %}
+                            <span class="badge bg-danger-subtle text-danger">{% trans "Expired" %}</span>
+                        {% endif %}
+                    </p>
+                    {% if plan_owner.has_active_subscription and plan_owner.subscription_ends %}
+                        <p class="text-muted small">
+                            {% trans "Renews/ends:" %} {{ plan_owner.subscription_ends|date:"d/m/Y" }}
+                        </p>
+                    {% elif not plan_owner.has_active_subscription %}
+                        <div class="alert alert-warning py-2 px-3 small mb-3">
+                            {% trans "Your trial or subscription has ended - choose a plan to keep using the dashboard." %}
+                        </div>
+                    {% endif %}
+                    {% if is_owner %}
+                        {% if not plan_owner.has_active_subscription or plan_owner.subscription_plan != 'business' %}
+                            <a href="{% url 'checkout' %}" class="btn btn-sm {% if not plan_owner.has_active_subscription %}btn-primary{% else %}btn-outline-primary{% endif %}">
+                                <i class="bi bi-arrow-up-circle"></i>
+                                {% if not plan_owner.has_active_subscription %}{% trans "Choose a Plan" %}{% else %}{% trans "Upgrade Plan" %}{% endif %}
+                            </a>
+                        {% endif %}
+                        <a href="{% url 'payment_history' %}" class="btn btn-sm btn-outline-secondary">
+                            <i class="bi bi-receipt"></i> {% trans "Payment History" %}
+                        </a>
+                        {% if plan_owner.paddle_customer_id %}
+                            <a href="{% url 'billing_portal' %}" class="btn btn-sm btn-outline-secondary">
+                                <i class="bi bi-credit-card"></i> {% trans "Manage Billing" %}
+                            </a>
+                        {% endif %}
+                    {% endif %}
+                {% endwith %}
+            {% elif user.is_superuser %}
+                <p><strong>{% trans "Role" %}:</strong> <span class="badge bg-dark">{% trans "Platform Admin" %}</span></p>
+                <a href="{% url 'platform_admin_dashboard' %}" class="btn btn-sm btn-outline-primary">
+                    <i class="bi bi-hdd-network"></i> {% trans "Platform Admin" %}
+                </a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Terms of Use" %} - MenuHub{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-9">
+            <h1>{% trans "Terms of Use" %}</h1>
+            <p class="text-muted">{% trans "Last updated" %}: 15/07/2026</p>
+
+            <h2 class="h5 mt-4">1. {% trans "Scope" %}</h2>
+            <p>{% blocktrans %}The MenuHub service ("the Service") is available to businesses worldwide. A valid VAT/Tax ID is not required to sign up, but may be requested where applicable for invoicing or tax compliance.{% endblocktrans %}</p>
+
+            <h2 class="h5 mt-4">2. {% trans "Service Description" %}</h2>
+            <p>{% blocktrans %}MenuHub provides a platform for creating a digital QR-code menu, managing products/categories, taking orders (depending on subscription plan), and related tools (loyalty, discount codes, statistics). The Service is in beta and may change without notice.{% endblocktrans %}</p>
+
+            <h2 class="h5 mt-4">3. {% trans "Plans & Billing" %}</h2>
+            <p>{% blocktrans %}Subscription plan prices are listed on the pricing page. Payments are processed by Paddle.com, our authorized reseller and Merchant of Record, who handles billing, applicable taxes, and invoicing on our behalf.{% endblocktrans %}</p>
+
+            <h2 class="h5 mt-4">4. {% trans "User Responsibility" %}</h2>
+            <p>{% blocktrans %}The user is solely responsible for the accuracy of the information they enter (prices, descriptions, photos, dietary labels) and for managing their staff's access to the platform.{% endblocktrans %}</p>
+
+            <h2 class="h5 mt-4">5. {% trans "Limitation of Liability" %}</h2>
+            <p>{% blocktrans %}The Service is provided "as is", without any guarantee of uninterrupted operation. The provider is not liable for indirect damages arising from use or inability to use the Service.{% endblocktrans %}</p>
+
+            <h2 class="h5 mt-4">6. {% trans "Governing Law" %}</h2>
+            <p>{% blocktrans %}These Terms are governed by the laws applicable in the provider's place of business, without regard to conflict-of-law principles.{% endblocktrans %}</p>
+
+            <h2 class="h5 mt-4">7. {% trans "Changes" %}</h2>
+            <p>{% blocktrans %}These Terms may be updated from time to time. Continued use of the Service after a change constitutes acceptance of the new terms.{% endblocktrans %}</p>
+
+            <h2 class="h5 mt-4">8. {% trans "Contact" %}</h2>
+            <p>{% trans "For questions about these Terms of Use, contact us using the details provided on the platform." %}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

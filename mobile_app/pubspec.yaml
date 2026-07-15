@@ -1,0 +1,38 @@
+name: menuhub_staff
+description: MenuHub - management app for restaurant owners/staff.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.6
+
+  # Networking
+  http: ^1.2.0
+
+  # Secure storage for JWT tokens
+  flutter_secure_storage: ^9.0.0
+
+  # State management
+  provider: ^6.1.2
+
+  # Date/number formatting (Greek locale)
+  intl: ^0.19.0
+
+  # Push notifications - uncomment once you've created a Firebase project and
+  # added google-services.json (Android) / GoogleService-Info.plist (iOS).
+  # See README.md "Push notifications setup".
+  # firebase_core: ^2.27.0
+  # firebase_messaging: ^14.7.19
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true

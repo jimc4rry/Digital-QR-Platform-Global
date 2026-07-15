@@ -1,0 +1,646 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block title %}{% blocktrans %}MenuHub - Ψηφιακό Μενού QR Code για Εστιατόρια, Καφέ & Μπαρ{% endblocktrans %}{% endblock %}
+{% block meta_description %}{% blocktrans %}Δημιούργησε το ψηφιακό μενού QR code του εστιατορίου, καφέ ή μπαρ σου σε 5 λεπτά. Χωρίς εκτυπώσεις, άμεση ενημέρωση τιμών, ετικέτες διατροφής και παραγγελίες από το τραπέζι. Από €7/μήνα.{% endblocktrans %}{% endblock %}
+{% block og_title %}{% blocktrans %}MenuHub - Ψηφιακό Μενού QR Code για Εστιατόρια & Καφέ{% endblocktrans %}{% endblock %}
+{% block og_description %}{% blocktrans %}Δημιούργησε το ψηφιακό σου μενού σε 5 λεπτά. Αυτόματο QR code, live ενημέρωση τιμών, ετικέτες διατροφής, παραγγελίες από το τραπέζι.{% endblocktrans %}{% endblock %}
+
+{% block structured_data %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "MenuHub",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "description": "Platform for creating a digital QR-code menu for restaurants, cafes, and bars, with product management, dietary labels, and table-side ordering.",
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Basic",
+      "price": "7",
+      "priceCurrency": "USD"
+    },
+    {
+      "@type": "Offer",
+      "name": "Pro",
+      "price": "19",
+      "priceCurrency": "USD"
+    },
+    {
+      "@type": "Offer",
+      "name": "Business",
+      "price": "39",
+      "priceCurrency": "USD"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a digital QR-code menu?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It's a restaurant menu that customers view by scanning a QR code with their phone, with no app install required. The menu opens instantly in the phone's browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does the MenuHub digital menu cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Basic plan starts at $7/month and includes unlimited categories and products with an automatic QR code. The Pro plan costs $19/month and adds table-side ordering, loyalty points, and discount codes. The Business plan costs $39/month and adds statistics and staff management."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need any technical skills to use it?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Building a menu is done through a simple form: add categories, products, prices, and photos, and the QR code is generated automatically."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I accept orders from the table?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, with the Pro or Business plan customers can place an order directly from the digital menu by scanning their table's QR code, which you see in real time on the order management dashboard."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How quickly do menu price changes show up?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Instantly. When you change a price or add a product from the dashboard, the change appears immediately on the menu customers see via the QR code, with no reprinting needed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the menu work on every phone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, the digital menu is fully mobile-first and opens correctly in any phone's browser, with no app install required."
+      }
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .landing {
+        --lp-primary: #4f46e5;
+        --lp-primary-dark: #4338ca;
+        --lp-primary-light: #eef2ff;
+        --lp-text: #0f172a;
+        --lp-muted: #64748b;
+        --lp-border: #e5e7eb;
+        --lp-bg-soft: #f8fafc;
+    }
+    .landing h1, .landing h2, .landing h3, .landing h4 {
+        color: var(--lp-text);
+        font-weight: 700;
+        letter-spacing: -0.02em;
+    }
+    .landing .text-muted-lp { color: var(--lp-muted); }
+
+    .lp-hero {
+        padding: 96px 0 72px;
+    }
+    .lp-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: var(--lp-primary-light);
+        color: var(--lp-primary);
+        font-weight: 600;
+        font-size: 0.85rem;
+        padding: 6px 14px;
+        border-radius: 999px;
+        margin-bottom: 20px;
+    }
+    .lp-hero h1 {
+        font-size: clamp(2.1rem, 4vw, 3.25rem);
+        line-height: 1.15;
+    }
+    .lp-hero .lead {
+        color: var(--lp-muted);
+        font-size: 1.15rem;
+        max-width: 620px;
+    }
+    .btn-lp-primary {
+        background: var(--lp-primary);
+        border-color: var(--lp-primary);
+        color: #fff;
+        font-weight: 600;
+        border-radius: 10px;
+        padding: 12px 28px;
+        box-shadow: 0 8px 20px -6px rgba(79,70,229,.45);
+    }
+    .btn-lp-primary:hover {
+        background: var(--lp-primary-dark);
+        border-color: var(--lp-primary-dark);
+        color: #fff;
+    }
+    .btn-lp-outline {
+        border: 1px solid var(--lp-border);
+        color: var(--lp-text);
+        font-weight: 600;
+        border-radius: 10px;
+        padding: 12px 28px;
+        background: #fff;
+    }
+    .btn-lp-outline:hover {
+        border-color: var(--lp-primary);
+        color: var(--lp-primary);
+    }
+
+    /* Phone mockup, pure CSS */
+    .lp-phone {
+        max-width: 260px;
+        margin: 0 auto;
+        border: 10px solid var(--lp-text);
+        border-radius: 32px;
+        background: #fff;
+        box-shadow: 0 30px 60px -20px rgba(15,23,42,.35);
+        overflow: hidden;
+    }
+    .lp-phone-header {
+        background: var(--lp-primary);
+        color: #fff;
+        padding: 18px 16px 22px;
+        text-align: center;
+    }
+    .lp-phone-header small { opacity: .85; }
+    .lp-phone-body { padding: 14px; }
+    .lp-phone-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0;
+        border-bottom: 1px solid var(--lp-border);
+        font-size: .85rem;
+    }
+    .lp-phone-item:last-child { border-bottom: none; }
+    .lp-phone-item .badge { font-weight: 600; }
+
+    .lp-section { padding: 72px 0; }
+    .lp-section-soft { background: var(--lp-bg-soft); }
+    .lp-section-head { max-width: 640px; margin: 0 auto 48px; text-align: center; }
+    .lp-section-head p { color: var(--lp-muted); }
+
+    .lp-card {
+        border: 1px solid var(--lp-border);
+        border-radius: 16px;
+        padding: 28px;
+        height: 100%;
+        background: #fff;
+        transition: box-shadow .2s ease, transform .2s ease;
+    }
+    .lp-card:hover {
+        box-shadow: 0 12px 30px -12px rgba(15,23,42,.15);
+        transform: translateY(-2px);
+    }
+    .lp-icon-circle {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        background: var(--lp-primary-light);
+        color: var(--lp-primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.3rem;
+        margin-bottom: 16px;
+    }
+    .lp-step-number {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: var(--lp-primary);
+        color: #fff;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 16px;
+    }
+
+    .lp-pricing-card {
+        border: 1px solid var(--lp-border);
+        border-radius: 16px;
+        padding: 32px;
+        background: #fff;
+        height: 100%;
+    }
+    .lp-pricing-card.featured {
+        border-color: var(--lp-primary);
+        box-shadow: 0 20px 45px -20px rgba(79,70,229,.35);
+        position: relative;
+    }
+    .lp-pricing-card .price {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: var(--lp-text);
+    }
+    .lp-pricing-card .price span {
+        font-size: 1rem;
+        font-weight: 500;
+        color: var(--lp-muted);
+    }
+    .lp-pricing-card ul {
+        list-style: none;
+        padding: 0;
+        margin: 20px 0;
+    }
+    .lp-pricing-card ul li {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        margin-bottom: 12px;
+        color: var(--lp-text);
+    }
+    .lp-pricing-card ul li i { color: var(--lp-primary); margin-top: 3px; }
+    .lp-badge-featured {
+        position: absolute;
+        top: -14px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--lp-primary);
+        color: #fff;
+        font-size: .75rem;
+        font-weight: 700;
+        padding: 4px 14px;
+        border-radius: 999px;
+    }
+
+    .lp-accordion .accordion-item {
+        border: 1px solid var(--lp-border);
+        border-radius: 12px !important;
+        margin-bottom: 12px;
+        overflow: hidden;
+    }
+    .lp-accordion .accordion-button {
+        font-weight: 600;
+        color: var(--lp-text);
+    }
+    .lp-accordion .accordion-button:not(.collapsed) {
+        background: var(--lp-primary-light);
+        color: var(--lp-primary-dark);
+    }
+    .lp-accordion .accordion-button:focus {
+        box-shadow: none;
+        border-color: var(--lp-border);
+    }
+
+    .lp-cta {
+        background: var(--lp-text);
+        border-radius: 24px;
+        padding: 56px 32px;
+        color: #fff;
+        text-align: center;
+    }
+    .lp-cta h2 { color: #fff; }
+    .lp-cta p { color: rgba(255,255,255,.75); }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="landing">
+
+    <!-- Hero -->
+    <section class="lp-hero">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <span class="lp-eyebrow"><i class="bi bi-qr-code"></i> {% trans "Ψηφιακό μενού με QR code" %}</span>
+                    <h1>{% trans "Το μενού του εστιατορίου σου," %} <br class="d-none d-lg-block">{% trans "πάντα ενημερωμένο" %}</h1>
+                    <p class="lead mt-3">
+                        {% blocktrans trimmed %}Δημιούργησε ένα ψηφιακό μενού QR code για το εστιατόριο, καφέ ή μπαρ σου σε λίγα λεπτά. Αλλάζεις τιμές και προϊόντα όποτε θες, χωρίς νέα εκτύπωση, και δέχεσαι παραγγελίες απευθείας από το τραπέζι.{% endblocktrans %}
+                    </p>
+                    <div class="d-flex flex-wrap gap-3 mt-4">
+                        <a href="{% url 'signup' %}" class="btn btn-lp-primary btn-lg">{% trans "Δημιούργησε το μενού σου" %}</a>
+                        <a href="#pricing" class="btn btn-lp-outline btn-lg">{% trans "Δες τα πλάνα" %}</a>
+                    </div>
+                    <div class="d-flex flex-wrap gap-4 mt-4 text-muted-lp small">
+                        <span><i class="bi bi-check2-circle text-primary"></i> {% trans "Χωρίς εκτυπώσεις" %}</span>
+                        <span><i class="bi bi-check2-circle text-primary"></i> {% trans "Έτοιμο σε 5 λεπτά" %}</span>
+                        <span><i class="bi bi-check2-circle text-primary"></i> {% trans "Λειτουργεί σε κάθε κινητό" %}</span>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="lp-phone">
+                        <div class="lp-phone-header">
+                            <div class="fw-bold">{% trans "Το Εστιατόριό σου" %}</div>
+                            <small>{% trans "Κατηγορία Μενού" %}</small>
+                        </div>
+                        <div class="lp-phone-body">
+                            <div class="lp-phone-item">
+                                <span>{% trans "Dish 1" %}</span>
+                                <span class="badge bg-primary rounded-pill">$9.00</span>
+                            </div>
+                            <div class="lp-phone-item">
+                                <span>{% trans "Dish 2" %}</span>
+                                <span class="badge bg-primary rounded-pill">$7.50</span>
+                            </div>
+                            <div class="lp-phone-item">
+                                <span>{% trans "Dish 3" %} <i class="bi bi-flower1 text-success ms-1" title="Vegetarian"></i></span>
+                                <span class="badge bg-primary rounded-pill">$6.00</span>
+                            </div>
+                            <div class="lp-phone-item">
+                                <span>{% trans "Dish 4" %}</span>
+                                <span class="badge bg-primary rounded-pill">$4.50</span>
+                            </div>
+                            <div class="text-center mt-3">
+                                <span class="badge bg-success">{% trans "Δέχεται παραγγελίες" %}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="lp-section lp-section-soft">
+        <div class="container">
+            <div class="lp-section-head">
+                <h2>{% trans "Πώς λειτουργεί" %}</h2>
+                <p>{% trans "Από την εγγραφή μέχρι το πρώτο σκανάρισμα, χωρίς καμία τεχνική γνώση." %}</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="lp-card">
+                        <div class="lp-step-number">1</div>
+                        <h3 class="h5">{% trans "Δημιούργησε το μενού σου" %}</h3>
+                        <p class="text-muted-lp mb-0">{% trans "Πρόσθεσε κατηγορίες και προϊόντα με τιμές, φωτογραφίες και ετικέτες διατροφής (vegan, χωρίς γλουτένη, πικάντικο)." %}</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="lp-card">
+                        <div class="lp-step-number">2</div>
+                        <h3 class="h5">{% trans "Πάρε το QR code σου" %}</h3>
+                        <p class="text-muted-lp mb-0">{% trans "Το QR code δημιουργείται αυτόματα. Τύπωσέ το μία φορά σε ταμπελάκι ή τραπέζι — οι πελάτες το σκανάρουν με την κάμερα του κινητού τους και βλέπουν αμέσως το μενού, χωρίς εφαρμογή." %}</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="lp-card">
+                        <div class="lp-step-number">3</div>
+                        <h3 class="h5">{% trans "Σέρβιρε & δέχσου παραγγελίες" %}</h3>
+                        <p class="text-muted-lp mb-0">{% trans "Με το πλάνο Pro ή Business, οι πελάτες μπορούν να παραγγείλουν κατευθείαν από το κινητό τους σκανάροντας το QR του τραπεζιού, χωρίς να χρειαστεί να σηκωθούν." %}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="lp-section">
+        <div class="container">
+            <div class="lp-section-head">
+                <h2>{% trans "Όλα όσα χρειάζεται το μενού σου" %}</h2>
+                <p>{% trans "Εργαλεία σχεδιασμένα ειδικά για εστιατόρια, καφέ και μπαρ." %}</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="lp-card">
+                        <div class="lp-icon-circle"><i class="bi bi-qr-code-scan"></i></div>
+                        <h3 class="h6">{% trans "Αυτόματο QR Code" %}</h3>
+                        <p class="text-muted-lp mb-0 small">{% trans "Κάθε εστιατόριο παίρνει το δικό του μοναδικό QR code, έτοιμο για εκτύπωση, χωρίς επιπλέον βήματα." %}</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="lp-card">
+                        <div class="lp-icon-circle"><i class="bi bi-grid-3x3-gap"></i></div>
+                        <h3 class="h6">{% trans "Οργάνωση σε κατηγορίες" %}</h3>
+                        <p class="text-muted-lp mb-0 small">{% trans "Χώρισε το μενού σε κατηγορίες (ορεκτικά, κυρίως, ποτά) με τη σειρά εμφάνισης που θέλεις." %}</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="lp-card">
+                        <div class="lp-icon-circle"><i class="bi bi-flower1"></i></div>
+                        <h3 class="h6">{% trans "Ετικέτες διατροφής" %}</h3>
+                        <p class="text-muted-lp mb-0 small">{% trans "Σήμανε πιάτα ως vegan, vegetarian, χωρίς γλουτένη ή πικάντικα, ώστε οι πελάτες να διαλέγουν εύκολα." %}</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="lp-card">
+                        <div class="lp-icon-circle"><i class="bi bi-bag-check"></i></div>
+                        <h3 class="h6">{% trans "Παραγγελίες από το τραπέζι" %}</h3>
+                        <p class="text-muted-lp mb-0 small">{% trans "Με το πλάνο Pro ή Business, οι πελάτες στέλνουν παραγγελία απευθείας από το κινητό τους." %}</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="lp-card">
+                        <div class="lp-icon-circle"><i class="bi bi-speedometer2"></i></div>
+                        <h3 class="h6">{% trans "Dashboard διαχείρισης" %}</h3>
+                        <p class="text-muted-lp mb-0 small">{% trans "Δες παραγγελίες, ενημέρωσε την κατάστασή τους και παρακολούθησε τα προϊόντα σου σε ένα σημείο." %}</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="lp-card">
+                        <div class="lp-icon-circle"><i class="bi bi-phone"></i></div>
+                        <h3 class="h6">{% trans "Φιλικό σε κινητά" %}</h3>
+                        <p class="text-muted-lp mb-0 small">{% trans "Το μενού ανοίγει άμεσα στον browser κάθε κινητού, χωρίς εγκατάσταση εφαρμογής." %}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="lp-section lp-section-soft" id="pricing">
+        <div class="container">
+            <div class="lp-section-head">
+                <h2>{% trans "Απλή τιμολόγηση" %}</h2>
+                <p>{% trans "Ξεκίνα με το Basic ή πήγαινε Pro/Business για παραγγελίες, loyalty και στατιστικά." %}</p>
+            </div>
+            {% with current_plan=active_restaurant.user.subscription_plan %}
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-6 col-lg-4">
+                    <div class="lp-pricing-card">
+                        <h3 class="h5">Basic {% if user.is_authenticated and current_plan == 'basic' %}<span class="badge bg-success">{% trans "Το πλάνο σου" %}</span>{% endif %}</h3>
+                        <div class="price">$7<span>/{% trans "month" %}</span></div>
+                        <ul>
+                            <li><i class="bi bi-check2-circle"></i> {% trans "Unlimited categories & products" %}</li>
+                            <li><i class="bi bi-check2-circle"></i> {% trans "Automatic QR code" %}</li>
+                            <li><i class="bi bi-check2-circle"></i> {% trans "Dietary labels" %}</li>
+                            <li><i class="bi bi-check2-circle"></i> {% trans "Product photos" %}</li>
+                            <li><i class="bi bi-check2-circle"></i> {% trans "Multilingual menu" %}</li>
+                        </ul>
+                        {% if user.is_authenticated %}
+                            {% if current_plan == 'basic' %}
+                                <span class="btn btn-lp-outline w-100 disabled">{% trans "Το τρέχον πλάνο σου" %}</span>
+                            {% elif current_plan == 'pro' or current_plan == 'business' %}
+                                <span class="btn btn-lp-outline w-100 disabled text-muted">{% trans "Περιλαμβάνεται στο πλάνο σου" %}</span>
+                            {% else %}
+                                <a href="{% url 'profile' %}" class="btn btn-lp-outline w-100">{% trans "Δες το προφίλ σου" %}</a>
+                            {% endif %}
+                        {% else %}
+                            <a href="{% url 'signup' %}" class="btn btn-lp-outline w-100">{% trans "Ξεκίνα με το Basic" %}</a>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="lp-pricing-card featured">
+                        <span class="lp-badge-featured">{% trans "Πιο δημοφιλές" %}</span>
+                        <h3 class="h5">Pro {% if user.is_authenticated and current_plan == 'pro' %}<span class="badge bg-success">{% trans "Το πλάνο σου" %}</span>{% endif %}</h3>
+                        <div class="price">$19<span>/{% trans "month" %}</span></div>
+                        <ul>
+                            <li><i class="bi bi-check2-circle"></i> {% trans "Everything in Basic" %}</li>
+                            <li><i class="bi bi-check2-circle"></i> {% trans "Orders from table QR codes" %}</li>
+                            <li><i class="bi bi-check2-circle"></i> {% trans "Real-time order management" %}</li>
+                            <li><i class="bi bi-check2-circle"></i> {% trans "Loyalty points for customers" %}</li>
+                            <li><i class="bi bi-check2-circle"></i> {% trans "Discount codes" %}</li>
+                            <li><i class="bi bi-check2-circle"></i> {% trans "Zero commission per order" %}</li>
+                        </ul>
+                        {% if user.is_authenticated %}
+                            {% if current_plan == 'pro' %}
+                                <span class="btn btn-lp-primary w-100 disabled">{% trans "Το τρέχον πλάνο σου" %}</span>
+                            {% elif current_plan == 'business' %}
+                                <span class="btn btn-lp-outline w-100 disabled text-muted">{% trans "Περιλαμβάνεται στο πλάνο σου" %}</span>
+                            {% else %}
+                                <a href="{% url 'checkout' %}?plan=pro" class="btn btn-lp-primary w-100">{% trans "Αναβάθμιση σε Pro" %}</a>
+                            {% endif %}
+                        {% else %}
+                            <a href="{% url 'signup' %}" class="btn btn-lp-primary w-100">{% trans "Ξεκίνα με το Pro" %}</a>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="lp-pricing-card">
+                        <h3 class="h5">Business {% if user.is_authenticated and current_plan == 'business' %}<span class="badge bg-success">{% trans "Το πλάνο σου" %}</span>{% endif %}</h3>
+                        <div class="price">$39<span>/{% trans "month" %}</span></div>
+                        <ul>
+                            <li><i class="bi bi-check2-circle"></i> {% trans "Everything in Pro" %}</li>
+                            <li><i class="bi bi-check2-circle"></i> {% trans "Sales statistics & reports" %}</li>
+                            <li><i class="bi bi-check2-circle"></i> {% trans "Export orders to CSV" %}</li>
+                            <li><i class="bi bi-check2-circle"></i> {% trans "Role-based staff management" %}</li>
+                            <li><i class="bi bi-check2-circle"></i> {% trans "Staff activity log" %}</li>
+                        </ul>
+                        {% if user.is_authenticated %}
+                            {% if current_plan == 'business' %}
+                                <span class="btn btn-lp-outline w-100 disabled">{% trans "Το τρέχον πλάνο σου" %}</span>
+                            {% else %}
+                                <a href="{% url 'checkout' %}?plan=business" class="btn btn-lp-outline w-100">{% trans "Αναβάθμιση σε Business" %}</a>
+                            {% endif %}
+                        {% else %}
+                            <a href="{% url 'signup' %}" class="btn btn-lp-outline w-100">{% trans "Ξεκίνα με το Business" %}</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endwith %}
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="lp-section">
+        <div class="container">
+            <div class="lp-section-head">
+                <h2>{% trans "Συχνές ερωτήσεις" %}</h2>
+                <p>{% trans "Ό,τι χρειάζεται να ξέρεις πριν ξεκινήσεις." %}</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="accordion lp-accordion" id="faqAccordion">
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                    {% trans "Τι είναι το ψηφιακό μενού με QR code;" %}
+                                </button>
+                            </h3>
+                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted-lp">
+                                    {% trans "Είναι ένα μενού εστιατορίου που βλέπουν οι πελάτες σκανάροντας έναν κωδικό QR με το κινητό τους, χωρίς να χρειάζεται εγκατάσταση εφαρμογής. Το μενού ανοίγει άμεσα στον browser του κινητού." %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                    {% trans "Πόσο κοστίζει το MenuHub;" %}
+                                </button>
+                            </h3>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted-lp">
+                                    {% trans "Το Basic πλάνο ξεκινά από €7/μήνα και περιλαμβάνει απεριόριστες κατηγορίες και προϊόντα με αυτόματο QR code. Το Pro πλάνο κοστίζει €19/μήνα και προσθέτει παραγγελίες από το τραπέζι, loyalty πόντους και κωδικούς έκπτωσης, με μηδενική προμήθεια. Το Business πλάνο κοστίζει €39/μήνα και προσθέτει στατιστικά, αναφορές και διαχείριση προσωπικού." %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                    {% trans "Χρειάζομαι γνώσεις προγραμματισμού;" %}
+                                </button>
+                            </h3>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted-lp">
+                                    {% trans "Όχι. Η δημιουργία μενού γίνεται μέσω απλής φόρμας: προσθέτεις κατηγορίες, προϊόντα, τιμές και φωτογραφίες, και το QR code δημιουργείται αυτόματα." %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                    {% trans "Μπορώ να δέχομαι παραγγελίες από το τραπέζι;" %}
+                                </button>
+                            </h3>
+                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted-lp">
+                                    {% trans "Ναι, με το πλάνο Pro ή Business οι πελάτες μπορούν να στείλουν παραγγελία απευθείας από το ψηφιακό μενού σκανάροντας το QR του τραπεζιού τους, την οποία βλέπεις σε πραγματικό χρόνο στο dashboard διαχείρισης παραγγελιών." %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                                    {% trans "Πόσο γρήγορα ενημερώνονται οι τιμές στο μενού;" %}
+                                </button>
+                            </h3>
+                            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted-lp">
+                                    {% trans "Άμεσα. Όταν αλλάξεις μια τιμή ή προσθέσεις ένα προϊόν από το dashboard, η αλλαγή εμφανίζεται αμέσως στο μενού που βλέπουν οι πελάτες, χωρίς νέα εκτύπωση." %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">
+                                    {% trans "Το μενού λειτουργεί σε όλα τα κινητά;" %}
+                                </button>
+                            </h3>
+                            <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted-lp">
+                                    {% trans "Ναι, το ψηφιακό μενού είναι πλήρως προσαρμοσμένο (mobile-first) και ανοίγει κανονικά στον browser οποιουδήποτε κινητού, χωρίς να απαιτείται εγκατάσταση εφαρμογής." %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="lp-section">
+        <div class="container">
+            <div class="lp-cta">
+                <h2>{% trans "Έτοιμος να ψηφιοποιήσεις το μενού σου;" %}</h2>
+                <p class="mb-4">{% trans "Δημιούργησε λογαριασμό και πάρε το QR code του μενού σου σήμερα." %}</p>
+                <a href="{% url 'signup' %}" class="btn btn-lp-primary btn-lg">{% trans "Δημιούργησε λογαριασμό" %}</a>
+            </div>
+        </div>
+    </section>
+
+</div>
+{% endblock %}

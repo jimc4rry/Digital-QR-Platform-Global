@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags i18n %}
+
+{% block title %}{{ restaurant.name }} - {% trans "Business Management" %}{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h1>{{ restaurant.name }}</h1>
+        <a href="{% url 'platform_admin_dashboard' %}" class="btn btn-secondary">{% trans "Back" %}</a>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-header">{% trans "Business Info" %}</div>
+                <div class="card-body">
+                    <p><strong>{% trans "Username" %}:</strong> {{ business_user.username }}</p>
+                    <p><strong>Email:</strong> {{ business_user.email|default:"-" }}</p>
+                    <p><strong>{% trans "Phone" %}:</strong> {{ business_user.phone|default:"-" }}</p>
+                    <p><strong>{% trans "Type" %}:</strong> {{ business_user.get_business_type_display }}</p>
+                    <p><strong>{% trans "Tax ID" %}:</strong> {{ business_user.tax_id|default:"-" }}</p>
+                    <p><strong>{% trans "Signed up" %}:</strong> {{ business_user.created_at|date:"d/m/Y H:i" }}</p>
+                </div>
+            </div>
+
+            <div class="card mt-3">
+                <div class="card-header">{% trans "Stats" %}</div>
+                <div class="card-body">
+                    <p><strong>{% trans "Orders" %}:</strong> {{ order_count }}</p>
+                    <p><strong>{% trans "Total Revenue" %}:</strong> {{ total_revenue|floatformat:2 }}</p>
+                    <p><strong>{% trans "Staff" %}:</strong> {{ staff_count }}</p>
+                    <p><strong>{% trans "Accepts Orders" %}:</strong>
+                        {% if restaurant.allow_ordering %}
+                            <span class="badge bg-success">{% trans "Yes" %}</span>
+                        {% else %}
+                            <span class="badge bg-secondary">{% trans "No" %}</span>
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{% trans "Manage Subscription" %}</div>
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <button type="submit" class="btn btn-primary">{% trans "Save" %}</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="card mt-3">
+                <div class="card-header">{% trans "Recent Payments" %}</div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-sm table-striped">
+                            <thead>
+                                <tr>
+                                    <th>{% trans "Transaction ID" %}</th>
+                                    <th>{% trans "Plan" %}</th>
+                                    <th>{% trans "Amount" %}</th>
+                                    <th>{% trans "Status" %}</th>
+                                    <th>{% trans "Date" %}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for payment in payments %}
+                                    <tr>
+                                        <td><code>{{ payment.transaction_id }}</code></td>
+                                        <td>{{ payment.get_plan_display }}</td>
+                                        <td>{{ payment.amount|floatformat:2 }} {{ payment.currency }}</td>
+                                        <td>
+                                            {% if payment.status == 'completed' %}
+                                                <span class="badge bg-success">{{ payment.get_status_display }}</span>
+                                            {% else %}
+                                                <span class="badge bg-danger">{{ payment.get_status_display }}</span>
+                                            {% endif %}
+                                        </td>
+                                        <td>{{ payment.created_at|date:"d/m/Y H:i" }}</td>
+                                    </tr>
+                                {% empty %}
+                                    <tr>
+                                        <td colspan="5" class="text-center text-muted">{% trans "No payments yet" %}</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

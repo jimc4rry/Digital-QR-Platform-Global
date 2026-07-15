@@ -1,0 +1,33 @@
+from django.http import HttpResponse
+from django.urls import reverse
+from restaurants.models import Restaurant
+
+
+def robots_txt(request):
+    sitemap_url = request.build_absolute_uri(reverse('sitemap_xml'))
+    lines = [
+        'User-agent: *',
+        'Allow: /$',
+        'Allow: /menu/',
+        'Disallow: /accounts/',
+        'Disallow: /restaurant/',
+        'Disallow: /orders/',
+        'Disallow: /admin/',
+        f'Sitemap: {sitemap_url}',
+    ]
+    return HttpResponse('\n'.join(lines), content_type='text/plain')
+
+
+def sitemap_xml(request):
+    urls = [request.build_absolute_uri(reverse('home'))]
+    for restaurant in Restaurant.objects.filter(is_active=True):
+        urls.append(request.build_absolute_uri(reverse('public_menu', args=[restaurant.qr_code_token])))
+
+    entries = '\n'.join(f'  <url><loc>{url}</loc></url>' for url in urls)
+    xml = (
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+        f'{entries}\n'
+        '</urlset>'
+    )
+    return HttpResponse(xml, content_type='application/xml')

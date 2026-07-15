@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+<div class="container py-4">
+    <h1>{% blocktrans %}Καλώς ήρθες, {{ user }}!{% endblocktrans %}</h1>
+    <p>{% trans "Αυτό είναι το dashboard του εστιατορίου σου." %}</p>
+
+    <div class="row mt-4">
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">{{ total_products }}</h5>
+                    <p class="card-text">{% trans "Σύνολο Προϊόντων" %}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">{{ active_products }}</h5>
+                    <p class="card-text">{% trans "Διαθέσιμα Προϊόντα" %}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">{{ total_categories }}</h5>
+                    <p class="card-text">{% trans "Κατηγορίες" %}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">{{ total_orders }}</h5>
+                    <p class="card-text">{% trans "Παραγγελίες" %}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
