@@ -1,3 +1,4 @@
+import logging
 from django.db import models
 from django.conf import settings
 from django.core.validators import MinValueValidator, MaxValueValidator
@@ -11,6 +12,8 @@ from django.core.files import File
 import uuid
 import os
 from .utils import validate_image_file_size, generate_unique_slug
+
+logger = logging.getLogger(__name__)
 
 class Restaurant(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='restaurant')
@@ -34,7 +37,7 @@ class Restaurant(models.Model):
     allow_ordering = models.BooleanField(default=False)
     loyalty_enabled = models.BooleanField(default=False)
     tax_rate = models.DecimalField(max_digits=5, decimal_places=2, default=0.00)
-    currency = models.CharField(max_length=3, default='€')
+    currency = models.CharField(max_length=3, default='USD')
     
     class Meta:
         ordering = ['-created_at']
@@ -111,7 +114,7 @@ class Category(models.Model):
 class Product(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='products')
     name = models.CharField(max_length=200)
-    name_en = models.CharField(max_length=200, blank=True, help_text=_('Αγγλική ονομασία (προαιρετικό) - αν μείνει κενό εμφανίζεται η ελληνική'))
+    name_en = models.CharField(max_length=200, blank=True, help_text=_('English name (optional) - if left blank, the name above is shown'))
     slug = models.SlugField(max_length=200, blank=True)
     description = models.TextField(blank=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
@@ -127,7 +130,7 @@ class Product(models.Model):
     is_spicy = models.BooleanField(default=False)
     
     order = models.PositiveIntegerField(default=0)
-    preparation_time = models.PositiveIntegerField(help_text=_('Χρόνος παρασκευής σε λεπτά'), default=15)
+    preparation_time = models.PositiveIntegerField(help_text=_('Preparation time in minutes'), default=15)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     
@@ -139,7 +142,7 @@ class Product(models.Model):
         ]
         
     def __str__(self):
-        return f"{self.name} - {self.price}€"
+        return f"{self.name} - {self.price}"
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -163,17 +166,17 @@ class Product(models.Model):
                 img.thumbnail((800, 800))
                 img.save(self.image.path, quality=85, optimize=True)
         except Exception:
-            pass
+            logger.exception("Failed to optimize image for product %s", self.pk)
 
 class RestaurantTable(models.Model):
     TABLE_TYPE_CHOICES = [
-        ('table', _('Τραπέζι')),
-        ('sunbed', _('Ξαπλώστρα')),
+        ('table', _('Table')),
+        ('sunbed', _('Sunbed')),
     ]
 
     restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE, related_name='tables')
     table_type = models.CharField(max_length=10, choices=TABLE_TYPE_CHOICES, default='table')
-    number = models.CharField(max_length=20, help_text=_('π.χ. 1, 2, Πάτιο Α'))
+    number = models.CharField(max_length=20, help_text=_('e.g. 1, 2, Patio A'))
     qr_code = models.ImageField(upload_to='restaurants/table_qr_codes/', blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
@@ -225,8 +228,8 @@ class ProductOption(models.Model):
 
 class StaffMember(models.Model):
     ROLE_CHOICES = [
-        ('admin', _('Διαχειριστής')),
-        ('employee', _('Υπάλληλος')),
+        ('admin', _('Admin')),
+        ('employee', _('Employee')),
     ]
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='staff_profile')
     restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE, related_name='staff_members')
@@ -261,7 +264,7 @@ class PromoCode(models.Model):
     discount_percent = models.PositiveIntegerField(validators=[MinValueValidator(1), MaxValueValidator(100)])
     is_active = models.BooleanField(default=True)
     valid_until = models.DateTimeField(null=True, blank=True)
-    max_uses = models.PositiveIntegerField(null=True, blank=True, help_text=_('Άφησέ το κενό για απεριόριστες χρήσεις'))
+    max_uses = models.PositiveIntegerField(null=True, blank=True, help_text=_('Leave blank for unlimited uses'))
     used_count = models.PositiveIntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)
 

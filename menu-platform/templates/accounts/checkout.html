@@ -7,6 +7,12 @@
 <div class="container py-5">
     <div class="row justify-content-center">
         <div class="col-md-8 col-lg-6">
+            {% if beta_mode %}
+                <div class="alert alert-success text-center">
+                    <i class="bi bi-stars"></i>
+                    {% trans "MenuHub is in free beta right now - every plan's features are unlocked for your account at no cost. Paid plans are launching soon; you'll be able to subscribe right here once they do." %}
+                </div>
+            {% else %}
             <div class="alert alert-info text-center">
                 <i class="bi bi-shield-lock"></i>
                 {% trans "You'll pay through Paddle's secure embedded checkout. Your card details never pass through our servers." %}
@@ -40,10 +46,12 @@
             {% else %}
                 <div class="alert alert-secondary mb-0 text-center">{% trans "You already have the top plan (Business)." %}</div>
             {% endif %}
+            {% endif %}
         </div>
     </div>
 </div>
 
+{% if not beta_mode %}
 <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
 <script id="paddle-config" type="application/json">
     {
@@ -78,4 +86,5 @@
         });
     })();
 </script>
+{% endif %}
 {% endblock %}

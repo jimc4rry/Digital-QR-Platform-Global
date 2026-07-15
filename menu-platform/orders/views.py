@@ -124,9 +124,9 @@ def order_detail(request, pk):
         if new_status in dict(Order.ORDER_STATUS) and new_status != order.status:
             loyalty_points = _apply_order_status_change(order, new_status, request.user)
             if loyalty_points is not None:
-                messages.success(request, _('Η κατάσταση παραγγελίας ενημερώθηκε! Ο πελάτης κέρδισε πόντους loyalty (σύνολο: %(points)s).') % {'points': loyalty_points})
+                messages.success(request, _('Order status updated! The customer earned loyalty points (total: %(points)s).') % {'points': loyalty_points})
             else:
-                messages.success(request, _('Η κατάσταση παραγγελίας ενημερώθηκε!'))
+                messages.success(request, _('Order status updated!'))
             return redirect('order_detail', pk=order.pk)
 
     context = {
@@ -143,7 +143,7 @@ def order_delete(request, pk):
     """Delete an order - restricted to admin/owner, not employees."""
     order = get_object_or_404(Order, pk=pk, restaurant=request.restaurant)
     order.delete()
-    messages.success(request, _('Η παραγγελία διαγράφηκε.'))
+    messages.success(request, _('Order deleted.'))
     return redirect('order_list')
 
 def validate_promo_code(request, token):
@@ -315,7 +315,7 @@ def export_orders_csv(request):
     """Business-tier report: CSV export of all orders for the restaurant."""
     restaurant = request.restaurant
     if not restaurant.user.has_stats_dashboard():
-        messages.error(request, _('Οι αναφορές CSV είναι διαθέσιμες μόνο στο πλάνο Business.'))
+        messages.error(request, _('CSV reports are only available on the Business plan.'))
         return redirect('stats_dashboard')
 
     response = HttpResponse(content_type='text/csv')

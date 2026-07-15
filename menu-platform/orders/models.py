@@ -6,19 +6,19 @@ import uuid
 
 class Order(models.Model):
     ORDER_STATUS = [
-        ('pending', _('Εκκρεμεί')),
-        ('confirmed', _('Επιβεβαιωμένη')),
-        ('preparing', _('Παρασκευάζεται')),
-        ('ready', _('Έτοιμη')),
-        ('delivered', _('Παραδόθηκε')),
-        ('cancelled', _('Ακυρώθηκε')),
+        ('pending', _('Pending')),
+        ('confirmed', _('Confirmed')),
+        ('preparing', _('Preparing')),
+        ('ready', _('Ready')),
+        ('delivered', _('Delivered')),
+        ('cancelled', _('Cancelled')),
     ]
 
     PAYMENT_STATUS = [
-        ('pending', _('Εκκρεμεί')),
-        ('paid', _('Πληρώθηκε')),
-        ('failed', _('Απέτυχε')),
-        ('refunded', _('Επιστροφή')),
+        ('pending', _('Pending')),
+        ('paid', _('Paid')),
+        ('failed', _('Failed')),
+        ('refunded', _('Refunded')),
     ]
     
     restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE, related_name='orders')

@@ -13,16 +13,16 @@ class RestaurantForm(forms.ModelForm):
             'address': forms.Textarea(attrs={'rows': 3, 'class': 'form-control'}),
         }
         labels = {
-            'name': _('Όνομα Εστιατορίου'),
-            'description': _('Περιγραφή'),
-            'address': _('Διεύθυνση'),
-            'phone': _('Τηλέφωνο'),
+            'name': _('Restaurant Name'),
+            'description': _('Description'),
+            'address': _('Address'),
+            'phone': _('Phone'),
             'email': 'Email',
-            'logo': _('Λογότυπο'),
-            'cover_image': _('Εξώφυλλο'),
-            'allow_ordering': _('Να δέχεται παραγγελίες'),
-            'loyalty_enabled': _('Ενεργοποίηση Loyalty (πόντοι για πελάτες)'),
-            'tax_rate': _('ΦΠΑ (%)'),
+            'logo': _('Logo'),
+            'cover_image': _('Cover Image'),
+            'allow_ordering': _('Accept orders'),
+            'loyalty_enabled': _('Enable Loyalty (points for customers)'),
+            'tax_rate': _('Tax (%)'),
         }
 
 class CategoryForm(forms.ModelForm):
@@ -33,10 +33,10 @@ class CategoryForm(forms.ModelForm):
             'description': forms.Textarea(attrs={'rows': 3, 'class': 'form-control'}),
         }
         labels = {
-            'name': _('Όνομα Κατηγορίας'),
-            'description': _('Περιγραφή'),
-            'order': _('Σειρά Εμφάνισης'),
-            'is_active': _('Ενεργό'),
+            'name': _('Category Name'),
+            'description': _('Description'),
+            'order': _('Display Order'),
+            'is_active': _('Active'),
         }
 
 class ProductForm(forms.ModelForm):
@@ -59,21 +59,21 @@ class ProductForm(forms.ModelForm):
             'preparation_time': forms.NumberInput(attrs={'class': 'form-control'}),
         }
         labels = {
-            'category': _('Κατηγορία'),
-            'name': _('Όνομα Προϊόντος (Ελληνικά)'),
-            'name_en': _('Όνομα Προϊόντος (Αγγλικά)'),
-            'description': _('Περιγραφή'),
-            'price': _('Τιμή (€)'),
-            'old_price': _('Παλιά Τιμή (€)'),
-            'image': _('Φωτογραφία'),
-            'is_available': _('Διαθέσιμο'),
-            'is_featured': _('Προτεινόμενο'),
+            'category': _('Category'),
+            'name': _('Product Name'),
+            'name_en': _('Product Name (English)'),
+            'description': _('Description'),
+            'price': _('Price'),
+            'old_price': _('Old Price'),
+            'image': _('Photo'),
+            'is_available': _('Available'),
+            'is_featured': _('Featured'),
             'is_vegan': 'Vegan',
             'is_vegetarian': 'Vegetarian',
-            'is_gluten_free': _('Χωρίς Γλουτένη'),
-            'is_spicy': _('Πικάντικο'),
-            'order': _('Σειρά Εμφάνισης'),
-            'preparation_time': _('Χρόνος Παρασκευής (λεπτά)'),
+            'is_gluten_free': _('Gluten-Free'),
+            'is_spicy': _('Spicy'),
+            'order': _('Display Order'),
+            'preparation_time': _('Preparation Time (minutes)'),
         }
 
 class ProductOptionForm(forms.ModelForm):
@@ -84,23 +84,23 @@ class ProductOptionForm(forms.ModelForm):
             'price_adjustment': forms.NumberInput(attrs={'class': 'form-control', 'step': '0.01'}),
         }
         labels = {
-            'name': _('Όνομα Επιλογής'),
-            'price_adjustment': _('Προσαρμογή Τιμής (€)'),
-            'is_default': _('Προεπιλεγμένο'),
+            'name': _('Option Name'),
+            'price_adjustment': _('Price Adjustment'),
+            'is_default': _('Default'),
         }
 
 
 class StaffCreationForm(forms.Form):
-    username = forms.CharField(max_length=150, label=_('Όνομα Χρήστη'))
-    password1 = forms.CharField(widget=forms.PasswordInput, label=_('Κωδικός'))
-    password2 = forms.CharField(widget=forms.PasswordInput, label=_('Επιβεβαίωση Κωδικού'))
-    role = forms.ChoiceField(choices=StaffMember.ROLE_CHOICES, label=_('Ρόλος'))
+    username = forms.CharField(max_length=150, label=_('Username'))
+    password1 = forms.CharField(widget=forms.PasswordInput, label=_('Password'))
+    password2 = forms.CharField(widget=forms.PasswordInput, label=_('Confirm Password'))
+    role = forms.ChoiceField(choices=StaffMember.ROLE_CHOICES, label=_('Role'))
 
     def clean_username(self):
         from accounts.models import User
         username = self.cleaned_data['username']
         if User.objects.filter(username=username).exists():
-            raise forms.ValidationError(_('Αυτό το όνομα χρήστη υπάρχει ήδη.'))
+            raise forms.ValidationError(_('This username already exists.'))
         return username
 
     def clean_password1(self):
@@ -113,7 +113,7 @@ class StaffCreationForm(forms.Form):
         cleaned = super().clean()
         p1, p2 = cleaned.get('password1'), cleaned.get('password2')
         if p1 and p2 and p1 != p2:
-            raise forms.ValidationError(_('Οι κωδικοί δεν ταιριάζουν.'))
+            raise forms.ValidationError(_('Passwords do not match.'))
         return cleaned
 
 
@@ -122,8 +122,8 @@ class RestaurantTableForm(forms.ModelForm):
         model = RestaurantTable
         fields = ['table_type', 'number']
         labels = {
-            'table_type': _('Τύπος'),
-            'number': _('Αριθμός / Όνομα'),
+            'table_type': _('Type'),
+            'number': _('Number / Name'),
         }
 
 
@@ -132,8 +132,8 @@ class LoyaltyAccountForm(forms.ModelForm):
         model = LoyaltyAccount
         fields = ['phone', 'points']
         labels = {
-            'phone': _('Τηλέφωνο'),
-            'points': _('Πόντοι'),
+            'phone': _('Phone'),
+            'points': _('Points'),
         }
 
 
@@ -145,9 +145,9 @@ class PromoCodeForm(forms.ModelForm):
             'valid_until': forms.DateTimeInput(attrs={'type': 'datetime-local', 'class': 'form-control'}),
         }
         labels = {
-            'code': _('Κωδικός Έκπτωσης'),
-            'discount_percent': _('Έκπτωση (%)'),
-            'valid_until': _('Ισχύει έως (προαιρετικό)'),
-            'max_uses': _('Μέγιστες χρήσεις (προαιρετικό)'),
-            'is_active': _('Ενεργός'),
+            'code': _('Promo Code'),
+            'discount_percent': _('Discount (%)'),
+            'valid_until': _('Valid Until (optional)'),
+            'max_uses': _('Max Uses (optional)'),
+            'is_active': _('Active'),
         }

@@ -1,4 +1,5 @@
 import uuid
+from django.conf import settings
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.utils import timezone
@@ -30,9 +31,8 @@ class User(AbstractUser):
     subscription_plan = models.CharField(
         max_length=20,
         choices=[
-            ('basic', _('Basic - $7/month')),
-            ('pro', _('Pro - $19/month')),
-            ('business', _('Business - $39/month')),
+            (plan, f'{plan.capitalize()} - ${price}/month')
+            for plan, price in PLAN_PRICES.items()
         ],
         default='basic'
     )
@@ -50,7 +50,13 @@ class User(AbstractUser):
         """True if this account currently has paid (or trial) access. Checked
         live at request time rather than via a cron job flipping a flag, so a
         lapsed subscription_ends date blocks access immediately - no
-        background task needed to "notice" a trial or paid period ended."""
+        background task needed to "notice" a trial or paid period ended.
+
+        During BETA_MODE (billing not live yet - e.g. waiting on Paddle
+        production approval) every account is treated as fully subscribed, so
+        beta users never get locked out over trial/plan status."""
+        if settings.BETA_MODE:
+            return True
         if not self.subscription_active:
             return False
         if self.subscription_ends and self.subscription_ends < timezone.now():
@@ -58,12 +64,18 @@ class User(AbstractUser):
         return True
 
     def has_ordering(self):
+        if settings.BETA_MODE:
+            return True
         return self.subscription_plan in ('pro', 'business') and self.has_active_subscription()
 
     def has_stats_dashboard(self):
+        if settings.BETA_MODE:
+            return True
         return self.subscription_plan == 'business' and self.has_active_subscription()
 
     def has_staff_management(self):
+        if settings.BETA_MODE:
+            return True
         return self.subscription_plan == 'business' and self.has_active_subscription()
 
 

@@ -64,7 +64,7 @@ def restaurant_settings(request):
         form = RestaurantForm(request.POST, request.FILES, instance=restaurant)
         if form.is_valid():
             form.save()
-            messages.success(request, _('Οι ρυθμίσεις αποθηκεύτηκαν επιτυχώς!'))
+            messages.success(request, _('Settings saved successfully!'))
             return redirect('restaurant_settings')
     else:
         form = RestaurantForm(instance=restaurant)
@@ -86,7 +86,7 @@ def category_list(request):
             category = form.save(commit=False)
             category.restaurant = restaurant
             category.save()
-            messages.success(request, _('Η κατηγορία δημιουργήθηκε επιτυχώς!'))
+            messages.success(request, _('Category created successfully!'))
             return redirect('category_list')
     else:
         form = CategoryForm()
@@ -103,7 +103,7 @@ def category_list(request):
 def category_delete(request, pk):
     category = get_object_or_404(Category, pk=pk, restaurant=request.restaurant)
     category.delete()
-    messages.success(request, _('Η κατηγορία διαγράφηκε επιτυχώς!'))
+    messages.success(request, _('Category deleted successfully!'))
     return redirect('category_list')
 
 @restaurant_role_required('employee')
@@ -119,12 +119,12 @@ def product_list(request):
             if form.is_valid():
                 product = form.save(commit=False)
                 product.save()
-                messages.success(request, _('Το προϊόν δημιουργήθηκε επιτυχώς!'))
+                messages.success(request, _('Product created successfully!'))
                 return redirect('product_list')
         else:
             form = ProductForm(restaurant=restaurant)
     elif request.method == 'POST':
-        return HttpResponseForbidden(_('Δεν έχεις δικαίωμα να προσθέσεις προϊόντα.'))
+        return HttpResponseForbidden(_('You do not have permission to add products.'))
 
     page_obj = Paginator(products, 20).get_page(request.GET.get('page'))
 
@@ -146,7 +146,7 @@ def product_edit(request, pk):
         form = ProductForm(request.POST, request.FILES, instance=product, restaurant=restaurant)
         if form.is_valid():
             form.save()
-            messages.success(request, _('Το προϊόν ενημερώθηκε επιτυχώς!'))
+            messages.success(request, _('Product updated successfully!'))
             return redirect('product_list')
     else:
         form = ProductForm(instance=product, restaurant=restaurant)
@@ -166,7 +166,7 @@ def product_edit(request, pk):
 def product_delete(request, pk):
     product = get_object_or_404(Product, pk=pk, category__restaurant=request.restaurant)
     product.delete()
-    messages.success(request, _('Το προϊόν διαγράφηκε επιτυχώς!'))
+    messages.success(request, _('Product deleted successfully!'))
     return redirect('product_list')
 
 @restaurant_role_required('admin')
@@ -271,8 +271,8 @@ def staff_list(request):
         return render(request, 'restaurants/feature_upgrade.html', {
             'restaurant': restaurant,
             'feature_icon': 'bi-people',
-            'feature_title': _('Η διαχείριση προσωπικού είναι διαθέσιμη στο πλάνο Business'),
-            'feature_description': _('Αναβάθμισε στο Business πλάνο για να προσθέσεις λογαριασμούς admin και υπαλλήλων με ξεχωριστά δικαιώματα.'),
+            'feature_title': _('Staff management is available on the Business plan'),
+            'feature_description': _('Upgrade to the Business plan to add admin and employee accounts with separate permissions.'),
         })
     staff_members = StaffMember.objects.filter(restaurant=restaurant).select_related('user')
 
@@ -289,7 +289,7 @@ def staff_list(request):
                     user=user,
                     role=form.cleaned_data['role'],
                 )
-            messages.success(request, _('Ο λογαριασμός υπαλλήλου δημιουργήθηκε επιτυχώς!'))
+            messages.success(request, _('Staff account created successfully!'))
             return redirect('staff_list')
     else:
         form = StaffCreationForm()
@@ -305,12 +305,12 @@ def staff_list(request):
 @require_http_methods(["POST"])
 def staff_delete(request, pk):
     if not request.restaurant.user.has_staff_management():
-        return HttpResponseForbidden(_('Η διαχείριση προσωπικού είναι διαθέσιμη στο πλάνο Business.'))
+        return HttpResponseForbidden(_('Staff management is available on the Business plan.'))
     staff = get_object_or_404(StaffMember, pk=pk, restaurant=request.restaurant)
     user_to_remove = staff.user
     staff.delete()
     user_to_remove.delete()
-    messages.success(request, _('Ο λογαριασμός υπαλλήλου αφαιρέθηκε.'))
+    messages.success(request, _('Staff account removed.'))
     return redirect('staff_list')
 
 @restaurant_role_required('admin')
@@ -320,8 +320,8 @@ def table_list(request):
         return render(request, 'restaurants/feature_upgrade.html', {
             'restaurant': restaurant,
             'feature_icon': 'bi-qr-code',
-            'feature_title': _('Τα τραπέζια με QR παραγγελίας είναι διαθέσιμα από το πλάνο Pro'),
-            'feature_description': _('Αναβάθμισε στο Pro ή Business πλάνο για να δημιουργήσεις QR codes τραπεζιών και να δέχεσαι παραγγελίες.'),
+            'feature_title': _('QR ordering tables are available from the Pro plan'),
+            'feature_description': _('Upgrade to the Pro or Business plan to create table QR codes and accept orders.'),
         })
     tables = restaurant.tables.all()
 
@@ -332,10 +332,10 @@ def table_list(request):
             table.restaurant = restaurant
             try:
                 table.save()
-                messages.success(request, _('Το τραπέζι προστέθηκε επιτυχώς!'))
+                messages.success(request, _('Table added successfully!'))
                 return redirect('table_list')
             except IntegrityError:
-                form.add_error('number', _('Υπάρχει ήδη αυτός ο αριθμός για αυτόν τον τύπο.'))
+                form.add_error('number', _('This number already exists for this type.'))
     else:
         form = RestaurantTableForm()
 
@@ -350,10 +350,10 @@ def table_list(request):
 @require_http_methods(["POST"])
 def table_delete(request, pk):
     if not request.restaurant.user.has_ordering():
-        return HttpResponseForbidden(_('Τα τραπέζια είναι διαθέσιμα από το πλάνο Pro.'))
+        return HttpResponseForbidden(_('Tables are available from the Pro plan.'))
     table = get_object_or_404(RestaurantTable, pk=pk, restaurant=request.restaurant)
     table.delete()
-    messages.success(request, _('Το τραπέζι διαγράφηκε.'))
+    messages.success(request, _('Table deleted.'))
     return redirect('table_list')
 
 @restaurant_role_required('admin')
@@ -363,8 +363,8 @@ def promo_code_list(request):
         return render(request, 'restaurants/feature_upgrade.html', {
             'restaurant': restaurant,
             'feature_icon': 'bi-tag',
-            'feature_title': _('Οι κωδικοί έκπτωσης είναι διαθέσιμοι από το πλάνο Pro'),
-            'feature_description': _('Αναβάθμισε στο Pro ή Business πλάνο για να δημιουργήσεις κωδικούς έκπτωσης για τους πελάτες σου.'),
+            'feature_title': _('Promo codes are available from the Pro plan'),
+            'feature_description': _('Upgrade to the Pro or Business plan to create promo codes for your customers.'),
         })
     promo_codes = PromoCode.objects.filter(restaurant=restaurant)
 
@@ -375,7 +375,7 @@ def promo_code_list(request):
             promo.restaurant = restaurant
             try:
                 promo.save()
-                messages.success(request, _('Ο κωδικός έκπτωσης δημιουργήθηκε επιτυχώς!'))
+                messages.success(request, _('Promo code created successfully!'))
                 return redirect('promo_code_list')
             except IntegrityError:
                 form.add_error('code', _('This code already exists.'))
@@ -393,10 +393,10 @@ def promo_code_list(request):
 @require_http_methods(["POST"])
 def promo_code_delete(request, pk):
     if not request.restaurant.user.has_ordering():
-        return HttpResponseForbidden(_('Οι κωδικοί έκπτωσης είναι διαθέσιμοι από το πλάνο Pro.'))
+        return HttpResponseForbidden(_('Promo codes are available from the Pro plan.'))
     promo = get_object_or_404(PromoCode, pk=pk, restaurant=request.restaurant)
     promo.delete()
-    messages.success(request, _('Ο κωδικός έκπτωσης διαγράφηκε.'))
+    messages.success(request, _('Promo code deleted.'))
     return redirect('promo_code_list')
 
 @restaurant_role_required('admin')
@@ -407,8 +407,8 @@ def loyalty_list(request):
         return render(request, 'restaurants/feature_upgrade.html', {
             'restaurant': restaurant,
             'feature_icon': 'bi-star',
-            'feature_title': _('Το Loyalty είναι διαθέσιμο από το πλάνο Pro'),
-            'feature_description': _('Αναβάθμισε στο Pro ή Business πλάνο για να δίνεις πόντους loyalty στους πελάτες σου.'),
+            'feature_title': _('Loyalty is available from the Pro plan'),
+            'feature_description': _('Upgrade to the Pro or Business plan to give loyalty points to your customers.'),
         })
     accounts = LoyaltyAccount.objects.filter(restaurant=request.restaurant)
 
@@ -429,14 +429,14 @@ def loyalty_list(request):
 @restaurant_role_required('admin')
 def loyalty_edit(request, pk):
     if not request.restaurant.user.has_ordering():
-        return HttpResponseForbidden(_('Το Loyalty είναι διαθέσιμο από το πλάνο Pro.'))
+        return HttpResponseForbidden(_('Loyalty is available from the Pro plan.'))
     account = get_object_or_404(LoyaltyAccount, pk=pk, restaurant=request.restaurant)
 
     if request.method == 'POST':
         form = LoyaltyAccountForm(request.POST, instance=account)
         if form.is_valid():
             form.save()
-            messages.success(request, _('Ο λογαριασμός loyalty ενημερώθηκε!'))
+            messages.success(request, _('Loyalty account updated!'))
             return redirect('loyalty_list')
     else:
         form = LoyaltyAccountForm(instance=account)
@@ -452,8 +452,8 @@ def loyalty_edit(request, pk):
 @require_http_methods(["POST"])
 def loyalty_delete(request, pk):
     if not request.restaurant.user.has_ordering():
-        return HttpResponseForbidden(_('Το Loyalty είναι διαθέσιμο από το πλάνο Pro.'))
+        return HttpResponseForbidden(_('Loyalty is available from the Pro plan.'))
     account = get_object_or_404(LoyaltyAccount, pk=pk, restaurant=request.restaurant)
     account.delete()
-    messages.success(request, _('Ο λογαριασμός loyalty διαγράφηκε.'))
+    messages.success(request, _('Loyalty account deleted.'))
     return redirect('loyalty_list')

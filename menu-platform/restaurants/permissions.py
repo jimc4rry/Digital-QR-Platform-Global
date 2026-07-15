@@ -40,14 +40,14 @@ def restaurant_role_required(min_role='employee'):
         def wrapper(request, *args, **kwargs):
             restaurant, role = get_restaurant_and_role(request.user)
             if restaurant is None:
-                return HttpResponseForbidden(_('Δεν έχεις πρόσβαση σε κανένα εστιατόριο.'))
+                return HttpResponseForbidden(_('You do not have access to any restaurant.'))
             if not restaurant.user.has_active_subscription():
                 if role == 'owner':
-                    messages.error(request, _('Η συνδρομή/δοκιμή σου έχει λήξει. Επίλεξε πλάνο για να συνεχίσεις.'))
+                    messages.error(request, _('Your subscription/trial has expired. Choose a plan to continue.'))
                     return redirect('checkout')
-                return HttpResponseForbidden(_('Η συνδρομή της επιχείρησης έχει λήξει. Επικοινώνησε με τον ιδιοκτήτη.'))
+                return HttpResponseForbidden(_('The business subscription has expired. Contact the owner.'))
             if ROLE_LEVELS[role] < ROLE_LEVELS[min_role]:
-                return HttpResponseForbidden(_('Δεν έχεις δικαίωμα πρόσβασης σε αυτή τη σελίδα.'))
+                return HttpResponseForbidden(_('You do not have permission to access this page.'))
             request.restaurant = restaurant
             request.staff_role = role
             return view_func(request, *args, **kwargs)

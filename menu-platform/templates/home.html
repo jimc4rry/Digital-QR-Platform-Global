@@ -317,6 +317,13 @@
 {% block content %}
 <div class="landing">
 
+    {% if beta_mode %}
+        <div class="alert alert-success text-center rounded-0 mb-0">
+            <i class="bi bi-stars"></i>
+            {% trans "MenuHub is currently in free beta - every plan's features are unlocked at no cost while we finish rolling out paid billing." %}
+        </div>
+    {% endif %}
+
     <!-- Hero -->
     <section class="lp-hero">
         <div class="container">

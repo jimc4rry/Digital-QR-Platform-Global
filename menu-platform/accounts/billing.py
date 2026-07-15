@@ -147,8 +147,11 @@ def sync_subscription(user, subscription):
 
 def record_payment_from_transaction(transaction, failed=False):
     """Logs one Payment row per Paddle transaction - transaction_id is the
-    Paddle transaction id, so re-delivered webhook events just no-op via
-    get_or_create instead of creating duplicate rows."""
+    Paddle transaction id, so re-delivered webhook events update the same row via
+    update_or_create instead of creating duplicate rows. Uses update (not
+    get_or_create) because a transaction can legitimately go through a
+    payment_failed event before a later retry succeeds - freezing on whichever
+    event arrives first would leave the row permanently wrong."""
     user = user_from_customer_id(transaction.get('customer_id'))
     if not user:
         return None
@@ -162,7 +165,7 @@ def record_payment_from_transaction(transaction, failed=False):
     amount = Decimal(totals.get('grand_total', totals.get('total', '0'))) / 100
     currency = totals.get('currency_code') or transaction.get('currency_code') or 'USD'
 
-    payment, _created = Payment.objects.get_or_create(
+    payment, _created = Payment.objects.update_or_create(
         transaction_id=transaction['id'],
         defaults={
             'user': user,

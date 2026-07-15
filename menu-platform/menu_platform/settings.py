@@ -34,6 +34,9 @@ INSTALLED_APPS = [
     'restaurants',
     'orders',
     'api',
+
+    # Must come after the apps whose models it cleans up media for.
+    'django_cleanup.apps.CleanupConfig',
 ]
 
 MIDDLEWARE = [
@@ -63,6 +66,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'restaurants.context_processors.restaurant_context',
+                'accounts.context_processors.beta_context',
             ],
         },
     },
@@ -170,10 +174,23 @@ SIMPLE_JWT = {
 CORS_ALLOW_ALL_ORIGINS = DEBUG
 CORS_ALLOWED_ORIGINS = config('CORS_ALLOWED_ORIGINS', default='').split(',') if config('CORS_ALLOWED_ORIGINS', default='') else []
 
+# CSRF: needed on top of ALLOWED_HOSTS whenever the dashboard is accessed through a
+# different HTTPS origin than SITE_URL - e.g. an ngrok tunnel while testing the Paddle
+# checkout/webhook locally, where Paddle requires a real (non-localhost) HTTPS domain.
+CSRF_TRUSTED_ORIGINS = config('CSRF_TRUSTED_ORIGINS', default='').split(',') if config('CSRF_TRUSTED_ORIGINS', default='') else []
+
 # Push notifications (mobile app): set FIREBASE_CREDENTIALS_PATH to a Firebase
 # service-account JSON file to enable. Left unset, push is a silent no-op -
 # same "inert until configured" pattern as the S3 media storage above.
 FIREBASE_CREDENTIALS_PATH = config('FIREBASE_CREDENTIALS_PATH', default='')
+
+# Beta mode: billing isn't live yet (e.g. waiting on Paddle production approval).
+# Every account gets full access to every plan's features for free, and the
+# checkout page shows a "beta" notice instead of a real Paddle checkout - see
+# accounts.models.User.has_active_subscription/has_ordering/etc. Turn this off
+# (and switch PADDLE_ENV to 'production' with production credentials) once
+# billing should actually start charging people.
+BETA_MODE = config('BETA_MODE', default=False, cast=bool)
 
 # Paddle billing: Paddle.js embedded Checkout for upgrades, the Paddle
 # customer portal for self-serve cancel/manage, webhook for the source of

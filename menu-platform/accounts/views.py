@@ -84,6 +84,9 @@ def checkout(request):
     if restaurant is None or role != 'owner':
         return HttpResponseForbidden(_('Only the business owner can manage the subscription.'))
 
+    if settings.BETA_MODE:
+        return render(request, 'accounts/checkout.html', {'beta_mode': True})
+
     current_plan = request.user.subscription_plan
     subscription_active = request.user.subscription_active
     available_plans = get_purchasable_plans(current_plan, subscription_active)
