@@ -3,7 +3,7 @@
 
 {% block content %}
 <div class="container py-4">
-    <h1>{% trans "Επεξεργασία Προϊόντος" %}</h1>
+    <h1>{% trans "Edit Product" %}</h1>
     <div class="row">
         <div class="col-md-8">
             <div class="card">
@@ -11,8 +11,8 @@
                     <form method="post" enctype="multipart/form-data">
                         {% csrf_token %}
                         {{ form|crispy }}
-                        <button type="submit" class="btn btn-primary">{% trans "Αποθήκευση" %}</button>
-                        <a href="{% url 'product_list' %}" class="btn btn-secondary">{% trans "Πίσω" %}</a>
+                        <button type="submit" class="btn btn-primary">{% trans "Save" %}</button>
+                        <a href="{% url 'product_list' %}" class="btn btn-secondary">{% trans "Back" %}</a>
                     </form>
                 </div>
             </div>

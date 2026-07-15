@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static i18n %}
 
-{% block title %}{{ restaurant.name }} - {% trans "Μενού" %}{% endblock %}
+{% block title %}{{ restaurant.name }} - {% trans "Menu" %}{% endblock %}
 
 {% block content %}
 <div class="menu-header">
@@ -12,7 +12,7 @@
         <h1 class="display-4 mt-3">{{ restaurant.name }}</h1>
         <p class="lead">{{ restaurant.description }}</p>
         {% if allow_ordering %}
-            <span class="badge bg-success fs-6">{% trans "Δέχεται παραγγελίες" %}</span>
+            <span class="badge bg-success fs-6">{% trans "Accepting orders" %}</span>
         {% endif %}
         {% if table %}
             <div class="mt-2">
@@ -38,7 +38,7 @@
                                     <div class="card-body">
                                         <div class="d-flex justify-content-between align-items-start">
                                             <h5 class="card-title">{{ product.get_display_name }}</h5>
-                                            <span class="badge bg-primary fs-6">{{ product.price|floatformat:2 }}€</span>
+                                            <span class="badge bg-primary fs-6">${{ product.price|floatformat:2 }}</span>
                                         </div>
                                         <p class="card-text small">{{ product.description|truncatewords:20 }}</p>
 
@@ -54,14 +54,14 @@
                                                                    id="opt-{{ option.id }}"
                                                                    {% if option.is_default %}checked{% endif %}>
                                                             <label class="form-check-label" for="opt-{{ option.id }}">
-                                                                {{ option.name }}{% if option.price_adjustment %} (+{{ option.price_adjustment|floatformat:2 }}€){% endif %}
+                                                                {{ option.name }}{% if option.price_adjustment %} (+${{ option.price_adjustment|floatformat:2 }}){% endif %}
                                                             </label>
                                                         </div>
                                                     {% endfor %}
                                                 </div>
                                             {% endif %}
                                             <button type="button" class="btn btn-sm btn-primary w-100 add-to-cart-btn">
-                                                <i class="bi bi-cart-plus"></i> {% trans "Προσθήκη" %}
+                                                <i class="bi bi-cart-plus"></i> {% trans "Add" %}
                                             </button>
                                         {% endif %}
                                     </div>
@@ -74,7 +74,7 @@
         {% empty %}
             <div class="col-12 text-center py-5">
                 <i class="bi bi-emoji-frown display-1 text-muted"></i>
-                <h3>{% trans "Δεν υπάρχουν διαθέσιμα προϊόντα" %}</h3>
+                <h3>{% trans "No products available" %}</h3>
             </div>
         {% endfor %}
     </div>
@@ -83,9 +83,9 @@
 {% if allow_ordering %}
 <div id="cart-bar" class="d-none bg-dark text-white fixed-bottom shadow-lg">
     <div class="container d-flex justify-content-between align-items-center py-2">
-        <div><strong id="cart-count">0</strong> {% trans "προϊόντα" %} &middot; <strong id="cart-total">0,00€</strong></div>
+        <div><strong id="cart-count">0</strong> {% trans "products" %} &middot; <strong id="cart-total">$0.00</strong></div>
         <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#cartModal">
-            <i class="bi bi-bag-check"></i> {% trans "Δες την παραγγελία" %}
+            <i class="bi bi-bag-check"></i> {% trans "View order" %}
         </button>
     </div>
 </div>
@@ -94,19 +94,19 @@
     <div class="modal-dialog modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">{% trans "Η παραγγελία σου" %}</h5>
+                <h5 class="modal-title">{% trans "Your Order" %}</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <div id="cart-items-list"></div>
                 <hr>
                 <div class="d-flex justify-content-between fw-bold mb-3">
-                    <span>{% trans "Σύνολο" %}</span>
-                    <span id="cart-modal-total">0,00€</span>
+                    <span>{% trans "Total" %}</span>
+                    <span id="cart-modal-total">$0.00</span>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">
-                        {% if table %}{{ table.get_table_type_display }}{% else %}{% trans "Αριθμός τραπεζιού" %}{% endif %}
+                        {% if table %}{{ table.get_table_type_display }}{% else %}{% trans "Table number" %}{% endif %}
                     </label>
                     {% if table %}
                         <input type="text" class="form-control" id="order-table-number" value="{{ table.number }}" readonly>
@@ -117,33 +117,33 @@
                     {% endif %}
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">{% trans "Όνομα (προαιρετικό)" %}</label>
+                    <label class="form-label">{% trans "Name (optional)" %}</label>
                     <input type="text" class="form-control" id="order-customer-name">
                 </div>
                 {% if restaurant.loyalty_enabled %}
                     <div class="mb-3">
-                        <label class="form-label">{% trans "Τηλέφωνο (προαιρετικό, για πόντους Loyalty)" %}</label>
+                        <label class="form-label">{% trans "Phone (optional, for Loyalty points)" %}</label>
                         <input type="tel" class="form-control" id="order-customer-phone" autocomplete="tel">
                     </div>
                 {% endif %}
                 <div class="mb-3">
-                    <label class="form-label">{% trans "Κωδικός έκπτωσης (προαιρετικό)" %}</label>
+                    <label class="form-label">{% trans "Promo Code (optional)" %}</label>
                     <div class="input-group">
                         <input type="text" class="form-control" id="order-promo-code">
-                        <button type="button" class="btn btn-outline-secondary" id="apply-promo-btn">{% trans "Εφαρμογή" %}</button>
+                        <button type="button" class="btn btn-outline-secondary" id="apply-promo-btn">{% trans "Apply" %}</button>
                     </div>
                     <div id="promo-feedback" class="small mt-1"></div>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">{% trans "Σημειώσεις (προαιρετικό)" %}</label>
+                    <label class="form-label">{% trans "Notes (optional)" %}</label>
                     <textarea class="form-control" id="order-notes" rows="2"></textarea>
                 </div>
                 <div id="order-error" class="alert alert-danger d-none"></div>
                 <div id="order-success" class="alert alert-success d-none"></div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">{% trans "Κλείσιμο" %}</button>
-                <button type="button" class="btn btn-primary" id="submit-order-btn">{% trans "Αποστολή Παραγγελίας" %}</button>
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">{% trans "Close" %}</button>
+                <button type="button" class="btn btn-primary" id="submit-order-btn">{% trans "Send Order" %}</button>
             </div>
         </div>
     </div>
@@ -159,23 +159,23 @@
     const orderApiUrl = "{% url 'create_order_api' restaurant.qr_code_token %}";
     const validatePromoUrl = "{% url 'validate_promo_code' restaurant.qr_code_token %}";
     const i18nText = {
-        cartEmpty: "{% trans 'Το καλάθι είναι άδειο.' %}",
-        added: "{% trans 'Προστέθηκε' %}",
-        sending: "{% trans 'Αποστολή...' %}",
-        sendOrder: "{% trans 'Αποστολή Παραγγελίας' %}",
-        genericError: "{% trans 'Κάτι πήγε στραβά. Δοκίμασε ξανά.' %}",
-        connectionError: "{% trans 'Σφάλμα σύνδεσης. Δοκίμασε ξανά.' %}",
-        orderSentPrefix: "{% trans 'Η παραγγελία στάλθηκε! Αριθμός' %}",
-        totalLabel: "{% trans 'Σύνολο' %}",
-        loyaltyPointsPending: "{% trans 'Θα κερδίσεις πόντους loyalty μόλις επιβεβαιωθεί η παραγγελία σου.' %}",
-        invalidPromo: "{% trans 'Μη έγκυρος κωδικός έκπτωσης.' %}",
-        promoApplied: "{% trans 'Ο κωδικός εφαρμόστηκε!' %}",
+        cartEmpty: "{% trans 'Your cart is empty.' %}",
+        added: "{% trans 'Added' %}",
+        sending: "{% trans 'Sending...' %}",
+        sendOrder: "{% trans 'Send Order' %}",
+        genericError: "{% trans 'Something went wrong. Please try again.' %}",
+        connectionError: "{% trans 'Connection error. Please try again.' %}",
+        orderSentPrefix: "{% trans 'Your order has been sent! Number' %}",
+        totalLabel: "{% trans 'Total' %}",
+        loyaltyPointsPending: "{% trans 'You will earn Loyalty points once your order is confirmed.' %}",
+        invalidPromo: "{% trans 'Invalid promo code.' %}",
+        promoApplied: "{% trans 'Promo code applied!' %}",
     };
     let cart = [];
     let appliedPromo = null;
 
     function formatMoney(v) {
-        return v.toFixed(2).replace('.', ',') + '€';
+        return '$' + v.toFixed(2);
     }
 
     function optionsKey(options) {
@@ -359,7 +359,7 @@
                 });
                 const data = await res.json();
                 if (res.ok && data.success) {
-                    let msg = `${i18nText.orderSentPrefix} #${data.order_number} · ${i18nText.totalLabel} ${data.total}€`;
+                    let msg = `${i18nText.orderSentPrefix} #${data.order_number} · ${i18nText.totalLabel} $${data.total}`;
                     if (payload.customer_phone) {
                         msg += ` · ${i18nText.loyaltyPointsPending}`;
                     }

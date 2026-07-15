@@ -3,15 +3,15 @@
 
 {% block content %}
 <div class="container py-4">
-    <h1>{% blocktrans %}Καλώς ήρθες, {{ user }}!{% endblocktrans %}</h1>
-    <p>{% trans "Αυτό είναι το dashboard του εστιατορίου σου." %}</p>
+    <h1>{% blocktrans %}Welcome, {{ user }}!{% endblocktrans %}</h1>
+    <p>{% trans "This is your restaurant's dashboard." %}</p>
 
     <div class="row mt-4">
         <div class="col-md-3">
             <div class="card text-center">
                 <div class="card-body">
                     <h5 class="card-title">{{ total_products }}</h5>
-                    <p class="card-text">{% trans "Σύνολο Προϊόντων" %}</p>
+                    <p class="card-text">{% trans "Total Products" %}</p>
                 </div>
             </div>
         </div>
@@ -19,7 +19,7 @@
             <div class="card text-center">
                 <div class="card-body">
                     <h5 class="card-title">{{ active_products }}</h5>
-                    <p class="card-text">{% trans "Διαθέσιμα Προϊόντα" %}</p>
+                    <p class="card-text">{% trans "Available Products" %}</p>
                 </div>
             </div>
         </div>
@@ -27,7 +27,7 @@
             <div class="card text-center">
                 <div class="card-body">
                     <h5 class="card-title">{{ total_categories }}</h5>
-                    <p class="card-text">{% trans "Κατηγορίες" %}</p>
+                    <p class="card-text">{% trans "Categories" %}</p>
                 </div>
             </div>
         </div>
@@ -35,7 +35,7 @@
             <div class="card text-center">
                 <div class="card-body">
                     <h5 class="card-title">{{ total_orders }}</h5>
-                    <p class="card-text">{% trans "Παραγγελίες" %}</p>
+                    <p class="card-text">{% trans "Orders" %}</p>
                 </div>
             </div>
         </div>

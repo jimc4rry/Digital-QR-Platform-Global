@@ -3,7 +3,7 @@
 
 {% block content %}
 <div class="container py-4">
-    <h1>{% trans "Ρυθμίσεις Εστιατορίου" %}</h1>
+    <h1>{% trans "Restaurant Settings" %}</h1>
     <div class="row">
         <div class="col-md-8">
             <div class="card">
@@ -11,7 +11,7 @@
                     <form method="post" enctype="multipart/form-data">
                         {% csrf_token %}
                         {{ form|crispy }}
-                        <button type="submit" class="btn btn-primary">{% trans "Αποθήκευση" %}</button>
+                        <button type="submit" class="btn btn-primary">{% trans "Save" %}</button>
                     </form>
                 </div>
             </div>
@@ -22,12 +22,12 @@
                     <h5>QR Code</h5>
                     {% if restaurant.qr_code %}
                         <img src="{{ restaurant.qr_code.url }}" alt="QR Code" class="img-fluid">
-                        <p class="small text-muted mt-2">{% trans "Σκάναρε για να δεις το μενού" %}</p>
+                        <p class="small text-muted mt-2">{% trans "Scan to view the menu" %}</p>
                         <a href="{{ restaurant.qr_code.url }}" download class="btn btn-sm btn-secondary">
-                            <i class="bi bi-download"></i> {% trans "Λήψη" %}
+                            <i class="bi bi-download"></i> {% trans "Download" %}
                         </a>
                     {% else %}
-                        <p class="text-muted">{% trans "Το QR Code θα δημιουργηθεί αυτόματα" %}</p>
+                        <p class="text-muted">{% trans "The QR Code will be generated automatically" %}</p>
                     {% endif %}
                 </div>
             </div>

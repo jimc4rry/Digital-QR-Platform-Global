@@ -1,32 +1,32 @@
 {% extends 'base.html' %}
 {% load i18n %}
 
-{% block title %}{% trans "Πληρωμές Πλατφόρμας" %}{% endblock %}
+{% block title %}{% trans "Platform Payments" %}{% endblock %}
 
 {% block content %}
 <div class="container py-4">
     <div class="d-flex justify-content-between align-items-center mb-3">
-        <h1>{% trans "Πληρωμές Πλατφόρμας" %}</h1>
-        <a href="{% url 'platform_admin_dashboard' %}" class="btn btn-secondary">{% trans "Πίσω" %}</a>
+        <h1>{% trans "Platform Payments" %}</h1>
+        <a href="{% url 'platform_admin_dashboard' %}" class="btn btn-secondary">{% trans "Back" %}</a>
     </div>
 
     <div class="card mb-3">
         <div class="card-body">
-            <strong>{% trans "Συνολικά Έσοδα (ολοκληρωμένες πληρωμές)" %}:</strong> €{{ total_revenue|floatformat:2 }}
+            <strong>{% trans "Total Revenue (completed payments)" %}:</strong> ${{ total_revenue|floatformat:2 }}
         </div>
     </div>
 
     <form method="get" class="row g-2 mb-3 align-items-end">
         <div class="col-auto">
-            <label class="form-label small mb-1">{% trans "Κατάσταση" %}</label>
+            <label class="form-label small mb-1">{% trans "Status" %}</label>
             <select name="status" class="form-select">
-                <option value="">{% trans "Όλες" %}</option>
-                <option value="completed" {% if status_filter == 'completed' %}selected{% endif %}>{% trans "Ολοκληρώθηκε" %}</option>
-                <option value="failed" {% if status_filter == 'failed' %}selected{% endif %}>{% trans "Απέτυχε" %}</option>
+                <option value="">{% trans "All" %}</option>
+                <option value="completed" {% if status_filter == 'completed' %}selected{% endif %}>{% trans "Completed" %}</option>
+                <option value="failed" {% if status_filter == 'failed' %}selected{% endif %}>{% trans "Failed" %}</option>
             </select>
         </div>
         <div class="col-auto">
-            <button type="submit" class="btn btn-primary">{% trans "Φίλτρο" %}</button>
+            <button type="submit" class="btn btn-primary">{% trans "Filter" %}</button>
         </div>
     </form>
 
@@ -36,12 +36,12 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>{% trans "Αρ. Συναλλαγής" %}</th>
-                            <th>{% trans "Επιχείρηση" %}</th>
-                            <th>{% trans "Πλάνο" %}</th>
-                            <th>{% trans "Ποσό" %}</th>
-                            <th>{% trans "Κατάσταση" %}</th>
-                            <th>{% trans "Ημερομηνία" %}</th>
+                            <th>{% trans "Transaction ID" %}</th>
+                            <th>{% trans "Business" %}</th>
+                            <th>{% trans "Plan" %}</th>
+                            <th>{% trans "Amount" %}</th>
+                            <th>{% trans "Status" %}</th>
+                            <th>{% trans "Date" %}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -56,7 +56,7 @@
                                     {% endif %}
                                 </td>
                                 <td>{{ payment.get_plan_display }}</td>
-                                <td>€{{ payment.amount|floatformat:2 }}</td>
+                                <td>{{ payment.amount|floatformat:2 }} {{ payment.currency }}</td>
                                 <td>
                                     {% if payment.status == 'completed' %}
                                         <span class="badge bg-success">{{ payment.get_status_display }}</span>
@@ -68,7 +68,7 @@
                             </tr>
                         {% empty %}
                             <tr>
-                                <td colspan="6" class="text-center text-muted">{% trans "Δεν υπάρχουν πληρωμές" %}</td>
+                                <td colspan="6" class="text-center text-muted">{% trans "No payments found" %}</td>
                             </tr>
                         {% endfor %}
                     </tbody>
@@ -82,7 +82,7 @@
                             <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}{% if status_filter %}&status={{ status_filter }}{% endif %}">&laquo;</a></li>
                         {% endif %}
                         <li class="page-item disabled">
-                            <span class="page-link">{% blocktrans with current=page_obj.number total=page_obj.paginator.num_pages %}Σελίδα {{ current }} από {{ total }}{% endblocktrans %}</span>
+                            <span class="page-link">{% blocktrans with current=page_obj.number total=page_obj.paginator.num_pages %}Page {{ current }} of {{ total }}{% endblocktrans %}</span>
                         </li>
                         {% if page_obj.has_next %}
                             <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}{% if status_filter %}&status={{ status_filter }}{% endif %}">&raquo;</a></li>

@@ -1,36 +1,36 @@
 {% extends 'base.html' %}
 {% load i18n %}
 
-{% block title %}{% trans "Πίνακας Διαχείρισης Πλατφόρμας" %}{% endblock %}
+{% block title %}{% trans "Platform Admin Dashboard" %}{% endblock %}
 
 {% block content %}
 <div class="container py-4">
     <div class="d-flex justify-content-between align-items-center">
-        <h1>{% trans "Πίνακας Διαχείρισης Πλατφόρμας" %}</h1>
+        <h1>{% trans "Platform Admin Dashboard" %}</h1>
         <a href="{% url 'platform_admin_payments' %}" class="btn btn-outline-primary">
-            <i class="bi bi-credit-card"></i> {% trans "Πληρωμές" %}
+            <i class="bi bi-credit-card"></i> {% trans "Payments" %}
         </a>
     </div>
-    <p class="text-muted">{% trans "Όλες οι επιχειρήσεις που έχουν εγγραφεί στο MenuHub - πλάνα, συνδρομές και support." %}</p>
+    <p class="text-muted">{% trans "All businesses registered on MenuHub - plans, subscriptions and support." %}</p>
 
     <form method="get" class="row g-2 mb-3 align-items-end">
         <div class="col-auto">
-            <label class="form-label small mb-1">{% trans "Αναζήτηση" %}</label>
-            <input type="text" name="q" class="form-control" placeholder="{% trans 'Όνομα χρήστη, email, επιχείρηση...' %}" value="{{ search_query }}">
+            <label class="form-label small mb-1">{% trans "Search" %}</label>
+            <input type="text" name="q" class="form-control" placeholder="{% trans 'Username, email, business...' %}" value="{{ search_query }}">
         </div>
         <div class="col-auto">
-            <label class="form-label small mb-1">{% trans "Πλάνο" %}</label>
+            <label class="form-label small mb-1">{% trans "Plan" %}</label>
             <select name="plan" class="form-select">
-                <option value="">{% trans "Όλα" %}</option>
+                <option value="">{% trans "All" %}</option>
                 {% for plan_code, plan_label in plan_choices %}
                     <option value="{{ plan_code }}" {% if plan_filter == plan_code %}selected{% endif %}>{{ plan_label }}</option>
                 {% endfor %}
             </select>
         </div>
         <div class="col-auto">
-            <button type="submit" class="btn btn-primary"><i class="bi bi-search"></i> {% trans "Φίλτρο" %}</button>
+            <button type="submit" class="btn btn-primary"><i class="bi bi-search"></i> {% trans "Filter" %}</button>
             {% if search_query or plan_filter %}
-                <a href="{% url 'platform_admin_dashboard' %}" class="btn btn-outline-secondary">{% trans "Καθαρισμός" %}</a>
+                <a href="{% url 'platform_admin_dashboard' %}" class="btn btn-outline-secondary">{% trans "Clear" %}</a>
             {% endif %}
         </div>
     </form>
@@ -41,14 +41,14 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>{% trans "Επιχείρηση" %}</th>
-                            <th>{% trans "Χρήστης" %}</th>
+                            <th>{% trans "Business" %}</th>
+                            <th>{% trans "User" %}</th>
                             <th>Email</th>
-                            <th>{% trans "Πλάνο" %}</th>
-                            <th>{% trans "Κατάσταση" %}</th>
-                            <th>{% trans "Παραγγελίες" %}</th>
-                            <th>{% trans "Έσοδα" %}</th>
-                            <th>{% trans "Εγγραφή" %}</th>
+                            <th>{% trans "Plan" %}</th>
+                            <th>{% trans "Status" %}</th>
+                            <th>{% trans "Orders" %}</th>
+                            <th>{% trans "Revenue" %}</th>
+                            <th>{% trans "Registered" %}</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -65,23 +65,23 @@
                                 </td>
                                 <td>
                                     {% if business.subscription_active %}
-                                        <span class="badge bg-success-subtle text-success">{% trans "Ενεργό" %}</span>
+                                        <span class="badge bg-success-subtle text-success">{% trans "Active" %}</span>
                                     {% else %}
-                                        <span class="badge bg-danger-subtle text-danger">{% trans "Ανενεργό" %}</span>
+                                        <span class="badge bg-danger-subtle text-danger">{% trans "Inactive" %}</span>
                                     {% endif %}
                                 </td>
                                 <td>{{ business.order_count }}</td>
-                                <td>{{ business.total_revenue|default:0|floatformat:2 }}€</td>
+                                <td>${{ business.total_revenue|default:0|floatformat:2 }}</td>
                                 <td>{{ business.created_at|date:"d/m/Y" }}</td>
                                 <td>
                                     <a href="{% url 'platform_admin_business_detail' business.id %}" class="btn btn-sm btn-primary">
-                                        {% trans "Διαχείριση" %}
+                                        {% trans "Manage" %}
                                     </a>
                                 </td>
                             </tr>
                         {% empty %}
                             <tr>
-                                <td colspan="9" class="text-center text-muted">{% trans "Δεν βρέθηκαν επιχειρήσεις" %}</td>
+                                <td colspan="9" class="text-center text-muted">{% trans "No businesses found" %}</td>
                             </tr>
                         {% endfor %}
                     </tbody>
@@ -89,7 +89,7 @@
             </div>
 
             {% if page_obj.paginator.num_pages > 1 %}
-                <nav aria-label="{% trans 'Σελιδοποίηση επιχειρήσεων' %}">
+                <nav aria-label="{% trans 'Business pagination' %}">
                     <ul class="pagination mb-0">
                         {% if page_obj.has_previous %}
                             <li class="page-item">
@@ -97,7 +97,7 @@
                             </li>
                         {% endif %}
                         <li class="page-item disabled">
-                            <span class="page-link">{% blocktrans with current=page_obj.number total=page_obj.paginator.num_pages %}Σελίδα {{ current }} από {{ total }}{% endblocktrans %}</span>
+                            <span class="page-link">{% blocktrans with current=page_obj.number total=page_obj.paginator.num_pages %}Page {{ current }} of {{ total }}{% endblocktrans %}</span>
                         </li>
                         {% if page_obj.has_next %}
                             <li class="page-item">

@@ -1,16 +1,16 @@
 {% extends 'base.html' %}
 {% load i18n %}
 
-{% block title %}{% trans "Στατιστικά" %} - {{ restaurant.name }}{% endblock %}
+{% block title %}{% trans "Statistics" %} - {{ restaurant.name }}{% endblock %}
 
 {% block content %}
 <div class="container py-5 text-center">
     <i class="bi bi-graph-up display-1 text-primary"></i>
-    <h1 class="mt-3">{% trans "Τα στατιστικά είναι διαθέσιμα στο πλάνο Business" %}</h1>
+    <h1 class="mt-3">{% trans "Statistics are available on the Business plan" %}</h1>
     <p class="lead text-muted">
-        {% blocktrans %}Αναβάθμισε στο Business πλάνο για να δεις έσοδα ημέρας/εβδομάδας/μήνα,
-        δημοφιλή προϊόντα και τάσεις πωλήσεων.{% endblocktrans %}
+        {% blocktrans %}Upgrade to the Business plan to see daily/weekly/monthly revenue,
+        popular products and sales trends.{% endblocktrans %}
     </p>
-    <a href="{% url 'restaurant_settings' %}" class="btn btn-primary btn-lg mt-3">{% trans "Δες τα πλάνα" %}</a>
+    <a href="{% url 'restaurant_settings' %}" class="btn btn-primary btn-lg mt-3">{% trans "View plans" %}</a>
 </div>
 {% endblock %}

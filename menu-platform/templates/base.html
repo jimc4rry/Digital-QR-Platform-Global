@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}{% blocktrans %}MenuHub - Ψηφιακά Μενού QR Code για Εστιατόρια & Καφέ{% endblocktrans %}{% endblock %}</title>
-    <meta name="description" content="{% block meta_description %}{% blocktrans %}Δημιούργησε το ψηφιακό μενού QR code του εστιατορίου ή καφέ σου σε 5 λεπτά. Χωρίς εκτυπώσεις, άμεση ενημέρωση τιμών, παραγγελίες από το τραπέζι.{% endblocktrans %}{% endblock %}">
+    <title>{% block title %}{% blocktrans %}MenuHub - Digital QR Code Menus for Restaurants & Cafes{% endblocktrans %}{% endblock %}</title>
+    <meta name="description" content="{% block meta_description %}{% blocktrans %}Create your restaurant or cafe's digital QR code menu in 5 minutes. No printing, instant price updates, orders straight from the table.{% endblocktrans %}{% endblock %}">
     <link rel="canonical" href="{% block canonical_url %}{{ request.scheme }}://{{ request.get_host }}{{ request.path }}{% endblock %}">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="MenuHub">
-    <meta property="og:title" content="{% block og_title %}{% blocktrans %}MenuHub - Ψηφιακά Μενού QR Code{% endblocktrans %}{% endblock %}">
-    <meta property="og:description" content="{% block og_description %}{% blocktrans %}Δημιούργησε το ψηφιακό μενού QR code του εστιατορίου ή καφέ σου σε 5 λεπτά.{% endblocktrans %}{% endblock %}">
+    <meta property="og:title" content="{% block og_title %}{% blocktrans %}MenuHub - Digital QR Code Menus{% endblocktrans %}{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}{% blocktrans %}Create your restaurant or cafe's digital QR code menu in 5 minutes.{% endblocktrans %}{% endblock %}">
     <meta property="og:url" content="{% block og_url %}{{ request.scheme }}://{{ request.get_host }}{{ request.path }}{% endblock %}">
     <meta name="twitter:card" content="summary">
 
@@ -100,30 +100,30 @@
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'home' %}">
-                            <i class="bi bi-house"></i> {% trans "Αρχική" %}
+                            <i class="bi bi-house"></i> {% trans "Home" %}
                         </a>
                     </li>
                     {% if staff_role %}
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'restaurant_dashboard' %}">
-                                <i class="bi bi-speedometer2"></i> {% trans "Πίνακας" %}
+                                <i class="bi bi-speedometer2"></i> {% trans "Dashboard" %}
                             </a>
                         </li>
                         {% if can_manage_menu %}
                             <li class="nav-item">
                                 <a class="nav-link" href="{% url 'category_list' %}">
-                                    <i class="bi bi-grid"></i> {% trans "Κατηγορίες" %}
+                                    <i class="bi bi-grid"></i> {% trans "Categories" %}
                                 </a>
                             </li>
                         {% endif %}
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'product_list' %}">
-                                <i class="bi bi-box"></i> {% trans "Προϊόντα" %}
+                                <i class="bi bi-box"></i> {% trans "Products" %}
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'order_list' %}">
-                                <i class="bi bi-bag"></i> {% trans "Παραγγελίες" %}
+                                <i class="bi bi-bag"></i> {% trans "Orders" %}
                                 {% if restaurant_accepts_orders %}
                                     <span id="pending-orders-badge" class="badge bg-danger rounded-pill d-none"></span>
                                 {% endif %}
@@ -132,12 +132,12 @@
                         {% if can_use_pro_features %}
                             <li class="nav-item">
                                 <a class="nav-link" href="{% url 'table_list' %}">
-                                    <i class="bi bi-qr-code"></i> {% trans "Τραπέζια" %}
+                                    <i class="bi bi-qr-code"></i> {% trans "Tables & Sunbeds" %}
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{% url 'promo_code_list' %}">
-                                    <i class="bi bi-tag"></i> {% trans "Κωδικοί Έκπτωσης" %}
+                                    <i class="bi bi-tag"></i> {% trans "Promo Codes" %}
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -149,14 +149,14 @@
                         {% if can_view_stats %}
                             <li class="nav-item">
                                 <a class="nav-link" href="{% url 'stats_dashboard' %}">
-                                    <i class="bi bi-graph-up"></i> {% trans "Στατιστικά" %}
+                                    <i class="bi bi-graph-up"></i> {% trans "Statistics" %}
                                 </a>
                             </li>
                         {% endif %}
                         {% if can_manage_staff %}
                             <li class="nav-item">
                                 <a class="nav-link" href="{% url 'staff_list' %}">
-                                    <i class="bi bi-people"></i> {% trans "Προσωπικό" %}
+                                    <i class="bi bi-people"></i> {% trans "Staff" %}
                                 </a>
                             </li>
                         {% endif %}
@@ -164,7 +164,7 @@
                     {% if user.is_superuser %}
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'platform_admin_dashboard' %}">
-                                <i class="bi bi-hdd-network"></i> {% trans "Διαχείριση Πλατφόρμας" %}
+                                <i class="bi bi-hdd-network"></i> {% trans "Platform Administration" %}
                             </a>
                         </li>
                     {% endif %}
@@ -177,11 +177,11 @@
                                     <i class="bi bi-gear"></i> {{ user.username }}
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end">
-                                    <li><a class="dropdown-item" href="{% url 'profile' %}"><i class="bi bi-person"></i> {% trans "Το Προφίλ μου" %}</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'profile' %}"><i class="bi bi-person"></i> {% trans "My Profile" %}</a></li>
                                     {% if can_manage_menu %}
-                                        <li><a class="dropdown-item" href="{% url 'restaurant_settings' %}"><i class="bi bi-shop"></i> {% trans "Ρυθμίσεις Εστιατορίου" %}</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'restaurant_settings' %}"><i class="bi bi-shop"></i> {% trans "Restaurant Settings" %}</a></li>
                                     {% endif %}
-                                    <li><a class="dropdown-item" href="{% url 'password_change' %}"><i class="bi bi-key"></i> {% trans "Αλλαγή Κωδικού" %}</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'password_change' %}"><i class="bi bi-key"></i> {% trans "Change Password" %}</a></li>
                                 </ul>
                             </li>
                         {% endif %}
@@ -189,16 +189,16 @@
                             <form method="post" action="{% url 'logout' %}" class="d-flex">
                                 {% csrf_token %}
                                 <button type="submit" class="nav-link border-0 bg-transparent">
-                                    <i class="bi bi-box-arrow-right"></i> {% trans "Αποσύνδεση" %}
+                                    <i class="bi bi-box-arrow-right"></i> {% trans "Log Out" %}
                                 </button>
                             </form>
                         </li>
                     {% else %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'login' %}">{% trans "Σύνδεση" %}</a>
+                            <a class="nav-link" href="{% url 'login' %}">{% trans "Log In" %}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'signup' %}">{% trans "Εγγραφή" %}</a>
+                            <a class="nav-link" href="{% url 'signup' %}">{% trans "Sign Up" %}</a>
                         </li>
                     {% endif %}
                 </ul>
@@ -226,7 +226,7 @@
             <p class="mb-0">MenuHub - {% trans "Digital Menus for Restaurants & Cafes" %}</p>
             <small>
                 &copy; 2026 {% trans "All Rights Reserved" %}
-                &middot; <a href="{% url 'terms' %}" class="text-white-50">{% trans "Όροι Χρήσης" %}</a>
+                &middot; <a href="{% url 'terms' %}" class="text-white-50">{% trans "Terms of Use" %}</a>
             </small>
         </div>
     </footer>

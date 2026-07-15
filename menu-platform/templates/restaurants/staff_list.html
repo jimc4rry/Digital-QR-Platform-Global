@@ -1,28 +1,28 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags i18n %}
 
-{% block title %}{% trans "Προσωπικό" %} - {{ restaurant.name }}{% endblock %}
+{% block title %}{% trans "Staff" %} - {{ restaurant.name }}{% endblock %}
 
 {% block content %}
 <div class="container py-4">
-    <h1>{% trans "Προσωπικό" %}</h1>
-    <p class="text-muted">{% blocktrans %}Δημιούργησε λογαριασμούς για το προσωπικό σου. Ο "Διαχειριστής" έχει πρόσβαση σχεδόν σε όλα εκτός από τη διαχείριση προσωπικού. Ο "Υπάλληλος" βλέπει μόνο τα προϊόντα και διαχειρίζεται τις παραγγελίες.{% endblocktrans %}</p>
+    <h1>{% trans "Staff" %}</h1>
+    <p class="text-muted">{% blocktrans %}Create accounts for your staff. The "Admin" has access to almost everything except staff management. The "Employee" only sees the products and manages orders.{% endblocktrans %}</p>
     <div class="row">
         <div class="col-md-4">
             <div class="card">
-                <div class="card-header">{% trans "Νέος Λογαριασμός" %}</div>
+                <div class="card-header">{% trans "New Account" %}</div>
                 <div class="card-body">
                     <form method="post">
                         {% csrf_token %}
                         {{ form|crispy }}
-                        <button type="submit" class="btn btn-primary w-100">{% trans "Δημιουργία" %}</button>
+                        <button type="submit" class="btn btn-primary w-100">{% trans "Create" %}</button>
                     </form>
                 </div>
             </div>
         </div>
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{% trans "Λίστα Προσωπικού" %}</div>
+                <div class="card-header">{% trans "Staff List" %}</div>
                 <div class="card-body">
                     <ul class="list-group">
                         {% for staff in staff_members %}
@@ -35,13 +35,13 @@
                                 </div>
                                 <form method="post" action="{% url 'staff_delete' staff.id %}" style="display:inline;">
                                     {% csrf_token %}
-                                    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('{% trans "Σίγουρα θέλεις να αφαιρέσεις αυτόν τον λογαριασμό;" %}')">
+                                    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('{% trans "Are you sure you want to remove this account?" %}')">
                                         <i class="bi bi-trash"></i>
                                     </button>
                                 </form>
                             </li>
                         {% empty %}
-                            <li class="list-group-item text-center text-muted">{% trans "Δεν υπάρχει ακόμα προσωπικό" %}</li>
+                            <li class="list-group-item text-center text-muted">{% trans "No staff yet" %}</li>
                         {% endfor %}
                     </ul>
                 </div>

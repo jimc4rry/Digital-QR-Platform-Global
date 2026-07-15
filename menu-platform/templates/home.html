@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 {% load static i18n %}
 
-{% block title %}{% blocktrans %}MenuHub - Ψηφιακό Μενού QR Code για Εστιατόρια, Καφέ & Μπαρ{% endblocktrans %}{% endblock %}
-{% block meta_description %}{% blocktrans %}Δημιούργησε το ψηφιακό μενού QR code του εστιατορίου, καφέ ή μπαρ σου σε 5 λεπτά. Χωρίς εκτυπώσεις, άμεση ενημέρωση τιμών, ετικέτες διατροφής και παραγγελίες από το τραπέζι. Από €7/μήνα.{% endblocktrans %}{% endblock %}
-{% block og_title %}{% blocktrans %}MenuHub - Ψηφιακό Μενού QR Code για Εστιατόρια & Καφέ{% endblocktrans %}{% endblock %}
-{% block og_description %}{% blocktrans %}Δημιούργησε το ψηφιακό σου μενού σε 5 λεπτά. Αυτόματο QR code, live ενημέρωση τιμών, ετικέτες διατροφής, παραγγελίες από το τραπέζι.{% endblocktrans %}{% endblock %}
+{% block title %}{% blocktrans %}MenuHub - Digital QR Code Menu for Restaurants, Cafes & Bars{% endblocktrans %}{% endblock %}
+{% block meta_description %}{% blocktrans %}Create your restaurant, cafe or bar's digital QR code menu in 5 minutes. No printing, instant price updates, dietary labels and table-side ordering. From $7/month.{% endblocktrans %}{% endblock %}
+{% block og_title %}{% blocktrans %}MenuHub - Digital QR Code Menu for Restaurants & Cafes{% endblocktrans %}{% endblock %}
+{% block og_description %}{% blocktrans %}Create your digital menu in 5 minutes. Automatic QR code, live price updates, dietary labels, table-side ordering.{% endblocktrans %}{% endblock %}
 
 {% block structured_data %}
 <script type="application/ld+json">
@@ -329,26 +329,26 @@
         <div class="container">
             <div class="row align-items-center g-5">
                 <div class="col-lg-6">
-                    <span class="lp-eyebrow"><i class="bi bi-qr-code"></i> {% trans "Ψηφιακό μενού με QR code" %}</span>
-                    <h1>{% trans "Το μενού του εστιατορίου σου," %} <br class="d-none d-lg-block">{% trans "πάντα ενημερωμένο" %}</h1>
+                    <span class="lp-eyebrow"><i class="bi bi-qr-code"></i> {% trans "Digital menu with QR code" %}</span>
+                    <h1>{% trans "Your restaurant's menu," %} <br class="d-none d-lg-block">{% trans "always up to date" %}</h1>
                     <p class="lead mt-3">
-                        {% blocktrans trimmed %}Δημιούργησε ένα ψηφιακό μενού QR code για το εστιατόριο, καφέ ή μπαρ σου σε λίγα λεπτά. Αλλάζεις τιμές και προϊόντα όποτε θες, χωρίς νέα εκτύπωση, και δέχεσαι παραγγελίες απευθείας από το τραπέζι.{% endblocktrans %}
+                        {% blocktrans trimmed %}Create a digital QR code menu for your restaurant, cafe or bar in just a few minutes. Change prices and products whenever you like, with no reprinting, and accept orders directly from the table.{% endblocktrans %}
                     </p>
                     <div class="d-flex flex-wrap gap-3 mt-4">
-                        <a href="{% url 'signup' %}" class="btn btn-lp-primary btn-lg">{% trans "Δημιούργησε το μενού σου" %}</a>
-                        <a href="#pricing" class="btn btn-lp-outline btn-lg">{% trans "Δες τα πλάνα" %}</a>
+                        <a href="{% url 'signup' %}" class="btn btn-lp-primary btn-lg">{% trans "Create your menu" %}</a>
+                        <a href="#pricing" class="btn btn-lp-outline btn-lg">{% trans "See the plans" %}</a>
                     </div>
                     <div class="d-flex flex-wrap gap-4 mt-4 text-muted-lp small">
-                        <span><i class="bi bi-check2-circle text-primary"></i> {% trans "Χωρίς εκτυπώσεις" %}</span>
-                        <span><i class="bi bi-check2-circle text-primary"></i> {% trans "Έτοιμο σε 5 λεπτά" %}</span>
-                        <span><i class="bi bi-check2-circle text-primary"></i> {% trans "Λειτουργεί σε κάθε κινητό" %}</span>
+                        <span><i class="bi bi-check2-circle text-primary"></i> {% trans "No printing" %}</span>
+                        <span><i class="bi bi-check2-circle text-primary"></i> {% trans "Ready in 5 minutes" %}</span>
+                        <span><i class="bi bi-check2-circle text-primary"></i> {% trans "Works on every phone" %}</span>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="lp-phone">
                         <div class="lp-phone-header">
-                            <div class="fw-bold">{% trans "Το Εστιατόριό σου" %}</div>
-                            <small>{% trans "Κατηγορία Μενού" %}</small>
+                            <div class="fw-bold">{% trans "Your Restaurant" %}</div>
+                            <small>{% trans "Menu Category" %}</small>
                         </div>
                         <div class="lp-phone-body">
                             <div class="lp-phone-item">
@@ -368,7 +368,7 @@
                                 <span class="badge bg-primary rounded-pill">$4.50</span>
                             </div>
                             <div class="text-center mt-3">
-                                <span class="badge bg-success">{% trans "Δέχεται παραγγελίες" %}</span>
+                                <span class="badge bg-success">{% trans "Accepts orders" %}</span>
                             </div>
                         </div>
                     </div>
@@ -381,29 +381,29 @@
     <section class="lp-section lp-section-soft">
         <div class="container">
             <div class="lp-section-head">
-                <h2>{% trans "Πώς λειτουργεί" %}</h2>
-                <p>{% trans "Από την εγγραφή μέχρι το πρώτο σκανάρισμα, χωρίς καμία τεχνική γνώση." %}</p>
+                <h2>{% trans "How it works" %}</h2>
+                <p>{% trans "From sign-up to the first scan, with no technical knowledge required." %}</p>
             </div>
             <div class="row g-4">
                 <div class="col-md-4">
                     <div class="lp-card">
                         <div class="lp-step-number">1</div>
-                        <h3 class="h5">{% trans "Δημιούργησε το μενού σου" %}</h3>
-                        <p class="text-muted-lp mb-0">{% trans "Πρόσθεσε κατηγορίες και προϊόντα με τιμές, φωτογραφίες και ετικέτες διατροφής (vegan, χωρίς γλουτένη, πικάντικο)." %}</p>
+                        <h3 class="h5">{% trans "Create your menu" %}</h3>
+                        <p class="text-muted-lp mb-0">{% trans "Add categories and products with prices, photos and dietary labels (vegan, gluten-free, spicy)." %}</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="lp-card">
                         <div class="lp-step-number">2</div>
-                        <h3 class="h5">{% trans "Πάρε το QR code σου" %}</h3>
-                        <p class="text-muted-lp mb-0">{% trans "Το QR code δημιουργείται αυτόματα. Τύπωσέ το μία φορά σε ταμπελάκι ή τραπέζι — οι πελάτες το σκανάρουν με την κάμερα του κινητού τους και βλέπουν αμέσως το μενού, χωρίς εφαρμογή." %}</p>
+                        <h3 class="h5">{% trans "Get your QR code" %}</h3>
+                        <p class="text-muted-lp mb-0">{% trans "The QR code is generated automatically. Print it once on a sign or table — customers scan it with their phone camera and see the menu instantly, no app needed." %}</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="lp-card">
                         <div class="lp-step-number">3</div>
-                        <h3 class="h5">{% trans "Σέρβιρε & δέχσου παραγγελίες" %}</h3>
-                        <p class="text-muted-lp mb-0">{% trans "Με το πλάνο Pro ή Business, οι πελάτες μπορούν να παραγγείλουν κατευθείαν από το κινητό τους σκανάροντας το QR του τραπεζιού, χωρίς να χρειαστεί να σηκωθούν." %}</p>
+                        <h3 class="h5">{% trans "Serve & take orders" %}</h3>
+                        <p class="text-muted-lp mb-0">{% trans "With the Pro or Business plan, customers can order directly from their phone by scanning the table's QR code, without needing to get up." %}</p>
                     </div>
                 </div>
             </div>
@@ -414,50 +414,50 @@
     <section class="lp-section">
         <div class="container">
             <div class="lp-section-head">
-                <h2>{% trans "Όλα όσα χρειάζεται το μενού σου" %}</h2>
-                <p>{% trans "Εργαλεία σχεδιασμένα ειδικά για εστιατόρια, καφέ και μπαρ." %}</p>
+                <h2>{% trans "Everything your menu needs" %}</h2>
+                <p>{% trans "Tools designed specifically for restaurants, cafes and bars." %}</p>
             </div>
             <div class="row g-4">
                 <div class="col-md-6 col-lg-4">
                     <div class="lp-card">
                         <div class="lp-icon-circle"><i class="bi bi-qr-code-scan"></i></div>
-                        <h3 class="h6">{% trans "Αυτόματο QR Code" %}</h3>
-                        <p class="text-muted-lp mb-0 small">{% trans "Κάθε εστιατόριο παίρνει το δικό του μοναδικό QR code, έτοιμο για εκτύπωση, χωρίς επιπλέον βήματα." %}</p>
+                        <h3 class="h6">{% trans "Automatic QR Code" %}</h3>
+                        <p class="text-muted-lp mb-0 small">{% trans "Every restaurant gets its own unique QR code, ready to print, with no extra steps." %}</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
                     <div class="lp-card">
                         <div class="lp-icon-circle"><i class="bi bi-grid-3x3-gap"></i></div>
-                        <h3 class="h6">{% trans "Οργάνωση σε κατηγορίες" %}</h3>
-                        <p class="text-muted-lp mb-0 small">{% trans "Χώρισε το μενού σε κατηγορίες (ορεκτικά, κυρίως, ποτά) με τη σειρά εμφάνισης που θέλεις." %}</p>
+                        <h3 class="h6">{% trans "Organized into categories" %}</h3>
+                        <p class="text-muted-lp mb-0 small">{% trans "Split your menu into categories (appetizers, mains, drinks) in the display order you want." %}</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
                     <div class="lp-card">
                         <div class="lp-icon-circle"><i class="bi bi-flower1"></i></div>
-                        <h3 class="h6">{% trans "Ετικέτες διατροφής" %}</h3>
-                        <p class="text-muted-lp mb-0 small">{% trans "Σήμανε πιάτα ως vegan, vegetarian, χωρίς γλουτένη ή πικάντικα, ώστε οι πελάτες να διαλέγουν εύκολα." %}</p>
+                        <h3 class="h6">{% trans "Dietary labels" %}</h3>
+                        <p class="text-muted-lp mb-0 small">{% trans "Mark dishes as vegan, vegetarian, gluten-free or spicy, so customers can choose easily." %}</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
                     <div class="lp-card">
                         <div class="lp-icon-circle"><i class="bi bi-bag-check"></i></div>
-                        <h3 class="h6">{% trans "Παραγγελίες από το τραπέζι" %}</h3>
-                        <p class="text-muted-lp mb-0 small">{% trans "Με το πλάνο Pro ή Business, οι πελάτες στέλνουν παραγγελία απευθείας από το κινητό τους." %}</p>
+                        <h3 class="h6">{% trans "Orders from the table" %}</h3>
+                        <p class="text-muted-lp mb-0 small">{% trans "With the Pro or Business plan, customers send their order directly from their phone." %}</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
                     <div class="lp-card">
                         <div class="lp-icon-circle"><i class="bi bi-speedometer2"></i></div>
-                        <h3 class="h6">{% trans "Dashboard διαχείρισης" %}</h3>
-                        <p class="text-muted-lp mb-0 small">{% trans "Δες παραγγελίες, ενημέρωσε την κατάστασή τους και παρακολούθησε τα προϊόντα σου σε ένα σημείο." %}</p>
+                        <h3 class="h6">{% trans "Management Dashboard" %}</h3>
+                        <p class="text-muted-lp mb-0 small">{% trans "See orders, update their status and keep track of your products all in one place." %}</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
                     <div class="lp-card">
                         <div class="lp-icon-circle"><i class="bi bi-phone"></i></div>
-                        <h3 class="h6">{% trans "Φιλικό σε κινητά" %}</h3>
-                        <p class="text-muted-lp mb-0 small">{% trans "Το μενού ανοίγει άμεσα στον browser κάθε κινητού, χωρίς εγκατάσταση εφαρμογής." %}</p>
+                        <h3 class="h6">{% trans "Mobile friendly" %}</h3>
+                        <p class="text-muted-lp mb-0 small">{% trans "The menu opens instantly in any phone's browser, with no app installation." %}</p>
                     </div>
                 </div>
             </div>
@@ -468,14 +468,14 @@
     <section class="lp-section lp-section-soft" id="pricing">
         <div class="container">
             <div class="lp-section-head">
-                <h2>{% trans "Απλή τιμολόγηση" %}</h2>
-                <p>{% trans "Ξεκίνα με το Basic ή πήγαινε Pro/Business για παραγγελίες, loyalty και στατιστικά." %}</p>
+                <h2>{% trans "Simple pricing" %}</h2>
+                <p>{% trans "Start with Basic or go Pro/Business for orders, loyalty and statistics." %}</p>
             </div>
             {% with current_plan=active_restaurant.user.subscription_plan %}
             <div class="row g-4 justify-content-center">
                 <div class="col-md-6 col-lg-4">
                     <div class="lp-pricing-card">
-                        <h3 class="h5">Basic {% if user.is_authenticated and current_plan == 'basic' %}<span class="badge bg-success">{% trans "Το πλάνο σου" %}</span>{% endif %}</h3>
+                        <h3 class="h5">Basic {% if user.is_authenticated and current_plan == 'basic' %}<span class="badge bg-success">{% trans "Your plan" %}</span>{% endif %}</h3>
                         <div class="price">$7<span>/{% trans "month" %}</span></div>
                         <ul>
                             <li><i class="bi bi-check2-circle"></i> {% trans "Unlimited categories & products" %}</li>
@@ -486,21 +486,21 @@
                         </ul>
                         {% if user.is_authenticated %}
                             {% if current_plan == 'basic' %}
-                                <span class="btn btn-lp-outline w-100 disabled">{% trans "Το τρέχον πλάνο σου" %}</span>
+                                <span class="btn btn-lp-outline w-100 disabled">{% trans "Your current plan" %}</span>
                             {% elif current_plan == 'pro' or current_plan == 'business' %}
-                                <span class="btn btn-lp-outline w-100 disabled text-muted">{% trans "Περιλαμβάνεται στο πλάνο σου" %}</span>
+                                <span class="btn btn-lp-outline w-100 disabled text-muted">{% trans "Included in your plan" %}</span>
                             {% else %}
-                                <a href="{% url 'profile' %}" class="btn btn-lp-outline w-100">{% trans "Δες το προφίλ σου" %}</a>
+                                <a href="{% url 'profile' %}" class="btn btn-lp-outline w-100">{% trans "See your profile" %}</a>
                             {% endif %}
                         {% else %}
-                            <a href="{% url 'signup' %}" class="btn btn-lp-outline w-100">{% trans "Ξεκίνα με το Basic" %}</a>
+                            <a href="{% url 'signup' %}" class="btn btn-lp-outline w-100">{% trans "Start with Basic" %}</a>
                         {% endif %}
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
                     <div class="lp-pricing-card featured">
-                        <span class="lp-badge-featured">{% trans "Πιο δημοφιλές" %}</span>
-                        <h3 class="h5">Pro {% if user.is_authenticated and current_plan == 'pro' %}<span class="badge bg-success">{% trans "Το πλάνο σου" %}</span>{% endif %}</h3>
+                        <span class="lp-badge-featured">{% trans "Most popular" %}</span>
+                        <h3 class="h5">Pro {% if user.is_authenticated and current_plan == 'pro' %}<span class="badge bg-success">{% trans "Your plan" %}</span>{% endif %}</h3>
                         <div class="price">$19<span>/{% trans "month" %}</span></div>
                         <ul>
                             <li><i class="bi bi-check2-circle"></i> {% trans "Everything in Basic" %}</li>
@@ -512,20 +512,20 @@
                         </ul>
                         {% if user.is_authenticated %}
                             {% if current_plan == 'pro' %}
-                                <span class="btn btn-lp-primary w-100 disabled">{% trans "Το τρέχον πλάνο σου" %}</span>
+                                <span class="btn btn-lp-primary w-100 disabled">{% trans "Your current plan" %}</span>
                             {% elif current_plan == 'business' %}
-                                <span class="btn btn-lp-outline w-100 disabled text-muted">{% trans "Περιλαμβάνεται στο πλάνο σου" %}</span>
+                                <span class="btn btn-lp-outline w-100 disabled text-muted">{% trans "Included in your plan" %}</span>
                             {% else %}
-                                <a href="{% url 'checkout' %}?plan=pro" class="btn btn-lp-primary w-100">{% trans "Αναβάθμιση σε Pro" %}</a>
+                                <a href="{% url 'checkout' %}?plan=pro" class="btn btn-lp-primary w-100">{% trans "Upgrade to Pro" %}</a>
                             {% endif %}
                         {% else %}
-                            <a href="{% url 'signup' %}" class="btn btn-lp-primary w-100">{% trans "Ξεκίνα με το Pro" %}</a>
+                            <a href="{% url 'signup' %}" class="btn btn-lp-primary w-100">{% trans "Start with Pro" %}</a>
                         {% endif %}
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
                     <div class="lp-pricing-card">
-                        <h3 class="h5">Business {% if user.is_authenticated and current_plan == 'business' %}<span class="badge bg-success">{% trans "Το πλάνο σου" %}</span>{% endif %}</h3>
+                        <h3 class="h5">Business {% if user.is_authenticated and current_plan == 'business' %}<span class="badge bg-success">{% trans "Your plan" %}</span>{% endif %}</h3>
                         <div class="price">$39<span>/{% trans "month" %}</span></div>
                         <ul>
                             <li><i class="bi bi-check2-circle"></i> {% trans "Everything in Pro" %}</li>
@@ -536,12 +536,12 @@
                         </ul>
                         {% if user.is_authenticated %}
                             {% if current_plan == 'business' %}
-                                <span class="btn btn-lp-outline w-100 disabled">{% trans "Το τρέχον πλάνο σου" %}</span>
+                                <span class="btn btn-lp-outline w-100 disabled">{% trans "Your current plan" %}</span>
                             {% else %}
-                                <a href="{% url 'checkout' %}?plan=business" class="btn btn-lp-outline w-100">{% trans "Αναβάθμιση σε Business" %}</a>
+                                <a href="{% url 'checkout' %}?plan=business" class="btn btn-lp-outline w-100">{% trans "Upgrade to Business" %}</a>
                             {% endif %}
                         {% else %}
-                            <a href="{% url 'signup' %}" class="btn btn-lp-outline w-100">{% trans "Ξεκίνα με το Business" %}</a>
+                            <a href="{% url 'signup' %}" class="btn btn-lp-outline w-100">{% trans "Start with Business" %}</a>
                         {% endif %}
                     </div>
                 </div>
@@ -554,8 +554,8 @@
     <section class="lp-section">
         <div class="container">
             <div class="lp-section-head">
-                <h2>{% trans "Συχνές ερωτήσεις" %}</h2>
-                <p>{% trans "Ό,τι χρειάζεται να ξέρεις πριν ξεκινήσεις." %}</p>
+                <h2>{% trans "Frequently asked questions" %}</h2>
+                <p>{% trans "Everything you need to know before you start." %}</p>
             </div>
             <div class="row justify-content-center">
                 <div class="col-lg-8">
@@ -563,72 +563,72 @@
                         <div class="accordion-item">
                             <h3 class="accordion-header">
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
-                                    {% trans "Τι είναι το ψηφιακό μενού με QR code;" %}
+                                    {% trans "What is a digital menu with QR code?" %}
                                 </button>
                             </h3>
                             <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
                                 <div class="accordion-body text-muted-lp">
-                                    {% trans "Είναι ένα μενού εστιατορίου που βλέπουν οι πελάτες σκανάροντας έναν κωδικό QR με το κινητό τους, χωρίς να χρειάζεται εγκατάσταση εφαρμογής. Το μενού ανοίγει άμεσα στον browser του κινητού." %}
+                                    {% trans "It's a restaurant menu that customers view by scanning a QR code with their phone, with no app install required. The menu opens instantly in the phone's browser." %}
                                 </div>
                             </div>
                         </div>
                         <div class="accordion-item">
                             <h3 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
-                                    {% trans "Πόσο κοστίζει το MenuHub;" %}
+                                    {% trans "How much does MenuHub cost?" %}
                                 </button>
                             </h3>
                             <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                                 <div class="accordion-body text-muted-lp">
-                                    {% trans "Το Basic πλάνο ξεκινά από €7/μήνα και περιλαμβάνει απεριόριστες κατηγορίες και προϊόντα με αυτόματο QR code. Το Pro πλάνο κοστίζει €19/μήνα και προσθέτει παραγγελίες από το τραπέζι, loyalty πόντους και κωδικούς έκπτωσης, με μηδενική προμήθεια. Το Business πλάνο κοστίζει €39/μήνα και προσθέτει στατιστικά, αναφορές και διαχείριση προσωπικού." %}
+                                    {% trans "The Basic plan starts at $7/month and includes unlimited categories and products with an automatic QR code. The Pro plan costs $19/month and adds table-side ordering, loyalty points and discount codes, with zero commission. The Business plan costs $39/month and adds statistics, reports and staff management." %}
                                 </div>
                             </div>
                         </div>
                         <div class="accordion-item">
                             <h3 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
-                                    {% trans "Χρειάζομαι γνώσεις προγραμματισμού;" %}
+                                    {% trans "Do I need programming skills?" %}
                                 </button>
                             </h3>
                             <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                                 <div class="accordion-body text-muted-lp">
-                                    {% trans "Όχι. Η δημιουργία μενού γίνεται μέσω απλής φόρμας: προσθέτεις κατηγορίες, προϊόντα, τιμές και φωτογραφίες, και το QR code δημιουργείται αυτόματα." %}
+                                    {% trans "No. Creating a menu is done through a simple form: you add categories, products, prices and photos, and the QR code is generated automatically." %}
                                 </div>
                             </div>
                         </div>
                         <div class="accordion-item">
                             <h3 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
-                                    {% trans "Μπορώ να δέχομαι παραγγελίες από το τραπέζι;" %}
+                                    {% trans "Can I accept orders from the table?" %}
                                 </button>
                             </h3>
                             <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                                 <div class="accordion-body text-muted-lp">
-                                    {% trans "Ναι, με το πλάνο Pro ή Business οι πελάτες μπορούν να στείλουν παραγγελία απευθείας από το ψηφιακό μενού σκανάροντας το QR του τραπεζιού τους, την οποία βλέπεις σε πραγματικό χρόνο στο dashboard διαχείρισης παραγγελιών." %}
+                                    {% trans "Yes, with the Pro or Business plan customers can send an order directly from the digital menu by scanning their table's QR code, which you see in real time on the order management dashboard." %}
                                 </div>
                             </div>
                         </div>
                         <div class="accordion-item">
                             <h3 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
-                                    {% trans "Πόσο γρήγορα ενημερώνονται οι τιμές στο μενού;" %}
+                                    {% trans "How quickly do menu prices update?" %}
                                 </button>
                             </h3>
                             <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                                 <div class="accordion-body text-muted-lp">
-                                    {% trans "Άμεσα. Όταν αλλάξεις μια τιμή ή προσθέσεις ένα προϊόν από το dashboard, η αλλαγή εμφανίζεται αμέσως στο μενού που βλέπουν οι πελάτες, χωρίς νέα εκτύπωση." %}
+                                    {% trans "Instantly. When you change a price or add a product from the dashboard, the change appears immediately on the menu customers see, with no reprinting needed." %}
                                 </div>
                             </div>
                         </div>
                         <div class="accordion-item">
                             <h3 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">
-                                    {% trans "Το μενού λειτουργεί σε όλα τα κινητά;" %}
+                                    {% trans "Does the menu work on all phones?" %}
                                 </button>
                             </h3>
                             <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                                 <div class="accordion-body text-muted-lp">
-                                    {% trans "Ναι, το ψηφιακό μενού είναι πλήρως προσαρμοσμένο (mobile-first) και ανοίγει κανονικά στον browser οποιουδήποτε κινητού, χωρίς να απαιτείται εγκατάσταση εφαρμογής." %}
+                                    {% trans "Yes, the digital menu is fully mobile-first and opens correctly in any phone's browser, with no app installation required." %}
                                 </div>
                             </div>
                         </div>
@@ -642,9 +642,9 @@
     <section class="lp-section">
         <div class="container">
             <div class="lp-cta">
-                <h2>{% trans "Έτοιμος να ψηφιοποιήσεις το μενού σου;" %}</h2>
-                <p class="mb-4">{% trans "Δημιούργησε λογαριασμό και πάρε το QR code του μενού σου σήμερα." %}</p>
-                <a href="{% url 'signup' %}" class="btn btn-lp-primary btn-lg">{% trans "Δημιούργησε λογαριασμό" %}</a>
+                <h2>{% trans "Ready to digitize your menu?" %}</h2>
+                <p class="mb-4">{% trans "Create an account and get your menu's QR code today." %}</p>
+                <a href="{% url 'signup' %}" class="btn btn-lp-primary btn-lg">{% trans "Create an account" %}</a>
             </div>
         </div>
     </section>

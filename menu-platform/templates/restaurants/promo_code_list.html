@@ -1,37 +1,37 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags i18n %}
 
-{% block title %}{% trans "Κωδικοί Έκπτωσης" %} - {{ restaurant.name }}{% endblock %}
+{% block title %}{% trans "Promo Codes" %} - {{ restaurant.name }}{% endblock %}
 
 {% block content %}
 <div class="container py-4">
-    <h1>{% trans "Κωδικοί Έκπτωσης" %}</h1>
+    <h1>{% trans "Promo Codes" %}</h1>
     <div class="row">
         <div class="col-md-4">
             <div class="card">
-                <div class="card-header">{% trans "Νέος Κωδικός" %}</div>
+                <div class="card-header">{% trans "New Promo Code" %}</div>
                 <div class="card-body">
                     <form method="post">
                         {% csrf_token %}
                         {{ form|crispy }}
-                        <button type="submit" class="btn btn-primary w-100">{% trans "Δημιουργία" %}</button>
+                        <button type="submit" class="btn btn-primary w-100">{% trans "Create" %}</button>
                     </form>
                 </div>
             </div>
         </div>
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{% trans "Λίστα Κωδικών" %}</div>
+                <div class="card-header">{% trans "Promo Code List" %}</div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table table-striped">
                             <thead>
                                 <tr>
-                                    <th>{% trans "Κωδικός Έκπτωσης" %}</th>
-                                    <th>{% trans "Έκπτωση" %}</th>
-                                    <th>{% trans "Χρήσεις" %}</th>
-                                    <th>{% trans "Ισχύει έως" %}</th>
-                                    <th>{% trans "Κατάσταση" %}</th>
+                                    <th>{% trans "Promo Code" %}</th>
+                                    <th>{% trans "Discount" %}</th>
+                                    <th>{% trans "Uses" %}</th>
+                                    <th>{% trans "Valid Until" %}</th>
+                                    <th>{% trans "Status" %}</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -44,15 +44,15 @@
                                         <td>{{ promo.valid_until|date:"d/m/Y H:i"|default:"-" }}</td>
                                         <td>
                                             {% if promo.is_valid_now %}
-                                                <span class="badge bg-success">{% trans "Ενεργός" %}</span>
+                                                <span class="badge bg-success">{% trans "Active" %}</span>
                                             {% else %}
-                                                <span class="badge bg-secondary">{% trans "Ανενεργός" %}</span>
+                                                <span class="badge bg-secondary">{% trans "Inactive" %}</span>
                                             {% endif %}
                                         </td>
                                         <td>
                                             <form method="post" action="{% url 'promo_code_delete' promo.id %}" style="display:inline;">
                                                 {% csrf_token %}
-                                                <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('{% trans "Σίγουρα θέλεις να διαγράψεις αυτόν τον κωδικό;" %}')">
+                                                <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('{% trans "Are you sure you want to delete this promo code?" %}')">
                                                     <i class="bi bi-trash"></i>
                                                 </button>
                                             </form>
@@ -60,7 +60,7 @@
                                     </tr>
                                 {% empty %}
                                     <tr>
-                                        <td colspan="6" class="text-center text-muted">{% trans "Δεν υπάρχουν κωδικοί έκπτωσης" %}</td>
+                                        <td colspan="6" class="text-center text-muted">{% trans "No promo codes yet" %}</td>
                                     </tr>
                                 {% endfor %}
                             </tbody>
