@@ -218,6 +218,11 @@ DATA_UPLOAD_MAX_MEMORY_SIZE = 5 * 1024 * 1024  # 5 MB
 
 # Security hardening (only meaningful once deployed behind HTTPS)
 if not DEBUG:
+    # Railway (and most PaaS hosts) terminate TLS at their edge proxy and forward
+    # the request to us as plain HTTP - without this, Django can't tell the
+    # original request was HTTPS and SECURE_SSL_REDIRECT below causes an
+    # infinite redirect loop.
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
     SECURE_SSL_REDIRECT = True
