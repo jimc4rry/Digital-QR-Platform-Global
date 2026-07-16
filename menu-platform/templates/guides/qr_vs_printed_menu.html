@@ -1,0 +1,30 @@
+{% extends 'guides/base_guide.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "QR Code Menu vs. Printed Menu: Which Is Right for Your Restaurant?" %} - MenuHub{% endblock %}
+{% block meta_description %}{% trans "A practical comparison of QR code menus and printed menus - cost, flexibility, hygiene, and customer experience - to help you decide what's right for your restaurant." %}{% endblock %}
+{% block og_title %}{% trans "QR Code Menu vs. Printed Menu" %}{% endblock %}
+{% block og_description %}{% trans "A practical comparison to help you decide what's right for your restaurant." %}{% endblock %}
+
+{% block guide_content %}
+<h1>{% trans "QR Code Menu vs. Printed Menu: Which Is Right for Your Restaurant?" %}</h1>
+<p class="lede">{% trans "Most restaurants don't need to choose one exclusively - but understanding the trade-offs makes it obvious where each one wins." %}</p>
+
+<h2>{% trans "Cost over time" %}</h2>
+<p>{% blocktrans %}A printed menu has a low one-time cost but an ongoing one every time something changes - a price update, a sold-out dish, a new seasonal item. A QR menu has a small monthly cost but updates are free and instant, however often you make them.{% endblocktrans %}</p>
+
+<h2>{% trans "Flexibility" %}</h2>
+<p>{% blocktrans %}Printed menus are fixed the moment they're printed. A digital menu can change prices mid-shift, mark a dish unavailable the second it sells out, or run a limited-time offer without touching a single physical page.{% endblocktrans %}</p>
+
+<h2>{% trans "Customer experience" %}</h2>
+<p>{% blocktrans %}A QR menu opens instantly in a customer's own phone browser - no app to install - and can show photos, dietary tags, and live availability that a printed page can't. Some guests still prefer the simplicity of picking up a physical menu, particularly older customers less comfortable scanning codes.{% endblocktrans %}</p>
+
+<h2>{% trans "Hygiene and durability" %}</h2>
+<p>{% blocktrans %}Printed menus get handled by every table and need regular cleaning or replacing when they wear out. A QR code printed once on a table tent or sticker is touched by nobody but scanned by everybody - and never needs replacing unless it physically wears out.{% endblocktrans %}</p>
+
+<h2>{% trans "Ordering speed" %}</h2>
+<p>{% blocktrans %}With a printed menu, ordering still depends on flagging down a server. A QR menu with table-side ordering lets a customer send their order the moment they've decided, which is particularly useful during busy shifts or at large outdoor venues like beach bars.{% endblocktrans %}</p>
+
+<h2>{% trans "So which should you choose?" %}</h2>
+<p>{% blocktrans %}Most restaurants get the best result running both: a QR code as the primary, always-current menu, with a handful of printed copies on hand for guests who prefer paper or don't have a smartphone on them. You get the cost and flexibility benefits of digital without losing anyone.{% endblocktrans %}</p>
+{% endblock %}

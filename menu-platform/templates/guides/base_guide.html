@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block extra_css %}
+<style>
+    .guide-article { padding: 56px 0 72px; }
+    .guide-article .container { max-width: 760px; }
+    .guide-article h1 { font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 800; line-height: 1.2; margin-bottom: 12px; }
+    .guide-article h2 { font-size: 1.4rem; font-weight: 700; margin-top: 40px; margin-bottom: 14px; }
+    .guide-article p, .guide-article li { color: #334155; line-height: 1.75; }
+    .guide-article .lede { font-size: 1.15rem; color: #475569; margin-bottom: 32px; }
+    .guide-article ul, .guide-article ol { padding-left: 1.3rem; }
+    .guide-article li { margin-bottom: 8px; }
+    .guide-back-link { color: #4f46e5; text-decoration: none; font-weight: 600; font-size: .9rem; }
+    .guide-cta {
+        background: #0f172a;
+        border-radius: 20px;
+        padding: 40px 32px;
+        color: #fff;
+        text-align: center;
+        margin-top: 48px;
+    }
+    .guide-cta h2 { color: #fff; margin-top: 0; }
+    .guide-cta p { color: rgba(255,255,255,.75); }
+    .guide-cta .btn-lp-primary {
+        background: #4f46e5;
+        border-color: #4f46e5;
+        color: #fff;
+        font-weight: 600;
+        border-radius: 10px;
+        padding: 12px 28px;
+        display: inline-block;
+        text-decoration: none;
+        margin-top: 8px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="guide-article">
+    <div class="container">
+        <a href="{% url 'guides_index' %}" class="guide-back-link">&larr; {% trans "All guides" %}</a>
+        <article class="mt-3">
+            {% block guide_content %}{% endblock %}
+        </article>
+        <div class="guide-cta">
+            <h2>{% trans "Ready to digitize your menu?" %}</h2>
+            <p>{% trans "Create your restaurant's QR code menu in minutes - no credit card required to start." %}</p>
+            <a href="{% url 'signup' %}" class="btn-lp-primary">{% trans "Create your menu" %}</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

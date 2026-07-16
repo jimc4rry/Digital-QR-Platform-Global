@@ -19,7 +19,13 @@ def robots_txt(request):
 
 
 def sitemap_xml(request):
-    urls = [request.build_absolute_uri(reverse('home'))]
+    urls = [
+        request.build_absolute_uri(reverse('home')),
+        request.build_absolute_uri(reverse('guides_index')),
+        request.build_absolute_uri(reverse('guide_how_to_create')),
+        request.build_absolute_uri(reverse('guide_cost')),
+        request.build_absolute_uri(reverse('guide_vs_printed')),
+    ]
     for restaurant in Restaurant.objects.filter(is_active=True):
         urls.append(request.build_absolute_uri(reverse('public_menu', args=[restaurant.qr_code_token])))
 

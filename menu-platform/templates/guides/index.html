@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Guides - MenuHub" %}{% endblock %}
+{% block meta_description %}{% trans "Practical guides on digital QR code menus for restaurants, cafes, and bars - setup, pricing, and how it compares to printed menus." %}{% endblock %}
+
+{% block extra_css %}
+<style>
+    .guides-index { padding: 56px 0 72px; }
+    .guides-index .container { max-width: 760px; }
+    .guides-index h1 { font-weight: 800; margin-bottom: 32px; }
+    .guide-card {
+        display: block;
+        border: 1px solid #e5e7eb;
+        border-radius: 16px;
+        padding: 24px;
+        margin-bottom: 16px;
+        text-decoration: none;
+        color: inherit;
+        transition: box-shadow .2s ease, transform .2s ease;
+    }
+    .guide-card:hover { box-shadow: 0 12px 30px -12px rgba(15,23,42,.15); transform: translateY(-2px); color: inherit; }
+    .guide-card h2 { font-size: 1.15rem; font-weight: 700; margin-bottom: 6px; color: #0f172a; }
+    .guide-card p { color: #64748b; margin: 0; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="guides-index">
+    <div class="container">
+        <h1>{% trans "Guides" %}</h1>
+        <a class="guide-card" href="{% url 'guide_how_to_create' %}">
+            <h2>{% trans "How to Create a QR Code Menu for Your Restaurant" %}</h2>
+            <p>{% trans "A complete step-by-step guide, from signup to your first scanned QR code." %}</p>
+        </a>
+        <a class="guide-card" href="{% url 'guide_cost' %}">
+            <h2>{% trans "How Much Does a QR Code Menu Cost?" %}</h2>
+            <p>{% trans "A clear pricing breakdown and how it compares to reprinting a physical menu." %}</p>
+        </a>
+        <a class="guide-card" href="{% url 'guide_vs_printed' %}">
+            <h2>{% trans "QR Code Menu vs. Printed Menu" %}</h2>
+            <p>{% trans "Cost, flexibility, hygiene, and customer experience, compared." %}</p>
+        </a>
+    </div>
+</div>
+{% endblock %}

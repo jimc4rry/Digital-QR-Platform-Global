@@ -7,12 +7,18 @@
     <title>{% block title %}{% blocktrans %}MenuHub - Digital QR Code Menus for Restaurants & Cafes{% endblocktrans %}{% endblock %}</title>
     <meta name="description" content="{% block meta_description %}{% blocktrans %}Create your restaurant or cafe's digital QR code menu in 5 minutes. No printing, instant price updates, orders straight from the table.{% endblocktrans %}{% endblock %}">
     <link rel="canonical" href="{% block canonical_url %}{{ request.scheme }}://{{ request.get_host }}{{ request.path }}{% endblock %}">
+    <meta name="robots" content="index, follow">
+    {# Search Console verification: uncomment once you have the code from https://search.google.com/search-console #}
+    {# <meta name="google-site-verification" content="PASTE_YOUR_CODE_HERE"> #}
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="MenuHub">
     <meta property="og:title" content="{% block og_title %}{% blocktrans %}MenuHub - Digital QR Code Menus{% endblocktrans %}{% endblock %}">
     <meta property="og:description" content="{% block og_description %}{% blocktrans %}Create your restaurant or cafe's digital QR code menu in 5 minutes.{% endblocktrans %}{% endblock %}">
     <meta property="og:url" content="{% block og_url %}{{ request.scheme }}://{{ request.get_host }}{{ request.path }}{% endblock %}">
+    {# Social share preview image (1200x630px) - add one and uncomment, or shares show no preview image #}
+    {# <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{% static 'images/og-preview.png' %}"> #}
+    {# <meta name="twitter:card" content="summary_large_image"> #}
     <meta name="twitter:card" content="summary">
 
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%234f46e5'/%3E%3Ctext x='50' y='68' font-size='55' text-anchor='middle' fill='white' font-family='Arial'%3EM%3C/text%3E%3C/svg%3E">
@@ -226,6 +232,7 @@
             <p class="mb-0">MenuHub - {% trans "Digital Menus for Restaurants & Cafes" %}</p>
             <small>
                 &copy; 2026 {% trans "All Rights Reserved" %}
+                &middot; <a href="{% url 'guides_index' %}" class="text-white-50">{% trans "Guides" %}</a>
                 &middot; <a href="{% url 'terms' %}" class="text-white-50">{% trans "Terms of Use" %}</a>
             </small>
         </div>

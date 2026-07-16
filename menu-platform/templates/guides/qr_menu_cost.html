@@ -1,0 +1,29 @@
+{% extends 'guides/base_guide.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "How Much Does a QR Code Menu Cost? (2026 Pricing Breakdown)" %} - MenuHub{% endblock %}
+{% block meta_description %}{% trans "A clear breakdown of what a digital QR code menu costs for restaurants, cafes, and bars, and how it compares to the ongoing cost of printed menus." %}{% endblock %}
+{% block og_title %}{% trans "How Much Does a QR Code Menu Cost?" %}{% endblock %}
+{% block og_description %}{% trans "A clear breakdown of what a digital QR code menu costs, and how it compares to printed menus." %}{% endblock %}
+
+{% block guide_content %}
+<h1>{% trans "How Much Does a QR Code Menu Cost?" %}</h1>
+<p class="lede">{% trans "A digital QR menu is priced as a monthly subscription rather than a one-time print job. Here's what's actually included at each level, and how it stacks up against reprinting a physical menu." %}</p>
+
+<h2>{% trans "MenuHub pricing at a glance" %}</h2>
+<ul>
+    <li><strong>{% trans "Basic - $7/month:" %}</strong> {% trans "unlimited categories and products, with an automatically generated QR code." %}</li>
+    <li><strong>{% trans "Pro - $19/month:" %}</strong> {% trans "everything in Basic, plus table-side ordering, loyalty points, and promo codes." %}</li>
+    <li><strong>{% trans "Business - $39/month:" %}</strong> {% trans "everything in Pro, plus sales statistics and staff accounts with admin/employee permissions." %}</li>
+</ul>
+<p>{% trans "Every plan includes a 30-day free trial, so you can set up your full menu before paying anything." %}</p>
+
+<h2>{% trans "What drives the cost of a printed menu" %}</h2>
+<p>{% blocktrans %}A printed menu looks cheaper upfront, but the real cost shows up over time: a price change, a seasonal dish, or a supplier shortage means a reprint - design time, printing costs, and menus that are wrong until the new batch arrives. Multiply that by however many times a year your prices or dishes change.{% endblocktrans %}</p>
+
+<h2>{% trans "What you're actually paying for" %}</h2>
+<p>{% blocktrans %}The subscription isn't just hosting a PDF online. It covers the QR code generation, unlimited menu edits with no reprinting cost, dietary labels, and - on the higher plans - order management and sales reporting that a printed menu simply can't provide.{% endblocktrans %}</p>
+
+<h2>{% trans "Which plan should you pick?" %}</h2>
+<p>{% blocktrans %}If you just want to replace a printed menu with something always up to date, Basic covers it. If customers should be able to order directly from the table without waving down a server, Pro is the natural fit. If you're running a busier operation with staff accounts and want to see which dishes actually sell, Business adds the reporting layer on top.{% endblocktrans %}</p>
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends 'guides/base_guide.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "How to Create a QR Code Menu for Your Restaurant (Step by Step)" %} - MenuHub{% endblock %}
+{% block meta_description %}{% trans "A complete step-by-step guide to creating a digital QR code menu for your restaurant, cafe, or bar - no technical skills or app required." %}{% endblock %}
+{% block og_title %}{% trans "How to Create a QR Code Menu for Your Restaurant" %}{% endblock %}
+{% block og_description %}{% trans "A complete step-by-step guide to creating a digital QR code menu - no technical skills required." %}{% endblock %}
+
+{% block structured_data %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Create a QR Code Menu for Your Restaurant",
+  "description": "Step-by-step guide to creating a digital QR code menu for a restaurant, cafe, or bar.",
+  "step": [
+    {"@type": "HowToStep", "name": "Create an account", "text": "Sign up with your business name and basic details. A restaurant profile is created for you automatically."},
+    {"@type": "HowToStep", "name": "Add your categories", "text": "Set up menu categories such as Starters, Mains, Drinks, or Desserts, in whatever order you like."},
+    {"@type": "HowToStep", "name": "Add your products", "text": "For each item, add a name, price, description, photo, and optional dietary tags like vegan or gluten-free."},
+    {"@type": "HowToStep", "name": "Get your QR code", "text": "A unique QR code is generated automatically for your menu - no design work needed."},
+    {"@type": "HowToStep", "name": "Print and place your QR code", "text": "Print the QR code once on a table tent, sticker, or sign. Customers scan it with their phone camera to see the menu instantly."},
+    {"@type": "HowToStep", "name": "Update anytime", "text": "Change prices, mark items unavailable, or add new dishes whenever you want - the menu updates instantly with no reprinting."}
+  ]
+}
+</script>
+{% endblock %}
+
+{% block guide_content %}
+<h1>{% trans "How to Create a QR Code Menu for Your Restaurant" %}</h1>
+<p class="lede">{% trans "You don't need a designer, a developer, or an app. Here's exactly how to go from a printed menu to a scannable digital one in about five minutes." %}</p>
+
+<h2>{% trans "1. Create an account" %}</h2>
+<p>{% blocktrans %}Sign up with your business name, email, and a password. A restaurant profile is created for you automatically the moment you sign up, along with a 30-day free trial - no credit card required to start.{% endblocktrans %}</p>
+
+<h2>{% trans "2. Organize your menu into categories" %}</h2>
+<p>{% blocktrans %}Before adding individual dishes, set up your categories - Starters, Mains, Drinks, Desserts, or whatever structure fits your menu. You can reorder them anytime, and customers see them exactly as you arrange them.{% endblocktrans %}</p>
+
+<h2>{% trans "3. Add your products" %}</h2>
+<p>{% blocktrans %}For each dish or drink, add a name, price, and a short description. You can attach a photo, mark items as vegan, vegetarian, gluten-free, or spicy, and add optional extras like "add cheese" with their own price adjustment.{% endblocktrans %}</p>
+
+<h2>{% trans "4. Your QR code is generated automatically" %}</h2>
+<p>{% blocktrans %}As soon as your account is created, a unique QR code is generated for your menu - no design tool or third-party QR generator needed. If you take table-side orders, each table or sunbed can also get its own QR code that pins the order to that exact spot.{% endblocktrans %}</p>
+
+<h2>{% trans "5. Print it once, use it everywhere" %}</h2>
+<p>{% blocktrans %}Print the QR code on a table tent, a sticker at the entrance, or a small sign at the bar. Customers scan it with their phone's camera - no app to download - and the menu opens instantly in their browser.{% endblocktrans %}</p>
+
+<h2>{% trans "6. Update your menu anytime, for free" %}</h2>
+<p>{% blocktrans %}This is the real advantage over a printed menu: when a price changes, an item sells out, or you add a new seasonal dish, you update it from your dashboard and the change is live immediately. No reprinting, no waiting, no extra cost.{% endblocktrans %}</p>
+
+<h2>{% trans "What about taking orders?" %}</h2>
+<p>{% blocktrans %}If you want customers to order directly from their phone, table-side ordering can be turned on so each QR code is tied to a specific table. Orders land on a live dashboard your staff can manage in real time, with no extra hardware required.{% endblocktrans %}</p>
+{% endblock %}
