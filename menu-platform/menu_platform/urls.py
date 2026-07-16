@@ -1,8 +1,9 @@
+import re
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, re_path, include
 from django.conf import settings
-from django.conf.urls.static import static
 from django.views.generic import TemplateView
+from django.views.static import serve as serve_static
 from restaurants import views as restaurant_views
 from . import seo_views
 
@@ -27,5 +28,12 @@ urlpatterns = [
     path('sitemap.xml', seo_views.sitemap_xml, name='sitemap_xml'),
 ]
 
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# Served by Django itself, deliberately not using django.conf.urls.static.static() - that
+# helper silently no-ops whenever DEBUG=False, which would 404 every uploaded/generated file
+# (QR codes, product photos) in production. There's no separate media server/CDN in front of
+# this app, so Django has to serve these itself. Fine for this app's traffic level; a
+# dedicated object storage service (S3/R2/etc, already supported via AWS_STORAGE_BUCKET_NAME)
+# is the better long-term fix if traffic or file volume grows.
+urlpatterns += [
+    re_path(r'^%s(?P<path>.*)$' % re.escape(settings.MEDIA_URL.lstrip('/')), serve_static, {'document_root': settings.MEDIA_ROOT}),
+]
