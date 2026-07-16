@@ -129,6 +129,8 @@ if AWS_STORAGE_BUCKET_NAME:
     AWS_DEFAULT_ACL = None
     AWS_QUERYSTRING_AUTH = False
     AWS_S3_FILE_OVERWRITE = False
+    # Required by Cloudflare R2 (and harmless for real AWS S3) - R2 doesn't support the older SigV2.
+    AWS_S3_SIGNATURE_VERSION = 's3v4'
 
     # Django's STORAGES setting is not merged with the built-in defaults when
     # overridden - omitting 'staticfiles' here would silently break collectstatic.
