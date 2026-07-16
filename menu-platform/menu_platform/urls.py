@@ -11,6 +11,8 @@ urlpatterns = [
     path('i18n/', include('django.conf.urls.i18n')),
     path('', TemplateView.as_view(template_name='home.html'), name='home'),
     path('terms/', TemplateView.as_view(template_name='terms.html'), name='terms'),
+    path('privacy/', TemplateView.as_view(template_name='privacy.html'), name='privacy'),
+    path('refund-policy/', TemplateView.as_view(template_name='refund_policy.html'), name='refund_policy'),
     path('guides/', TemplateView.as_view(template_name='guides/index.html'), name='guides_index'),
     path('guides/how-to-create-a-qr-code-menu/', TemplateView.as_view(template_name='guides/how_to_create_qr_menu.html'), name='guide_how_to_create'),
     path('guides/qr-code-menu-cost/', TemplateView.as_view(template_name='guides/qr_menu_cost.html'), name='guide_cost'),

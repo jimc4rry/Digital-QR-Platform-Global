@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Refund Policy" %} - MenuHub{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-9">
+            <h1>{% trans "Refund Policy" %}</h1>
+            <p class="text-muted">{% trans "Last updated" %}: 16/07/2026</p>
+
+            <h2 class="h5 mt-4">1. {% trans "Subscriptions" %}</h2>
+            <p>{% blocktrans %}MenuHub subscriptions (Basic, Pro, Business) are billed monthly in advance. Payments are non-refundable, including for partial billing periods.{% endblocktrans %}</p>
+
+            <h2 class="h5 mt-4">2. {% trans "Cancellation" %}</h2>
+            <p>{% blocktrans %}You can cancel your subscription at any time from your account or Paddle's customer portal. Cancelling stops future billing, but does not refund the current billing period - you keep access to your paid plan until the end of the period you've already paid for.{% endblocktrans %}</p>
+
+            <h2 class="h5 mt-4">3. {% trans "Free trial" %}</h2>
+            <p>{% blocktrans %}New accounts start on a free trial. You are not charged during the trial, and can cancel at any point before it ends with no charge.{% endblocktrans %}</p>
+
+            <h2 class="h5 mt-4">4. {% trans "Exceptions" %}</h2>
+            <p>{% blocktrans %}If you were charged due to a proven technical error on our part (for example, a duplicate charge), contact us and we will review and correct it. Refund requests are handled case by case at our discretion outside of this scenario.{% endblocktrans %}</p>
+
+            <h2 class="h5 mt-4">5. {% trans "How payments are processed" %}</h2>
+            <p>{% blocktrans %}All payments are processed by Paddle.com, our Merchant of Record, who also handles applicable taxes. Any dispute regarding a specific charge can also be raised directly with Paddle.{% endblocktrans %}</p>
+
+            <h2 class="h5 mt-4">6. {% trans "Contact" %}</h2>
+            <p>{% trans "For questions about this Refund Policy, contact us using the details provided on the platform." %}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

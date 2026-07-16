@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Privacy Policy" %} - MenuHub{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-9">
+            <h1>{% trans "Privacy Policy" %}</h1>
+            <p class="text-muted">{% trans "Last updated" %}: 16/07/2026</p>
+
+            <h2 class="h5 mt-4">1. {% trans "Who we are" %}</h2>
+            <p>{% blocktrans %}MenuHub is operated by Dimitrios Bonellis, an individual (sole trader), not a registered company. Throughout this policy, "we" or "the provider" refers to Dimitrios Bonellis operating as MenuHub.{% endblocktrans %}</p>
+
+            <h2 class="h5 mt-4">2. {% trans "What information we collect" %}</h2>
+            <p>{% blocktrans %}When you create a business account, we collect your username, email address, business name, business type, phone number, and optional VAT/Tax ID. When customers place an order through a restaurant's digital menu, we collect the order details and, if provided, a customer name and phone number (used for loyalty points).{% endblocktrans %}</p>
+
+            <h2 class="h5 mt-4">3. {% trans "How we use your information" %}</h2>
+            <p>{% blocktrans %}We use this information to operate the Service: creating and managing your account and restaurant menu, processing and displaying orders, calculating loyalty points, and communicating with you about your account. We do not sell your personal information to third parties.{% endblocktrans %}</p>
+
+            <h2 class="h5 mt-4">4. {% trans "Payment processing" %}</h2>
+            <p>{% blocktrans %}Subscription payments are handled entirely by Paddle.com, our Merchant of Record. Paddle collects and processes your payment card details directly - we never see or store your card information on our servers. Paddle's own privacy policy governs how they handle this data.{% endblocktrans %}</p>
+
+            <h2 class="h5 mt-4">5. {% trans "Data storage and hosting" %}</h2>
+            <p>{% blocktrans %}Your account and menu data is stored on infrastructure provided by our hosting provider. Uploaded images (logos, product photos) may be stored on cloud storage where configured.{% endblocktrans %}</p>
+
+            <h2 class="h5 mt-4">6. {% trans "Cookies" %}</h2>
+            <p>{% blocktrans %}We use a session cookie to keep you logged in and a CSRF-protection cookie for security. We do not use advertising or tracking cookies.{% endblocktrans %}</p>
+
+            <h2 class="h5 mt-4">7. {% trans "Data retention" %}</h2>
+            <p>{% blocktrans %}We retain your account and order data for as long as your account is active. If you close your account, you can request deletion of your personal data by contacting us, subject to any records we're required to keep for tax or legal purposes.{% endblocktrans %}</p>
+
+            <h2 class="h5 mt-4">8. {% trans "Your rights" %}</h2>
+            <p>{% blocktrans %}Depending on where you're located, you may have the right to access, correct, export, or delete your personal data. To exercise any of these rights, contact us using the details below.{% endblocktrans %}</p>
+
+            <h2 class="h5 mt-4">9. {% trans "Changes to this policy" %}</h2>
+            <p>{% blocktrans %}We may update this policy from time to time. Continued use of the Service after a change constitutes acceptance of the updated policy.{% endblocktrans %}</p>
+
+            <h2 class="h5 mt-4">10. {% trans "Contact" %}</h2>
+            <p>{% trans "For questions about this Privacy Policy or to exercise your data rights, contact us using the details provided on the platform." %}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
