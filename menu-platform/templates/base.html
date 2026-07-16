@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% blocktrans %}MenuHub - Digital QR Code Menus for Restaurants & Cafes{% endblocktrans %}{% endblock %}</title>
     <meta name="description" content="{% block meta_description %}{% blocktrans %}Create your restaurant or cafe's digital QR code menu in 5 minutes. No printing, instant price updates, orders straight from the table.{% endblocktrans %}{% endblock %}">
-    <link rel="canonical" href="{% block canonical_url %}{{ request.scheme }}://{{ request.get_host }}{{ request.path }}{% endblock %}">
+    <link rel="canonical" href="{% block canonical_url %}{{ site_url }}{{ request.path }}{% endblock %}">
     <meta name="robots" content="index, follow">
     <meta name="google-site-verification" content="na25PgiszwlSvKrYb6N3QSVK2kwzGCSMzdX4TKtsez0" />
 
@@ -14,7 +14,7 @@
     <meta property="og:site_name" content="MenuHub">
     <meta property="og:title" content="{% block og_title %}{% blocktrans %}MenuHub - Digital QR Code Menus{% endblocktrans %}{% endblock %}">
     <meta property="og:description" content="{% block og_description %}{% blocktrans %}Create your restaurant or cafe's digital QR code menu in 5 minutes.{% endblocktrans %}{% endblock %}">
-    <meta property="og:url" content="{% block og_url %}{{ request.scheme }}://{{ request.get_host }}{{ request.path }}{% endblock %}">
+    <meta property="og:url" content="{% block og_url %}{{ site_url }}{{ request.path }}{% endblock %}">
     {# Social share preview image (1200x630px) - add one and uncomment, or shares show no preview image #}
     {# <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{% static 'images/og-preview.png' %}"> #}
     {# <meta name="twitter:card" content="summary_large_image"> #}
