@@ -3,6 +3,50 @@
 
 {% block title %}{{ restaurant.name }} - {% trans "Menu" %}{% endblock %}
 
+{% block extra_css %}
+<style>
+    .menu-header {
+        background: linear-gradient(135deg, #6366f1 0%, #4338ca 55%, #1e1b4b 100%);
+        position: relative;
+        overflow: hidden;
+        isolation: isolate;
+    }
+    .menu-header::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background:
+            radial-gradient(420px circle at 15% 20%, rgba(255,255,255,.12), transparent 60%),
+            radial-gradient(360px circle at 85% 80%, rgba(236,72,153,.18), transparent 60%);
+    }
+    .menu-header img {
+        border-radius: 20px;
+        box-shadow: 0 12px 32px rgba(0,0,0,.25);
+        background: #fff;
+        padding: 6px;
+    }
+    .menu-header h1 {
+        color: #fff;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+    }
+    .menu-header .lead {
+        color: rgba(255,255,255,.82);
+    }
+    .category-header {
+        font-weight: 800;
+        letter-spacing: -0.01em;
+    }
+    #cart-bar {
+        background: rgba(11,11,20,.92) !important;
+        backdrop-filter: blur(10px);
+        border-radius: 20px 20px 0 0;
+        box-shadow: 0 -12px 32px rgba(0,0,0,.25);
+    }
+</style>
+{% endblock %}
+
 {% block content %}
 <div class="menu-header">
     <div class="container text-center">
@@ -16,7 +60,7 @@
         {% endif %}
         {% if table %}
             <div class="mt-2">
-                <span class="badge bg-primary fs-6"><i class="bi bi-qr-code"></i> {{ table.get_table_type_display }} {{ table.number }}</span>
+                <span class="badge bg-light text-dark fs-6"><i class="bi bi-qr-code"></i> {{ table.get_table_type_display }} {{ table.number }}</span>
             </div>
         {% endif %}
     </div>
