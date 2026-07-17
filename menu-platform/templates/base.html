@@ -1,4 +1,4 @@
-{% load i18n %}
+{% load i18n static %}
 <!DOCTYPE html>
 <html lang="{% get_current_language as LANGUAGE_CODE %}{{ LANGUAGE_CODE }}">
 <head>
@@ -28,6 +28,7 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{% static 'css/design-system.css' %}">
     {% block structured_data %}{% endblock %}
     <style>
         body {
@@ -37,41 +38,24 @@
             max-width: 200px;
         }
         .product-card {
-            transition: transform 0.2s;
+            transition: transform .2s var(--mh-ease, ease), box-shadow .2s var(--mh-ease, ease);
             height: 100%;
         }
         .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transform: translateY(-4px);
+            box-shadow: var(--mh-shadow, 0 4px 15px rgba(0,0,0,0.1));
         }
         .menu-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #6366f1 0%, #4338ca 100%);
             color: white;
             padding: 60px 0;
         }
         .category-header {
-            border-bottom: 3px solid #667eea;
+            border-bottom: 3px solid var(--mh-primary, #6366f1);
             padding-bottom: 10px;
             margin-bottom: 30px;
         }
-        .order-status {
-            font-weight: bold;
-            padding: 5px 15px;
-            border-radius: 20px;
-        }
-        .status-pending { background: #ffc107; color: #000; }
-        .status-confirmed { background: #17a2b8; color: #fff; }
-        .status-preparing { background: #007bff; color: #fff; }
-        .status-ready { background: #28a745; color: #fff; }
-        .status-delivered { background: #6c757d; color: #fff; }
-        .status-cancelled { background: #dc3545; color: #fff; }
-        
-        .navbar-brand {
-            font-weight: bold;
-            font-size: 1.5rem;
-        }
         .nav-link {
-            font-weight: 500;
             display: inline-flex;
             align-items: center;
             gap: .4rem;
@@ -93,7 +77,7 @@
     {% block extra_css %}{% endblock %}
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid px-3 px-lg-4">
             <a class="navbar-brand" href="{% url 'home' %}">
                 <i class="bi bi-qr-code"></i> MenuHub
@@ -267,6 +251,25 @@
         })();
     </script>
     {% endif %}
+    <script>
+        // Generic scroll-reveal: any element with class "mh-reveal" fades/slides
+        // in once it enters the viewport. Additive-only, safe on every page.
+        (function () {
+            if (!('IntersectionObserver' in window)) {
+                document.querySelectorAll('.mh-reveal').forEach(function (el) { el.classList.add('mh-visible'); });
+                return;
+            }
+            var observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('mh-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.12 });
+            document.querySelectorAll('.mh-reveal').forEach(function (el) { observer.observe(el); });
+        })();
+    </script>
     {% block extra_js %}{% endblock %}
 </body>
 </html>

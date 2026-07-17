@@ -112,6 +112,18 @@ STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = [BASE_DIR / 'static']
 
+# WhiteNoise's manifest storage renames each static file with a content hash
+# (e.g. design-system.a1b2c3d4.css) and sets far-future cache headers, so
+# browsers never serve a stale cached CSS/JS file after a deploy. Only in
+# production: it requires collectstatic to have run (our release step does
+# this), and would break local runserver dev since that's normally skipped.
+STORAGES = {
+    'default': {'BACKEND': 'django.core.files.storage.FileSystemStorage'},
+    'staticfiles': {
+        'BACKEND': 'django.contrib.staticfiles.storage.StaticFilesStorage' if DEBUG else 'whitenoise.storage.CompressedManifestStaticFilesStorage',
+    },
+}
+
 # Media files: local filesystem by default. Set AWS_STORAGE_BUCKET_NAME (+ credentials)
 # to switch to S3-compatible storage (AWS S3, Cloudflare R2, DigitalOcean Spaces, ...)
 # in production without any code change - required for any multi-instance/cloud deploy,
@@ -133,12 +145,9 @@ if AWS_STORAGE_BUCKET_NAME:
     # Required by Cloudflare R2 (and harmless for real AWS S3) - R2 doesn't support the older SigV2.
     AWS_S3_SIGNATURE_VERSION = 's3v4'
 
-    # Django's STORAGES setting is not merged with the built-in defaults when
-    # overridden - omitting 'staticfiles' here would silently break collectstatic.
-    STORAGES = {
-        'default': {'BACKEND': 'storages.backends.s3.S3Storage'},
-        'staticfiles': {'BACKEND': 'django.contrib.staticfiles.storage.StaticFilesStorage'},
-    }
+    # Only swap the 'default' (media) backend - 'staticfiles' keeps whatever
+    # was set above, so static cache-busting works the same way either way.
+    STORAGES['default'] = {'BACKEND': 'storages.backends.s3.S3Storage'}
 
 # Authentication
 AUTH_USER_MODEL = 'accounts.User'

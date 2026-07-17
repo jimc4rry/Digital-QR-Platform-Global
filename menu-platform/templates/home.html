@@ -98,10 +98,10 @@
 {% block extra_css %}
 <style>
     .landing {
-        --lp-primary: #4f46e5;
+        --lp-primary: #6366f1;
         --lp-primary-dark: #4338ca;
         --lp-primary-light: #eef2ff;
-        --lp-text: #0f172a;
+        --lp-text: #0b0b14;
         --lp-muted: #64748b;
         --lp-border: #e5e7eb;
         --lp-bg-soft: #f8fafc;
@@ -115,6 +115,21 @@
 
     .lp-hero {
         padding: 96px 0 72px;
+        position: relative;
+        overflow: hidden;
+        isolation: isolate;
+    }
+    .lp-hero::before {
+        content: '';
+        position: absolute;
+        inset: -20% -10% auto -10%;
+        height: 620px;
+        z-index: -1;
+        background:
+            radial-gradient(560px circle at 15% 20%, rgba(99,102,241,.16), transparent 60%),
+            radial-gradient(480px circle at 85% 15%, rgba(236,72,153,.10), transparent 60%),
+            radial-gradient(520px circle at 60% 55%, rgba(56,189,248,.10), transparent 60%);
+        filter: blur(10px);
     }
     .lp-eyebrow {
         display: inline-flex;
@@ -129,8 +144,14 @@
         margin-bottom: 20px;
     }
     .lp-hero h1 {
-        font-size: clamp(2.1rem, 4vw, 3.25rem);
-        line-height: 1.15;
+        font-size: clamp(2.3rem, 4.4vw, 3.6rem);
+        line-height: 1.12;
+    }
+    .lp-hero h1 .lp-gradient-text {
+        background: linear-gradient(100deg, var(--lp-primary) 10%, #ec4899 60%, #38bdf8 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
     }
     .lp-hero .lead {
         color: var(--lp-muted);
@@ -171,8 +192,16 @@
         border: 10px solid var(--lp-text);
         border-radius: 32px;
         background: #fff;
-        box-shadow: 0 30px 60px -20px rgba(15,23,42,.35);
+        box-shadow: 0 30px 60px -20px rgba(15,23,42,.35), 0 0 0 1px rgba(99,102,241,.08);
         overflow: hidden;
+        animation: lp-float 6s ease-in-out infinite;
+    }
+    @keyframes lp-float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-14px); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+        .lp-phone { animation: none; }
     }
     .lp-phone-header {
         background: var(--lp-primary);
@@ -244,8 +273,12 @@
     }
     .lp-pricing-card.featured {
         border-color: var(--lp-primary);
-        box-shadow: 0 20px 45px -20px rgba(79,70,229,.35);
+        box-shadow: 0 24px 55px -18px rgba(99,102,241,.45), 0 0 0 1px rgba(99,102,241,.12);
         position: relative;
+        transform: scale(1.02);
+    }
+    @media (max-width: 767px) {
+        .lp-pricing-card.featured { transform: none; }
     }
     .lp-pricing-card .price {
         font-size: 2.5rem;
@@ -330,7 +363,7 @@
             <div class="row align-items-center g-5">
                 <div class="col-lg-6">
                     <span class="lp-eyebrow"><i class="bi bi-qr-code"></i> {% trans "Digital menu with QR code" %}</span>
-                    <h1>{% trans "Your restaurant's menu," %} <br class="d-none d-lg-block">{% trans "always up to date" %}</h1>
+                    <h1>{% trans "Your restaurant's menu," %} <br class="d-none d-lg-block"><span class="lp-gradient-text">{% trans "always up to date" %}</span></h1>
                     <p class="lead mt-3">
                         {% blocktrans trimmed %}Create a digital QR code menu for your restaurant, cafe or bar in just a few minutes. Change prices and products whenever you like, with no reprinting, and accept orders directly from the table.{% endblocktrans %}
                     </p>
@@ -380,27 +413,27 @@
     <!-- How it works -->
     <section class="lp-section lp-section-soft">
         <div class="container">
-            <div class="lp-section-head">
+            <div class="lp-section-head mh-reveal">
                 <h2>{% trans "How it works" %}</h2>
                 <p>{% trans "From sign-up to the first scan, with no technical knowledge required." %}</p>
             </div>
             <div class="row g-4">
                 <div class="col-md-4">
-                    <div class="lp-card">
+                    <div class="lp-card mh-reveal">
                         <div class="lp-step-number">1</div>
                         <h3 class="h5">{% trans "Create your menu" %}</h3>
                         <p class="text-muted-lp mb-0">{% trans "Add categories and products with prices, photos and dietary labels (vegan, gluten-free, spicy)." %}</p>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="lp-card">
+                    <div class="lp-card mh-reveal" style="transition-delay:.08s">
                         <div class="lp-step-number">2</div>
                         <h3 class="h5">{% trans "Get your QR code" %}</h3>
                         <p class="text-muted-lp mb-0">{% trans "The QR code is generated automatically. Print it once on a sign or table — customers scan it with their phone camera and see the menu instantly, no app needed." %}</p>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="lp-card">
+                    <div class="lp-card mh-reveal" style="transition-delay:.16s">
                         <div class="lp-step-number">3</div>
                         <h3 class="h5">{% trans "Serve & take orders" %}</h3>
                         <p class="text-muted-lp mb-0">{% trans "With the Pro or Business plan, customers can order directly from their phone by scanning the table's QR code, without needing to get up." %}</p>
@@ -413,48 +446,48 @@
     <!-- Features -->
     <section class="lp-section">
         <div class="container">
-            <div class="lp-section-head">
+            <div class="lp-section-head mh-reveal">
                 <h2>{% trans "Everything your menu needs" %}</h2>
                 <p>{% trans "Tools designed specifically for restaurants, cafes and bars." %}</p>
             </div>
             <div class="row g-4">
                 <div class="col-md-6 col-lg-4">
-                    <div class="lp-card">
+                    <div class="lp-card mh-reveal">
                         <div class="lp-icon-circle"><i class="bi bi-qr-code-scan"></i></div>
                         <h3 class="h6">{% trans "Automatic QR Code" %}</h3>
                         <p class="text-muted-lp mb-0 small">{% trans "Every restaurant gets its own unique QR code, ready to print, with no extra steps." %}</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
-                    <div class="lp-card">
+                    <div class="lp-card mh-reveal" style="transition-delay:.06s">
                         <div class="lp-icon-circle"><i class="bi bi-grid-3x3-gap"></i></div>
                         <h3 class="h6">{% trans "Organized into categories" %}</h3>
                         <p class="text-muted-lp mb-0 small">{% trans "Split your menu into categories (appetizers, mains, drinks) in the display order you want." %}</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
-                    <div class="lp-card">
+                    <div class="lp-card mh-reveal" style="transition-delay:.12s">
                         <div class="lp-icon-circle"><i class="bi bi-flower1"></i></div>
                         <h3 class="h6">{% trans "Dietary labels" %}</h3>
                         <p class="text-muted-lp mb-0 small">{% trans "Mark dishes as vegan, vegetarian, gluten-free or spicy, so customers can choose easily." %}</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
-                    <div class="lp-card">
+                    <div class="lp-card mh-reveal" style="transition-delay:.18s">
                         <div class="lp-icon-circle"><i class="bi bi-bag-check"></i></div>
                         <h3 class="h6">{% trans "Orders from the table" %}</h3>
                         <p class="text-muted-lp mb-0 small">{% trans "With the Pro or Business plan, customers send their order directly from their phone." %}</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
-                    <div class="lp-card">
+                    <div class="lp-card mh-reveal" style="transition-delay:.24s">
                         <div class="lp-icon-circle"><i class="bi bi-speedometer2"></i></div>
                         <h3 class="h6">{% trans "Management Dashboard" %}</h3>
                         <p class="text-muted-lp mb-0 small">{% trans "See orders, update their status and keep track of your products all in one place." %}</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
-                    <div class="lp-card">
+                    <div class="lp-card mh-reveal" style="transition-delay:.3s">
                         <div class="lp-icon-circle"><i class="bi bi-phone"></i></div>
                         <h3 class="h6">{% trans "Mobile friendly" %}</h3>
                         <p class="text-muted-lp mb-0 small">{% trans "The menu opens instantly in any phone's browser, with no app installation." %}</p>
@@ -467,14 +500,14 @@
     <!-- Pricing -->
     <section class="lp-section lp-section-soft" id="pricing">
         <div class="container">
-            <div class="lp-section-head">
+            <div class="lp-section-head mh-reveal">
                 <h2>{% trans "Simple pricing" %}</h2>
                 <p>{% trans "Start with Basic or go Pro/Business for orders, loyalty and statistics." %}</p>
             </div>
             {% with current_plan=active_restaurant.user.subscription_plan %}
             <div class="row g-4 justify-content-center">
                 <div class="col-md-6 col-lg-4">
-                    <div class="lp-pricing-card">
+                    <div class="lp-pricing-card mh-reveal">
                         <h3 class="h5">Basic {% if user.is_authenticated and current_plan == 'basic' %}<span class="badge bg-success">{% trans "Your plan" %}</span>{% endif %}</h3>
                         <div class="price">$7<span>/{% trans "month" %}</span></div>
                         <ul>
@@ -498,7 +531,7 @@
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
-                    <div class="lp-pricing-card featured">
+                    <div class="lp-pricing-card featured mh-reveal" style="transition-delay:.08s">
                         <span class="lp-badge-featured">{% trans "Most popular" %}</span>
                         <h3 class="h5">Pro {% if user.is_authenticated and current_plan == 'pro' %}<span class="badge bg-success">{% trans "Your plan" %}</span>{% endif %}</h3>
                         <div class="price">$19<span>/{% trans "month" %}</span></div>
@@ -524,7 +557,7 @@
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
-                    <div class="lp-pricing-card">
+                    <div class="lp-pricing-card mh-reveal" style="transition-delay:.16s">
                         <h3 class="h5">Business {% if user.is_authenticated and current_plan == 'business' %}<span class="badge bg-success">{% trans "Your plan" %}</span>{% endif %}</h3>
                         <div class="price">$39<span>/{% trans "month" %}</span></div>
                         <ul>
@@ -553,7 +586,7 @@
     <!-- FAQ -->
     <section class="lp-section">
         <div class="container">
-            <div class="lp-section-head">
+            <div class="lp-section-head mh-reveal">
                 <h2>{% trans "Frequently asked questions" %}</h2>
                 <p>{% trans "Everything you need to know before you start." %}</p>
             </div>
@@ -641,7 +674,7 @@
     <!-- Final CTA -->
     <section class="lp-section">
         <div class="container">
-            <div class="lp-cta">
+            <div class="lp-cta mh-reveal">
                 <h2>{% trans "Ready to digitize your menu?" %}</h2>
                 <p class="mb-4">{% trans "Create an account and get your menu's QR code today." %}</p>
                 <a href="{% url 'signup' %}" class="btn btn-lp-primary btn-lg">{% trans "Create an account" %}</a>
