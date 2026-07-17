@@ -1,10 +1,16 @@
 from django.urls import path
 from django.contrib.auth import views as auth_views
+from django.views.decorators.cache import never_cache
 from . import views
 
 urlpatterns = [
-    path('signup/', views.signup, name='signup'),
-    path('login/', auth_views.LoginView.as_view(template_name='accounts/login.html'), name='login'),
+    path('signup/', never_cache(views.signup), name='signup'),
+    # never_cache is required here: this page embeds a one-time CSRF token tied to
+    # the session's csrftoken cookie, so a cached copy (browser or CDN/proxy) served
+    # on a later visit carries a stale token that no longer matches the current
+    # cookie - the login POST then fails CSRF verification even though nothing is
+    # actually wrong with the account or credentials.
+    path('login/', never_cache(auth_views.LoginView.as_view(template_name='accounts/login.html')), name='login'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('profile/', views.profile, name='profile'),
     path('post-login/', views.post_login_redirect, name='post_login_redirect'),

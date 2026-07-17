@@ -9,6 +9,7 @@ from django.db.models.functions import TruncDate
 from django.http import JsonResponse, Http404, HttpResponseForbidden
 from django.utils import timezone
 from django.utils.translation import gettext as _
+from django.views.decorators.cache import never_cache
 from django.views.decorators.http import require_http_methods
 from accounts.models import User
 from .models import Restaurant, Category, Product, ProductOption, StaffMember, PromoCode, LoyaltyAccount, RestaurantTable
@@ -16,10 +17,16 @@ from .forms import RestaurantForm, CategoryForm, ProductForm, ProductOptionForm,
 from .permissions import restaurant_role_required
 import json
 
+@never_cache
 def public_menu(request, token, table_id=None):
     """Public view for customers to see the menu. The restaurant's own QR code (no table_id)
     is view-only - ordering is only possible by scanning a specific table's QR code, which
-    pins the order to that table and the customer can't change it."""
+    pins the order to that table and the customer can't change it.
+
+    never_cache matters more here than almost anywhere else in the app: the page embeds
+    a CSRF token directly in inline JS for the order-submission fetch() call. If a CDN or
+    browser ever caches this page, every customer who hits that cached copy gets the same
+    stale token, and every order they try to place fails CSRF verification silently."""
     restaurant = get_object_or_404(Restaurant, qr_code_token=token, is_active=True)
     categories = restaurant.categories.filter(is_active=True).prefetch_related('products__options')
 
