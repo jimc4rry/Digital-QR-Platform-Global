@@ -5,7 +5,7 @@ from django.conf import settings
 from django.views.generic import TemplateView
 from django.views.static import serve as serve_static
 from restaurants import views as restaurant_views
-from . import seo_views
+from . import seo_views, tool_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -19,6 +19,7 @@ urlpatterns = [
     path('guides/qr-code-menu-cost/', TemplateView.as_view(template_name='guides/qr_menu_cost.html'), name='guide_cost'),
     path('guides/qr-code-menu-vs-printed-menu/', TemplateView.as_view(template_name='guides/qr_vs_printed_menu.html'), name='guide_vs_printed'),
     path('blog/', include('blog.urls', namespace='blog')),
+    path('free-qr-code-generator/', tool_views.free_qr_code_generator, name='free_qr_code_generator'),
     path('accounts/', include('accounts.urls')),
     path('restaurant/', include('restaurants.urls')),
     path('orders/', include('orders.urls')),

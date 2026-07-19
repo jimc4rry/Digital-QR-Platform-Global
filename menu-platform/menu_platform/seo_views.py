@@ -27,6 +27,7 @@ def sitemap_xml(request):
         request.build_absolute_uri(reverse('guide_cost')),
         request.build_absolute_uri(reverse('guide_vs_printed')),
         request.build_absolute_uri(reverse('blog:blog_list')),
+        request.build_absolute_uri(reverse('free_qr_code_generator')),
     ]
     for post in Post.objects.filter(is_published=True):
         urls.append(request.build_absolute_uri(reverse('blog:blog_detail', args=[post.slug])))
