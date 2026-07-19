@@ -4,6 +4,49 @@
 {% block title %}{% trans "Free QR Code Generator - No Sign-up Required" %} | MenuHub{% endblock %}
 {% block meta_description %}{% trans "Generate a free QR code for any URL in seconds. No sign-up, no watermark, download instantly as a PNG." %}{% endblock %}
 
+{% block structured_data %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can I use this to make a QR code for a bank transfer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not directly. This tool generates a standard QR code that opens any link or text you enter - it doesn't format payment details the way banking apps expect. A QR code your bank app can read and auto-fill a transfer from needs the SEPA/EPC QR code format, which your bank provides directly in its own app or online banking. This generator is best for links: websites, social profiles, menus, Wi-Fi logins, and similar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this QR code generator really free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. No account, no watermark, no usage limit. You can generate and download as many QR codes as you want."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the QR code expire?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The QR code itself never expires - it will keep working for as long as the URL it points to stays live."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What can I put in a QR code?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Any URL or plain text: a website, a social media profile, a PDF, a Wi-Fi network login, a phone number, or a digital menu."
+      }
+    }
+  ]
+}
+</script>
+{% endblock %}
+
 {% block extra_css %}
 <style>
     .qr-tool { padding: 56px 0 72px; }
@@ -34,6 +77,11 @@
     .qr-info { margin-top: 56px; }
     .qr-info h2 { font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; }
     .qr-info p { color: #475569; line-height: 1.7; }
+    .qr-faq { margin-top: 48px; }
+    .qr-faq h2 { font-size: 1.2rem; font-weight: 700; margin-bottom: 18px; }
+    .qr-faq-item { margin-bottom: 22px; }
+    .qr-faq-item h3 { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
+    .qr-faq-item p { color: #475569; line-height: 1.7; margin: 0; }
 </style>
 {% endblock %}
 
@@ -76,6 +124,26 @@
             <h2>{% trans "How this QR code works" %}</h2>
             <p>{% trans "The code above encodes the exact URL you entered - scanning it with any phone camera opens that link directly. It never expires and works for anything: a website, a social profile, a PDF, a Wi-Fi login page, or a restaurant menu." %}</p>
             <p>{% trans "Curious what a QR code menu actually looks like in practice?" %} <a href="{% url 'guide_how_to_create' %}">{% trans "See how to create one" %}</a>.</p>
+        </div>
+
+        <div class="qr-faq">
+            <h2>{% trans "Frequently asked questions" %}</h2>
+            <div class="qr-faq-item">
+                <h3>{% trans "Can I use this to make a QR code for a bank transfer?" %}</h3>
+                <p>{% trans "Not directly. This tool generates a standard QR code that opens any link or text you enter - it doesn't format payment details the way banking apps expect. A QR code your bank app can read and auto-fill a transfer from needs the SEPA/EPC QR code format, which your bank provides directly in its own app or online banking. This generator is best for links: websites, social profiles, menus, Wi-Fi logins, and similar." %}</p>
+            </div>
+            <div class="qr-faq-item">
+                <h3>{% trans "Is this QR code generator really free?" %}</h3>
+                <p>{% trans "Yes. No account, no watermark, no usage limit. You can generate and download as many QR codes as you want." %}</p>
+            </div>
+            <div class="qr-faq-item">
+                <h3>{% trans "Does the QR code expire?" %}</h3>
+                <p>{% trans "No. The QR code itself never expires - it will keep working for as long as the URL it points to stays live." %}</p>
+            </div>
+            <div class="qr-faq-item">
+                <h3>{% trans "What can I put in a QR code?" %}</h3>
+                <p>{% trans "Any URL or plain text: a website, a social media profile, a PDF, a Wi-Fi network login, a phone number, or a digital menu." %}</p>
+            </div>
         </div>
     </div>
 </div>
