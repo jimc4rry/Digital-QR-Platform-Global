@@ -17,6 +17,71 @@ from .forms import RestaurantForm, CategoryForm, ProductForm, ProductOptionForm,
 from .permissions import restaurant_role_required
 import json
 
+# Same escaping django.utils.html.json_script uses internally - required because this
+# JSON gets embedded inside a <script> tag, and restaurant/product names or descriptions
+# are free text set by the restaurant owner. Without it, a name containing "</script>"
+# could break out of the script tag (the browser's HTML parser looks for that literal
+# sequence regardless of it being "inside a JSON string").
+_JSON_LD_SCRIPT_ESCAPES = {ord('<'): '\\u003C', ord('>'): '\\u003E', ord('&'): '\\u0026'}
+
+DIET_SCHEMA_URLS = {
+    'is_vegan': 'https://schema.org/VeganDiet',
+    'is_vegetarian': 'https://schema.org/VegetarianDiet',
+    'is_gluten_free': 'https://schema.org/GlutenFreeDiet',
+}
+
+
+def _build_menu_json_ld(request, restaurant, categories):
+    """Restaurant + Menu structured data (schema.org) for the public menu page, so search
+    engines can understand the restaurant's dishes and prices directly, not just the page text."""
+    menu_sections = []
+    for category in categories:
+        items = []
+        for product in category.products.all():
+            if not product.is_available:
+                continue
+            item = {
+                '@type': 'MenuItem',
+                'name': product.get_display_name(),
+                'offers': {
+                    '@type': 'Offer',
+                    'price': str(product.price),
+                    'priceCurrency': restaurant.currency,
+                },
+            }
+            if product.description:
+                item['description'] = product.description
+            diets = [url for field, url in DIET_SCHEMA_URLS.items() if getattr(product, field)]
+            if diets:
+                item['suitableForDiet'] = diets
+            items.append(item)
+        if items:
+            menu_sections.append({
+                '@type': 'MenuSection',
+                'name': category.name,
+                'hasMenuItem': items,
+            })
+
+    data = {
+        '@context': 'https://schema.org',
+        '@type': 'Restaurant',
+        'name': restaurant.name,
+        'url': request.build_absolute_uri(),
+    }
+    if restaurant.description:
+        data['description'] = restaurant.description
+    if restaurant.address:
+        data['address'] = restaurant.address
+    if restaurant.phone:
+        data['telephone'] = restaurant.phone
+    if restaurant.logo:
+        data['image'] = request.build_absolute_uri(restaurant.logo.url)
+    if menu_sections:
+        data['hasMenu'] = {'@type': 'Menu', 'hasMenuSection': menu_sections}
+
+    return json.dumps(data).translate(_JSON_LD_SCRIPT_ESCAPES)
+
+
 @never_cache
 def public_menu(request, token, table_id=None):
     """Public view for customers to see the menu. The restaurant's own QR code (no table_id)
@@ -39,6 +104,7 @@ def public_menu(request, token, table_id=None):
         'categories': categories,
         'allow_ordering': table is not None and restaurant.allow_ordering and restaurant.user.has_ordering(),
         'table': table,
+        'menu_json_ld': _build_menu_json_ld(request, restaurant, categories),
     }
     return render(request, 'restaurants/public_menu.html', context)
 
