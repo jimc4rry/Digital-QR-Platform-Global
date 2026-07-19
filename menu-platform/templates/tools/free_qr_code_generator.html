@@ -2,7 +2,7 @@
 {% load i18n %}
 
 {% block title %}{% trans "Free QR Code Generator - No Sign-up Required" %} | MenuHub{% endblock %}
-{% block meta_description %}{% trans "Generate a free QR code for any URL in seconds. No sign-up, no watermark, download instantly as a PNG." %}{% endblock %}
+{% block meta_description %}{% trans "Generate a free QR code for a URL, text, phone number, email, SMS, Wi-Fi login, or contact card. No sign-up, no watermark." %}{% endblock %}
 
 {% block structured_data %}
 <script type="application/ld+json">
@@ -15,7 +15,7 @@
       "name": "Can I use this to make a QR code for a bank transfer?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Not directly. This tool generates a standard QR code that opens any link or text you enter - it doesn't format payment details the way banking apps expect. A QR code your bank app can read and auto-fill a transfer from needs the SEPA/EPC QR code format, which your bank provides directly in its own app or online banking. This generator is best for links: websites, social profiles, menus, Wi-Fi logins, and similar."
+        "text": "Not directly. This tool generates a standard QR code that opens a link or encodes text, a phone number, Wi-Fi login, or similar - it doesn't format payment details the way banking apps expect. A QR code your bank app can read and auto-fill a transfer from needs the SEPA/EPC QR code format, which your bank provides directly in its own app or online banking."
       }
     },
     {
@@ -31,15 +31,15 @@
       "name": "Does the QR code expire?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. The QR code itself never expires - it will keep working for as long as the URL it points to stays live."
+        "text": "No. The QR code itself never expires - a URL code will keep working for as long as the destination URL stays live; a text, phone, Wi-Fi, or contact code has the information built in and works forever."
       }
     },
     {
       "@type": "Question",
-      "name": "What can I put in a QR code?",
+      "name": "What types of QR codes can I create?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Any URL or plain text: a website, a social media profile, a PDF, a Wi-Fi network login, a phone number, or a digital menu."
+        "text": "A website link, plain text, a phone number, an email address, an SMS message, a Wi-Fi network login, or a contact card (vCard) that saves straight into someone's phone contacts when scanned."
       }
     }
   ]
@@ -57,6 +57,21 @@
         background: #fff; border: 1px solid #e5e7eb; border-radius: 20px;
         padding: 28px; box-shadow: 0 20px 45px -20px rgba(15,23,42,.15);
     }
+    .qr-type-tabs {
+        display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px;
+    }
+    .qr-type-tabs input[type="radio"] { position: absolute; opacity: 0; pointer-events: none; }
+    .qr-type-tabs label {
+        border: 1px solid #e5e7eb; border-radius: 999px; padding: 6px 14px; font-size: .88rem;
+        font-weight: 600; color: #475569; cursor: pointer; transition: all .12s ease; margin: 0;
+    }
+    .qr-type-tabs input[type="radio"]:checked + label {
+        background: #6366f1; border-color: #6366f1; color: #fff;
+    }
+    .qr-type-tabs input[type="radio"]:focus-visible + label { outline: 2px solid #6366f1; outline-offset: 2px; }
+    .qr-field-group { display: none; }
+    .qr-field-group.active { display: block; }
+    .qr-field-group .form-label { font-weight: 600; font-size: .9rem; }
     .qr-result { text-align: center; margin-top: 24px; }
     .qr-result img {
         width: 220px; height: 220px; border-radius: 16px; border: 1px solid #e5e7eb;
@@ -89,13 +104,90 @@
 <div class="qr-tool">
     <div class="container">
         <h1>{% trans "Free QR Code Generator" %}</h1>
-        <p class="lede">{% trans "Paste any link, get a downloadable QR code in seconds. No account, no watermark, no catch." %}</p>
+        <p class="lede">{% trans "Pick a type, fill in the details, get a downloadable QR code. No account, no watermark, no catch." %}</p>
 
         <div class="qr-form-card">
-            <form method="post">
+            <form method="post" id="qr-form">
                 {% csrf_token %}
-                <label for="url-input" class="form-label fw-semibold">{% trans "URL to encode" %}</label>
-                <input type="text" id="url-input" name="url" class="form-control form-control-lg" placeholder="https://example.com" value="{{ submitted_url }}" autofocus>
+
+                <div class="qr-type-tabs" role="radiogroup" aria-label="{% trans 'QR code type' %}">
+                    <input type="radio" name="qr_type" id="type-url" value="url" {% if qr_type == 'url' %}checked{% endif %}>
+                    <label for="type-url">{% trans "URL" %}</label>
+
+                    <input type="radio" name="qr_type" id="type-text" value="text" {% if qr_type == 'text' %}checked{% endif %}>
+                    <label for="type-text">{% trans "Text" %}</label>
+
+                    <input type="radio" name="qr_type" id="type-phone" value="phone" {% if qr_type == 'phone' %}checked{% endif %}>
+                    <label for="type-phone">{% trans "Phone" %}</label>
+
+                    <input type="radio" name="qr_type" id="type-email" value="email" {% if qr_type == 'email' %}checked{% endif %}>
+                    <label for="type-email">{% trans "Email" %}</label>
+
+                    <input type="radio" name="qr_type" id="type-sms" value="sms" {% if qr_type == 'sms' %}checked{% endif %}>
+                    <label for="type-sms">{% trans "SMS" %}</label>
+
+                    <input type="radio" name="qr_type" id="type-wifi" value="wifi" {% if qr_type == 'wifi' %}checked{% endif %}>
+                    <label for="type-wifi">{% trans "Wi-Fi" %}</label>
+
+                    <input type="radio" name="qr_type" id="type-contact" value="contact" {% if qr_type == 'contact' %}checked{% endif %}>
+                    <label for="type-contact">{% trans "Contact" %}</label>
+                </div>
+
+                <div class="qr-field-group" data-type="url">
+                    <label for="url-input" class="form-label">{% trans "URL to encode" %}</label>
+                    <input type="text" id="url-input" name="url" class="form-control form-control-lg" placeholder="https://example.com" value="{{ form.url }}">
+                </div>
+
+                <div class="qr-field-group" data-type="text">
+                    <label for="text-input" class="form-label">{% trans "Text" %}</label>
+                    <textarea id="text-input" name="text" class="form-control" rows="3">{{ form.text }}</textarea>
+                </div>
+
+                <div class="qr-field-group" data-type="phone">
+                    <label for="phone-input" class="form-label">{% trans "Phone number" %}</label>
+                    <input type="tel" id="phone-input" name="phone" class="form-control form-control-lg" placeholder="+1 555 123 4567" value="{{ form.phone }}">
+                </div>
+
+                <div class="qr-field-group" data-type="email">
+                    <label for="email-input" class="form-label">{% trans "Email address" %}</label>
+                    <input type="email" id="email-input" name="email" class="form-control form-control-lg mb-2" placeholder="name@example.com" value="{{ form.email }}">
+                    <label for="email-subject-input" class="form-label">{% trans "Subject (optional)" %}</label>
+                    <input type="text" id="email-subject-input" name="email_subject" class="form-control mb-2" value="{{ form.email_subject }}">
+                    <label for="email-body-input" class="form-label">{% trans "Message (optional)" %}</label>
+                    <textarea id="email-body-input" name="email_body" class="form-control" rows="2">{{ form.email_body }}</textarea>
+                </div>
+
+                <div class="qr-field-group" data-type="sms">
+                    <label for="sms-phone-input" class="form-label">{% trans "Phone number" %}</label>
+                    <input type="tel" id="sms-phone-input" name="sms_phone" class="form-control form-control-lg mb-2" placeholder="+1 555 123 4567" value="{{ form.sms_phone }}">
+                    <label for="sms-message-input" class="form-label">{% trans "Message (optional)" %}</label>
+                    <textarea id="sms-message-input" name="sms_message" class="form-control" rows="2">{{ form.sms_message }}</textarea>
+                </div>
+
+                <div class="qr-field-group" data-type="wifi">
+                    <label for="wifi-ssid-input" class="form-label">{% trans "Network name (SSID)" %}</label>
+                    <input type="text" id="wifi-ssid-input" name="wifi_ssid" class="form-control form-control-lg mb-2" value="{{ form.wifi_ssid }}">
+                    <label for="wifi-password-input" class="form-label">{% trans "Password" %}</label>
+                    <input type="text" id="wifi-password-input" name="wifi_password" class="form-control mb-2" value="{{ form.wifi_password }}">
+                    <label for="wifi-encryption-input" class="form-label">{% trans "Security" %}</label>
+                    <select id="wifi-encryption-input" name="wifi_encryption" class="form-select">
+                        <option value="WPA" {% if form.wifi_encryption == 'WPA' or not form.wifi_encryption %}selected{% endif %}>WPA/WPA2</option>
+                        <option value="WEP" {% if form.wifi_encryption == 'WEP' %}selected{% endif %}>WEP</option>
+                        <option value="nopass" {% if form.wifi_encryption == 'nopass' %}selected{% endif %}>{% trans "No password" %}</option>
+                    </select>
+                </div>
+
+                <div class="qr-field-group" data-type="contact">
+                    <label for="vcard-name-input" class="form-label">{% trans "Name" %}</label>
+                    <input type="text" id="vcard-name-input" name="vcard_name" class="form-control form-control-lg mb-2" value="{{ form.vcard_name }}">
+                    <label for="vcard-phone-input" class="form-label">{% trans "Phone (optional)" %}</label>
+                    <input type="tel" id="vcard-phone-input" name="vcard_phone" class="form-control mb-2" value="{{ form.vcard_phone }}">
+                    <label for="vcard-email-input" class="form-label">{% trans "Email (optional)" %}</label>
+                    <input type="email" id="vcard-email-input" name="vcard_email" class="form-control mb-2" value="{{ form.vcard_email }}">
+                    <label for="vcard-org-input" class="form-label">{% trans "Company (optional)" %}</label>
+                    <input type="text" id="vcard-org-input" name="vcard_org" class="form-control" value="{{ form.vcard_org }}">
+                </div>
+
                 {% if error %}
                     <div class="text-danger small mt-2">{{ error }}</div>
                 {% endif %}
@@ -122,7 +214,7 @@
 
         <div class="qr-info">
             <h2>{% trans "How this QR code works" %}</h2>
-            <p>{% trans "The code above encodes the exact URL you entered - scanning it with any phone camera opens that link directly. It never expires and works for anything: a website, a social profile, a PDF, a Wi-Fi login page, or a restaurant menu." %}</p>
+            <p>{% trans "Scanning the code with any phone camera reads back exactly what you entered - a link opens instantly, a Wi-Fi code offers to join the network, a contact card offers to save itself. Nothing about it depends on MenuHub staying online except URL codes, which simply open the link you gave them." %}</p>
             <p>{% trans "Curious what a QR code menu actually looks like in practice?" %} <a href="{% url 'guide_how_to_create' %}">{% trans "See how to create one" %}</a>.</p>
         </div>
 
@@ -130,7 +222,7 @@
             <h2>{% trans "Frequently asked questions" %}</h2>
             <div class="qr-faq-item">
                 <h3>{% trans "Can I use this to make a QR code for a bank transfer?" %}</h3>
-                <p>{% trans "Not directly. This tool generates a standard QR code that opens any link or text you enter - it doesn't format payment details the way banking apps expect. A QR code your bank app can read and auto-fill a transfer from needs the SEPA/EPC QR code format, which your bank provides directly in its own app or online banking. This generator is best for links: websites, social profiles, menus, Wi-Fi logins, and similar." %}</p>
+                <p>{% trans "Not directly. This tool generates a standard QR code that opens a link or encodes text, a phone number, Wi-Fi login, or similar - it doesn't format payment details the way banking apps expect. A QR code your bank app can read and auto-fill a transfer from needs the SEPA/EPC QR code format, which your bank provides directly in its own app or online banking." %}</p>
             </div>
             <div class="qr-faq-item">
                 <h3>{% trans "Is this QR code generator really free?" %}</h3>
@@ -138,13 +230,31 @@
             </div>
             <div class="qr-faq-item">
                 <h3>{% trans "Does the QR code expire?" %}</h3>
-                <p>{% trans "No. The QR code itself never expires - it will keep working for as long as the URL it points to stays live." %}</p>
+                <p>{% trans "No. The QR code itself never expires - a URL code will keep working for as long as the destination URL stays live; a text, phone, Wi-Fi, or contact code has the information built in and works forever." %}</p>
             </div>
             <div class="qr-faq-item">
-                <h3>{% trans "What can I put in a QR code?" %}</h3>
-                <p>{% trans "Any URL or plain text: a website, a social media profile, a PDF, a Wi-Fi network login, a phone number, or a digital menu." %}</p>
+                <h3>{% trans "What types of QR codes can I create?" %}</h3>
+                <p>{% trans "A website link, plain text, a phone number, an email address, an SMS message, a Wi-Fi network login, or a contact card (vCard) that saves straight into someone's phone contacts when scanned." %}</p>
             </div>
         </div>
     </div>
 </div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+(function() {
+    const radios = document.querySelectorAll('.qr-type-tabs input[type="radio"]');
+    const groups = document.querySelectorAll('.qr-field-group');
+
+    function showActiveGroup() {
+        const selected = document.querySelector('.qr-type-tabs input[type="radio"]:checked');
+        const type = selected ? selected.value : 'url';
+        groups.forEach(g => g.classList.toggle('active', g.dataset.type === type));
+    }
+
+    radios.forEach(r => r.addEventListener('change', showActiveGroup));
+    showActiveGroup();
+})();
+</script>
 {% endblock %}
