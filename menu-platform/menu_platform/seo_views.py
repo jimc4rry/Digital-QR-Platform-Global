@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.urls import reverse
+from blog.models import Post
 from restaurants.models import Restaurant
 
 
@@ -25,7 +26,10 @@ def sitemap_xml(request):
         request.build_absolute_uri(reverse('guide_how_to_create')),
         request.build_absolute_uri(reverse('guide_cost')),
         request.build_absolute_uri(reverse('guide_vs_printed')),
+        request.build_absolute_uri(reverse('blog:blog_list')),
     ]
+    for post in Post.objects.filter(is_published=True):
+        urls.append(request.build_absolute_uri(reverse('blog:blog_detail', args=[post.slug])))
     for restaurant in Restaurant.objects.filter(is_active=True):
         urls.append(request.build_absolute_uri(reverse('public_menu', args=[restaurant.qr_code_token])))
 

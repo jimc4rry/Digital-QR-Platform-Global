@@ -156,6 +156,16 @@
                                 <i class="bi bi-hdd-network"></i> {% trans "Platform Administration" %}
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'blog:admin_list' %}">
+                                <i class="bi bi-file-earmark-text"></i> {% trans "Blog" %}
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin/">
+                                <i class="bi bi-shield-lock"></i> {% trans "Django Admin" %}
+                            </a>
+                        </li>
                     {% endif %}
                 </ul>
                 <ul class="navbar-nav align-items-lg-center">
@@ -216,6 +226,7 @@
             <small>
                 &copy; 2026 {% trans "All Rights Reserved" %}
                 &middot; <a href="{% url 'guides_index' %}" class="text-white-50">{% trans "Guides" %}</a>
+                &middot; <a href="{% url 'blog:blog_list' %}" class="text-white-50">{% trans "Blog" %}</a>
                 &middot; <a href="{% url 'terms' %}" class="text-white-50">{% trans "Terms of Use" %}</a>
                 &middot; <a href="{% url 'privacy' %}" class="text-white-50">{% trans "Privacy Policy" %}</a>
                 &middot; <a href="{% url 'refund_policy' %}" class="text-white-50">{% trans "Refund Policy" %}</a>

@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{{ post.title }} - MenuHub{% endblock %}
+{% block meta_description %}{{ post.get_meta_description }}{% endblock %}
+{% block og_title %}{{ post.title }}{% endblock %}
+{% block og_description %}{{ post.get_meta_description }}{% endblock %}
+
+{% block structured_data %}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": {{ post.title|escapejs|safe }},
+    "description": {{ post.get_meta_description|escapejs|safe }},
+    "datePublished": "{{ post.published_at|date:'c' }}",
+    "dateModified": "{{ post.updated_at|date:'c' }}",
+    "author": { "@type": "Organization", "name": "MenuHub" },
+    "publisher": { "@type": "Organization", "name": "MenuHub" },
+    "mainEntityOfPage": "{{ site_url }}{{ request.path }}"
+}
+</script>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .blog-article { padding: 56px 0 72px; }
+    .blog-article .container { max-width: 760px; }
+    .blog-article h1 { font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 800; line-height: 1.2; margin-bottom: 8px; }
+    .blog-article time { color: #6366f1; font-weight: 600; font-size: .85rem; text-transform: uppercase; letter-spacing: .03em; }
+    .blog-article h2 { font-size: 1.4rem; font-weight: 700; margin-top: 40px; margin-bottom: 14px; }
+    .blog-article p, .blog-article li { color: #334155; line-height: 1.75; }
+    .blog-article ul, .blog-article ol { padding-left: 1.3rem; }
+    .blog-article li { margin-bottom: 8px; }
+    .blog-back-link { color: #6366f1; text-decoration: none; font-weight: 600; font-size: .9rem; }
+    .blog-cta {
+        background: #0f172a;
+        border-radius: 20px;
+        padding: 40px 32px;
+        color: #fff;
+        text-align: center;
+        margin-top: 48px;
+    }
+    .blog-cta h2 { color: #fff; margin-top: 0; }
+    .blog-cta p { color: rgba(255,255,255,.75); }
+    .blog-cta .btn-lp-primary {
+        background: #6366f1;
+        border-color: #6366f1;
+        color: #fff;
+        font-weight: 600;
+        border-radius: 10px;
+        padding: 12px 28px;
+        display: inline-block;
+        text-decoration: none;
+        margin-top: 8px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="blog-article">
+    <div class="container">
+        <a href="{% url 'blog:blog_list' %}" class="blog-back-link">&larr; {% trans "All posts" %}</a>
+        <article class="mt-3">
+            {% if post.published_at %}<time datetime="{{ post.published_at|date:'c' }}">{{ post.published_at|date:"F j, Y" }}</time>{% endif %}
+            <h1>{{ post.title }}</h1>
+            {{ post.body|safe }}
+        </article>
+        <div class="blog-cta">
+            <h2>{% trans "Ready to digitize your menu?" %}</h2>
+            <p>{% trans "Create your restaurant's QR code menu in minutes - no credit card required to start." %}</p>
+            <a href="{% url 'signup' %}" class="btn-lp-primary">{% trans "Create your menu" %}</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

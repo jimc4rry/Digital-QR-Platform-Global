@@ -18,6 +18,7 @@ urlpatterns = [
     path('guides/how-to-create-a-qr-code-menu/', TemplateView.as_view(template_name='guides/how_to_create_qr_menu.html'), name='guide_how_to_create'),
     path('guides/qr-code-menu-cost/', TemplateView.as_view(template_name='guides/qr_menu_cost.html'), name='guide_cost'),
     path('guides/qr-code-menu-vs-printed-menu/', TemplateView.as_view(template_name='guides/qr_vs_printed_menu.html'), name='guide_vs_printed'),
+    path('blog/', include('blog.urls', namespace='blog')),
     path('accounts/', include('accounts.urls')),
     path('restaurant/', include('restaurants.urls')),
     path('orders/', include('orders.urls')),

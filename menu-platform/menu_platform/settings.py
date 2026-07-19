@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'restaurants',
     'orders',
     'api',
+    'blog',
 
     # Must come after the apps whose models it cleans up media for.
     'django_cleanup.apps.CleanupConfig',

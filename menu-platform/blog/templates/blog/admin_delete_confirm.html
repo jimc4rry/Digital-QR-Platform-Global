@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Delete Post" %}{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <h1>{% trans "Delete Post" %}</h1>
+    <div class="card">
+        <div class="card-body">
+            <p>{% blocktrans with title=post.title %}Are you sure you want to delete "{{ title }}"? This cannot be undone.{% endblocktrans %}</p>
+            <form method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">{% trans "Delete" %}</button>
+                <a href="{% url 'blog:admin_list' %}" class="btn btn-secondary">{% trans "Cancel" %}</a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
