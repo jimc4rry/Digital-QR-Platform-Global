@@ -23,6 +23,19 @@ class UserRegistrationForm(UserCreationForm):
         choices=BUSINESS_TYPE_CHOICES,
         label=_('Business Type')
     )
+    # Honeypot: invisible to real users (off-screen, out of tab order, not read by
+    # screen readers), so only a bot that blindly fills every input will populate it.
+    # Left blank by humans - checked in the signup view, never saved to the User model.
+    website = forms.CharField(
+        required=False,
+        label='',
+        widget=forms.TextInput(attrs={
+            'autocomplete': 'off',
+            'tabindex': '-1',
+            'aria-hidden': 'true',
+            'style': 'position:absolute; left:-9999px; width:1px; height:1px;',
+        }),
+    )
 
     class Meta:
         model = User

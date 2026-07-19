@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% blocktrans with name=restaurant.name %}Delete {{ name }}{% endblocktrans %}{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <h1>{% trans "Delete Business Account" %}</h1>
+
+    <div class="card border-danger">
+        <div class="card-header bg-danger text-white">{% trans "This cannot be undone" %}</div>
+        <div class="card-body">
+            <p>{% blocktrans with name=restaurant.name %}You are about to permanently delete <strong>{{ name }}</strong> and everything associated with it:{% endblocktrans %}</p>
+            <ul>
+                <li>{% trans "The user account and login" %} (<code>{{ business_user.username }}</code>)</li>
+                <li>{% blocktrans count counter=product_count %}{{ counter }} product{% plural %}{{ counter }} products{% endblocktrans %}, categories, and tables</li>
+                <li>{% blocktrans count counter=order_count %}{{ counter }} order{% plural %}{{ counter }} orders{% endblocktrans %} and payment history</li>
+                <li>{% trans "Any staff accounts under this business" %}</li>
+            </ul>
+            <p class="text-muted small">{% trans "Use this only for spam/bot signups or accounts the owner has asked you to remove - not as a substitute for canceling a subscription." %}</p>
+
+            <form method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">{% trans "Permanently delete" %}</button>
+                <a href="{% url 'platform_admin_business_detail' business_user.pk %}" class="btn btn-secondary">{% trans "Cancel" %}</a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

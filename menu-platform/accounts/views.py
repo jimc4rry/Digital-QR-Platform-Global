@@ -9,6 +9,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login, views as auth_views
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.core.cache import cache
 from django.core.paginator import Paginator
 from django.db import transaction
 from django.db.models import Count, Sum, Q, OuterRef, Subquery
@@ -40,10 +41,35 @@ def password_change(request):
     )(request)
 
 
+SIGNUP_RATE_LIMIT_WINDOW_SECONDS = 3600
+SIGNUP_RATE_LIMIT_MAX_ATTEMPTS = 5
+
+
+def _is_signup_rate_limited(request):
+    """Per-IP throttle on signup POSTs - the account gets a 30-day free trial with no
+    email verification, which is exactly what a bot farming free accounts wants."""
+    client_ip = request.META.get('REMOTE_ADDR', 'unknown')
+    cache_key = f'signup_rate_limit:{client_ip}'
+    count = cache.get(cache_key, 0)
+    if count >= SIGNUP_RATE_LIMIT_MAX_ATTEMPTS:
+        return True
+    cache.set(cache_key, count + 1, SIGNUP_RATE_LIMIT_WINDOW_SECONDS)
+    return False
+
+
 def signup(request):
     if request.method == 'POST':
+        if _is_signup_rate_limited(request):
+            messages.error(request, _('Too many signup attempts from this network. Please try again later.'))
+            return render(request, 'accounts/signup.html', {'form': UserRegistrationForm()})
+
         form = UserRegistrationForm(request.POST)
         if form.is_valid():
+            if form.cleaned_data.get('website'):
+                # Honeypot field was filled in - only a bot does this. Pretend
+                # success without creating an account, so the bot gets no signal
+                # that it was caught.
+                return redirect('login')
             with transaction.atomic():
                 user = form.save()
                 # 30-day free trial of Basic - no payment needed yet, but once
@@ -322,6 +348,31 @@ def platform_admin_business_detail(request, pk):
         'payments': Payment.objects.filter(user=business_user)[:20],
     }
     return render(request, 'accounts/platform_admin_business_detail.html', context)
+
+
+@platform_admin_required
+def platform_admin_business_delete(request, pk):
+    """Permanently removes a business account - for spam/bot signups. Deleting the
+    User cascades to its Restaurant and everything under it (categories, products,
+    tables, orders, staff, payments)."""
+    business_user = get_object_or_404(User, pk=pk, restaurant__isnull=False)
+
+    if business_user.is_superuser or business_user.pk == request.user.pk:
+        return HttpResponseForbidden(_('This account cannot be deleted from here.'))
+
+    if request.method == 'POST':
+        name = business_user.restaurant.name
+        business_user.delete()
+        messages.success(request, _('"%(name)s" and all of its data have been permanently deleted.') % {'name': name})
+        return redirect('platform_admin_dashboard')
+
+    context = {
+        'business_user': business_user,
+        'restaurant': business_user.restaurant,
+        'order_count': business_user.restaurant.orders.count(),
+        'product_count': sum(c.products.count() for c in business_user.restaurant.categories.all()),
+    }
+    return render(request, 'accounts/platform_admin_business_delete.html', context)
 
 
 @platform_admin_required

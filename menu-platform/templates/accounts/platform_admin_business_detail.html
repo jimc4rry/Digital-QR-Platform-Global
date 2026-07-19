@@ -7,7 +7,10 @@
 <div class="container py-4">
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h1>{{ restaurant.name }}</h1>
-        <a href="{% url 'platform_admin_dashboard' %}" class="btn btn-secondary">{% trans "Back" %}</a>
+        <div class="d-flex gap-2">
+            <a href="{% url 'platform_admin_business_delete' business_user.pk %}" class="btn btn-outline-danger">{% trans "Delete" %}</a>
+            <a href="{% url 'platform_admin_dashboard' %}" class="btn btn-secondary">{% trans "Back" %}</a>
+        </div>
     </div>
 
     <div class="row">
