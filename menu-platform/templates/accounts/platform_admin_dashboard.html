@@ -54,6 +54,8 @@
                             <th>Email</th>
                             <th>{% trans "Plan" %}</th>
                             <th>{% trans "Status" %}</th>
+                            <th>{% trans "Products" %}</th>
+                            <th>{% trans "Tables" %}</th>
                             <th>{% trans "Orders" %}</th>
                             <th>{% trans "Revenue" %}</th>
                             <th>{% trans "Registered" %}</th>
@@ -78,6 +80,8 @@
                                         <span class="badge bg-danger-subtle text-danger">{% trans "Inactive" %}</span>
                                     {% endif %}
                                 </td>
+                                <td>{{ business.product_count }}</td>
+                                <td>{{ business.table_count }}</td>
                                 <td>{{ business.order_count }}</td>
                                 <td>${{ business.total_revenue|default:0|floatformat:2 }}</td>
                                 <td>{{ business.created_at|date:"d/m/Y" }}</td>
@@ -89,7 +93,7 @@
                             </tr>
                         {% empty %}
                             <tr>
-                                <td colspan="9" class="text-center text-muted">{% trans "No businesses found" %}</td>
+                                <td colspan="11" class="text-center text-muted">{% trans "No businesses found" %}</td>
                             </tr>
                         {% endfor %}
                     </tbody>

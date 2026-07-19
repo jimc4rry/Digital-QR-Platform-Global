@@ -11,7 +11,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.core.paginator import Paginator
 from django.db import transaction
-from django.db.models import Count, Sum, Q
+from django.db.models import Count, Sum, Q, OuterRef, Subquery
 from django.http import HttpResponse, HttpResponseForbidden, HttpResponseBadRequest
 from django.urls import reverse_lazy, reverse
 from django.utils import timezone
@@ -21,6 +21,7 @@ from django.utils.translation import gettext as _
 from . import billing
 from .forms import UserRegistrationForm, StyledPasswordChangeForm, PlatformSubscriptionForm, get_purchasable_plans
 from .models import User, Payment, PLAN_PRICES
+from orders.models import Order
 from restaurants.models import Restaurant
 from restaurants.permissions import get_restaurant_and_role
 
@@ -253,9 +254,19 @@ def platform_admin_required(view_func):
 @platform_admin_required
 def platform_admin_dashboard(request):
     """Cross-tenant list of every business on the platform, for support/billing purposes."""
+    # total_revenue is computed via a subquery, not a joined annotate, because the
+    # product_count/table_count annotations below join two more to-many relations
+    # (categories->products, tables) into the same query - a plain Sum() over the
+    # orders join would silently multiply by the fan-out from those extra joins.
+    revenue_subquery = Order.objects.filter(
+        restaurant=OuterRef('restaurant')
+    ).order_by().values('restaurant').annotate(total=Sum('total')).values('total')
+
     businesses = User.objects.filter(restaurant__isnull=False).select_related('restaurant').annotate(
         order_count=Count('restaurant__orders', distinct=True),
-        total_revenue=Sum('restaurant__orders__total'),
+        total_revenue=Subquery(revenue_subquery),
+        product_count=Count('restaurant__categories__products', distinct=True),
+        table_count=Count('restaurant__tables', distinct=True),
     ).order_by('-created_at')
 
     plan_filter = request.GET.get('plan', '').strip()
