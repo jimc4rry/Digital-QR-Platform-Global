@@ -58,6 +58,7 @@
         "clientToken": "{{ paddle_client_token }}",
         "env": "{{ paddle_env }}",
         "customerEmail": "{{ customer_email|escapejs }}",
+        "paddleCustomerId": "{{ paddle_customer_id|escapejs }}",
         "successUrl": "{{ request.scheme }}://{{ request.get_host }}{% url 'payment_success' %}"
     }
 </script>
@@ -69,6 +70,7 @@
         }
         Paddle.Initialize({
             token: config.clientToken,
+            pwCustomer: config.paddleCustomerId ? { id: config.paddleCustomerId } : undefined,
             eventCallback: function (event) {
                 if (event.name === 'checkout.completed' && event.data && event.data.transaction_id) {
                     window.location.href = config.successUrl + '?txn_id=' + encodeURIComponent(event.data.transaction_id);

@@ -1,4 +1,5 @@
 import json
+import logging
 from datetime import timedelta
 from decimal import Decimal
 from functools import wraps
@@ -25,6 +26,8 @@ from .models import User, Payment, PLAN_PRICES
 from orders.models import Order
 from restaurants.models import Restaurant
 from restaurants.permissions import get_restaurant_and_role
+
+logger = logging.getLogger(__name__)
 
 
 @login_required
@@ -143,6 +146,7 @@ def checkout(request):
         'paddle_client_token': settings.PADDLE_CLIENT_TOKEN,
         'paddle_env': settings.PADDLE_ENV,
         'customer_email': request.user.email,
+        'paddle_customer_id': request.user.paddle_customer_id,
     }
     return render(request, 'accounts/checkout.html', context)
 
@@ -215,6 +219,14 @@ def paddle_webhook(request):
     signature = request.META.get('HTTP_PADDLE_SIGNATURE', '')
     if not billing.verify_webhook_signature(request.body, signature):
         return HttpResponseBadRequest()
+
+    # Logging only, not enforced - see is_known_paddle_webhook_ip's docstring for why
+    # this deployment can't yet safely reject on IP mismatch. The signature check
+    # above is what actually authenticates this request.
+    remote_addr = request.META.get('REMOTE_ADDR', '')
+    ip_known = billing.is_known_paddle_webhook_ip(remote_addr)
+    if ip_known is False:
+        logger.warning('Paddle webhook passed signature check but REMOTE_ADDR %s is not in Paddle\'s published IP ranges', remote_addr)
 
     try:
         event = json.loads(request.body)
