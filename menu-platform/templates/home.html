@@ -15,26 +15,13 @@
   "applicationCategory": "BusinessApplication",
   "operatingSystem": "Web",
   "description": "Platform for creating a digital QR-code menu for restaurants, cafes, and bars, with product management, dietary labels, and table-side ordering.",
-  "offers": [
-    {
-      "@type": "Offer",
-      "name": "Basic",
-      "price": "7",
-      "priceCurrency": "USD"
-    },
-    {
-      "@type": "Offer",
-      "name": "Pro",
-      "price": "19",
-      "priceCurrency": "USD"
-    },
-    {
-      "@type": "Offer",
-      "name": "Business",
-      "price": "39",
-      "priceCurrency": "USD"
-    }
-  ]
+  "offers": {
+    "@type": "AggregateOffer",
+    "lowPrice": "7",
+    "highPrice": "39",
+    "priceCurrency": "USD",
+    "offerCount": "3"
+  }
 }
 </script>
 <script type="application/ld+json">
