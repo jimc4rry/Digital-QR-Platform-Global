@@ -11,8 +11,8 @@
 {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "headline": {{ post.title|escapejs|safe }},
-    "description": {{ post.get_meta_description|escapejs|safe }},
+    "headline": "{{ post.title|escapejs|safe }}",
+    "description": "{{ post.get_meta_description|escapejs|safe }}",
     "datePublished": "{{ post.published_at|date:'c' }}",
     "dateModified": "{{ post.updated_at|date:'c' }}",
     "author": { "@type": "Organization", "name": "MenuHub" },
