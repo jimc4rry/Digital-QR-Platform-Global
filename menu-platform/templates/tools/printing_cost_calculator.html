@@ -1,0 +1,166 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Menu Printing Cost Calculator - Free Tool" %} | MenuHub{% endblock %}
+{% block meta_description %}{% trans "See exactly how much you spend reprinting menus every year, and what switching to a QR code menu would save you." %}{% endblock %}
+
+{% block extra_css %}
+<style>
+    .calc-tool { padding: 56px 0 72px; }
+    .calc-tool .container { max-width: 640px; }
+    .calc-tool h1 { font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 800; text-align: center; margin-bottom: 10px; }
+    .calc-tool .lede { text-align: center; color: #64748b; margin-bottom: 32px; }
+    .calc-form-card {
+        background: #fff; border: 1px solid #e5e7eb; border-radius: 20px;
+        padding: 28px; box-shadow: 0 20px 45px -20px rgba(15,23,42,.15);
+    }
+    .calc-form-card .form-label { font-weight: 600; font-size: .9rem; }
+    .calc-form-card .form-text { font-size: .8rem; }
+    .calc-result { margin-top: 28px; padding-top: 24px; border-top: 1px solid #e5e7eb; }
+    .calc-bars { display: flex; flex-direction: column; gap: 14px; margin: 18px 0 6px; }
+    .calc-bar-row { display: flex; align-items: center; gap: 12px; }
+    .calc-bar-label { width: 130px; flex-shrink: 0; font-size: .85rem; font-weight: 600; color: #475569; }
+    .calc-bar-track { flex: 1; background: #f1f5f9; border-radius: 8px; height: 32px; position: relative; overflow: hidden; }
+    .calc-bar-fill { height: 100%; border-radius: 8px; transition: width .25s ease; display: flex; align-items: center; justify-content: flex-end; padding-right: 10px; }
+    .calc-bar-fill.printing { background: linear-gradient(90deg, #f97373, #ef4444); }
+    .calc-bar-fill.menuhub { background: linear-gradient(90deg, #818cf8, #6366f1); }
+    .calc-bar-fill span { color: #fff; font-weight: 700; font-size: .82rem; white-space: nowrap; }
+    .calc-savings {
+        text-align: center; margin-top: 20px; padding: 18px; border-radius: 14px;
+        background: #f0fdf4; color: #166534; font-weight: 700; font-size: 1.05rem;
+    }
+    .qr-upsell {
+        background: #0f172a; border-radius: 20px; padding: 32px 28px; color: #fff;
+        text-align: center; margin-top: 40px;
+    }
+    .qr-upsell h2 { color: #fff; font-size: 1.3rem; margin-top: 0; }
+    .qr-upsell p { color: rgba(255,255,255,.75); }
+    .btn-lp-primary {
+        background: #6366f1; border-color: #6366f1; color: #fff; font-weight: 600;
+        border-radius: 10px; padding: 12px 28px; display: inline-block; text-decoration: none;
+        margin-top: 8px;
+    }
+    .btn-lp-primary:hover { background: #4f46e5; color: #fff; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="calc-tool">
+    <div class="container">
+        <h1>{% trans "Menu Printing Cost Calculator" %}</h1>
+        <p class="lede">{% trans "See how much reprinting your menu actually costs you per year - and what a QR code menu would save." %}</p>
+
+        <div class="calc-form-card">
+            <div class="row g-3">
+                <div class="col-sm-6">
+                    <label for="menus-per-print" class="form-label">{% trans "Menus printed each time" %}</label>
+                    <input type="number" id="menus-per-print" class="form-control" min="1" value="50">
+                </div>
+                <div class="col-sm-6">
+                    <label for="times-per-year" class="form-label">{% trans "Reprints per year" %}</label>
+                    <input type="number" id="times-per-year" class="form-control" min="0" value="4">
+                    <div class="form-text text-muted">{% trans "Price changes, seasonal menus, wear and tear" %}</div>
+                </div>
+                <div class="col-sm-6">
+                    <label for="cost-per-menu" class="form-label">{% trans "Cost per printed menu ($)" %}</label>
+                    <input type="number" id="cost-per-menu" class="form-control" min="0" step="0.10" value="1.20">
+                </div>
+                <div class="col-sm-6">
+                    <label for="design-cost" class="form-label">{% trans "Design/layout cost per revision ($)" %}</label>
+                    <input type="number" id="design-cost" class="form-control" min="0" step="5" value="0">
+                    <div class="form-text text-muted">{% trans "Leave at 0 if you design it yourself" %}</div>
+                </div>
+            </div>
+
+            <div class="calc-result">
+                <div class="calc-bars">
+                    <div class="calc-bar-row">
+                        <div class="calc-bar-label">{% trans "Printed menus" %}</div>
+                        <div class="calc-bar-track">
+                            <div class="calc-bar-fill printing" id="bar-printing" style="width: 100%;">
+                                <span id="value-printing">$0/yr</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="calc-bar-row">
+                        <div class="calc-bar-label">{% trans "MenuHub (Basic)" %}</div>
+                        <div class="calc-bar-track">
+                            <div class="calc-bar-fill menuhub" id="bar-menuhub" style="width: 10%;">
+                                <span id="value-menuhub">$84/yr</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="calc-savings" id="savings-box">
+                    {% trans "Fill in your numbers above to see your savings." %}
+                </div>
+            </div>
+        </div>
+
+        <div class="qr-upsell">
+            <h2>{% trans "Stop paying for reprints" %}</h2>
+            <p>{% trans "Update your menu instantly from your phone or computer - no printer, no graphic designer, no waiting." %}</p>
+            <a href="{% url 'signup' %}" class="btn-lp-primary">{% trans "Switch to a QR menu" %}</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+(function() {
+    const MENUHUB_ANNUAL_COST = 84; // Basic plan, $7/month
+
+    const inputs = {
+        menusPerPrint: document.getElementById('menus-per-print'),
+        timesPerYear: document.getElementById('times-per-year'),
+        costPerMenu: document.getElementById('cost-per-menu'),
+        designCost: document.getElementById('design-cost'),
+    };
+    const barPrinting = document.getElementById('bar-printing');
+    const barMenuhub = document.getElementById('bar-menuhub');
+    const valuePrinting = document.getElementById('value-printing');
+    const valueMenuhub = document.getElementById('value-menuhub');
+    const savingsBox = document.getElementById('savings-box');
+
+    function num(el) {
+        const v = parseFloat(el.value);
+        return isNaN(v) || v < 0 ? 0 : v;
+    }
+
+    function formatMoney(v) {
+        return '$' + v.toLocaleString(undefined, { maximumFractionDigits: 0 });
+    }
+
+    function recalculate() {
+        const menusPerPrint = num(inputs.menusPerPrint);
+        const timesPerYear = num(inputs.timesPerYear);
+        const costPerMenu = num(inputs.costPerMenu);
+        const designCost = num(inputs.designCost);
+
+        const printingAnnualCost = timesPerYear * (menusPerPrint * costPerMenu + designCost);
+        const maxValue = Math.max(printingAnnualCost, MENUHUB_ANNUAL_COST, 1);
+
+        barPrinting.style.width = Math.max((printingAnnualCost / maxValue) * 100, 6) + '%';
+        barMenuhub.style.width = Math.max((MENUHUB_ANNUAL_COST / maxValue) * 100, 6) + '%';
+        valuePrinting.textContent = formatMoney(printingAnnualCost) + '/yr';
+        valueMenuhub.textContent = formatMoney(MENUHUB_ANNUAL_COST) + '/yr';
+
+        const savings = printingAnnualCost - MENUHUB_ANNUAL_COST;
+        if (savings > 0) {
+            savingsBox.textContent = '{% trans "You could save about" %} ' + formatMoney(savings) + ' {% trans "a year by switching to a QR menu." %}';
+            savingsBox.style.background = '#f0fdf4';
+            savingsBox.style.color = '#166534';
+        } else {
+            savingsBox.textContent = '{% trans "Your printing costs are already low - but you would also get instant updates, no waiting on a print shop." %}';
+            savingsBox.style.background = '#eef2ff';
+            savingsBox.style.color = '#3730a3';
+        }
+    }
+
+    Object.values(inputs).forEach(el => el.addEventListener('input', recalculate));
+    recalculate();
+})();
+</script>
+{% endblock %}

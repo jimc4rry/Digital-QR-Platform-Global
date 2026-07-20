@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "QR Menu Examples - See MenuHub in Action" %} | MenuHub{% endblock %}
+{% block meta_description %}{% trans "See real, live QR code menu examples for a cafe, a taverna, and a beach bar - built with MenuHub. No sign-up needed to look." %}{% endblock %}
+
+{% block extra_css %}
+<style>
+    .examples-page { padding: 56px 0 72px; }
+    .examples-page .container { max-width: 900px; }
+    .examples-page h1 { font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 800; text-align: center; margin-bottom: 10px; }
+    .examples-page .lede { text-align: center; color: #64748b; margin-bottom: 40px; max-width: 60ch; margin-left: auto; margin-right: auto; }
+    .example-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 22px; }
+    .example-card {
+        background: #fff; border: 1px solid #e5e7eb; border-radius: 18px; padding: 26px;
+        box-shadow: 0 16px 36px -18px rgba(15,23,42,.15); text-align: center;
+    }
+    .example-card .example-label {
+        display: inline-block; font-size: .78rem; font-weight: 700; letter-spacing: .03em;
+        text-transform: uppercase; color: #6366f1; background: #eef0fe; padding: 4px 12px;
+        border-radius: 999px; margin-bottom: 12px;
+    }
+    .example-card h2 { font-size: 1.15rem; font-weight: 700; margin-bottom: 8px; }
+    .example-card p { color: #64748b; font-size: .9rem; margin-bottom: 18px; }
+    .example-card .btn { width: 100%; }
+    .qr-upsell {
+        background: #0f172a; border-radius: 20px; padding: 32px 28px; color: #fff;
+        text-align: center; margin-top: 48px;
+    }
+    .qr-upsell h2 { color: #fff; font-size: 1.3rem; margin-top: 0; }
+    .qr-upsell p { color: rgba(255,255,255,.75); }
+    .btn-lp-primary {
+        background: #6366f1; border-color: #6366f1; color: #fff; font-weight: 600;
+        border-radius: 10px; padding: 12px 28px; display: inline-block; text-decoration: none;
+        margin-top: 8px;
+    }
+    .btn-lp-primary:hover { background: #4f46e5; color: #fff; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="examples-page">
+    <div class="container">
+        <h1>{% trans "See MenuHub in Action" %}</h1>
+        <p class="lede">{% trans "Real, live digital menus built with MenuHub - scan them with your own phone, or just click through. No sign-up needed to look around." %}</p>
+
+        {% if examples %}
+            <div class="example-grid">
+                {% for example in examples %}
+                    <div class="example-card">
+                        <span class="example-label">{{ example.label }}</span>
+                        <h2>{{ example.restaurant.name }}</h2>
+                        <p>{{ example.restaurant.description }}</p>
+                        <a href="{% url 'public_menu' example.restaurant.qr_code_token %}" target="_blank" rel="noopener" class="btn btn-primary">
+                            {% trans "View live demo" %} <i class="bi bi-box-arrow-up-right"></i>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="text-center text-muted">{% trans "Examples coming soon." %}</p>
+        {% endif %}
+
+        <div class="qr-upsell">
+            <h2>{% trans "Like what you see?" %}</h2>
+            <p>{% trans "Build your own menu in about 5 minutes - your own categories, products, photos, and an automatic QR code." %}</p>
+            <a href="{% url 'signup' %}" class="btn-lp-primary">{% trans "Create your free QR menu" %}</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

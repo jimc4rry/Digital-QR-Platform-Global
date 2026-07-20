@@ -9,6 +9,33 @@ from django.core.validators import URLValidator, EmailValidator
 from django.shortcuts import render
 from django.utils.translation import gettext as _
 
+# Ordered so the showcase page always lists them the same way. Usernames match
+# restaurants/management/commands/create_demo_menus.py - tokens are random per
+# environment (regenerated whenever that command first runs there), so they're
+# looked up by username here rather than hardcoded.
+DEMO_RESTAURANT_USERNAMES = [
+    ('demo_cafe', _('Cafe')),
+    ('demo_taverna', _('Taverna')),
+    ('demo_beachbar', _('Beach Bar')),
+]
+
+
+def qr_menu_examples(request):
+    """Public showcase page linking to live demo menus, so a prospect can see the
+    real product in action before signing up - not a static mockup."""
+    from restaurants.models import Restaurant
+
+    demos_by_username = {
+        r.user.username: r
+        for r in Restaurant.objects.filter(user__username__in=[u for u, _label in DEMO_RESTAURANT_USERNAMES], is_active=True)
+    }
+    examples = [
+        {'restaurant': demos_by_username[username], 'label': label}
+        for username, label in DEMO_RESTAURANT_USERNAMES
+        if username in demos_by_username
+    ]
+    return render(request, 'tools/qr_menu_examples.html', {'examples': examples})
+
 
 class QRInputError(Exception):
     """Raised by an _encode_* function when the submitted fields can't be turned into a

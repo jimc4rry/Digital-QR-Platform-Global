@@ -215,7 +215,7 @@
         <div class="qr-info">
             <h2>{% trans "How this QR code works" %}</h2>
             <p>{% trans "Scanning the code with any phone camera reads back exactly what you entered - a link opens instantly, a Wi-Fi code offers to join the network, a contact card offers to save itself. Nothing about it depends on MenuHub staying online except URL codes, which simply open the link you gave them." %}</p>
-            <p>{% trans "Curious what a QR code menu actually looks like in practice?" %} <a href="{% url 'guide_how_to_create' %}">{% trans "See how to create one" %}</a>.</p>
+            <p>{% trans "Curious what a QR code menu actually looks like in practice?" %} <a href="{% url 'guide_how_to_create' %}">{% trans "See how to create one" %}</a> {% trans "or" %} <a href="{% url 'qr_menu_examples' %}">{% trans "browse live examples" %}</a>.</p>
         </div>
 
         <div class="qr-faq">
