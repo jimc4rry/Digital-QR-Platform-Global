@@ -438,27 +438,21 @@
                 <p>{% trans "Real, live QR code menus built with MenuHub - not mockups." %}</p>
             </div>
             <div class="row g-4">
-                <div class="col-md-4">
-                    <a href="{% url 'qr_menu_examples' %}" class="lp-card mh-reveal text-decoration-none text-reset d-block">
-                        <div class="lp-icon-circle"><i class="bi bi-cup-hot"></i></div>
-                        <h3 class="h6">{% trans "Cafe" %}</h3>
-                        <p class="text-muted-lp mb-0 small">{% trans "Coffee, breakfast, and pastries menu example." %}</p>
-                    </a>
-                </div>
-                <div class="col-md-4">
-                    <a href="{% url 'qr_menu_examples' %}" class="lp-card mh-reveal text-decoration-none text-reset d-block" style="transition-delay:.08s">
-                        <div class="lp-icon-circle"><i class="bi bi-egg-fried"></i></div>
-                        <h3 class="h6">{% trans "Taverna" %}</h3>
-                        <p class="text-muted-lp mb-0 small">{% trans "Traditional starters, mains, and salads example." %}</p>
-                    </a>
-                </div>
-                <div class="col-md-4">
-                    <a href="{% url 'qr_menu_examples' %}" class="lp-card mh-reveal text-decoration-none text-reset d-block" style="transition-delay:.16s">
-                        <div class="lp-icon-circle"><i class="bi bi-sun"></i></div>
-                        <h3 class="h6">{% trans "Beach Bar" %}</h3>
-                        <p class="text-muted-lp mb-0 small">{% trans "Cocktails, frappe, and snacks example." %}</p>
-                    </a>
-                </div>
+                {% for example in examples %}
+                    <div class="col-md-4">
+                        <a href="{% url 'public_menu' example.restaurant.qr_code_token %}" target="_blank" rel="noopener" class="lp-card mh-reveal text-decoration-none text-reset d-block">
+                            <div class="lp-icon-circle"><i class="bi bi-{{ example.icon }}"></i></div>
+                            <h3 class="h6">{{ example.label }}</h3>
+                            <p class="text-muted-lp mb-0 small">{{ example.restaurant.description }}</p>
+                        </a>
+                    </div>
+                {% empty %}
+                    <div class="col-12 text-center">
+                        <a href="{% url 'qr_menu_examples' %}" class="lp-card mh-reveal text-decoration-none text-reset d-block">
+                            <p class="text-muted-lp mb-0">{% trans "See our live menu examples" %}</p>
+                        </a>
+                    </div>
+                {% endfor %}
             </div>
             <div class="text-center mt-4 mh-reveal">
                 <a href="{% url 'qr_menu_examples' %}" class="btn btn-lp-primary btn-lg">{% trans "See all live examples" %}</a>

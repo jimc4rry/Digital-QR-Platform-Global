@@ -5,12 +5,12 @@ from django.conf import settings
 from django.views.generic import TemplateView
 from django.views.static import serve as serve_static
 from restaurants import views as restaurant_views
-from . import seo_views, tool_views
+from . import seo_views, tool_views, views as menu_platform_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('i18n/', include('django.conf.urls.i18n')),
-    path('', TemplateView.as_view(template_name='home.html'), name='home'),
+    path('', menu_platform_views.home, name='home'),
     path('terms/', TemplateView.as_view(template_name='terms.html'), name='terms'),
     path('privacy/', TemplateView.as_view(template_name='privacy.html'), name='privacy'),
     path('refund-policy/', TemplateView.as_view(template_name='refund_policy.html'), name='refund_policy'),
