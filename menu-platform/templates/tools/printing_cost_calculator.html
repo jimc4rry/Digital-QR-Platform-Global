@@ -9,25 +9,25 @@
     .calc-tool { padding: 56px 0 72px; }
     .calc-tool .container { max-width: 640px; }
     .calc-tool h1 { font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 800; text-align: center; margin-bottom: 10px; }
-    .calc-tool .lede { text-align: center; color: #64748b; margin-bottom: 32px; }
+    .calc-tool .lede { text-align: center; color: var(--mh-text-muted); margin-bottom: 32px; }
     .calc-form-card {
-        background: #fff; border: 1px solid #e5e7eb; border-radius: 20px;
+        background: var(--mh-bg); border: 1px solid var(--mh-border); border-radius: 20px;
         padding: 28px; box-shadow: 0 20px 45px -20px rgba(15,23,42,.15);
     }
     .calc-form-card .form-label { font-weight: 600; font-size: .9rem; }
     .calc-form-card .form-text { font-size: .8rem; }
-    .calc-result { margin-top: 28px; padding-top: 24px; border-top: 1px solid #e5e7eb; }
+    .calc-result { margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--mh-border); }
     .calc-bars { display: flex; flex-direction: column; gap: 14px; margin: 18px 0 6px; }
     .calc-bar-row { display: flex; align-items: center; gap: 12px; }
-    .calc-bar-label { width: 130px; flex-shrink: 0; font-size: .85rem; font-weight: 600; color: #475569; }
-    .calc-bar-track { flex: 1; background: #f1f5f9; border-radius: 8px; height: 32px; position: relative; overflow: hidden; }
+    .calc-bar-label { width: 130px; flex-shrink: 0; font-size: .85rem; font-weight: 600; color: var(--mh-text-muted); }
+    .calc-bar-track { flex: 1; background: var(--mh-bg-subtle); border-radius: 8px; height: 32px; position: relative; overflow: hidden; }
     .calc-bar-fill { height: 100%; border-radius: 8px; transition: width .25s ease; display: flex; align-items: center; justify-content: flex-end; padding-right: 10px; }
     .calc-bar-fill.printing { background: linear-gradient(90deg, #f97373, #ef4444); }
     .calc-bar-fill.menuhub { background: linear-gradient(90deg, #818cf8, #6366f1); }
     .calc-bar-fill span { color: #fff; font-weight: 700; font-size: .82rem; white-space: nowrap; }
     .calc-savings {
         text-align: center; margin-top: 20px; padding: 18px; border-radius: 14px;
-        background: #f0fdf4; color: #166534; font-weight: 700; font-size: 1.05rem;
+        background: var(--mh-success-bg); color: var(--mh-success); font-weight: 700; font-size: 1.05rem;
     }
     .qr-upsell {
         background: #0f172a; border-radius: 20px; padding: 32px 28px; color: #fff;
@@ -36,11 +36,11 @@
     .qr-upsell h2 { color: #fff; font-size: 1.3rem; margin-top: 0; }
     .qr-upsell p { color: rgba(255,255,255,.75); }
     .btn-lp-primary {
-        background: #6366f1; border-color: #6366f1; color: #fff; font-weight: 600;
+        background: var(--mh-primary); border-color: var(--mh-primary); color: #fff; font-weight: 600;
         border-radius: 10px; padding: 12px 28px; display: inline-block; text-decoration: none;
         margin-top: 8px;
     }
-    .btn-lp-primary:hover { background: #4f46e5; color: #fff; }
+    .btn-lp-primary:hover { background: var(--mh-primary-dark); border-color: var(--mh-primary-dark); color: #fff; }
 </style>
 {% endblock %}
 
@@ -150,12 +150,12 @@
         const savings = printingAnnualCost - MENUHUB_ANNUAL_COST;
         if (savings > 0) {
             savingsBox.textContent = '{% trans "You could save about" %} ' + formatMoney(savings) + ' {% trans "a year by switching to a QR menu." %}';
-            savingsBox.style.background = '#f0fdf4';
-            savingsBox.style.color = '#166534';
+            savingsBox.style.background = 'var(--mh-success-bg)';
+            savingsBox.style.color = 'var(--mh-success)';
         } else {
             savingsBox.textContent = '{% trans "Your printing costs are already low - but you would also get instant updates, no waiting on a print shop." %}';
-            savingsBox.style.background = '#eef2ff';
-            savingsBox.style.color = '#3730a3';
+            savingsBox.style.background = 'var(--mh-primary-light)';
+            savingsBox.style.color = 'var(--mh-primary-dark)';
         }
     }
 

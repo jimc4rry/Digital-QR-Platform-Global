@@ -92,6 +92,18 @@
         --lp-muted: #64748b;
         --lp-border: #e5e7eb;
         --lp-bg-soft: #f8fafc;
+        --lp-surface: #ffffff;
+        --lp-cta-bg: #0b0b14;
+    }
+    [data-bs-theme="dark"] .landing {
+        --lp-primary: #818cf8;
+        --lp-primary-dark: #a5b4fc;
+        --lp-primary-light: rgba(99, 102, 241, .18);
+        --lp-text: #f4f4f6;
+        --lp-muted: #a1a1aa;
+        --lp-border: #2a2a35;
+        --lp-bg-soft: #131318;
+        --lp-surface: #17171f;
     }
     .landing h1, .landing h2, .landing h3, .landing h4 {
         color: var(--lp-text);
@@ -165,7 +177,7 @@
         font-weight: 600;
         border-radius: 10px;
         padding: 12px 28px;
-        background: #fff;
+        background: var(--lp-surface);
     }
     .btn-lp-outline:hover {
         border-color: var(--lp-primary);
@@ -176,7 +188,7 @@
     .lp-phone {
         max-width: 260px;
         margin: 0 auto;
-        border: 10px solid var(--lp-text);
+        border: 10px solid #1a1a24;
         border-radius: 32px;
         background: #fff;
         box-shadow: 0 30px 60px -20px rgba(15,23,42,.35), 0 0 0 1px rgba(99,102,241,.08);
@@ -219,7 +231,7 @@
         border-radius: 16px;
         padding: 28px;
         height: 100%;
-        background: #fff;
+        background: var(--lp-surface);
         transition: box-shadow .2s ease, transform .2s ease;
     }
     .lp-card:hover {
@@ -255,7 +267,7 @@
         border: 1px solid var(--lp-border);
         border-radius: 16px;
         padding: 32px;
-        background: #fff;
+        background: var(--lp-surface);
         height: 100%;
     }
     .lp-pricing-card.featured {
@@ -323,7 +335,7 @@
     }
 
     .lp-cta {
-        background: var(--lp-text);
+        background: var(--lp-cta-bg);
         border-radius: 24px;
         padding: 56px 32px;
         color: #fff;

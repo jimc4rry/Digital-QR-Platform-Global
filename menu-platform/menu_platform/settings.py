@@ -220,8 +220,14 @@ PADDLE_PRICE_BASIC = config('PADDLE_PRICE_BASIC', default='')
 PADDLE_PRICE_PRO = config('PADDLE_PRICE_PRO', default='')
 PADDLE_PRICE_BUSINESS = config('PADDLE_PRICE_BUSINESS', default='')
 
-# Email settings (development)
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# Email settings - defaults to console (dev); set EMAIL_HOST etc. in production to send real emails
+EMAIL_BACKEND = config('EMAIL_BACKEND', default='django.core.mail.backends.console.EmailBackend')
+EMAIL_HOST = config('EMAIL_HOST', default='')
+EMAIL_PORT = config('EMAIL_PORT', default=587, cast=int)
+EMAIL_USE_TLS = config('EMAIL_USE_TLS', default=True, cast=bool)
+EMAIL_HOST_USER = config('EMAIL_HOST_USER', default='')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', default='')
+DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL', default='MenuHub <infogetmenuhub@gmail.com>')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 

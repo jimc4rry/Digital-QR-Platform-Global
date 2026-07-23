@@ -1,8 +1,15 @@
 {% load i18n static %}
 <!DOCTYPE html>
-<html lang="{% get_current_language as LANGUAGE_CODE %}{{ LANGUAGE_CODE }}">
+<html lang="{% get_current_language as LANGUAGE_CODE %}{{ LANGUAGE_CODE }}" data-bs-theme="dark">
 <head>
     <meta charset="UTF-8">
+    <script>
+        (function () {
+            if (localStorage.getItem('mh-theme') === 'light') {
+                document.documentElement.setAttribute('data-bs-theme', 'light');
+            }
+        })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% blocktrans %}MenuHub - Digital QR Code Menus for Restaurants & Cafes{% endblocktrans %}{% endblock %}</title>
     <meta name="description" content="{% block meta_description %}{% blocktrans %}Create your restaurant or cafe's digital QR code menu in 5 minutes. No printing, instant price updates, orders straight from the table.{% endblocktrans %}{% endblock %}">
@@ -191,6 +198,11 @@
                     {% endif %}
                 </ul>
                 <ul class="navbar-nav align-items-lg-center">
+                    <li class="nav-item">
+                        <button type="button" id="mh-theme-toggle" class="nav-link border-0 bg-transparent" aria-label="{% trans 'Toggle dark/light theme' %}">
+                            <i class="bi bi-sun-fill" id="mh-theme-icon"></i>
+                        </button>
+                    </li>
                     {% if user.is_authenticated %}
                         {% if staff_role != 'employee' %}
                             <li class="nav-item dropdown">
@@ -303,6 +315,27 @@
                 });
             }, { threshold: 0.12 });
             document.querySelectorAll('.mh-reveal').forEach(function (el) { observer.observe(el); });
+        })();
+    </script>
+    <script>
+        (function () {
+            var root = document.documentElement;
+            var btn = document.getElementById('mh-theme-toggle');
+            var icon = document.getElementById('mh-theme-icon');
+            if (!btn || !icon) return;
+
+            function syncIcon() {
+                var isDark = root.getAttribute('data-bs-theme') === 'dark';
+                icon.className = isDark ? 'bi bi-sun-fill' : 'bi bi-moon-stars-fill';
+            }
+            syncIcon();
+
+            btn.addEventListener('click', function () {
+                var next = root.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark';
+                root.setAttribute('data-bs-theme', next);
+                localStorage.setItem('mh-theme', next);
+                syncIcon();
+            });
         })();
     </script>
     {% block extra_js %}{% endblock %}

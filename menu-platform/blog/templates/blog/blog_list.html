@@ -11,7 +11,7 @@
     .blog-index h1 { font-weight: 800; margin-bottom: 32px; }
     .blog-card {
         display: block;
-        border: 1px solid #e5e7eb;
+        border: 1px solid var(--mh-border);
         border-radius: 16px;
         padding: 24px;
         margin-bottom: 16px;
@@ -20,10 +20,10 @@
         transition: box-shadow .2s ease, transform .2s ease;
     }
     .blog-card:hover { box-shadow: 0 12px 30px -12px rgba(15,23,42,.15); transform: translateY(-2px); color: inherit; }
-    .blog-card time { color: #6366f1; font-weight: 600; font-size: .82rem; text-transform: uppercase; letter-spacing: .03em; }
-    .blog-card h2 { font-size: 1.15rem; font-weight: 700; margin: 6px 0; color: #0f172a; }
-    .blog-card p { color: #64748b; margin: 0; }
-    .blog-empty { color: #64748b; }
+    .blog-card time { color: var(--mh-primary); font-weight: 600; font-size: .82rem; text-transform: uppercase; letter-spacing: .03em; }
+    .blog-card h2 { font-size: 1.15rem; font-weight: 700; margin: 6px 0; color: var(--mh-ink); }
+    .blog-card p { color: var(--mh-text-muted); margin: 0; }
+    .blog-empty { color: var(--mh-text-muted); }
 </style>
 {% endblock %}
 

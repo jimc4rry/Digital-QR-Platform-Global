@@ -9,19 +9,19 @@
     .examples-page { padding: 56px 0 72px; }
     .examples-page .container { max-width: 900px; }
     .examples-page h1 { font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 800; text-align: center; margin-bottom: 10px; }
-    .examples-page .lede { text-align: center; color: #64748b; margin-bottom: 40px; max-width: 60ch; margin-left: auto; margin-right: auto; }
+    .examples-page .lede { text-align: center; color: var(--mh-text-muted); margin-bottom: 40px; max-width: 60ch; margin-left: auto; margin-right: auto; }
     .example-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 22px; }
     .example-card {
-        background: #fff; border: 1px solid #e5e7eb; border-radius: 18px; padding: 26px;
+        background: var(--mh-bg); border: 1px solid var(--mh-border); border-radius: 18px; padding: 26px;
         box-shadow: 0 16px 36px -18px rgba(15,23,42,.15); text-align: center;
     }
     .example-card .example-label {
         display: inline-block; font-size: .78rem; font-weight: 700; letter-spacing: .03em;
-        text-transform: uppercase; color: #6366f1; background: #eef0fe; padding: 4px 12px;
+        text-transform: uppercase; color: var(--mh-primary); background: var(--mh-primary-light); padding: 4px 12px;
         border-radius: 999px; margin-bottom: 12px;
     }
     .example-card h2 { font-size: 1.15rem; font-weight: 700; margin-bottom: 8px; }
-    .example-card p { color: #64748b; font-size: .9rem; margin-bottom: 18px; }
+    .example-card p { color: var(--mh-text-muted); font-size: .9rem; margin-bottom: 18px; }
     .example-card .btn { width: 100%; }
     .qr-upsell {
         background: #0f172a; border-radius: 20px; padding: 32px 28px; color: #fff;
@@ -30,11 +30,11 @@
     .qr-upsell h2 { color: #fff; font-size: 1.3rem; margin-top: 0; }
     .qr-upsell p { color: rgba(255,255,255,.75); }
     .btn-lp-primary {
-        background: #6366f1; border-color: #6366f1; color: #fff; font-weight: 600;
+        background: var(--mh-primary); border-color: var(--mh-primary); color: #fff; font-weight: 600;
         border-radius: 10px; padding: 12px 28px; display: inline-block; text-decoration: none;
         margin-top: 8px;
     }
-    .btn-lp-primary:hover { background: #4f46e5; color: #fff; }
+    .btn-lp-primary:hover { background: var(--mh-primary-dark); border-color: var(--mh-primary-dark); color: #fff; }
 </style>
 {% endblock %}
 
