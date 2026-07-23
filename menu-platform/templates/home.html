@@ -94,6 +94,7 @@
         --lp-bg-soft: #f8fafc;
         --lp-surface: #ffffff;
         --lp-cta-bg: #0b0b14;
+        --lp-phone-bezel: #0b0b14;
     }
     [data-bs-theme="dark"] .landing {
         --lp-primary: #818cf8;
@@ -104,6 +105,7 @@
         --lp-border: #2a2a35;
         --lp-bg-soft: #131318;
         --lp-surface: #17171f;
+        --lp-phone-bezel: #3f3f4a;
     }
     .landing h1, .landing h2, .landing h3, .landing h4 {
         color: var(--lp-text);
@@ -188,9 +190,9 @@
     .lp-phone {
         max-width: 260px;
         margin: 0 auto;
-        border: 10px solid #1a1a24;
+        border: 10px solid var(--lp-phone-bezel);
         border-radius: 32px;
-        background: #fff;
+        background: var(--lp-surface);
         box-shadow: 0 30px 60px -20px rgba(15,23,42,.35), 0 0 0 1px rgba(99,102,241,.08);
         overflow: hidden;
         animation: lp-float 6s ease-in-out infinite;
@@ -217,6 +219,7 @@
         padding: 10px 0;
         border-bottom: 1px solid var(--lp-border);
         font-size: .85rem;
+        color: var(--lp-text);
     }
     .lp-phone-item:last-child { border-bottom: none; }
     .lp-phone-item .badge { font-weight: 600; }
