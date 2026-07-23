@@ -343,7 +343,7 @@ a:hover {
     background: rgba(11, 11, 18, .85) !important;
 }
 [data-bs-theme="dark"] .navbar-toggler-icon {
-    filter: invert(0.85);
+    filter: invert(1);
 }
 .navbar-brand {
     font-weight: 800 !important;
