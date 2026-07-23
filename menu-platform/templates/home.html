@@ -530,6 +530,7 @@
     </section>
 
     <!-- Pricing -->
+    {% if not user.is_superuser %}
     <section class="lp-section lp-section-soft" id="pricing">
         <div class="container">
             <div class="lp-section-head mh-reveal">
@@ -614,6 +615,7 @@
             {% endwith %}
         </div>
     </section>
+    {% endif %}
 
     <!-- FAQ -->
     <section class="lp-section">
