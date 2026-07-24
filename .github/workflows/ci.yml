@@ -16,6 +16,9 @@ jobs:
       SECRET_KEY: ci-test-secret-key
       DEBUG: "False"
       ALLOWED_HOSTS: localhost,127.0.0.1
+      # Django's test client doesn't simulate HTTPS, so with DEBUG=False the
+      # production SECURE_SSL_REDIRECT setting would 301 every test request.
+      SECURE_SSL_REDIRECT: "False"
     steps:
       - uses: actions/checkout@v4
 
