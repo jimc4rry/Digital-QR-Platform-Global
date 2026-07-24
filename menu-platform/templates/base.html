@@ -191,6 +191,14 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="{% url 'feedback:admin_list' %}">
+                                <i class="bi bi-chat-left-text"></i> {% trans "Feedback" %}
+                                {% if unread_feedback_count %}
+                                    <span class="badge bg-danger rounded-pill">{{ unread_feedback_count }}</span>
+                                {% endif %}
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="/admin/">
                                 <i class="bi bi-shield-lock"></i> {% trans "Django Admin" %}
                             </a>
@@ -270,6 +278,35 @@
         </div>
     </footer>
 
+    {% if user.is_authenticated %}
+        <button type="button" id="mh-feedback-btn" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#feedbackModal"
+                style="position: fixed; bottom: 24px; right: 24px; z-index: 1040; border-radius: 999px; width: 56px; height: 56px; padding: 0; display: flex; align-items: center; justify-content: center; box-shadow: var(--mh-shadow-lg);"
+                aria-label="{% trans 'Send feedback' %}">
+            <i class="bi bi-chat-left-text fs-5"></i>
+        </button>
+
+        <div class="modal fade" id="feedbackModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">{% trans "Send feedback" %}</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p class="text-muted small">{% trans "Found a bug, or have an idea to improve MenuHub? Let us know." %}</p>
+                        <textarea id="mh-feedback-message" class="form-control" rows="4" placeholder="{% trans 'Your feedback...' %}"></textarea>
+                        <div id="mh-feedback-error" class="text-danger small mt-2 d-none"></div>
+                        <div id="mh-feedback-success" class="alert alert-success small mt-2 d-none">{% trans "Thanks! Your feedback was sent." %}</div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans "Close" %}</button>
+                        <button type="button" class="btn btn-primary" id="mh-feedback-submit">{% trans "Send" %}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     {% if restaurant_accepts_orders %}
@@ -338,6 +375,48 @@
             });
         })();
     </script>
+    {% if user.is_authenticated %}
+    <script>
+        (function () {
+            var submitBtn = document.getElementById('mh-feedback-submit');
+            if (!submitBtn) return;
+            var textarea = document.getElementById('mh-feedback-message');
+            var errorBox = document.getElementById('mh-feedback-error');
+            var successBox = document.getElementById('mh-feedback-success');
+            var csrftoken = "{{ csrf_token }}";
+
+            submitBtn.addEventListener('click', function () {
+                var message = textarea.value.trim();
+                errorBox.classList.add('d-none');
+                successBox.classList.add('d-none');
+                if (!message) {
+                    errorBox.textContent = "{% trans 'Please write something first.' %}";
+                    errorBox.classList.remove('d-none');
+                    return;
+                }
+                submitBtn.disabled = true;
+                fetch("{% url 'feedback:submit' %}", {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'X-CSRFToken': csrftoken },
+                    body: JSON.stringify({ message: message, page_url: window.location.pathname })
+                }).then(function (res) {
+                    if (res.ok) {
+                        textarea.value = '';
+                        successBox.classList.remove('d-none');
+                    } else {
+                        errorBox.textContent = "{% trans 'Something went wrong. Please try again.' %}";
+                        errorBox.classList.remove('d-none');
+                    }
+                }).catch(function () {
+                    errorBox.textContent = "{% trans 'Connection error. Please try again.' %}";
+                    errorBox.classList.remove('d-none');
+                }).finally(function () {
+                    submitBtn.disabled = false;
+                });
+            });
+        })();
+    </script>
+    {% endif %}
     {% block extra_js %}{% endblock %}
 </body>
 </html>

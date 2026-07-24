@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Delete Feedback" %}{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <h1>{% trans "Delete Feedback" %}</h1>
+    <div class="card">
+        <div class="card-body">
+            <p>{% trans "Are you sure you want to delete this feedback entry? This cannot be undone." %}</p>
+            <blockquote class="border-start ps-3 text-muted" style="white-space: pre-wrap;">{{ entry.message }}</blockquote>
+            <form method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">{% trans "Delete" %}</button>
+                <a href="{% url 'feedback:admin_list' %}" class="btn btn-secondary">{% trans "Cancel" %}</a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

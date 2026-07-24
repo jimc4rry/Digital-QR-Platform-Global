@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'orders',
     'api',
     'blog',
+    'feedback',
 
     # Must come after the apps whose models it cleans up media for.
     'django_cleanup.apps.CleanupConfig',
@@ -69,6 +70,7 @@ TEMPLATES = [
                 'restaurants.context_processors.restaurant_context',
                 'accounts.context_processors.beta_context',
                 'accounts.context_processors.site_context',
+                'feedback.context_processors.feedback_context',
             ],
         },
     },
