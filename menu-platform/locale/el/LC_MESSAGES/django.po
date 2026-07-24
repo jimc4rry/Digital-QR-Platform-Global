@@ -1,0 +1,3157 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-24 15:20+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\accounts\billing.py:181
+msgid "The payment for this transaction failed."
+msgstr ""
+
+#: .\accounts\forms.py:10
+msgid "Current Password"
+msgstr "Τρέχων Κωδικός"
+
+#: .\accounts\forms.py:11
+msgid "New Password"
+msgstr "Νέος Κωδικός"
+
+#: .\accounts\forms.py:12
+msgid "Confirm New Password"
+msgstr "Επιβεβαίωση Νέου Κωδικού"
+
+#: .\accounts\forms.py:16 .\templates\accounts\profile.html:12
+msgid "Business Name"
+msgstr "Επωνυμία Επιχείρησης"
+
+#: .\accounts\forms.py:17 .\restaurants\forms.py:19 .\restaurants\forms.py:135
+#: .\templates\accounts\platform_admin_business_detail.html:23
+#: .\templates\orders\order_detail.html:34
+#: .\templates\restaurants\loyalty_list.html:37
+#: .\templates\tools\free_qr_code_generator.html:121
+msgid "Phone"
+msgstr ""
+
+#: .\accounts\forms.py:19
+msgid "VAT / Tax ID"
+msgstr "ΑΦΜ"
+
+#: .\accounts\forms.py:20
+msgid "Optional - if your business has one."
+msgstr "Προαιρετικό - αν η επιχείρησή σας έχει."
+
+#: .\accounts\forms.py:24
+msgid "Business Type"
+msgstr "Τύπος Επιχείρησης"
+
+#: .\accounts\forms.py:46 .\restaurants\forms.py:94
+#: .\templates\accounts\platform_admin_business_detail.html:21
+msgid "Username"
+msgstr ""
+
+#: .\accounts\forms.py:47 .\restaurants\forms.py:95
+#: .\templates\tools\free_qr_code_generator.html:170
+msgid "Password"
+msgstr ""
+
+#: .\accounts\forms.py:48 .\restaurants\forms.py:96
+msgid "Confirm Password"
+msgstr "Επιβεβαίωση Κωδικού"
+
+#: .\accounts\forms.py:91 .\templates\accounts\profile.html:17
+msgid "Subscription Plan"
+msgstr "Πλάνο Συνδρομής"
+
+#: .\accounts\forms.py:92
+msgid "Subscription Active"
+msgstr "Ενεργή Συνδρομή"
+
+#: .\accounts\forms.py:93
+msgid "Subscription Ends (optional)"
+msgstr "Λήξη Συνδρομής (προαιρετικό)"
+
+#: .\accounts\models.py:11
+msgid "Restaurant"
+msgstr ""
+
+#: .\accounts\models.py:12 .\menu_platform\tool_views.py:17
+msgid "Cafe"
+msgstr ""
+
+#: .\accounts\models.py:13
+msgid "Bar"
+msgstr ""
+
+#: .\accounts\models.py:14 .\menu_platform\tool_views.py:19
+msgid "Beach Bar"
+msgstr ""
+
+#: .\accounts\models.py:15
+msgid "Other"
+msgstr ""
+
+#: .\accounts\models.py:24
+msgid "Optional - VAT/Tax ID, if your business has one."
+msgstr ""
+
+#: .\accounts\models.py:88 .\templates\accounts\platform_admin_payments.html:24
+msgid "Completed"
+msgstr ""
+
+#: .\accounts\models.py:89 .\orders\models.py:20
+#: .\templates\accounts\platform_admin_payments.html:25
+msgid "Failed"
+msgstr ""
+
+#: .\accounts\views.py:62
+msgid "Your MenuHub password was changed"
+msgstr "Ο κωδικός σας στο MenuHub άλλαξε"
+
+#: .\accounts\views.py:63
+msgid ""
+"Your MenuHub account password was just changed. If this wasn't you, contact "
+"us immediately at info@getmenuhub.com."
+msgstr ""
+
+#: .\accounts\views.py:74
+msgid ""
+"You do not have permission to change the password. Contact your store "
+"administrator."
+msgstr ""
+
+#: .\accounts\views.py:97
+msgid "Too many signup attempts from this network. Please try again later."
+msgstr "Πάρα πολλές προσπάθειες εγγραφής από αυτό το δίκτυο. Δοκιμάστε ξανά αργότερα."
+
+#: .\accounts\views.py:127
+msgid "Welcome to MenuHub!"
+msgstr "Καλώς ήρθατε στο MenuHub!"
+
+#: .\accounts\views.py:128
+msgid ""
+"Your MenuHub account and restaurant have been created. You have a 30-day "
+"free trial of the Basic plan - log in anytime to set up your menu."
+msgstr ""
+
+#: .\accounts\views.py:131
+msgid ""
+"Your account has been created! You have a 30-day free trial of the Basic "
+"plan."
+msgstr ""
+
+#: .\accounts\views.py:134
+msgid "There are errors in the form. Please correct them."
+msgstr "Υπάρχουν σφάλματα στη φόρμα. Παρακαλούμε διορθώστε τα."
+
+#: .\accounts\views.py:151 .\accounts\views.py:238
+msgid "Only the business owner can manage the subscription."
+msgstr "Μόνο ο ιδιοκτήτης της επιχείρησης μπορεί να διαχειριστεί τη συνδρομή."
+
+#: .\accounts\views.py:175
+#, python-format
+msgid "Could not reach Paddle: %(error)s"
+msgstr "Αδυναμία σύνδεσης με το Paddle: %(error)s"
+
+#: .\accounts\views.py:221
+msgid "Payment completed! Your plan has been upgraded."
+msgstr "Η πληρωμή ολοκληρώθηκε! Το πλάνο σας αναβαθμίστηκε."
+
+#: .\accounts\views.py:242
+msgid "There is no active subscription to manage yet."
+msgstr "Δεν υπάρχει ακόμα ενεργή συνδρομή για διαχείριση."
+
+#: .\accounts\views.py:323
+msgid "You do not have access to this page."
+msgstr "Δεν έχετε πρόσβαση σε αυτή τη σελίδα."
+
+#: .\accounts\views.py:382
+msgid "The subscription was updated successfully!"
+msgstr "Η συνδρομή ενημερώθηκε με επιτυχία!"
+
+#: .\accounts\views.py:409
+msgid "This account cannot be deleted from here."
+msgstr "Αυτός ο λογαριασμός δεν μπορεί να διαγραφεί από εδώ."
+
+#: .\accounts\views.py:414
+#, python-format
+msgid "\"%(name)s\" and all of its data have been permanently deleted."
+msgstr "«%(name)s» και όλα τα δεδομένα του διαγράφηκαν οριστικά."
+
+#: .\blog\templates\blog\admin_delete_confirm.html:4
+#: .\blog\templates\blog\admin_delete_confirm.html:8
+msgid "Delete Post"
+msgstr ""
+
+#: .\blog\templates\blog\admin_delete_confirm.html:11
+#, python-format
+msgid "Are you sure you want to delete \"%(title)s\"? This cannot be undone."
+msgstr ""
+
+#: .\blog\templates\blog\admin_delete_confirm.html:14
+#: .\blog\templates\blog\admin_list.html:53
+#: .\feedback\templates\feedback\admin_delete_confirm.html:15
+#: .\feedback\templates\feedback\admin_detail.html:12
+#: .\feedback\templates\feedback\admin_list.html:59
+#: .\templates\accounts\platform_admin_business_detail.html:11
+#: .\templates\orders\order_detail.html:13
+msgid "Delete"
+msgstr ""
+
+#: .\blog\templates\blog\admin_delete_confirm.html:15
+#: .\feedback\templates\feedback\admin_delete_confirm.html:16
+#: .\templates\accounts\platform_admin_business_delete.html:25
+msgid "Cancel"
+msgstr ""
+
+#: .\blog\templates\blog\admin_form.html:4
+#: .\blog\templates\blog\admin_form.html:9
+#: .\blog\templates\blog\admin_list.html:13
+msgid "New Post"
+msgstr ""
+
+#: .\blog\templates\blog\admin_form.html:4
+#: .\blog\templates\blog\admin_form.html:9
+msgid "Edit Post"
+msgstr ""
+
+#: .\blog\templates\blog\admin_form.html:13
+#: .\blog\templates\blog\admin_list.html:37
+msgid "View live"
+msgstr ""
+
+#: .\blog\templates\blog\admin_form.html:16
+#: .\blog\templates\blog\admin_list.html:11
+#: .\feedback\templates\feedback\admin_detail.html:11
+#: .\feedback\templates\feedback\admin_list.html:10
+#: .\templates\accounts\platform_admin_business_detail.html:12
+#: .\templates\accounts\platform_admin_payments.html:10
+#: .\templates\orders\order_detail.html:17
+#: .\templates\restaurants\loyalty_edit.html:17
+#: .\templates\restaurants\product_edit.html:15
+msgid "Back"
+msgstr ""
+
+#: .\blog\templates\blog\admin_form.html:25
+#: .\templates\accounts\platform_admin_business_detail.html:54
+#: .\templates\restaurants\loyalty_edit.html:16
+#: .\templates\restaurants\product_edit.html:14
+#: .\templates\restaurants\settings.html:14
+msgid "Save"
+msgstr ""
+
+#: .\blog\templates\blog\admin_list.html:4
+#: .\blog\templates\blog\admin_list.html:9 .\templates\base.html:190
+msgid "Manage Blog"
+msgstr ""
+
+#: .\blog\templates\blog\admin_list.html:24
+msgid "Title"
+msgstr ""
+
+#: .\blog\templates\blog\admin_list.html:25
+#: .\feedback\templates\feedback\admin_detail.html:40
+#: .\feedback\templates\feedback\admin_list.html:23
+#: .\templates\accounts\payment_history.html:19
+#: .\templates\accounts\platform_admin_business_detail.html:69
+#: .\templates\accounts\platform_admin_dashboard.html:56
+#: .\templates\accounts\platform_admin_payments.html:21
+#: .\templates\accounts\platform_admin_payments.html:43
+#: .\templates\orders\order_detail.html:28
+#: .\templates\orders\order_list.html:23
+#: .\templates\restaurants\promo_code_list.html:34
+msgid "Status"
+msgstr ""
+
+#: .\blog\templates\blog\admin_list.html:26
+#: .\blog\templates\blog\admin_list.html:44
+msgid "Published"
+msgstr ""
+
+#: .\blog\templates\blog\admin_list.html:27
+msgid "Updated"
+msgstr ""
+
+#: .\blog\templates\blog\admin_list.html:46
+msgid "Draft"
+msgstr ""
+
+#: .\blog\templates\blog\admin_list.html:52
+msgid "Edit"
+msgstr ""
+
+#: .\blog\templates\blog\admin_list.html:58
+msgid "No posts yet - create the first one."
+msgstr ""
+
+#: .\blog\templates\blog\blog_detail.html:63
+msgid "All posts"
+msgstr ""
+
+#: .\blog\templates\blog\blog_detail.html:70
+#: .\templates\guides\base_guide.html:47 .\templates\home.html:712
+msgid "Ready to digitize your menu?"
+msgstr ""
+
+#: .\blog\templates\blog\blog_detail.html:71
+#: .\templates\guides\base_guide.html:48
+msgid ""
+"Create your restaurant's QR code menu in minutes - no credit card required "
+"to start."
+msgstr ""
+
+#: .\blog\templates\blog\blog_detail.html:72
+#: .\templates\guides\base_guide.html:49 .\templates\home.html:373
+#: .\templates\home.html:426
+msgid "Create your menu"
+msgstr ""
+
+#: .\blog\templates\blog\blog_list.html:4
+msgid "Blog - MenuHub"
+msgstr ""
+
+#: .\blog\templates\blog\blog_list.html:5
+msgid ""
+"Tips, guides, and updates on digital QR code menus for restaurants, cafes, "
+"and bars."
+msgstr ""
+
+#: .\blog\templates\blog\blog_list.html:33
+#: .\templates\accounts\platform_admin_dashboard.html:15
+#: .\templates\base.html:116 .\templates\base.html:285
+msgid "Blog"
+msgstr ""
+
+#: .\blog\templates\blog\blog_list.html:41
+msgid "No posts yet - check back soon."
+msgstr ""
+
+#: .\blog\views.py:33
+msgid "Post created."
+msgstr ""
+
+#: .\blog\views.py:47
+msgid "Post updated."
+msgstr ""
+
+#: .\blog\views.py:59
+msgid "Post deleted."
+msgstr ""
+
+#: .\feedback\templates\feedback\admin_delete_confirm.html:4
+#: .\feedback\templates\feedback\admin_delete_confirm.html:8
+msgid "Delete Feedback"
+msgstr ""
+
+#: .\feedback\templates\feedback\admin_delete_confirm.html:11
+msgid ""
+"Are you sure you want to delete this feedback entry? This cannot be undone."
+msgstr ""
+
+#: .\feedback\templates\feedback\admin_detail.html:4
+#: .\feedback\templates\feedback\admin_detail.html:9
+#: .\feedback\templates\feedback\admin_list.html:4
+#: .\feedback\templates\feedback\admin_list.html:9 .\templates\base.html:195
+msgid "Feedback"
+msgstr ""
+
+#: .\feedback\templates\feedback\admin_detail.html:19
+#: .\feedback\templates\feedback\admin_list.html:19
+#: .\templates\accounts\platform_admin_dashboard.html:53
+msgid "User"
+msgstr ""
+
+#: .\feedback\templates\feedback\admin_detail.html:22
+#: .\feedback\templates\feedback\admin_list.html:20
+#: .\templates\accounts\platform_admin_dashboard.html:52
+#: .\templates\accounts\platform_admin_payments.html:40
+msgid "Business"
+msgstr ""
+
+#: .\feedback\templates\feedback\admin_detail.html:27
+msgid "No business account"
+msgstr ""
+
+#: .\feedback\templates\feedback\admin_detail.html:31
+msgid "Sent"
+msgstr ""
+
+#: .\feedback\templates\feedback\admin_detail.html:34
+msgid "Page"
+msgstr ""
+
+#: .\feedback\templates\feedback\admin_detail.html:37
+msgid "Browser"
+msgstr ""
+
+#: .\feedback\templates\feedback\admin_detail.html:42
+#: .\feedback\templates\feedback\admin_list.html:46
+msgid "Read"
+msgstr ""
+
+#: .\feedback\templates\feedback\admin_detail.html:43
+msgid "(marked read automatically when opened)"
+msgstr ""
+
+#: .\feedback\templates\feedback\admin_detail.html:46
+#: .\feedback\templates\feedback\admin_list.html:56
+msgid "Mark unread"
+msgstr ""
+
+#: .\feedback\templates\feedback\admin_detail.html:53
+#: .\feedback\templates\feedback\admin_list.html:21
+msgid "Message"
+msgstr ""
+
+#: .\feedback\templates\feedback\admin_list.html:22
+#: .\templates\accounts\payment_history.html:20
+#: .\templates\accounts\platform_admin_business_detail.html:70
+#: .\templates\accounts\platform_admin_payments.html:44
+#: .\templates\orders\order_detail.html:35
+#: .\templates\orders\order_list.html:24
+msgid "Date"
+msgstr ""
+
+#: .\feedback\templates\feedback\admin_list.html:48
+msgid "New"
+msgstr ""
+
+#: .\feedback\templates\feedback\admin_list.html:52
+msgid "View"
+msgstr ""
+
+#: .\feedback\templates\feedback\admin_list.html:56
+msgid "Mark read"
+msgstr ""
+
+#: .\feedback\templates\feedback\admin_list.html:64
+msgid "No feedback yet."
+msgstr ""
+
+#: .\feedback\templates\feedback\admin_list.html:72
+msgid "Feedback pagination"
+msgstr ""
+
+#: .\feedback\templates\feedback\admin_list.html:80
+#: .\templates\accounts\payment_history.html:55
+#: .\templates\accounts\platform_admin_dashboard.html:112
+#: .\templates\accounts\platform_admin_payments.html:85
+#: .\templates\orders\order_list.html:71
+#: .\templates\restaurants\loyalty_list.html:85
+#: .\templates\restaurants\product_list.html:68
+#, python-format
+msgid "Page %(current)s of %(total)s"
+msgstr ""
+
+#: .\feedback\views.py:71
+msgid "Feedback deleted."
+msgstr ""
+
+#: .\menu_platform\tool_views.py:18
+msgid "Taverna"
+msgstr ""
+
+#: .\menu_platform\tool_views.py:55
+msgid "Please enter a URL."
+msgstr ""
+
+#: .\menu_platform\tool_views.py:61
+msgid "That doesn't look like a valid URL."
+msgstr ""
+
+#: .\menu_platform\tool_views.py:68
+msgid "Please enter some text."
+msgstr ""
+
+#: .\menu_platform\tool_views.py:82 .\menu_platform\tool_views.py:109
+msgid "Please enter a phone number."
+msgstr ""
+
+#: .\menu_platform\tool_views.py:83 .\menu_platform\tool_views.py:110
+msgid "That doesn't look like a valid phone number."
+msgstr ""
+
+#: .\menu_platform\tool_views.py:90
+msgid "Please enter an email address."
+msgstr ""
+
+#: .\menu_platform\tool_views.py:94 .\menu_platform\tool_views.py:147
+msgid "That doesn't look like a valid email address."
+msgstr ""
+
+#: .\menu_platform\tool_views.py:127
+msgid "Please enter a network name (SSID)."
+msgstr ""
+
+#: .\menu_platform\tool_views.py:141
+msgid "Please enter a name."
+msgstr ""
+
+#: .\menu_platform\tool_views.py:156
+msgid "That does not look like a valid phone number."
+msgstr ""
+
+#: .\orders\models.py:9 .\orders\models.py:18
+msgid "Pending"
+msgstr "Εκκρεμεί"
+
+#: .\orders\models.py:10
+msgid "Confirmed"
+msgstr "Επιβεβαιώθηκε"
+
+#: .\orders\models.py:11
+msgid "Preparing"
+msgstr "Σε Προετοιμασία"
+
+#: .\orders\models.py:12
+msgid "Ready"
+msgstr "Έτοιμη"
+
+#: .\orders\models.py:13
+msgid "Delivered"
+msgstr "Παραδόθηκε"
+
+#: .\orders\models.py:14
+msgid "Cancelled"
+msgstr "Ακυρώθηκε"
+
+#: .\orders\models.py:19
+msgid "Paid"
+msgstr "Πληρώθηκε"
+
+#: .\orders\models.py:21
+msgid "Refunded"
+msgstr "Επιστράφηκε"
+
+#: .\orders\views.py:109
+#, python-format
+msgid ""
+"Order status updated! The customer earned loyalty points (total: %(points)s)."
+msgstr ""
+
+#: .\orders\views.py:111
+msgid "Order status updated!"
+msgstr "Η κατάσταση της παραγγελίας ενημερώθηκε!"
+
+#: .\orders\views.py:128
+msgid "Order deleted."
+msgstr "Η παραγγελία διαγράφηκε."
+
+#: .\orders\views.py:300
+msgid "CSV reports are only available on the Business plan."
+msgstr "Οι αναφορές CSV είναι διαθέσιμες μόνο στο πλάνο Business."
+
+#: .\restaurants\forms.py:16
+msgid "Restaurant Name"
+msgstr "Όνομα Εστιατορίου"
+
+#: .\restaurants\forms.py:17 .\restaurants\forms.py:37
+#: .\restaurants\forms.py:65
+msgid "Description"
+msgstr "Περιγραφή"
+
+#: .\restaurants\forms.py:18
+msgid "Address"
+msgstr "Διεύθυνση"
+
+#: .\restaurants\forms.py:21
+msgid "Logo"
+msgstr "Λογότυπο"
+
+#: .\restaurants\forms.py:22
+msgid "Cover Image"
+msgstr "Εικόνα Εξωφύλλου"
+
+#: .\restaurants\forms.py:23
+msgid "Accept orders"
+msgstr "Αποδοχή παραγγελιών"
+
+#: .\restaurants\forms.py:24
+msgid "Enable Loyalty (points for customers)"
+msgstr "Ενεργοποίηση Loyalty (πόντοι για πελάτες)"
+
+#: .\restaurants\forms.py:25
+msgid "Tax (%)"
+msgstr "ΦΠΑ (%)"
+
+#: .\restaurants\forms.py:36
+msgid "Category Name"
+msgstr "Όνομα Κατηγορίας"
+
+#: .\restaurants\forms.py:38 .\restaurants\forms.py:75
+msgid "Display Order"
+msgstr "Σειρά Εμφάνισης"
+
+#: .\restaurants\forms.py:39 .\restaurants\forms.py:152
+#: .\templates\accounts\platform_admin_dashboard.html:78
+#: .\templates\accounts\profile.html:22
+#: .\templates\restaurants\promo_code_list.html:47
+msgid "Active"
+msgstr ""
+
+#: .\restaurants\forms.py:62
+msgid "Category"
+msgstr "Κατηγορία"
+
+#: .\restaurants\forms.py:63
+msgid "Product Name"
+msgstr "Όνομα Προϊόντος"
+
+#: .\restaurants\forms.py:64
+msgid "Product Name (English)"
+msgstr "Όνομα Προϊόντος (Αγγλικά)"
+
+#: .\restaurants\forms.py:66 .\templates\orders\order_detail.html:89
+msgid "Price"
+msgstr "Τιμή"
+
+#: .\restaurants\forms.py:67
+msgid "Old Price"
+msgstr "Παλιά Τιμή"
+
+#: .\restaurants\forms.py:68
+msgid "Photo"
+msgstr "Φωτογραφία"
+
+#: .\restaurants\forms.py:69 .\templates\restaurants\product_list.html:34
+msgid "Available"
+msgstr "Διαθέσιμο"
+
+#: .\restaurants\forms.py:70
+msgid "Featured"
+msgstr "Προτεινόμενο"
+
+#: .\restaurants\forms.py:73
+msgid "Gluten-Free"
+msgstr "Χωρίς Γλουτένη"
+
+#: .\restaurants\forms.py:74
+msgid "Spicy"
+msgstr "Πικάντικο"
+
+#: .\restaurants\forms.py:76
+msgid "Preparation Time (minutes)"
+msgstr "Χρόνος Προετοιμασίας (λεπτά)"
+
+#: .\restaurants\forms.py:87
+msgid "Option Name"
+msgstr "Όνομα Επιλογής"
+
+#: .\restaurants\forms.py:88
+msgid "Price Adjustment"
+msgstr "Προσαρμογή Τιμής"
+
+#: .\restaurants\forms.py:89
+msgid "Default"
+msgstr "Προεπιλογή"
+
+#: .\restaurants\forms.py:97 .\templates\accounts\profile.html:54
+msgid "Role"
+msgstr "Ρόλος"
+
+#: .\restaurants\forms.py:103
+msgid "This username already exists."
+msgstr "Αυτό το όνομα χρήστη υπάρχει ήδη."
+
+#: .\restaurants\forms.py:116
+msgid "Passwords do not match."
+msgstr "Οι κωδικοί δεν ταιριάζουν."
+
+#: .\restaurants\forms.py:125
+#: .\templates\accounts\platform_admin_business_detail.html:24
+#: .\templates\accounts\profile.html:13
+msgid "Type"
+msgstr ""
+
+#: .\restaurants\forms.py:126
+msgid "Number / Name"
+msgstr "Αριθμός / Όνομα"
+
+#: .\restaurants\forms.py:136 .\templates\restaurants\loyalty_list.html:38
+msgid "Points"
+msgstr "Πόντοι"
+
+#: .\restaurants\forms.py:148 .\templates\restaurants\promo_code_list.html:30
+msgid "Promo Code"
+msgstr "Κωδικός Προσφοράς"
+
+#: .\restaurants\forms.py:149
+msgid "Discount (%)"
+msgstr "Έκπτωση (%)"
+
+#: .\restaurants\forms.py:150
+msgid "Valid Until (optional)"
+msgstr "Ισχύει Έως (προαιρετικό)"
+
+#: .\restaurants\forms.py:151
+msgid "Max Uses (optional)"
+msgstr "Μέγιστες Χρήσεις (προαιρετικό)"
+
+#: .\restaurants\models.py:117
+msgid "English name (optional) - if left blank, the name above is shown"
+msgstr "Αγγλικό όνομα (προαιρετικό) - αν μείνει κενό, εμφανίζεται το παραπάνω όνομα"
+
+#: .\restaurants\models.py:133
+msgid "Preparation time in minutes"
+msgstr "Χρόνος προετοιμασίας σε λεπτά"
+
+#: .\restaurants\models.py:173 .\templates\orders\order_detail.html:31
+msgid "Table"
+msgstr "Τραπέζι"
+
+#: .\restaurants\models.py:174
+msgid "Sunbed"
+msgstr "Ξαπλώστρα"
+
+#: .\restaurants\models.py:179
+msgid "e.g. 1, 2, Patio A"
+msgstr "π.χ. 1, 2, Αυλή Α"
+
+#: .\restaurants\models.py:231
+msgid "Admin"
+msgstr "Διαχειριστής"
+
+#: .\restaurants\models.py:232
+msgid "Employee"
+msgstr "Υπάλληλος"
+
+#: .\restaurants\models.py:267
+msgid "Leave blank for unlimited uses"
+msgstr "Αφήστε κενό για απεριόριστες χρήσεις"
+
+#: .\restaurants\permissions.py:43
+msgid "You do not have access to any restaurant."
+msgstr "Δεν έχετε πρόσβαση σε κανένα εστιατόριο."
+
+#: .\restaurants\permissions.py:46
+msgid "Your subscription/trial has expired. Choose a plan to continue."
+msgstr "Η συνδρομή/δοκιμή σας έληξε. Επιλέξτε ένα πλάνο για να συνεχίσετε."
+
+#: .\restaurants\permissions.py:48
+msgid "The business subscription has expired. Contact the owner."
+msgstr "Η συνδρομή της επιχείρησης έληξε. Επικοινωνήστε με τον ιδιοκτήτη."
+
+#: .\restaurants\permissions.py:50
+msgid "You do not have permission to access this page."
+msgstr "Δεν έχετε δικαίωμα πρόσβασης σε αυτή τη σελίδα."
+
+#: .\restaurants\views.py:140
+msgid "Settings saved successfully!"
+msgstr "Οι ρυθμίσεις αποθηκεύτηκαν με επιτυχία!"
+
+#: .\restaurants\views.py:162
+msgid "Category created successfully!"
+msgstr "Η κατηγορία δημιουργήθηκε με επιτυχία!"
+
+#: .\restaurants\views.py:179
+msgid "Category deleted successfully!"
+msgstr "Η κατηγορία διαγράφηκε με επιτυχία!"
+
+#: .\restaurants\views.py:195
+msgid "Product created successfully!"
+msgstr "Το προϊόν δημιουργήθηκε με επιτυχία!"
+
+#: .\restaurants\views.py:200
+msgid "You do not have permission to add products."
+msgstr "Δεν έχετε δικαίωμα προσθήκης προϊόντων."
+
+#: .\restaurants\views.py:222
+msgid "Product updated successfully!"
+msgstr "Το προϊόν ενημερώθηκε με επιτυχία!"
+
+#: .\restaurants\views.py:242
+msgid "Product deleted successfully!"
+msgstr "Το προϊόν διαγράφηκε με επιτυχία!"
+
+#: .\restaurants\views.py:347
+msgid "Staff management is available on the Business plan"
+msgstr "Η διαχείριση προσωπικού είναι διαθέσιμη στο πλάνο Business"
+
+#: .\restaurants\views.py:348
+msgid ""
+"Upgrade to the Business plan to add admin and employee accounts with "
+"separate permissions."
+msgstr ""
+
+#: .\restaurants\views.py:365
+msgid "Staff account created successfully!"
+msgstr "Ο λογαριασμός προσωπικού δημιουργήθηκε με επιτυχία!"
+
+#: .\restaurants\views.py:381
+msgid "Staff management is available on the Business plan."
+msgstr "Η διαχείριση προσωπικού είναι διαθέσιμη στο πλάνο Business."
+
+#: .\restaurants\views.py:386
+msgid "Staff account removed."
+msgstr "Ο λογαριασμός προσωπικού αφαιρέθηκε."
+
+#: .\restaurants\views.py:396
+msgid "QR ordering tables are available from the Pro plan"
+msgstr "Τα τραπέζια παραγγελίας QR είναι διαθέσιμα από το πλάνο Pro"
+
+#: .\restaurants\views.py:397
+msgid ""
+"Upgrade to the Pro or Business plan to create table QR codes and accept "
+"orders."
+msgstr ""
+
+#: .\restaurants\views.py:408
+msgid "Table added successfully!"
+msgstr "Το τραπέζι προστέθηκε με επιτυχία!"
+
+#: .\restaurants\views.py:411
+msgid "This number already exists for this type."
+msgstr "Αυτός ο αριθμός υπάρχει ήδη για αυτόν τον τύπο."
+
+#: .\restaurants\views.py:426
+msgid "Tables are available from the Pro plan."
+msgstr "Τα τραπέζια είναι διαθέσιμα από το πλάνο Pro."
+
+#: .\restaurants\views.py:429
+msgid "Table deleted."
+msgstr "Το τραπέζι διαγράφηκε."
+
+#: .\restaurants\views.py:439
+msgid "Promo codes are available from the Pro plan"
+msgstr "Οι κωδικοί προσφοράς είναι διαθέσιμοι από το πλάνο Pro"
+
+#: .\restaurants\views.py:440
+msgid ""
+"Upgrade to the Pro or Business plan to create promo codes for your customers."
+msgstr ""
+
+#: .\restaurants\views.py:451
+msgid "Promo code created successfully!"
+msgstr "Ο κωδικός προσφοράς δημιουργήθηκε με επιτυχία!"
+
+#: .\restaurants\views.py:454
+msgid "This code already exists."
+msgstr "Αυτός ο κωδικός υπάρχει ήδη."
+
+#: .\restaurants\views.py:469
+msgid "Promo codes are available from the Pro plan."
+msgstr "Οι κωδικοί προσφοράς είναι διαθέσιμοι από το πλάνο Pro."
+
+#: .\restaurants\views.py:472
+msgid "Promo code deleted."
+msgstr "Ο κωδικός προσφοράς διαγράφηκε."
+
+#: .\restaurants\views.py:483
+msgid "Loyalty is available from the Pro plan"
+msgstr "Το Loyalty είναι διαθέσιμο από το πλάνο Pro"
+
+#: .\restaurants\views.py:484
+msgid ""
+"Upgrade to the Pro or Business plan to give loyalty points to your customers."
+msgstr ""
+
+#: .\restaurants\views.py:505 .\restaurants\views.py:528
+msgid "Loyalty is available from the Pro plan."
+msgstr "Το Loyalty είναι διαθέσιμο από το πλάνο Pro."
+
+#: .\restaurants\views.py:512
+msgid "Loyalty account updated!"
+msgstr "Ο λογαριασμός Loyalty ενημερώθηκε!"
+
+#: .\restaurants\views.py:531
+msgid "Loyalty account deleted."
+msgstr "Ο λογαριασμός Loyalty διαγράφηκε."
+
+#: .\templates\accounts\checkout.html:4 .\templates\accounts\profile.html:40
+msgid "Upgrade Plan"
+msgstr "Αναβάθμιση Πλάνου"
+
+#: .\templates\accounts\checkout.html:13
+msgid ""
+"MenuHub is in free beta right now - every plan's features are unlocked for "
+"your account at no cost. Paid plans are launching soon; you'll be able to "
+"subscribe right here once they do."
+msgstr ""
+
+#: .\templates\accounts\checkout.html:18
+msgid ""
+"You'll pay through Paddle's secure embedded checkout. Your card details "
+"never pass through our servers."
+msgstr ""
+
+#: .\templates\accounts\checkout.html:29 .\templates\home.html:545
+#: .\templates\home.html:570 .\templates\home.html:595
+msgid "month"
+msgstr ""
+
+#: .\templates\accounts\checkout.html:34
+msgid "Upgrade"
+msgstr "Αναβάθμιση"
+
+#: .\templates\accounts\checkout.html:38
+msgid "Not available yet"
+msgstr "Δεν είναι ακόμα διαθέσιμο"
+
+#: .\templates\accounts\checkout.html:47
+msgid "You already have the top plan (Business)."
+msgstr "Έχετε ήδη το ανώτερο πλάνο (Business)."
+
+#: .\templates\accounts\login.html:10 .\templates\accounts\login.html:16
+#: .\templates\base.html:252
+msgid "Log In"
+msgstr ""
+
+#: .\templates\accounts\login.html:19
+msgid "Don't have an account? Sign up"
+msgstr ""
+
+#: .\templates\accounts\password_change.html:4
+#: .\templates\accounts\password_change.html:12
+#: .\templates\accounts\password_change.html:18 .\templates\base.html:238
+msgid "Change Password"
+msgstr "Αλλαγή Κωδικού"
+
+#: .\templates\accounts\password_change_done.html:4
+msgid "Password Changed"
+msgstr "Ο Κωδικός Άλλαξε"
+
+#: .\templates\accounts\password_change_done.html:9
+msgid "Your password has been changed successfully!"
+msgstr "Ο κωδικός σας άλλαξε με επιτυχία!"
+
+#: .\templates\accounts\password_change_done.html:10
+msgid "Back to Dashboard"
+msgstr "Επιστροφή στο Dashboard"
+
+#: .\templates\accounts\payment_history.html:4
+#: .\templates\accounts\payment_history.html:8
+#: .\templates\accounts\profile.html:44
+msgid "Payment History"
+msgstr "Ιστορικό Πληρωμών"
+
+#: .\templates\accounts\payment_history.html:15
+#: .\templates\accounts\platform_admin_business_detail.html:66
+#: .\templates\accounts\platform_admin_payments.html:39
+msgid "Transaction ID"
+msgstr ""
+
+#: .\templates\accounts\payment_history.html:16
+#: .\templates\accounts\payment_success.html:14
+#: .\templates\accounts\platform_admin_business_detail.html:67
+#: .\templates\accounts\platform_admin_dashboard.html:30
+#: .\templates\accounts\platform_admin_dashboard.html:55
+#: .\templates\accounts\platform_admin_payments.html:41
+msgid "Plan"
+msgstr ""
+
+#: .\templates\accounts\payment_history.html:17
+#: .\templates\accounts\payment_success.html:16
+#: .\templates\accounts\platform_admin_business_detail.html:68
+#: .\templates\accounts\platform_admin_payments.html:42
+msgid "Amount"
+msgstr ""
+
+#: .\templates\accounts\payment_history.html:18
+msgid "Card"
+msgstr ""
+
+#: .\templates\accounts\payment_history.html:41
+#: .\templates\accounts\platform_admin_business_detail.html:90
+msgid "No payments yet"
+msgstr ""
+
+#: .\templates\accounts\payment_success.html:4
+msgid "Payment Successful"
+msgstr ""
+
+#: .\templates\accounts\payment_success.html:9
+msgid "Payment completed!"
+msgstr ""
+
+#: .\templates\accounts\payment_success.html:10
+msgid "Your plan has been upgraded successfully."
+msgstr ""
+
+#: .\templates\accounts\payment_success.html:19
+msgid "Next renewal"
+msgstr ""
+
+#: .\templates\accounts\payment_success.html:24
+msgid "Back to Profile"
+msgstr ""
+
+#: .\templates\accounts\platform_admin_business_delete.html:4
+#, python-format
+msgid "Delete %(name)s"
+msgstr ""
+
+#: .\templates\accounts\platform_admin_business_delete.html:8
+msgid "Delete Business Account"
+msgstr ""
+
+#: .\templates\accounts\platform_admin_business_delete.html:11
+msgid "This cannot be undone"
+msgstr ""
+
+#: .\templates\accounts\platform_admin_business_delete.html:13
+#, python-format
+msgid ""
+"You are about to permanently delete <strong>%(name)s</strong> and everything "
+"associated with it:"
+msgstr ""
+
+#: .\templates\accounts\platform_admin_business_delete.html:15
+msgid "The user account and login"
+msgstr ""
+
+#: .\templates\accounts\platform_admin_business_delete.html:16
+#, python-format
+msgid "%(counter)s product"
+msgid_plural "%(counter)s products"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\templates\accounts\platform_admin_business_delete.html:17
+#, python-format
+msgid "%(counter)s order"
+msgid_plural "%(counter)s orders"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\templates\accounts\platform_admin_business_delete.html:18
+msgid "Any staff accounts under this business"
+msgstr ""
+
+#: .\templates\accounts\platform_admin_business_delete.html:20
+msgid ""
+"Use this only for spam/bot signups or accounts the owner has asked you to "
+"remove - not as a substitute for canceling a subscription."
+msgstr ""
+
+#: .\templates\accounts\platform_admin_business_delete.html:24
+msgid "Permanently delete"
+msgstr ""
+
+#: .\templates\accounts\platform_admin_business_detail.html:4
+msgid "Business Management"
+msgstr ""
+
+#: .\templates\accounts\platform_admin_business_detail.html:19
+msgid "Business Info"
+msgstr ""
+
+#: .\templates\accounts\platform_admin_business_detail.html:25
+#: .\templates\accounts\profile.html:14
+msgid "Tax ID"
+msgstr ""
+
+#: .\templates\accounts\platform_admin_business_detail.html:26
+msgid "Signed up"
+msgstr ""
+
+#: .\templates\accounts\platform_admin_business_detail.html:31
+msgid "Stats"
+msgstr ""
+
+#: .\templates\accounts\platform_admin_business_detail.html:33
+#: .\templates\accounts\platform_admin_dashboard.html:59
+#: .\templates\base.html:144 .\templates\orders\order_list.html:6
+#: .\templates\restaurants\dashboard.html:38
+msgid "Orders"
+msgstr ""
+
+#: .\templates\accounts\platform_admin_business_detail.html:34
+msgid "Total Revenue"
+msgstr ""
+
+#: .\templates\accounts\platform_admin_business_detail.html:35
+#: .\templates\base.html:177 .\templates\restaurants\staff_list.html:4
+#: .\templates\restaurants\staff_list.html:8
+msgid "Staff"
+msgstr ""
+
+#: .\templates\accounts\platform_admin_business_detail.html:36
+msgid "Accepts Orders"
+msgstr ""
+
+#: .\templates\accounts\platform_admin_business_detail.html:38
+msgid "Yes"
+msgstr ""
+
+#: .\templates\accounts\platform_admin_business_detail.html:40
+msgid "No"
+msgstr ""
+
+#: .\templates\accounts\platform_admin_business_detail.html:49
+msgid "Manage Subscription"
+msgstr ""
+
+#: .\templates\accounts\platform_admin_business_detail.html:60
+msgid "Recent Payments"
+msgstr ""
+
+#: .\templates\accounts\platform_admin_dashboard.html:4
+#: .\templates\accounts\platform_admin_dashboard.html:9
+msgid "Platform Admin Dashboard"
+msgstr ""
+
+#: .\templates\accounts\platform_admin_dashboard.html:12
+msgid "Payments"
+msgstr ""
+
+#: .\templates\accounts\platform_admin_dashboard.html:18
+#: .\templates\base.html:203
+msgid "Django Admin"
+msgstr ""
+
+#: .\templates\accounts\platform_admin_dashboard.html:22
+msgid ""
+"All businesses registered on MenuHub - plans, subscriptions and support."
+msgstr ""
+
+#: .\templates\accounts\platform_admin_dashboard.html:26
+#: .\templates\restaurants\loyalty_list.html:22
+msgid "Search"
+msgstr ""
+
+#: .\templates\accounts\platform_admin_dashboard.html:27
+msgid "Username, email, business..."
+msgstr ""
+
+#: .\templates\accounts\platform_admin_dashboard.html:32
+#: .\templates\accounts\platform_admin_payments.html:23
+#: .\templates\orders\order_list.html:9
+msgid "All"
+msgstr ""
+
+#: .\templates\accounts\platform_admin_dashboard.html:39
+#: .\templates\accounts\platform_admin_payments.html:29
+msgid "Filter"
+msgstr ""
+
+#: .\templates\accounts\platform_admin_dashboard.html:41
+#: .\templates\restaurants\loyalty_list.html:25
+msgid "Clear"
+msgstr ""
+
+#: .\templates\accounts\platform_admin_dashboard.html:57
+#: .\templates\base.html:139 .\templates\orders\order_detail.html:81
+#: .\templates\restaurants\product_list.html:6
+msgid "Products"
+msgstr ""
+
+#: .\templates\accounts\platform_admin_dashboard.html:58
+msgid "Tables"
+msgstr ""
+
+#: .\templates\accounts\platform_admin_dashboard.html:60
+msgid "Revenue"
+msgstr ""
+
+#: .\templates\accounts\platform_admin_dashboard.html:61
+msgid "Registered"
+msgstr ""
+
+#: .\templates\accounts\platform_admin_dashboard.html:80
+#: .\templates\restaurants\promo_code_list.html:49
+msgid "Inactive"
+msgstr ""
+
+#: .\templates\accounts\platform_admin_dashboard.html:90
+msgid "Manage"
+msgstr ""
+
+#: .\templates\accounts\platform_admin_dashboard.html:96
+msgid "No businesses found"
+msgstr ""
+
+#: .\templates\accounts\platform_admin_dashboard.html:104
+msgid "Business pagination"
+msgstr ""
+
+#: .\templates\accounts\platform_admin_payments.html:4
+#: .\templates\accounts\platform_admin_payments.html:9
+msgid "Platform Payments"
+msgstr ""
+
+#: .\templates\accounts\platform_admin_payments.html:15
+msgid "Total Revenue (completed payments)"
+msgstr ""
+
+#: .\templates\accounts\platform_admin_payments.html:71
+msgid "No payments found"
+msgstr ""
+
+#: .\templates\accounts\profile.html:6 .\templates\base.html:234
+msgid "My Profile"
+msgstr "Το Προφίλ μου"
+
+#: .\templates\accounts\profile.html:24
+msgid "Expired"
+msgstr "Έληξε"
+
+#: .\templates\accounts\profile.html:29
+msgid "Renews/ends:"
+msgstr "Ανανεώνεται/λήγει:"
+
+#: .\templates\accounts\profile.html:33
+msgid ""
+"Your trial or subscription has ended - choose a plan to keep using the "
+"dashboard."
+msgstr ""
+
+#: .\templates\accounts\profile.html:40
+msgid "Choose a Plan"
+msgstr "Επιλέξτε Πλάνο"
+
+#: .\templates\accounts\profile.html:48
+msgid "Manage Billing"
+msgstr "Διαχείριση Χρέωσης"
+
+#: .\templates\accounts\profile.html:54 .\templates\accounts\profile.html:56
+msgid "Platform Admin"
+msgstr "Διαχείριση Πλατφόρμας"
+
+#: .\templates\accounts\signup.html:10
+msgid "Business Signup"
+msgstr ""
+
+#: .\templates\accounts\signup.html:18
+#, python-format
+msgid ""
+"By signing up, you accept the <a href=\"%(terms_url)s\" "
+"target=\"_blank\">Terms of Use</a>."
+msgstr ""
+
+#: .\templates\accounts\signup.html:20 .\templates\base.html:255
+msgid "Sign Up"
+msgstr ""
+
+#: .\templates\accounts\signup.html:23
+msgid "Already have an account? Log in"
+msgstr ""
+
+#: .\templates\base.html:14
+msgid "MenuHub - Digital QR Code Menus for Restaurants & Cafes"
+msgstr "MenuHub - Ψηφιακά Μενού QR για Εστιατόρια & Καφετέριες"
+
+#: .\templates\base.html:15
+msgid ""
+"Create your restaurant or cafe's digital QR code menu in 5 minutes. No "
+"printing, instant price updates, orders straight from the table."
+msgstr ""
+
+#: .\templates\base.html:22
+msgid "MenuHub - Digital QR Code Menus"
+msgstr "MenuHub - Ψηφιακά Μενού QR"
+
+#: .\templates\base.html:23
+msgid "Create your restaurant or cafe's digital QR code menu in 5 minutes."
+msgstr "Δημιουργήστε το ψηφιακό μενού QR του εστιατορίου ή της καφετέριάς σας σε 5 λεπτά."
+
+#: .\templates\base.html:99
+msgid "Home"
+msgstr "Αρχική"
+
+#: .\templates\base.html:105
+msgid "Pricing"
+msgstr "Τιμές"
+
+#: .\templates\base.html:111 .\templates\base.html:284
+#: .\templates\guides\index.html:31
+msgid "Guides"
+msgstr ""
+
+#: .\templates\base.html:121
+msgid "Free QR Generator"
+msgstr "Δωρεάν Δημιουργός QR"
+
+#: .\templates\base.html:127
+msgid "Dashboard"
+msgstr "Πίνακας Ελέγχου"
+
+#: .\templates\base.html:133 .\templates\restaurants\category_list.html:6
+#: .\templates\restaurants\dashboard.html:30
+msgid "Categories"
+msgstr "Κατηγορίες"
+
+#: .\templates\base.html:153 .\templates\restaurants\table_list.html:4
+#: .\templates\restaurants\table_list.html:8
+msgid "Tables & Sunbeds"
+msgstr "Τραπέζια & Ξαπλώστρες"
+
+#: .\templates\base.html:158 .\templates\restaurants\promo_code_list.html:4
+#: .\templates\restaurants\promo_code_list.html:8
+msgid "Promo Codes"
+msgstr "Κωδικοί Προσφοράς"
+
+#: .\templates\base.html:170 .\templates\restaurants\stats_dashboard.html:4
+#: .\templates\restaurants\stats_upgrade.html:4
+msgid "Statistics"
+msgstr "Στατιστικά"
+
+#: .\templates\base.html:185
+msgid "Platform Administration"
+msgstr "Διαχείριση Πλατφόρμας"
+
+#: .\templates\base.html:210
+msgid "Toggle dark/light theme"
+msgstr "Εναλλαγή σκούρου/ανοιχτού θέματος"
+
+#: .\templates\base.html:221
+msgid "Language"
+msgstr "Γλώσσα"
+
+#: .\templates\base.html:236 .\templates\restaurants\settings.html:6
+msgid "Restaurant Settings"
+msgstr "Ρυθμίσεις Εστιατορίου"
+
+#: .\templates\base.html:246
+msgid "Log Out"
+msgstr "Αποσύνδεση"
+
+#: .\templates\base.html:280
+msgid "Digital Menus for Restaurants & Cafes"
+msgstr "Ψηφιακά Μενού για Εστιατόρια & Καφετέριες"
+
+#: .\templates\base.html:283
+msgid "All Rights Reserved"
+msgstr "Με Επιφύλαξη Παντός Δικαιώματος"
+
+#: .\templates\base.html:286 .\templates\tools\free_qr_code_generator.html:106
+msgid "Free QR Code Generator"
+msgstr ""
+
+#: .\templates\base.html:287 .\templates\terms.html:4 .\templates\terms.html:10
+msgid "Terms of Use"
+msgstr ""
+
+#: .\templates\base.html:288 .\templates\privacy.html:4
+#: .\templates\privacy.html:10
+msgid "Privacy Policy"
+msgstr ""
+
+#: .\templates\base.html:289 .\templates\refund_policy.html:4
+#: .\templates\refund_policy.html:10
+msgid "Refund Policy"
+msgstr ""
+
+#: .\templates\base.html:297 .\templates\base.html:305
+msgid "Send feedback"
+msgstr "Αποστολή σχολίων"
+
+#: .\templates\base.html:309
+msgid "Found a bug, or have an idea to improve MenuHub? Let us know."
+msgstr "Βρήκατε κάποιο πρόβλημα ή έχετε μια ιδέα για να βελτιώσουμε το MenuHub; Πείτε μας."
+
+#: .\templates\base.html:310
+msgid "Your feedback..."
+msgstr "Το σχόλιό σας..."
+
+#: .\templates\base.html:312
+msgid "Thanks! Your feedback was sent."
+msgstr "Ευχαριστούμε! Το σχόλιό σας στάλθηκε."
+
+#: .\templates\base.html:315 .\templates\restaurants\public_menu.html:200
+msgid "Close"
+msgstr "Κλείσιμο"
+
+#: .\templates\base.html:316
+msgid "Send"
+msgstr "Αποστολή"
+
+#: .\templates\base.html:406
+msgid "Please write something first."
+msgstr "Παρακαλούμε γράψτε κάτι πρώτα."
+
+#: .\templates\base.html:420 .\templates\restaurants\public_menu.html:221
+msgid "Something went wrong. Please try again."
+msgstr "Κάτι πήγε στραβά. Δοκιμάστε ξανά."
+
+#: .\templates\base.html:424 .\templates\restaurants\public_menu.html:222
+msgid "Connection error. Please try again."
+msgstr "Σφάλμα σύνδεσης. Δοκιμάστε ξανά."
+
+#: .\templates\guides\base_guide.html:42
+msgid "All guides"
+msgstr ""
+
+#: .\templates\guides\how_to_create_qr_menu.html:4
+msgid "How to Create a QR Code Menu for Your Restaurant (Step by Step)"
+msgstr ""
+
+#: .\templates\guides\how_to_create_qr_menu.html:5
+msgid ""
+"A complete step-by-step guide to creating a digital QR code menu for your "
+"restaurant, cafe, or bar - no technical skills or app required."
+msgstr ""
+
+#: .\templates\guides\how_to_create_qr_menu.html:6
+#: .\templates\guides\how_to_create_qr_menu.html:29
+#: .\templates\guides\index.html:33
+msgid "How to Create a QR Code Menu for Your Restaurant"
+msgstr ""
+
+#: .\templates\guides\how_to_create_qr_menu.html:7
+msgid ""
+"A complete step-by-step guide to creating a digital QR code menu - no "
+"technical skills required."
+msgstr ""
+
+#: .\templates\guides\how_to_create_qr_menu.html:30
+msgid ""
+"You don't need a designer, a developer, or an app. Here's exactly how to go "
+"from a printed menu to a scannable digital one in about five minutes."
+msgstr ""
+
+#: .\templates\guides\how_to_create_qr_menu.html:32
+msgid "1. Create an account"
+msgstr ""
+
+#: .\templates\guides\how_to_create_qr_menu.html:33
+msgid ""
+"Sign up with your business name, email, and a password. A restaurant profile "
+"is created for you automatically the moment you sign up, along with a 30-day "
+"free trial - no credit card required to start."
+msgstr ""
+
+#: .\templates\guides\how_to_create_qr_menu.html:35
+msgid "2. Organize your menu into categories"
+msgstr ""
+
+#: .\templates\guides\how_to_create_qr_menu.html:36
+msgid ""
+"Before adding individual dishes, set up your categories - Starters, Mains, "
+"Drinks, Desserts, or whatever structure fits your menu. You can reorder them "
+"anytime, and customers see them exactly as you arrange them."
+msgstr ""
+
+#: .\templates\guides\how_to_create_qr_menu.html:38
+msgid "3. Add your products"
+msgstr ""
+
+#: .\templates\guides\how_to_create_qr_menu.html:39
+msgid ""
+"For each dish or drink, add a name, price, and a short description. You can "
+"attach a photo, mark items as vegan, vegetarian, gluten-free, or spicy, and "
+"add optional extras like \"add cheese\" with their own price adjustment."
+msgstr ""
+
+#: .\templates\guides\how_to_create_qr_menu.html:41
+msgid "4. Your QR code is generated automatically"
+msgstr ""
+
+#: .\templates\guides\how_to_create_qr_menu.html:42
+msgid ""
+"As soon as your account is created, a unique QR code is generated for your "
+"menu - no design tool or third-party QR generator needed. If you take table-"
+"side orders, each table or sunbed can also get its own QR code that pins the "
+"order to that exact spot."
+msgstr ""
+
+#: .\templates\guides\how_to_create_qr_menu.html:44
+msgid "5. Print it once, use it everywhere"
+msgstr ""
+
+#: .\templates\guides\how_to_create_qr_menu.html:45
+msgid ""
+"Print the QR code on a table tent, a sticker at the entrance, or a small "
+"sign at the bar. Customers scan it with their phone's camera - no app to "
+"download - and the menu opens instantly in their browser."
+msgstr ""
+
+#: .\templates\guides\how_to_create_qr_menu.html:47
+msgid "6. Update your menu anytime, for free"
+msgstr ""
+
+#: .\templates\guides\how_to_create_qr_menu.html:48
+msgid ""
+"This is the real advantage over a printed menu: when a price changes, an "
+"item sells out, or you add a new seasonal dish, you update it from your "
+"dashboard and the change is live immediately. No reprinting, no waiting, no "
+"extra cost."
+msgstr ""
+
+#: .\templates\guides\how_to_create_qr_menu.html:50
+msgid "What about taking orders?"
+msgstr ""
+
+#: .\templates\guides\how_to_create_qr_menu.html:51
+msgid ""
+"If you want customers to order directly from their phone, table-side "
+"ordering can be turned on so each QR code is tied to a specific table. "
+"Orders land on a live dashboard your staff can manage in real time, with no "
+"extra hardware required."
+msgstr ""
+
+#: .\templates\guides\index.html:4
+msgid "Guides - MenuHub"
+msgstr ""
+
+#: .\templates\guides\index.html:5
+msgid ""
+"Practical guides on digital QR code menus for restaurants, cafes, and bars - "
+"setup, pricing, and how it compares to printed menus."
+msgstr ""
+
+#: .\templates\guides\index.html:34
+msgid ""
+"A complete step-by-step guide, from signup to your first scanned QR code."
+msgstr ""
+
+#: .\templates\guides\index.html:37 .\templates\guides\qr_menu_cost.html:6
+#: .\templates\guides\qr_menu_cost.html:10
+msgid "How Much Does a QR Code Menu Cost?"
+msgstr ""
+
+#: .\templates\guides\index.html:38
+msgid ""
+"A clear pricing breakdown and how it compares to reprinting a physical menu."
+msgstr ""
+
+#: .\templates\guides\index.html:41
+#: .\templates\guides\qr_vs_printed_menu.html:6
+msgid "QR Code Menu vs. Printed Menu"
+msgstr ""
+
+#: .\templates\guides\index.html:42
+msgid "Cost, flexibility, hygiene, and customer experience, compared."
+msgstr ""
+
+#: .\templates\guides\qr_menu_cost.html:4
+msgid "How Much Does a QR Code Menu Cost? (2026 Pricing Breakdown)"
+msgstr ""
+
+#: .\templates\guides\qr_menu_cost.html:5
+msgid ""
+"A clear breakdown of what a digital QR code menu costs for restaurants, "
+"cafes, and bars, and how it compares to the ongoing cost of printed menus."
+msgstr ""
+
+#: .\templates\guides\qr_menu_cost.html:7
+msgid ""
+"A clear breakdown of what a digital QR code menu costs, and how it compares "
+"to printed menus."
+msgstr ""
+
+#: .\templates\guides\qr_menu_cost.html:11
+msgid ""
+"A digital QR menu is priced as a monthly subscription rather than a one-time "
+"print job. Here's what's actually included at each level, and how it stacks "
+"up against reprinting a physical menu."
+msgstr ""
+
+#: .\templates\guides\qr_menu_cost.html:13
+msgid "MenuHub pricing at a glance"
+msgstr ""
+
+#: .\templates\guides\qr_menu_cost.html:15
+msgid "Basic - $7/month:"
+msgstr ""
+
+#: .\templates\guides\qr_menu_cost.html:15
+msgid ""
+"unlimited categories and products, with an automatically generated QR code."
+msgstr ""
+
+#: .\templates\guides\qr_menu_cost.html:16
+msgid "Pro - $19/month:"
+msgstr ""
+
+#: .\templates\guides\qr_menu_cost.html:16
+msgid ""
+"everything in Basic, plus table-side ordering, loyalty points, and promo "
+"codes."
+msgstr ""
+
+#: .\templates\guides\qr_menu_cost.html:17
+msgid "Business - $39/month:"
+msgstr ""
+
+#: .\templates\guides\qr_menu_cost.html:17
+msgid ""
+"everything in Pro, plus sales statistics and staff accounts with admin/"
+"employee permissions."
+msgstr ""
+
+#: .\templates\guides\qr_menu_cost.html:19
+msgid ""
+"Every plan includes a 30-day free trial, so you can set up your full menu "
+"before paying anything."
+msgstr ""
+
+#: .\templates\guides\qr_menu_cost.html:21
+msgid "What drives the cost of a printed menu"
+msgstr ""
+
+#: .\templates\guides\qr_menu_cost.html:22
+msgid ""
+"A printed menu looks cheaper upfront, but the real cost shows up over time: "
+"a price change, a seasonal dish, or a supplier shortage means a reprint - "
+"design time, printing costs, and menus that are wrong until the new batch "
+"arrives. Multiply that by however many times a year your prices or dishes "
+"change."
+msgstr ""
+
+#: .\templates\guides\qr_menu_cost.html:24
+msgid "What you're actually paying for"
+msgstr ""
+
+#: .\templates\guides\qr_menu_cost.html:25
+msgid ""
+"The subscription isn't just hosting a PDF online. It covers the QR code "
+"generation, unlimited menu edits with no reprinting cost, dietary labels, "
+"and - on the higher plans - order management and sales reporting that a "
+"printed menu simply can't provide."
+msgstr ""
+
+#: .\templates\guides\qr_menu_cost.html:27
+msgid "Which plan should you pick?"
+msgstr ""
+
+#: .\templates\guides\qr_menu_cost.html:28
+msgid ""
+"If you just want to replace a printed menu with something always up to date, "
+"Basic covers it. If customers should be able to order directly from the "
+"table without waving down a server, Pro is the natural fit. If you're "
+"running a busier operation with staff accounts and want to see which dishes "
+"actually sell, Business adds the reporting layer on top."
+msgstr ""
+
+#: .\templates\guides\qr_vs_printed_menu.html:4
+#: .\templates\guides\qr_vs_printed_menu.html:10
+msgid "QR Code Menu vs. Printed Menu: Which Is Right for Your Restaurant?"
+msgstr ""
+
+#: .\templates\guides\qr_vs_printed_menu.html:5
+msgid ""
+"A practical comparison of QR code menus and printed menus - cost, "
+"flexibility, hygiene, and customer experience - to help you decide what's "
+"right for your restaurant."
+msgstr ""
+
+#: .\templates\guides\qr_vs_printed_menu.html:7
+msgid ""
+"A practical comparison to help you decide what's right for your restaurant."
+msgstr ""
+
+#: .\templates\guides\qr_vs_printed_menu.html:11
+msgid ""
+"Most restaurants don't need to choose one exclusively - but understanding "
+"the trade-offs makes it obvious where each one wins."
+msgstr ""
+
+#: .\templates\guides\qr_vs_printed_menu.html:13
+msgid "Cost over time"
+msgstr ""
+
+#: .\templates\guides\qr_vs_printed_menu.html:14
+msgid ""
+"A printed menu has a low one-time cost but an ongoing one every time "
+"something changes - a price update, a sold-out dish, a new seasonal item. A "
+"QR menu has a small monthly cost but updates are free and instant, however "
+"often you make them."
+msgstr ""
+
+#: .\templates\guides\qr_vs_printed_menu.html:16
+msgid "Flexibility"
+msgstr ""
+
+#: .\templates\guides\qr_vs_printed_menu.html:17
+msgid ""
+"Printed menus are fixed the moment they're printed. A digital menu can "
+"change prices mid-shift, mark a dish unavailable the second it sells out, or "
+"run a limited-time offer without touching a single physical page."
+msgstr ""
+
+#: .\templates\guides\qr_vs_printed_menu.html:19
+msgid "Customer experience"
+msgstr ""
+
+#: .\templates\guides\qr_vs_printed_menu.html:20
+msgid ""
+"A QR menu opens instantly in a customer's own phone browser - no app to "
+"install - and can show photos, dietary tags, and live availability that a "
+"printed page can't. Some guests still prefer the simplicity of picking up a "
+"physical menu, particularly older customers less comfortable scanning codes."
+msgstr ""
+
+#: .\templates\guides\qr_vs_printed_menu.html:22
+msgid "Hygiene and durability"
+msgstr ""
+
+#: .\templates\guides\qr_vs_printed_menu.html:23
+msgid ""
+"Printed menus get handled by every table and need regular cleaning or "
+"replacing when they wear out. A QR code printed once on a table tent or "
+"sticker is touched by nobody but scanned by everybody - and never needs "
+"replacing unless it physically wears out."
+msgstr ""
+
+#: .\templates\guides\qr_vs_printed_menu.html:25
+msgid "Ordering speed"
+msgstr ""
+
+#: .\templates\guides\qr_vs_printed_menu.html:26
+msgid ""
+"With a printed menu, ordering still depends on flagging down a server. A QR "
+"menu with table-side ordering lets a customer send their order the moment "
+"they've decided, which is particularly useful during busy shifts or at large "
+"outdoor venues like beach bars."
+msgstr ""
+
+#: .\templates\guides\qr_vs_printed_menu.html:28
+msgid "So which should you choose?"
+msgstr ""
+
+#: .\templates\guides\qr_vs_printed_menu.html:29
+msgid ""
+"Most restaurants get the best result running both: a QR code as the primary, "
+"always-current menu, with a handful of printed copies on hand for guests who "
+"prefer paper or don't have a smartphone on them. You get the cost and "
+"flexibility benefits of digital without losing anyone."
+msgstr ""
+
+#: .\templates\home.html:4
+msgid "MenuHub - Digital QR Code Menu for Restaurants, Cafes & Bars"
+msgstr ""
+
+#: .\templates\home.html:5
+msgid ""
+"Create your restaurant, cafe or bar's digital QR code menu in 5 minutes. No "
+"printing, instant price updates, dietary labels and table-side ordering. "
+"From $7/month."
+msgstr ""
+
+#: .\templates\home.html:6
+msgid "MenuHub - Digital QR Code Menu for Restaurants & Cafes"
+msgstr ""
+
+#: .\templates\home.html:7
+msgid ""
+"Create your digital menu in 5 minutes. Automatic QR code, live price "
+"updates, dietary labels, table-side ordering."
+msgstr ""
+
+#: .\templates\home.html:358
+msgid ""
+"MenuHub is currently in free beta - every plan's features are unlocked at no "
+"cost while we finish rolling out paid billing."
+msgstr ""
+
+#: .\templates\home.html:367
+msgid "Digital menu with QR code"
+msgstr ""
+
+#: .\templates\home.html:368
+msgid "Your restaurant's menu,"
+msgstr ""
+
+#: .\templates\home.html:368
+msgid "always up to date"
+msgstr ""
+
+#: .\templates\home.html:370
+msgid ""
+"Create a digital QR code menu for your restaurant, cafe or bar in just a few "
+"minutes. Change prices and products whenever you like, with no reprinting, "
+"and accept orders directly from the table."
+msgstr ""
+
+#: .\templates\home.html:374
+msgid "See the plans"
+msgstr ""
+
+#: .\templates\home.html:377
+msgid "No printing"
+msgstr ""
+
+#: .\templates\home.html:378
+msgid "Ready in 5 minutes"
+msgstr ""
+
+#: .\templates\home.html:379
+msgid "Works on every phone"
+msgstr ""
+
+#: .\templates\home.html:385
+msgid "Your Restaurant"
+msgstr ""
+
+#: .\templates\home.html:386
+msgid "Menu Category"
+msgstr ""
+
+#: .\templates\home.html:390
+msgid "Dish 1"
+msgstr ""
+
+#: .\templates\home.html:394
+msgid "Dish 2"
+msgstr ""
+
+#: .\templates\home.html:398
+msgid "Dish 3"
+msgstr ""
+
+#: .\templates\home.html:402
+msgid "Dish 4"
+msgstr ""
+
+#: .\templates\home.html:406
+msgid "Accepts orders"
+msgstr ""
+
+#: .\templates\home.html:419
+msgid "How it works"
+msgstr ""
+
+#: .\templates\home.html:420
+msgid "From sign-up to the first scan, with no technical knowledge required."
+msgstr ""
+
+#: .\templates\home.html:427
+msgid ""
+"Add categories and products with prices, photos and dietary labels (vegan, "
+"gluten-free, spicy)."
+msgstr ""
+
+#: .\templates\home.html:433
+msgid "Get your QR code"
+msgstr ""
+
+#: .\templates\home.html:434
+msgid ""
+"The QR code is generated automatically. Print it once on a sign or table — "
+"customers scan it with their phone camera and see the menu instantly, no app "
+"needed."
+msgstr ""
+
+#: .\templates\home.html:440
+msgid "Serve & take orders"
+msgstr ""
+
+#: .\templates\home.html:441
+msgid ""
+"With the Pro or Business plan, customers can order directly from their phone "
+"by scanning the table's QR code, without needing to get up."
+msgstr ""
+
+#: .\templates\home.html:452
+msgid "See it in action"
+msgstr ""
+
+#: .\templates\home.html:453
+msgid "Real, live QR code menus built with MenuHub - not mockups."
+msgstr ""
+
+#: .\templates\home.html:467
+msgid "See our live menu examples"
+msgstr ""
+
+#: .\templates\home.html:473
+msgid "See all live examples"
+msgstr ""
+
+#: .\templates\home.html:482
+msgid "Everything your menu needs"
+msgstr ""
+
+#: .\templates\home.html:483
+msgid "Tools designed specifically for restaurants, cafes and bars."
+msgstr ""
+
+#: .\templates\home.html:489
+msgid "Automatic QR Code"
+msgstr ""
+
+#: .\templates\home.html:490
+msgid ""
+"Every restaurant gets its own unique QR code, ready to print, with no extra "
+"steps."
+msgstr ""
+
+#: .\templates\home.html:496
+msgid "Organized into categories"
+msgstr ""
+
+#: .\templates\home.html:497
+msgid ""
+"Split your menu into categories (appetizers, mains, drinks) in the display "
+"order you want."
+msgstr ""
+
+#: .\templates\home.html:503 .\templates\home.html:549
+msgid "Dietary labels"
+msgstr ""
+
+#: .\templates\home.html:504
+msgid ""
+"Mark dishes as vegan, vegetarian, gluten-free or spicy, so customers can "
+"choose easily."
+msgstr ""
+
+#: .\templates\home.html:510
+msgid "Orders from the table"
+msgstr ""
+
+#: .\templates\home.html:511
+msgid ""
+"With the Pro or Business plan, customers send their order directly from "
+"their phone."
+msgstr ""
+
+#: .\templates\home.html:517
+msgid "Management Dashboard"
+msgstr ""
+
+#: .\templates\home.html:518
+msgid ""
+"See orders, update their status and keep track of your products all in one "
+"place."
+msgstr ""
+
+#: .\templates\home.html:524
+msgid "Mobile friendly"
+msgstr ""
+
+#: .\templates\home.html:525
+msgid ""
+"The menu opens instantly in any phone's browser, with no app installation."
+msgstr ""
+
+#: .\templates\home.html:537
+msgid "Simple pricing"
+msgstr ""
+
+#: .\templates\home.html:538
+msgid "Start with Basic or go Pro/Business for orders, loyalty and statistics."
+msgstr ""
+
+#: .\templates\home.html:544 .\templates\home.html:569
+#: .\templates\home.html:594
+msgid "Your plan"
+msgstr ""
+
+#: .\templates\home.html:547
+msgid "Unlimited categories & products"
+msgstr ""
+
+#: .\templates\home.html:548
+msgid "Automatic QR code"
+msgstr ""
+
+#: .\templates\home.html:550
+msgid "Product photos"
+msgstr ""
+
+#: .\templates\home.html:551
+msgid "Multilingual menu"
+msgstr ""
+
+#: .\templates\home.html:555 .\templates\home.html:581
+#: .\templates\home.html:605
+msgid "Your current plan"
+msgstr ""
+
+#: .\templates\home.html:557 .\templates\home.html:583
+msgid "Included in your plan"
+msgstr ""
+
+#: .\templates\home.html:559
+msgid "See your profile"
+msgstr ""
+
+#: .\templates\home.html:562
+msgid "Start with Basic"
+msgstr ""
+
+#: .\templates\home.html:568
+msgid "Most popular"
+msgstr ""
+
+#: .\templates\home.html:572
+msgid "Everything in Basic"
+msgstr ""
+
+#: .\templates\home.html:573
+msgid "Orders from table QR codes"
+msgstr ""
+
+#: .\templates\home.html:574
+msgid "Real-time order management"
+msgstr ""
+
+#: .\templates\home.html:575
+msgid "Loyalty points for customers"
+msgstr ""
+
+#: .\templates\home.html:576
+msgid "Discount codes"
+msgstr ""
+
+#: .\templates\home.html:577
+msgid "Zero commission per order"
+msgstr ""
+
+#: .\templates\home.html:585
+msgid "Upgrade to Pro"
+msgstr ""
+
+#: .\templates\home.html:588
+msgid "Start with Pro"
+msgstr ""
+
+#: .\templates\home.html:597
+msgid "Everything in Pro"
+msgstr ""
+
+#: .\templates\home.html:598
+msgid "Sales statistics & reports"
+msgstr ""
+
+#: .\templates\home.html:599
+msgid "Export orders to CSV"
+msgstr ""
+
+#: .\templates\home.html:600
+msgid "Role-based staff management"
+msgstr ""
+
+#: .\templates\home.html:601
+msgid "Staff activity log"
+msgstr ""
+
+#: .\templates\home.html:607
+msgid "Upgrade to Business"
+msgstr ""
+
+#: .\templates\home.html:610
+msgid "Start with Business"
+msgstr ""
+
+#: .\templates\home.html:624 .\templates\tools\free_qr_code_generator.html:222
+msgid "Frequently asked questions"
+msgstr ""
+
+#: .\templates\home.html:625
+msgid "Everything you need to know before you start."
+msgstr ""
+
+#: .\templates\home.html:633
+msgid "What is a digital menu with QR code?"
+msgstr ""
+
+#: .\templates\home.html:638
+msgid ""
+"It's a restaurant menu that customers view by scanning a QR code with their "
+"phone, with no app install required. The menu opens instantly in the phone's "
+"browser."
+msgstr ""
+
+#: .\templates\home.html:645
+msgid "How much does MenuHub cost?"
+msgstr ""
+
+#: .\templates\home.html:650
+msgid ""
+"The Basic plan starts at $7/month and includes unlimited categories and "
+"products with an automatic QR code. The Pro plan costs $19/month and adds "
+"table-side ordering, loyalty points and discount codes, with zero "
+"commission. The Business plan costs $39/month and adds statistics, reports "
+"and staff management."
+msgstr ""
+
+#: .\templates\home.html:657
+msgid "Do I need programming skills?"
+msgstr ""
+
+#: .\templates\home.html:662
+msgid ""
+"No. Creating a menu is done through a simple form: you add categories, "
+"products, prices and photos, and the QR code is generated automatically."
+msgstr ""
+
+#: .\templates\home.html:669
+msgid "Can I accept orders from the table?"
+msgstr ""
+
+#: .\templates\home.html:674
+msgid ""
+"Yes, with the Pro or Business plan customers can send an order directly from "
+"the digital menu by scanning their table's QR code, which you see in real "
+"time on the order management dashboard."
+msgstr ""
+
+#: .\templates\home.html:681
+msgid "How quickly do menu prices update?"
+msgstr ""
+
+#: .\templates\home.html:686
+msgid ""
+"Instantly. When you change a price or add a product from the dashboard, the "
+"change appears immediately on the menu customers see, with no reprinting "
+"needed."
+msgstr ""
+
+#: .\templates\home.html:693
+msgid "Does the menu work on all phones?"
+msgstr ""
+
+#: .\templates\home.html:698
+msgid ""
+"Yes, the digital menu is fully mobile-first and opens correctly in any "
+"phone's browser, with no app installation required."
+msgstr ""
+
+#: .\templates\home.html:713
+msgid "Create an account and get your menu's QR code today."
+msgstr ""
+
+#: .\templates\home.html:714
+msgid "Create an account"
+msgstr ""
+
+#: .\templates\orders\order_detail.html:7
+msgid "Order"
+msgstr "Παραγγελία"
+
+#: .\templates\orders\order_detail.html:10
+#: .\templates\orders\order_list.html:44
+msgid "Are you sure you want to delete this order?"
+msgstr "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτή την παραγγελία;"
+
+#: .\templates\orders\order_detail.html:25
+msgid "Order Details"
+msgstr "Στοιχεία Παραγγελίας"
+
+#: .\templates\orders\order_detail.html:32
+#: .\templates\orders\order_list.html:20
+msgid "Customer"
+msgstr "Πελάτης"
+
+#: .\templates\orders\order_detail.html:36
+msgid "Notes"
+msgstr "Σημειώσεις"
+
+#: .\templates\orders\order_detail.html:44
+msgid "Change Status"
+msgstr "Αλλαγή Κατάστασης"
+
+#: .\templates\orders\order_detail.html:58
+msgid "Update"
+msgstr "Ενημέρωση"
+
+#: .\templates\orders\order_detail.html:65
+msgid "Summary"
+msgstr "Σύνοψη"
+
+#: .\templates\orders\order_detail.html:68
+msgid "Subtotal"
+msgstr "Υποσύνολο"
+
+#: .\templates\orders\order_detail.html:70
+#: .\templates\restaurants\promo_code_list.html:31
+msgid "Discount"
+msgstr "Έκπτωση"
+
+#: .\templates\orders\order_detail.html:72
+msgid "VAT"
+msgstr "ΦΠΑ"
+
+#: .\templates\orders\order_detail.html:73
+#: .\templates\orders\order_detail.html:90
+#: .\templates\orders\order_list.html:22
+#: .\templates\restaurants\public_menu.html:159
+#: .\templates\restaurants\public_menu.html:224
+msgid "Total"
+msgstr "Σύνολο"
+
+#: .\templates\orders\order_detail.html:87
+msgid "Product"
+msgstr "Προϊόν"
+
+#: .\templates\orders\order_detail.html:88
+msgid "Quantity"
+msgstr "Ποσότητα"
+
+#: .\templates\orders\order_detail.html:109
+msgid "Activity History"
+msgstr "Ιστορικό Δραστηριότητας"
+
+#: .\templates\orders\order_detail.html:112
+msgid "Unknown"
+msgstr "Άγνωστο"
+
+#: .\templates\orders\order_detail.html:116
+#, python-format
+msgid ""
+"\n"
+"                        <strong>%(who)s</strong> changed the status from "
+"<em>%(old)s</em> to <em>%(new)s</em>\n"
+"                        "
+msgstr ""
+
+#: .\templates\orders\order_detail.html:122
+msgid "No status changes yet"
+msgstr "Καμία αλλαγή κατάστασης ακόμα"
+
+#: .\templates\orders\order_list.html:19
+msgid "Order No."
+msgstr "Αρ. Παραγγελίας"
+
+#: .\templates\orders\order_list.html:21
+msgid "Table/Sunbed"
+msgstr "Τραπέζι/Ξαπλώστρα"
+
+#: .\templates\orders\order_list.html:25
+#: .\templates\restaurants\loyalty_list.html:40
+msgid "Actions"
+msgstr "Ενέργειες"
+
+#: .\templates\orders\order_list.html:42
+msgid "Details"
+msgstr "Λεπτομέρειες"
+
+#: .\templates\orders\order_list.html:55
+msgid "No orders found"
+msgstr "Δεν βρέθηκαν παραγγελίες"
+
+#: .\templates\orders\order_list.html:63
+msgid "Order pagination"
+msgstr "Σελιδοποίηση παραγγελιών"
+
+#: .\templates\privacy.html:11 .\templates\refund_policy.html:11
+#: .\templates\terms.html:11
+msgid "Last updated"
+msgstr ""
+
+#: .\templates\privacy.html:13
+msgid "Who we are"
+msgstr ""
+
+#: .\templates\privacy.html:14
+msgid ""
+"MenuHub is operated by an individual (sole trader), not a registered "
+"company. Throughout this policy, \"we\" or \"the provider\" refers to the "
+"individual operating MenuHub."
+msgstr ""
+
+#: .\templates\privacy.html:16
+msgid "What information we collect"
+msgstr ""
+
+#: .\templates\privacy.html:17
+msgid ""
+"When you create a business account, we collect your username, email address, "
+"business name, business type, phone number, and optional VAT/Tax ID. When "
+"customers place an order through a restaurant's digital menu, we collect the "
+"order details and, if provided, a customer name and phone number (used for "
+"loyalty points)."
+msgstr ""
+
+#: .\templates\privacy.html:19
+msgid "How we use your information"
+msgstr ""
+
+#: .\templates\privacy.html:20
+msgid ""
+"We use this information to operate the Service: creating and managing your "
+"account and restaurant menu, processing and displaying orders, calculating "
+"loyalty points, and communicating with you about your account. We do not "
+"sell your personal information to third parties."
+msgstr ""
+
+#: .\templates\privacy.html:22
+msgid "Payment processing"
+msgstr ""
+
+#: .\templates\privacy.html:23
+msgid ""
+"Subscription payments are handled entirely by Paddle.com, our Merchant of "
+"Record. Paddle collects and processes your payment card details directly - "
+"we never see or store your card information on our servers. Paddle's own "
+"privacy policy governs how they handle this data."
+msgstr ""
+
+#: .\templates\privacy.html:25
+msgid "Data storage and hosting"
+msgstr ""
+
+#: .\templates\privacy.html:26
+msgid ""
+"Your account and menu data is stored on infrastructure provided by our "
+"hosting provider. Uploaded images (logos, product photos) may be stored on "
+"cloud storage where configured."
+msgstr ""
+
+#: .\templates\privacy.html:28
+msgid "Cookies"
+msgstr ""
+
+#: .\templates\privacy.html:29
+msgid ""
+"We use a session cookie to keep you logged in and a CSRF-protection cookie "
+"for security. We do not use advertising or tracking cookies."
+msgstr ""
+
+#: .\templates\privacy.html:31
+msgid "Data retention"
+msgstr ""
+
+#: .\templates\privacy.html:32
+msgid ""
+"We retain your account and order data for as long as your account is active. "
+"If you close your account, you can request deletion of your personal data by "
+"contacting us, subject to any records we're required to keep for tax or "
+"legal purposes."
+msgstr ""
+
+#: .\templates\privacy.html:34
+msgid "Your rights"
+msgstr ""
+
+#: .\templates\privacy.html:35
+msgid ""
+"Depending on where you're located, you may have the right to access, "
+"correct, export, or delete your personal data. To exercise any of these "
+"rights, contact us using the details below."
+msgstr ""
+
+#: .\templates\privacy.html:37
+msgid "Changes to this policy"
+msgstr ""
+
+#: .\templates\privacy.html:38
+msgid ""
+"We may update this policy from time to time. Continued use of the Service "
+"after a change constitutes acceptance of the updated policy."
+msgstr ""
+
+#: .\templates\privacy.html:40 .\templates\refund_policy.html:28
+#: .\templates\terms.html:34 .\templates\tools\free_qr_code_generator.html:133
+msgid "Contact"
+msgstr ""
+
+#: .\templates\privacy.html:41
+msgid ""
+"For questions about this Privacy Policy or to exercise your data rights, "
+"contact us at <a href=\"mailto:info@getmenuhub.com\">info@getmenuhub.com</a>."
+msgstr ""
+
+#: .\templates\refund_policy.html:13
+msgid "Subscriptions"
+msgstr ""
+
+#: .\templates\refund_policy.html:14
+msgid ""
+"MenuHub subscriptions (Basic, Pro, Business) are billed monthly in advance. "
+"Payments are non-refundable, including for partial billing periods."
+msgstr ""
+
+#: .\templates\refund_policy.html:16
+msgid "Cancellation"
+msgstr ""
+
+#: .\templates\refund_policy.html:17
+msgid ""
+"You can cancel your subscription at any time from your account or Paddle's "
+"customer portal. Cancelling stops future billing, but does not refund the "
+"current billing period - you keep access to your paid plan until the end of "
+"the period you've already paid for."
+msgstr ""
+
+#: .\templates\refund_policy.html:19
+msgid "Free trial"
+msgstr ""
+
+#: .\templates\refund_policy.html:20
+msgid ""
+"New accounts start on a free trial. You are not charged during the trial, "
+"and can cancel at any point before it ends with no charge."
+msgstr ""
+
+#: .\templates\refund_policy.html:22
+msgid "Exceptions"
+msgstr ""
+
+#: .\templates\refund_policy.html:23
+msgid ""
+"If you were charged due to a proven technical error on our part (for "
+"example, a duplicate charge), contact us and we will review and correct it. "
+"Refund requests are handled case by case at our discretion outside of this "
+"scenario."
+msgstr ""
+
+#: .\templates\refund_policy.html:25
+msgid "How payments are processed"
+msgstr ""
+
+#: .\templates\refund_policy.html:26
+msgid ""
+"All payments are processed by Paddle.com, our Merchant of Record, who also "
+"handles applicable taxes. Any dispute regarding a specific charge can also "
+"be raised directly with Paddle."
+msgstr ""
+
+#: .\templates\refund_policy.html:29
+msgid ""
+"For questions about this Refund Policy, contact us at <a "
+"href=\"mailto:info@getmenuhub.com\">info@getmenuhub.com</a>."
+msgstr ""
+
+#: .\templates\restaurants\category_list.html:10
+msgid "New Category"
+msgstr "Νέα Κατηγορία"
+
+#: .\templates\restaurants\category_list.html:15
+#: .\templates\restaurants\product_list.html:16
+#: .\templates\restaurants\promo_code_list.html:17
+#: .\templates\restaurants\staff_list.html:18
+#: .\templates\restaurants\table_list.html:18
+msgid "Create"
+msgstr "Δημιουργία"
+
+#: .\templates\restaurants\category_list.html:22
+msgid "Category List"
+msgstr "Λίστα Κατηγοριών"
+
+#: .\templates\restaurants\category_list.html:29
+#: .\templates\restaurants\public_menu.html:141
+msgid "products"
+msgstr "προϊόντα"
+
+#: .\templates\restaurants\category_list.html:33
+msgid "Are you sure you want to delete this category?"
+msgstr "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτή την κατηγορία;"
+
+#: .\templates\restaurants\category_list.html:39
+msgid "No categories yet"
+msgstr "Καμία κατηγορία ακόμα"
+
+#: .\templates\restaurants\dashboard.html:6
+#, python-format
+msgid "Welcome, %(user)s!"
+msgstr "Καλώς ήρθατε, %(user)s!"
+
+#: .\templates\restaurants\dashboard.html:7
+msgid "This is your restaurant's dashboard."
+msgstr "Αυτός είναι ο πίνακας ελέγχου του εστιατορίου σας."
+
+#: .\templates\restaurants\dashboard.html:14
+msgid "Total Products"
+msgstr "Σύνολο Προϊόντων"
+
+#: .\templates\restaurants\dashboard.html:22
+msgid "Available Products"
+msgstr "Διαθέσιμα Προϊόντα"
+
+#: .\templates\restaurants\feature_upgrade.html:11
+msgid "View Plans"
+msgstr "Προβολή Πλάνων"
+
+#: .\templates\restaurants\loyalty_edit.html:4
+msgid "Edit Loyalty"
+msgstr "Επεξεργασία Loyalty"
+
+#: .\templates\restaurants\loyalty_edit.html:8
+msgid "Edit Loyalty Account"
+msgstr "Επεξεργασία Λογαριασμού Loyalty"
+
+#: .\templates\restaurants\loyalty_list.html:4
+#: .\templates\restaurants\loyalty_list.html:8
+msgid "Customer Loyalty"
+msgstr "Loyalty Πελατών"
+
+#: .\templates\restaurants\loyalty_list.html:9
+msgid ""
+"Customers earn 1 point per euro they spend, tracked by their phone number."
+msgstr ""
+
+#: .\templates\restaurants\loyalty_list.html:13
+msgid "Loyalty is currently disabled - customers are not earning points."
+msgstr "Το Loyalty είναι απενεργοποιημένο - οι πελάτες δεν κερδίζουν πόντους."
+
+#: .\templates\restaurants\loyalty_list.html:14
+msgid "Enable from Settings"
+msgstr "Ενεργοποίηση από τις Ρυθμίσεις"
+
+#: .\templates\restaurants\loyalty_list.html:20
+msgid "Search by phone..."
+msgstr "Αναζήτηση με τηλέφωνο..."
+
+#: .\templates\restaurants\loyalty_list.html:31
+msgid "Points Ranking"
+msgstr "Κατάταξη Πόντων"
+
+#: .\templates\restaurants\loyalty_list.html:39
+msgid "Last Updated"
+msgstr "Τελευταία Ενημέρωση"
+
+#: .\templates\restaurants\loyalty_list.html:53
+msgid "Are you sure you want to delete this loyalty account?"
+msgstr "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτόν τον λογαριασμό Loyalty;"
+
+#: .\templates\restaurants\loyalty_list.html:65
+msgid "No results found"
+msgstr "Δεν βρέθηκαν αποτελέσματα"
+
+#: .\templates\restaurants\loyalty_list.html:67
+msgid "No loyalty points yet"
+msgstr "Κανένας πόντος Loyalty ακόμα"
+
+#: .\templates\restaurants\loyalty_list.html:77
+msgid "Loyalty pagination"
+msgstr "Σελιδοποίηση Loyalty"
+
+#: .\templates\restaurants\product_edit.html:6
+msgid "Edit Product"
+msgstr "Επεξεργασία Προϊόντος"
+
+#: .\templates\restaurants\product_list.html:11
+msgid "New Product"
+msgstr "Νέο Προϊόν"
+
+#: .\templates\restaurants\product_list.html:24
+msgid "Product List"
+msgstr "Λίστα Προϊόντων"
+
+#: .\templates\restaurants\product_list.html:36
+msgid "Unavailable"
+msgstr "Μη Διαθέσιμο"
+
+#: .\templates\restaurants\product_list.html:46
+msgid "Are you sure you want to delete this product?"
+msgstr "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το προϊόν;"
+
+#: .\templates\restaurants\product_list.html:55
+msgid "No products yet"
+msgstr "Κανένα προϊόν ακόμα"
+
+#: .\templates\restaurants\product_list.html:60
+msgid "Product pagination"
+msgstr "Σελιδοποίηση προϊόντων"
+
+#: .\templates\restaurants\promo_code_list.html:12
+msgid "New Promo Code"
+msgstr "Νέος Κωδικός Προσφοράς"
+
+#: .\templates\restaurants\promo_code_list.html:24
+msgid "Promo Code List"
+msgstr "Λίστα Κωδικών Προσφοράς"
+
+#: .\templates\restaurants\promo_code_list.html:32
+msgid "Uses"
+msgstr "Χρήσεις"
+
+#: .\templates\restaurants\promo_code_list.html:33
+msgid "Valid Until"
+msgstr "Ισχύει Έως"
+
+#: .\templates\restaurants\promo_code_list.html:55
+msgid "Are you sure you want to delete this promo code?"
+msgstr "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτόν τον κωδικό προσφοράς;"
+
+#: .\templates\restaurants\promo_code_list.html:63
+msgid "No promo codes yet"
+msgstr "Κανένας κωδικός προσφοράς ακόμα"
+
+#: .\templates\restaurants\public_menu.html:4
+msgid "Menu"
+msgstr "Μενού"
+
+#: .\templates\restaurants\public_menu.html:64
+msgid "Accepting orders"
+msgstr "Δέχεται παραγγελίες"
+
+#: .\templates\restaurants\public_menu.html:113
+msgid "Add"
+msgstr "Προσθήκη"
+
+#: .\templates\restaurants\public_menu.html:126
+msgid "No products available"
+msgstr "Δεν υπάρχουν διαθέσιμα προϊόντα"
+
+#: .\templates\restaurants\public_menu.html:134
+msgid "Powered by"
+msgstr "Με την υποστήριξη του"
+
+#: .\templates\restaurants\public_menu.html:143
+msgid "View order"
+msgstr "Προβολή παραγγελίας"
+
+#: .\templates\restaurants\public_menu.html:152
+msgid "Your Order"
+msgstr "Η Παραγγελία σας"
+
+#: .\templates\restaurants\public_menu.html:164
+msgid "Table number"
+msgstr "Αριθμός τραπεζιού"
+
+#: .\templates\restaurants\public_menu.html:175
+msgid "Name (optional)"
+msgstr "Όνομα (προαιρετικό)"
+
+#: .\templates\restaurants\public_menu.html:180
+msgid "Phone (optional, for Loyalty points)"
+msgstr "Τηλέφωνο (προαιρετικό, για πόντους Loyalty)"
+
+#: .\templates\restaurants\public_menu.html:185
+msgid "Promo Code (optional)"
+msgstr "Κωδικός Προσφοράς (προαιρετικό)"
+
+#: .\templates\restaurants\public_menu.html:188
+msgid "Apply"
+msgstr "Εφαρμογή"
+
+#: .\templates\restaurants\public_menu.html:193
+msgid "Notes (optional)"
+msgstr "Σημειώσεις (προαιρετικό)"
+
+#: .\templates\restaurants\public_menu.html:201
+#: .\templates\restaurants\public_menu.html:220
+msgid "Send Order"
+msgstr "Αποστολή Παραγγελίας"
+
+#: .\templates\restaurants\public_menu.html:217
+msgid "Your cart is empty."
+msgstr "Το καλάθι σας είναι άδειο."
+
+#: .\templates\restaurants\public_menu.html:218
+msgid "Added"
+msgstr "Προστέθηκε"
+
+#: .\templates\restaurants\public_menu.html:219
+msgid "Sending..."
+msgstr "Αποστολή..."
+
+#: .\templates\restaurants\public_menu.html:223
+msgid "Your order has been sent! Number"
+msgstr "Η παραγγελία σας στάλθηκε! Αριθμός"
+
+#: .\templates\restaurants\public_menu.html:225
+msgid "You will earn Loyalty points once your order is confirmed."
+msgstr "Θα κερδίσετε πόντους Loyalty μόλις επιβεβαιωθεί η παραγγελία σας."
+
+#: .\templates\restaurants\public_menu.html:226
+msgid "Invalid promo code."
+msgstr "Μη έγκυρος κωδικός προσφοράς."
+
+#: .\templates\restaurants\public_menu.html:227
+msgid "Promo code applied!"
+msgstr "Ο κωδικός προσφοράς εφαρμόστηκε!"
+
+#: .\templates\restaurants\settings.html:25
+msgid "Scan to view the menu"
+msgstr "Σαρώστε για να δείτε το μενού"
+
+#: .\templates\restaurants\settings.html:27
+#: .\templates\restaurants\table_list.html:40
+msgid "Download"
+msgstr "Λήψη"
+
+#: .\templates\restaurants\settings.html:30
+msgid "The QR Code will be generated automatically"
+msgstr "Ο κωδικός QR θα δημιουργηθεί αυτόματα"
+
+#: .\templates\restaurants\staff_list.html:9
+msgid ""
+"Create accounts for your staff. The \"Admin\" has access to almost "
+"everything except staff management. The \"Employee\" only sees the products "
+"and manages orders."
+msgstr ""
+
+#: .\templates\restaurants\staff_list.html:13
+msgid "New Account"
+msgstr "Νέος Λογαριασμός"
+
+#: .\templates\restaurants\staff_list.html:25
+msgid "Staff List"
+msgstr "Λίστα Προσωπικού"
+
+#: .\templates\restaurants\staff_list.html:38
+msgid "Are you sure you want to remove this account?"
+msgstr "Είστε βέβαιοι ότι θέλετε να αφαιρέσετε αυτόν τον λογαριασμό;"
+
+#: .\templates\restaurants\staff_list.html:44
+msgid "No staff yet"
+msgstr "Κανένα προσωπικό ακόμα"
+
+#: .\templates\restaurants\stats_dashboard.html:9
+msgid "Sales Statistics"
+msgstr "Στατιστικά Πωλήσεων"
+
+#: .\templates\restaurants\stats_dashboard.html:11
+msgid "Export CSV"
+msgstr "Εξαγωγή CSV"
+
+#: .\templates\restaurants\stats_dashboard.html:19
+msgid "Today"
+msgstr "Σήμερα"
+
+#: .\templates\restaurants\stats_dashboard.html:21
+#: .\templates\restaurants\stats_dashboard.html:30
+#: .\templates\restaurants\stats_dashboard.html:39
+msgid "orders"
+msgstr "παραγγελίες"
+
+#: .\templates\restaurants\stats_dashboard.html:28
+msgid "This Week"
+msgstr "Αυτή την Εβδομάδα"
+
+#: .\templates\restaurants\stats_dashboard.html:37
+msgid "This Month"
+msgstr "Αυτόν τον Μήνα"
+
+#: .\templates\restaurants\stats_dashboard.html:48
+msgid "Revenue - Last 14 Days"
+msgstr "Έσοδα - Τελευταίες 14 Ημέρες"
+
+#: .\templates\restaurants\stats_dashboard.html:56
+msgid "Popular Products"
+msgstr "Δημοφιλή Προϊόντα"
+
+#: .\templates\restaurants\stats_dashboard.html:65
+msgid "No sales yet"
+msgstr "Καμία πώληση ακόμα"
+
+#: .\templates\restaurants\stats_dashboard.html:88
+msgid "Revenue ($)"
+msgstr "Έσοδα ($)"
+
+#: .\templates\restaurants\stats_upgrade.html:9
+msgid "Statistics are available on the Business plan"
+msgstr "Τα στατιστικά είναι διαθέσιμα στο πλάνο Business"
+
+#: .\templates\restaurants\stats_upgrade.html:11
+msgid ""
+"Upgrade to the Business plan to see daily/weekly/monthly revenue,\n"
+"        popular products and sales trends."
+msgstr ""
+
+#: .\templates\restaurants\stats_upgrade.html:14
+msgid "View plans"
+msgstr "προβολή πλάνων"
+
+#: .\templates\restaurants\table_list.html:9
+msgid ""
+"Create a QR code for each table or sunbed. Anyone who scans it sees the menu "
+"with their location already selected and can order directly."
+msgstr ""
+
+#: .\templates\restaurants\table_list.html:13
+msgid "New Location"
+msgstr "Νέα Τοποθεσία"
+
+#: .\templates\restaurants\table_list.html:45
+msgid "Are you sure you want to delete this?"
+msgstr "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό;"
+
+#: .\templates\restaurants\table_list.html:55
+msgid "No tables or sunbeds yet"
+msgstr "Κανένα τραπέζι ή ξαπλώστρα ακόμα"
+
+#: .\templates\terms.html:13
+msgid "Scope"
+msgstr ""
+
+#: .\templates\terms.html:14
+msgid ""
+"The MenuHub service (\"the Service\") is operated by an individual (sole "
+"trader) and is available to businesses worldwide. A valid VAT/Tax ID is not "
+"required to sign up, but may be requested where applicable for invoicing or "
+"tax compliance."
+msgstr ""
+
+#: .\templates\terms.html:16
+msgid "Service Description"
+msgstr ""
+
+#: .\templates\terms.html:17
+msgid ""
+"MenuHub provides a platform for creating a digital QR-code menu, managing "
+"products/categories, taking orders (depending on subscription plan), and "
+"related tools (loyalty, discount codes, statistics). The Service is in beta "
+"and may change without notice."
+msgstr ""
+
+#: .\templates\terms.html:19
+msgid "Plans & Billing"
+msgstr ""
+
+#: .\templates\terms.html:20
+msgid ""
+"Subscription plan prices are listed on the pricing page. Payments are "
+"processed by Paddle.com, our authorized reseller and Merchant of Record, who "
+"handles billing, applicable taxes, and invoicing on our behalf."
+msgstr ""
+
+#: .\templates\terms.html:22
+msgid "User Responsibility"
+msgstr ""
+
+#: .\templates\terms.html:23
+msgid ""
+"The user is solely responsible for the accuracy of the information they "
+"enter (prices, descriptions, photos, dietary labels) and for managing their "
+"staff's access to the platform."
+msgstr ""
+
+#: .\templates\terms.html:25
+msgid "Limitation of Liability"
+msgstr ""
+
+#: .\templates\terms.html:26
+msgid ""
+"The Service is provided \"as is\", without any guarantee of uninterrupted "
+"operation. The provider is not liable for indirect damages arising from use "
+"or inability to use the Service."
+msgstr ""
+
+#: .\templates\terms.html:28
+msgid "Governing Law"
+msgstr ""
+
+#: .\templates\terms.html:29
+msgid ""
+"These Terms are governed by the laws applicable in the provider's place of "
+"business, without regard to conflict-of-law principles."
+msgstr ""
+
+#: .\templates\terms.html:31
+msgid "Changes"
+msgstr ""
+
+#: .\templates\terms.html:32
+msgid ""
+"These Terms may be updated from time to time. Continued use of the Service "
+"after a change constitutes acceptance of the new terms."
+msgstr ""
+
+#: .\templates\terms.html:35
+msgid ""
+"For questions about these Terms of Use, contact us at <a "
+"href=\"mailto:info@getmenuhub.com\">info@getmenuhub.com</a>."
+msgstr ""
+
+#: .\templates\tools\free_qr_code_generator.html:4
+msgid "Free QR Code Generator - No Sign-up Required"
+msgstr ""
+
+#: .\templates\tools\free_qr_code_generator.html:5
+msgid ""
+"Generate a free QR code for a URL, text, phone number, email, SMS, Wi-Fi "
+"login, or contact card. No sign-up, no watermark."
+msgstr ""
+
+#: .\templates\tools\free_qr_code_generator.html:107
+msgid ""
+"Pick a type, fill in the details, get a downloadable QR code. No account, no "
+"watermark, no catch."
+msgstr ""
+
+#: .\templates\tools\free_qr_code_generator.html:113
+msgid "QR code type"
+msgstr ""
+
+#: .\templates\tools\free_qr_code_generator.html:115
+msgid "URL"
+msgstr ""
+
+#: .\templates\tools\free_qr_code_generator.html:118
+#: .\templates\tools\free_qr_code_generator.html:142
+msgid "Text"
+msgstr ""
+
+#: .\templates\tools\free_qr_code_generator.html:124
+msgid "Email"
+msgstr ""
+
+#: .\templates\tools\free_qr_code_generator.html:127
+msgid "SMS"
+msgstr ""
+
+#: .\templates\tools\free_qr_code_generator.html:130
+msgid "Wi-Fi"
+msgstr ""
+
+#: .\templates\tools\free_qr_code_generator.html:137
+msgid "URL to encode"
+msgstr ""
+
+#: .\templates\tools\free_qr_code_generator.html:147
+#: .\templates\tools\free_qr_code_generator.html:161
+msgid "Phone number"
+msgstr ""
+
+#: .\templates\tools\free_qr_code_generator.html:152
+msgid "Email address"
+msgstr ""
+
+#: .\templates\tools\free_qr_code_generator.html:154
+msgid "Subject (optional)"
+msgstr ""
+
+#: .\templates\tools\free_qr_code_generator.html:156
+#: .\templates\tools\free_qr_code_generator.html:163
+msgid "Message (optional)"
+msgstr ""
+
+#: .\templates\tools\free_qr_code_generator.html:168
+msgid "Network name (SSID)"
+msgstr ""
+
+#: .\templates\tools\free_qr_code_generator.html:172
+msgid "Security"
+msgstr ""
+
+#: .\templates\tools\free_qr_code_generator.html:176
+msgid "No password"
+msgstr ""
+
+#: .\templates\tools\free_qr_code_generator.html:181
+msgid "Name"
+msgstr ""
+
+#: .\templates\tools\free_qr_code_generator.html:183
+msgid "Phone (optional)"
+msgstr ""
+
+#: .\templates\tools\free_qr_code_generator.html:185
+msgid "Email (optional)"
+msgstr ""
+
+#: .\templates\tools\free_qr_code_generator.html:187
+msgid "Company (optional)"
+msgstr ""
+
+#: .\templates\tools\free_qr_code_generator.html:194
+msgid "Generate QR Code"
+msgstr ""
+
+#: .\templates\tools\free_qr_code_generator.html:199
+msgid "Generated QR code"
+msgstr ""
+
+#: .\templates\tools\free_qr_code_generator.html:202
+msgid "Download PNG"
+msgstr ""
+
+#: .\templates\tools\free_qr_code_generator.html:210
+msgid "Run a restaurant, cafe, or bar?"
+msgstr ""
+
+#: .\templates\tools\free_qr_code_generator.html:211
+msgid ""
+"A plain QR code just opens a link. MenuHub turns it into a full digital menu "
+"you can update instantly - no reprinting, ever - with optional ordering "
+"straight from the table."
+msgstr ""
+
+#: .\templates\tools\free_qr_code_generator.html:212
+#: .\templates\tools\qr_menu_examples.html:67
+msgid "Create your free QR menu"
+msgstr ""
+
+#: .\templates\tools\free_qr_code_generator.html:216
+msgid "How this QR code works"
+msgstr ""
+
+#: .\templates\tools\free_qr_code_generator.html:217
+msgid ""
+"Scanning the code with any phone camera reads back exactly what you entered "
+"- a link opens instantly, a Wi-Fi code offers to join the network, a contact "
+"card offers to save itself. Nothing about it depends on MenuHub staying "
+"online except URL codes, which simply open the link you gave them."
+msgstr ""
+
+#: .\templates\tools\free_qr_code_generator.html:218
+msgid "Curious what a QR code menu actually looks like in practice?"
+msgstr ""
+
+#: .\templates\tools\free_qr_code_generator.html:218
+msgid "See how to create one"
+msgstr ""
+
+#: .\templates\tools\free_qr_code_generator.html:218
+msgid "or"
+msgstr ""
+
+#: .\templates\tools\free_qr_code_generator.html:218
+msgid "browse live examples"
+msgstr ""
+
+#: .\templates\tools\free_qr_code_generator.html:224
+msgid "Can I use this to make a QR code for a bank transfer?"
+msgstr ""
+
+#: .\templates\tools\free_qr_code_generator.html:225
+msgid ""
+"Not directly. This tool generates a standard QR code that opens a link or "
+"encodes text, a phone number, Wi-Fi login, or similar - it doesn't format "
+"payment details the way banking apps expect. A QR code your bank app can "
+"read and auto-fill a transfer from needs the SEPA/EPC QR code format, which "
+"your bank provides directly in its own app or online banking."
+msgstr ""
+
+#: .\templates\tools\free_qr_code_generator.html:228
+msgid "Is this QR code generator really free?"
+msgstr ""
+
+#: .\templates\tools\free_qr_code_generator.html:229
+msgid ""
+"Yes. No account, no watermark, no usage limit. You can generate and download "
+"as many QR codes as you want."
+msgstr ""
+
+#: .\templates\tools\free_qr_code_generator.html:232
+msgid "Does the QR code expire?"
+msgstr ""
+
+#: .\templates\tools\free_qr_code_generator.html:233
+msgid ""
+"No. The QR code itself never expires - a URL code will keep working for as "
+"long as the destination URL stays live; a text, phone, Wi-Fi, or contact "
+"code has the information built in and works forever."
+msgstr ""
+
+#: .\templates\tools\free_qr_code_generator.html:236
+msgid "What types of QR codes can I create?"
+msgstr ""
+
+#: .\templates\tools\free_qr_code_generator.html:237
+msgid ""
+"A website link, plain text, a phone number, an email address, an SMS "
+"message, a Wi-Fi network login, or a contact card (vCard) that saves "
+"straight into someone's phone contacts when scanned."
+msgstr ""
+
+#: .\templates\tools\printing_cost_calculator.html:4
+msgid "Menu Printing Cost Calculator - Free Tool"
+msgstr ""
+
+#: .\templates\tools\printing_cost_calculator.html:5
+msgid ""
+"See exactly how much you spend reprinting menus every year, and what "
+"switching to a QR code menu would save you."
+msgstr ""
+
+#: .\templates\tools\printing_cost_calculator.html:50
+msgid "Menu Printing Cost Calculator"
+msgstr ""
+
+#: .\templates\tools\printing_cost_calculator.html:51
+msgid ""
+"See how much reprinting your menu actually costs you per year - and what a "
+"QR code menu would save."
+msgstr ""
+
+#: .\templates\tools\printing_cost_calculator.html:56
+msgid "Menus printed each time"
+msgstr ""
+
+#: .\templates\tools\printing_cost_calculator.html:60
+msgid "Reprints per year"
+msgstr ""
+
+#: .\templates\tools\printing_cost_calculator.html:62
+msgid "Price changes, seasonal menus, wear and tear"
+msgstr ""
+
+#: .\templates\tools\printing_cost_calculator.html:65
+msgid "Cost per printed menu ($)"
+msgstr ""
+
+#: .\templates\tools\printing_cost_calculator.html:69
+msgid "Design/layout cost per revision ($)"
+msgstr ""
+
+#: .\templates\tools\printing_cost_calculator.html:71
+msgid "Leave at 0 if you design it yourself"
+msgstr ""
+
+#: .\templates\tools\printing_cost_calculator.html:78
+msgid "Printed menus"
+msgstr ""
+
+#: .\templates\tools\printing_cost_calculator.html:86
+msgid "MenuHub (Basic)"
+msgstr ""
+
+#: .\templates\tools\printing_cost_calculator.html:96
+msgid "Fill in your numbers above to see your savings."
+msgstr ""
+
+#: .\templates\tools\printing_cost_calculator.html:102
+msgid "Stop paying for reprints"
+msgstr ""
+
+#: .\templates\tools\printing_cost_calculator.html:103
+msgid ""
+"Update your menu instantly from your phone or computer - no printer, no "
+"graphic designer, no waiting."
+msgstr ""
+
+#: .\templates\tools\printing_cost_calculator.html:104
+msgid "Switch to a QR menu"
+msgstr ""
+
+#: .\templates\tools\printing_cost_calculator.html:152
+msgid "You could save about"
+msgstr ""
+
+#: .\templates\tools\printing_cost_calculator.html:152
+msgid "a year by switching to a QR menu."
+msgstr ""
+
+#: .\templates\tools\printing_cost_calculator.html:156
+msgid ""
+"Your printing costs are already low - but you would also get instant "
+"updates, no waiting on a print shop."
+msgstr ""
+
+#: .\templates\tools\qr_menu_examples.html:4
+msgid "QR Menu Examples - See MenuHub in Action"
+msgstr ""
+
+#: .\templates\tools\qr_menu_examples.html:5
+msgid ""
+"See real, live QR code menu examples for a cafe, a taverna, and a beach bar "
+"- built with MenuHub. No sign-up needed to look."
+msgstr ""
+
+#: .\templates\tools\qr_menu_examples.html:44
+msgid "See MenuHub in Action"
+msgstr ""
+
+#: .\templates\tools\qr_menu_examples.html:45
+msgid ""
+"Real, live digital menus built with MenuHub - scan them with your own phone, "
+"or just click through. No sign-up needed to look around."
+msgstr ""
+
+#: .\templates\tools\qr_menu_examples.html:55
+msgid "View live demo"
+msgstr ""
+
+#: .\templates\tools\qr_menu_examples.html:61
+msgid "Examples coming soon."
+msgstr ""
+
+#: .\templates\tools\qr_menu_examples.html:65
+msgid "Like what you see?"
+msgstr ""
+
+#: .\templates\tools\qr_menu_examples.html:66
+msgid ""
+"Build your own menu in about 5 minutes - your own categories, products, "
+"photos, and an automatic QR code."
+msgstr ""

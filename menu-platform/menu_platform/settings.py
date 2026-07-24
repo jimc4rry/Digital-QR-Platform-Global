@@ -46,10 +46,10 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'menu_platform.middleware.LanguageMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
@@ -101,12 +101,16 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
 
-# Global edition: English only. LocaleMiddleware activates 'en' for every
-# request since it's the only entry in LANGUAGES, which renders every
-# {% trans %}/{% blocktrans %} tag (and every gettext() call) in English
-# using the translations already compiled into locale/en/LC_MESSAGES/django.mo.
+# English is always the source language and the only language anonymous/
+# public visitors ever see (enforced by menu_platform.middleware.LanguageMiddleware,
+# not by browser Accept-Language detection) - this keeps the marketing site and
+# SEO stable. Authenticated users can additionally choose one of these for the
+# dashboard UI, stored in their session.
 LANGUAGES = [
     ('en', 'English'),
+    ('el', 'Ελληνικά'),
+    ('es', 'Español'),
+    ('fr', 'Français'),
 ]
 LOCALE_PATHS = [BASE_DIR / 'locale']
 
