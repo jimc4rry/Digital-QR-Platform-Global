@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Feedback" %}{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h1>{% trans "Feedback" %}</h1>
+        <div class="d-flex gap-2">
+            <a href="{% url 'feedback:admin_list' %}" class="btn btn-secondary">{% trans "Back" %}</a>
+            <a href="{% url 'feedback:admin_delete' entry.pk %}" class="btn btn-outline-danger">{% trans "Delete" %}</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <dl class="row mb-0">
+                <dt class="col-sm-3">{% trans "User" %}</dt>
+                <dd class="col-sm-9">{{ entry.user.username }} &middot; {{ entry.user.email }}</dd>
+
+                <dt class="col-sm-3">{% trans "Business" %}</dt>
+                <dd class="col-sm-9">
+                    {% if entry.user.restaurant %}
+                        {{ entry.user.restaurant.name }} ({{ entry.user.get_subscription_plan_display }})
+                    {% else %}
+                        <span class="text-muted">{% trans "No business account" %}</span>
+                    {% endif %}
+                </dd>
+
+                <dt class="col-sm-3">{% trans "Sent" %}</dt>
+                <dd class="col-sm-9">{{ entry.created_at|date:"d/m/Y H:i" }}</dd>
+
+                <dt class="col-sm-3">{% trans "Page" %}</dt>
+                <dd class="col-sm-9">{{ entry.page_url|default:"-" }}</dd>
+
+                <dt class="col-sm-3">{% trans "Browser" %}</dt>
+                <dd class="col-sm-9"><small class="text-muted">{{ entry.user_agent|default:"-" }}</small></dd>
+
+                <dt class="col-sm-3">{% trans "Status" %}</dt>
+                <dd class="col-sm-9">
+                    <span class="badge bg-secondary-subtle text-secondary">{% trans "Read" %}</span>
+                    <small class="text-muted">{% trans "(marked read automatically when opened)" %}</small>
+                    <form method="post" action="{% url 'feedback:admin_mark_read' entry.pk %}" class="d-inline">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-sm btn-outline-secondary ms-2">{% trans "Mark unread" %}</button>
+                    </form>
+                </dd>
+            </dl>
+
+            <hr>
+
+            <h2 class="h6">{% trans "Message" %}</h2>
+            <p style="white-space: pre-wrap;">{{ entry.message }}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,6 +1,7 @@
 import json
 
 from django.contrib import messages
+from django.core.paginator import Paginator
 from django.http import JsonResponse, HttpResponseBadRequest
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils.translation import gettext as _
@@ -9,11 +10,13 @@ from django.views.decorators.http import require_POST
 from accounts.views import platform_admin_required
 from .models import Feedback
 
+FEEDBACK_PAGE_SIZE = 20
+
 
 @require_POST
 def submit_feedback(request):
-    """AJAX endpoint behind the floating feedback widget - logged-in users only."""
-    if not request.user.is_authenticated:
+    """AJAX endpoint behind the floating feedback widget - logged-in, non-admin users only."""
+    if not request.user.is_authenticated or request.user.is_superuser:
         return JsonResponse({'error': 'auth_required'}, status=403)
 
     try:
@@ -29,14 +32,26 @@ def submit_feedback(request):
         user=request.user,
         message=message[:5000],
         page_url=(data.get('page_url') or '')[:500],
+        user_agent=request.META.get('HTTP_USER_AGENT', '')[:500],
     )
     return JsonResponse({'success': True})
 
 
 @platform_admin_required
 def feedback_admin_list(request):
-    feedback_entries = Feedback.objects.select_related('user')
-    return render(request, 'feedback/admin_list.html', {'feedback_entries': feedback_entries})
+    feedback_entries = Feedback.objects.select_related('user', 'user__restaurant')
+    page_obj = Paginator(feedback_entries, FEEDBACK_PAGE_SIZE).get_page(request.GET.get('page'))
+    return render(request, 'feedback/admin_list.html', {'feedback_entries': page_obj, 'page_obj': page_obj})
+
+
+@platform_admin_required
+def feedback_admin_detail(request, pk):
+    """Full detail view for one feedback entry - viewing it marks it read."""
+    entry = get_object_or_404(Feedback.objects.select_related('user', 'user__restaurant'), pk=pk)
+    if not entry.is_read:
+        entry.is_read = True
+        entry.save(update_fields=['is_read'])
+    return render(request, 'feedback/admin_detail.html', {'entry': entry})
 
 
 @platform_admin_required
