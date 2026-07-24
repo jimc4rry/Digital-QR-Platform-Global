@@ -3,7 +3,6 @@ import logging
 from decimal import Decimal
 from django.core.cache import cache
 from django.core.paginator import Paginator
-from django.core.mail import send_mail
 from django.shortcuts import render, get_object_or_404, redirect
 from django.db import transaction, DatabaseError
 from django.db.models import F
@@ -41,26 +40,9 @@ def _is_order_rate_limited(request, token):
 
 
 def notify_new_order(order):
-    """Best-effort alerts to the restaurant on a new order: email to the owner,
-    plus a push notification to every staff device (mobile app). Neither ever
-    blocks order creation."""
-    recipient = order.restaurant.email or order.restaurant.user.email
-    if recipient:
-        try:
-            send_mail(
-                subject=f'New order #{order.order_number} - {order.restaurant.name}',
-                message=(
-                    f'New order from {order.get_table_type_display().lower()} {order.table_number or "-"}.\n'
-                    f'Total: {order.total}\n'
-                    f'See the details on your dashboard.'
-                ),
-                from_email=None,
-                recipient_list=[recipient],
-                fail_silently=False,
-            )
-        except Exception:
-            logger.exception('Failed to send new-order notification email for order %s', order.order_number)
-
+    """Best-effort push notification to every staff device (mobile app) on a
+    new order. Never blocks order creation. Email is intentionally NOT sent
+    here - the platform only sends email on signup and password change."""
     try:
         from api.push import notify_staff_new_order
         notify_staff_new_order(order)

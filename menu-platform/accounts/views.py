@@ -11,6 +11,7 @@ from django.contrib.auth import login, views as auth_views
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.core.cache import cache
+from django.core.mail import send_mail
 from django.core.paginator import Paginator
 from django.db import transaction
 from django.db.models import Count, Sum, Q, OuterRef, Subquery
@@ -30,6 +31,40 @@ from restaurants.permissions import get_restaurant_and_role
 logger = logging.getLogger(__name__)
 
 
+def _send_account_email(recipient, subject, message):
+    """Best-effort account email (signup, password change) - never blocks the
+    request that triggered it. This is the ONLY place the platform sends
+    informational email; nothing else (e.g. new-order alerts) should call
+    send_mail directly."""
+    if not recipient:
+        return
+    try:
+        send_mail(
+            subject=subject,
+            message=message,
+            from_email=None,
+            recipient_list=[recipient],
+            fail_silently=False,
+        )
+    except Exception:
+        logger.exception('Failed to send account email "%s" to %s', subject, recipient)
+
+
+class _NotifyingPasswordChangeView(auth_views.PasswordChangeView):
+    template_name = 'accounts/password_change.html'
+    form_class = StyledPasswordChangeForm
+    success_url = reverse_lazy('password_change_done')
+
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        _send_account_email(
+            self.request.user.email,
+            _('Your MenuHub password was changed'),
+            _("Your MenuHub account password was just changed. If this wasn't you, contact us immediately at info@getmenuhub.com."),
+        )
+        return response
+
+
 @login_required
 def password_change(request):
     """Employees don't manage their own credentials - the admin controls the
@@ -37,11 +72,7 @@ def password_change(request):
     _restaurant, role = get_restaurant_and_role(request.user)
     if role == 'employee':
         return HttpResponseForbidden(_('You do not have permission to change the password. Contact your store administrator.'))
-    return auth_views.PasswordChangeView.as_view(
-        template_name='accounts/password_change.html',
-        form_class=StyledPasswordChangeForm,
-        success_url=reverse_lazy('password_change_done'),
-    )(request)
+    return _NotifyingPasswordChangeView.as_view()(request)
 
 
 SIGNUP_RATE_LIMIT_WINDOW_SECONDS = 3600
@@ -91,6 +122,11 @@ def signup(request):
                     allow_ordering=True,
                 )
 
+            _send_account_email(
+                user.email,
+                _('Welcome to MenuHub!'),
+                _('Your MenuHub account and restaurant have been created. You have a 30-day free trial of the Basic plan - log in anytime to set up your menu.'),
+            )
             login(request, user)
             messages.success(request, _('Your account has been created! You have a 30-day free trial of the Basic plan.'))
             return redirect('restaurant_dashboard')
