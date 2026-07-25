@@ -3,6 +3,8 @@
 
 {% block title %}{{ restaurant.name }} - {% trans "Menu" %}{% endblock %}
 {% block meta_description %}{{ restaurant.description|default:restaurant.name|truncatechars:160 }}{% endblock %}
+{% block canonical_url %}{{ restaurant.get_subdomain_url }}{% if table %}table/{{ table.id }}/{% endif %}{% endblock %}
+{% block og_url %}{{ restaurant.get_subdomain_url }}{% if table %}table/{{ table.id }}/{% endif %}{% endblock %}
 
 {% block structured_data %}
 <script type="application/ld+json">{{ menu_json_ld|safe }}</script>

@@ -17,6 +17,15 @@
             </div>
         </div>
         <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body text-center">
+                    <h5>{% trans "Your Menu Site" %}</h5>
+                    <p class="mb-1">
+                        <a href="{{ restaurant.get_subdomain_url }}" target="_blank" rel="noopener">{{ restaurant.slug }}.getmenuhub.com</a>
+                    </p>
+                    <p class="small text-muted mb-0">{% trans "Change the subdomain in the form to the left." %}</p>
+                </div>
+            </div>
             <div class="card">
                 <div class="card-body text-center">
                     <h5>QR Code</h5>

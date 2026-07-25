@@ -82,17 +82,14 @@ def _build_menu_json_ld(request, restaurant, categories):
     return json.dumps(data).translate(_JSON_LD_SCRIPT_ESCAPES)
 
 
-@never_cache
-def public_menu(request, token, table_id=None):
-    """Public view for customers to see the menu. The restaurant's own QR code (no table_id)
-    is view-only - ordering is only possible by scanning a specific table's QR code, which
-    pins the order to that table and the customer can't change it.
+def _render_public_menu(request, restaurant, table_id=None):
+    """Shared by the legacy /menu/<token>/ route and the <slug>.getmenuhub.com
+    subdomain route - same page either way, just reached by a different URL.
 
     never_cache matters more here than almost anywhere else in the app: the page embeds
     a CSRF token directly in inline JS for the order-submission fetch() call. If a CDN or
     browser ever caches this page, every customer who hits that cached copy gets the same
     stale token, and every order they try to place fails CSRF verification silently."""
-    restaurant = get_object_or_404(Restaurant, qr_code_token=token, is_active=True)
     categories = restaurant.categories.filter(is_active=True).prefetch_related('products__options')
 
     table = None
@@ -107,6 +104,25 @@ def public_menu(request, token, table_id=None):
         'menu_json_ld': _build_menu_json_ld(request, restaurant, categories),
     }
     return render(request, 'restaurants/public_menu.html', context)
+
+
+@never_cache
+def public_menu(request, token, table_id=None):
+    """Public view for customers to see the menu via the legacy token-based URL
+    (still used by already-printed/shared QR codes and links). The restaurant's
+    own QR code (no table_id) is view-only - ordering is only possible by
+    scanning a specific table's QR code, which pins the order to that table
+    and the customer can't change it."""
+    restaurant = get_object_or_404(Restaurant, qr_code_token=token, is_active=True)
+    return _render_public_menu(request, restaurant, table_id)
+
+
+@never_cache
+def public_menu_by_slug(request, slug, table_id=None):
+    """Public view for customers reaching the menu via the restaurant's own
+    <slug>.getmenuhub.com subdomain - see menu_platform.middleware.RestaurantSubdomainMiddleware."""
+    restaurant = get_object_or_404(Restaurant, slug=slug, is_active=True)
+    return _render_public_menu(request, restaurant, table_id)
 
 @restaurant_role_required('employee')
 def dashboard(request):

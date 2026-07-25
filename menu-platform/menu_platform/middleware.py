@@ -1,5 +1,44 @@
+import re
+from urllib.parse import urlparse
+
 from django.conf import settings
 from django.utils import translation
+
+_ROOT_RE = re.compile(r'^/$')
+_TABLE_RE = re.compile(r'^/table/(?P<table_id>\d+)/$')
+
+
+class RestaurantSubdomainMiddleware:
+    """Requests to <slug>.getmenuhub.com serve that restaurant's public menu
+    directly at the root path (and /table/<id>/ for a specific table), the
+    same page the legacy /menu/<token>/ URL renders. Only those two paths are
+    intercepted - everything else (the order API, static/media, the
+    dashboard) falls through to normal routing unchanged, so it keeps working
+    identically regardless of which host it's reached through.
+
+    Must run after CsrfViewMiddleware (so short-circuiting here still lets its
+    response-phase cookie-setting logic run, needed for the order form's CSRF
+    token on this same page) and after LanguageMiddleware (so translation.activate()
+    has already run deterministically before we potentially short-circuit -
+    otherwise this page could inherit whatever language a previous request on
+    the same worker thread last activated)."""
+
+    def __init__(self, get_response):
+        self.get_response = get_response
+        self._base_domain = urlparse(settings.SITE_URL).netloc.split(':')[0]
+
+    def __call__(self, request):
+        host = request.get_host().split(':')[0].lower()
+        suffix = f'.{self._base_domain}'
+        if self._base_domain and host.endswith(suffix):
+            slug = host[: -len(suffix)]
+            if slug and slug != 'www' and '.' not in slug:
+                match = _ROOT_RE.match(request.path_info) or _TABLE_RE.match(request.path_info)
+                if match:
+                    from restaurants.views import public_menu_by_slug
+                    table_id = match.groupdict().get('table_id')
+                    return public_menu_by_slug(request, slug, table_id=int(table_id) if table_id else None)
+        return self.get_response(request)
 
 
 class LanguageMiddleware:

@@ -1,12 +1,24 @@
+import re
 from django import forms
 from django.contrib.auth.password_validation import validate_password
 from django.utils.translation import gettext_lazy as _
 from .models import Restaurant, Category, Product, ProductOption, StaffMember, PromoCode, RestaurantTable, LoyaltyAccount
 
+# Subdomain-safe: lowercase letters, digits, hyphens only - no leading/trailing hyphen.
+# (Restaurant.slug uses Django's SlugField, which also allows underscores - fine for a
+# URL path segment, but underscores aren't valid in DNS hostnames.)
+SLUG_SUBDOMAIN_RE = re.compile(r'^[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?$')
+RESERVED_SLUGS = {
+    'www', 'api', 'admin', 'app', 'mail', 'ftp', 'static', 'media', 'cdn',
+    'blog', 'guides', 'dashboard', 'staging', 'test', 'assets', 'help',
+    'support', 'status', 'docs', 'shop', 'store',
+}
+
+
 class RestaurantForm(forms.ModelForm):
     class Meta:
         model = Restaurant
-        fields = ['name', 'description', 'address', 'phone', 'email', 'logo', 'cover_image',
+        fields = ['name', 'slug', 'description', 'address', 'phone', 'email', 'logo', 'cover_image',
                   'allow_ordering', 'loyalty_enabled', 'tax_rate']
         widgets = {
             'description': forms.Textarea(attrs={'rows': 4, 'class': 'form-control'}),
@@ -14,6 +26,7 @@ class RestaurantForm(forms.ModelForm):
         }
         labels = {
             'name': _('Restaurant Name'),
+            'slug': _('Subdomain'),
             'description': _('Description'),
             'address': _('Address'),
             'phone': _('Phone'),
@@ -24,6 +37,19 @@ class RestaurantForm(forms.ModelForm):
             'loyalty_enabled': _('Enable Loyalty (points for customers)'),
             'tax_rate': _('Tax (%)'),
         }
+        help_texts = {
+            'slug': _('Your public menu address: e.g. "my-cafe" becomes my-cafe.getmenuhub.com. Lowercase letters, numbers, and hyphens only.'),
+        }
+
+    def clean_slug(self):
+        slug = self.cleaned_data['slug'].lower().strip()
+        if not SLUG_SUBDOMAIN_RE.match(slug):
+            raise forms.ValidationError(_('Use only lowercase letters, numbers, and hyphens (no spaces, no leading/trailing hyphen).'))
+        if slug in RESERVED_SLUGS:
+            raise forms.ValidationError(_('This subdomain is reserved. Please choose another.'))
+        if Restaurant.objects.filter(slug=slug).exclude(pk=self.instance.pk).exists():
+            raise forms.ValidationError(_('This subdomain is already taken.'))
+        return slug
 
 class CategoryForm(forms.ModelForm):
     class Meta:

@@ -44,7 +44,14 @@ class Restaurant(models.Model):
         
     def __str__(self):
         return self.name
-    
+
+    def get_subdomain_url(self):
+        """The restaurant's own branded menu address, e.g. https://my-cafe.getmenuhub.com/ -
+        served by menu_platform.middleware.RestaurantSubdomainMiddleware."""
+        from urllib.parse import urlparse
+        parsed = urlparse(settings.SITE_URL)
+        return f'{parsed.scheme}://{self.slug}.{parsed.netloc}/'
+
     def save(self, *args, **kwargs):
         if not self.slug:
             base_slug = slugify(self.name) or 'restaurant'
