@@ -1,7 +1,7 @@
 from django.core.exceptions import ValidationError
 from django.utils.text import slugify
 
-MAX_IMAGE_UPLOAD_SIZE = 5 * 1024 * 1024  # 5 MB
+MAX_IMAGE_UPLOAD_SIZE = 10 * 1024 * 1024  # 10 MB
 
 
 def validate_image_file_size(file):
