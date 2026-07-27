@@ -121,6 +121,11 @@
                             <i class="bi bi-qr-code"></i> {% trans "Free QR Generator" %}
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'printing_cost_calculator' %}">
+                            <i class="bi bi-calculator"></i> {% trans "Printing Cost Calculator" %}
+                        </a>
+                    </li>
                     {% if staff_role %}
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'restaurant_dashboard' %}">
@@ -290,6 +295,7 @@
                 &middot; <a href="{% url 'guides_index' %}" class="text-white-50">{% trans "Guides" %}</a>
                 &middot; <a href="{% url 'blog:blog_list' %}" class="text-white-50">{% trans "Blog" %}</a>
                 &middot; <a href="{% url 'free_qr_code_generator' %}" class="text-white-50">{% trans "Free QR Code Generator" %}</a>
+                &middot; <a href="{% url 'printing_cost_calculator' %}" class="text-white-50">{% trans "Printing Cost Calculator" %}</a>
                 &middot; <a href="{% url 'terms' %}" class="text-white-50">{% trans "Terms of Use" %}</a>
                 &middot; <a href="{% url 'privacy' %}" class="text-white-50">{% trans "Privacy Policy" %}</a>
                 &middot; <a href="{% url 'refund_policy' %}" class="text-white-50">{% trans "Refund Policy" %}</a>
