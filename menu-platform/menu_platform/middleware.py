@@ -42,27 +42,31 @@ class RestaurantSubdomainMiddleware:
 
 
 class LanguageMiddleware:
-    """Anonymous/public requests always render in English, regardless of the
-    browser's Accept-Language header - this keeps the marketing site, blog,
-    and guides consistent for SEO and for every visitor, and avoids Google
-    ever seeing a partially-translated public page. Only authenticated users
-    can pick a UI language (via the standard Django set_language view, e.g.
-    a dashboard language switcher); Django 4.2's set_language view stores
-    the choice in a cookie (settings.LANGUAGE_COOKIE_NAME), not the session.
+    """Every visitor - logged in or not - can pick a UI language (via the
+    standard Django set_language view, e.g. the navbar language switcher);
+    Django 4.2's set_language view stores the choice in a cookie
+    (settings.LANGUAGE_COOKIE_NAME), not the session. SEO stays unaffected
+    either way: Googlebot doesn't carry cookies between requests, so it
+    always gets this cookie absent and falls back to English, regardless of
+    what a human visitor last selected.
 
+    Deliberately does NOT auto-detect from the browser's Accept-Language
+    header - only an explicit choice via the switcher changes the language.
     Replaces django.middleware.locale.LocaleMiddleware, whose automatic
-    Accept-Language detection is exactly what we don't want for anonymous
-    visitors. Must run after AuthenticationMiddleware (request.user)."""
+    Accept-Language detection would make that browser-language guess for
+    every first-time visitor (mixing partially-translated public pages
+    unpredictably). Must run after AuthenticationMiddleware position-wise
+    for consistency with the rest of the middleware stack, though it no
+    longer actually needs request.user."""
 
     def __init__(self, get_response):
         self.get_response = get_response
 
     def __call__(self, request):
         language = 'en'
-        if request.user.is_authenticated:
-            cookie_language = request.COOKIES.get(settings.LANGUAGE_COOKIE_NAME)
-            if cookie_language and cookie_language in dict(settings.LANGUAGES):
-                language = cookie_language
+        cookie_language = request.COOKIES.get(settings.LANGUAGE_COOKIE_NAME)
+        if cookie_language and cookie_language in dict(settings.LANGUAGES):
+            language = cookie_language
 
         translation.activate(language)
         request.LANGUAGE_CODE = translation.get_language()
