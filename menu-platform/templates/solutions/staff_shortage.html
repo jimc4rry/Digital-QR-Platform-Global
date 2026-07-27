@@ -89,6 +89,12 @@
         margin-top: 8px;
     }
     .btn-lp-primary:hover { background: var(--mh-primary-dark); border-color: var(--mh-primary-dark); color: #fff; }
+    .btn-lp-outline {
+        border: 1px solid var(--mh-border); color: var(--mh-text); font-weight: 600;
+        border-radius: 10px; padding: 12px 28px; display: inline-block; text-decoration: none;
+        background: var(--mh-bg);
+    }
+    .btn-lp-outline:hover { border-color: var(--mh-primary); color: var(--mh-primary); }
 </style>
 {% endblock %}
 
@@ -121,13 +127,13 @@
         <div class="solution-section">
             <div class="row g-4">
                 <div class="col-md-6">
-                    <div class="compare-card">
-                        <h3 class="text-muted-lp">{% trans "Without digital ordering" %}</h3>
+                    <div class="compare-card h-100">
+                        <h3 class="text-muted">{% trans "Without digital ordering" %}</h3>
                         <p class="mb-0">{% trans "A server notices the table is ready, walks over, takes the order by hand, walks it to the kitchen - then repeats for the next table, one at a time." %}</p>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="compare-card">
+                    <div class="compare-card h-100">
                         <h3 class="text-primary">{% trans "With GetMenuHub" %}</h3>
                         <p class="mb-0">{% trans "The customer scans the table's QR code and orders directly from their phone. It lands on your dashboard instantly, so your staff can go straight to what needs a person." %}</p>
                     </div>
@@ -138,7 +144,7 @@
         <div class="tool-cta">
             <h3>{% trans "How many hours could you free up?" %}</h3>
             <p class="mb-3">{% trans "Use the free Staff Efficiency Calculator to estimate the staff time table-side ordering could save your restaurant every day." %}</p>
-            <a href="{% url 'staff_efficiency_calculator' %}" class="btn btn-outline-primary">
+            <a href="{% url 'staff_efficiency_calculator' %}" class="btn btn-lp-outline">
                 <i class="bi bi-calculator"></i> {% trans "Try the Staff Efficiency Calculator" %}
             </a>
         </div>
