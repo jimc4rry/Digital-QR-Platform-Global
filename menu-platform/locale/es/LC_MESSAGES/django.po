@@ -304,7 +304,7 @@ msgstr ""
 #: .\blog\templates\blog\blog_detail.html:70
 #: .\templates\guides\base_guide.html:47 .\templates\home.html:712
 msgid "Ready to digitize your menu?"
-msgstr ""
+msgstr "¿Listo para digitalizar su menú?"
 
 #: .\blog\templates\blog\blog_detail.html:71
 #: .\templates\guides\base_guide.html:48
@@ -317,7 +317,7 @@ msgstr ""
 #: .\templates\guides\base_guide.html:49 .\templates\home.html:373
 #: .\templates\home.html:426
 msgid "Create your menu"
-msgstr ""
+msgstr "Cree su menú"
 
 #: .\blog\templates\blog\blog_list.html:4
 msgid "Blog - MenuHub"
@@ -890,7 +890,7 @@ msgstr ""
 #: .\templates\accounts\checkout.html:29 .\templates\home.html:545
 #: .\templates\home.html:570 .\templates\home.html:595
 msgid "month"
-msgstr ""
+msgstr "mes"
 
 #: .\templates\accounts\checkout.html:34
 msgid "Upgrade"
@@ -1722,344 +1722,344 @@ msgstr ""
 
 #: .\templates\home.html:4
 msgid "MenuHub - Digital QR Code Menu for Restaurants, Cafes & Bars"
-msgstr ""
+msgstr "MenuHub - Menú QR digital para restaurantes, cafeterías y bares"
 
 #: .\templates\home.html:5
 msgid ""
 "Create your restaurant, cafe or bar's digital QR code menu in 5 minutes. No "
 "printing, instant price updates, dietary labels and table-side ordering. "
 "From $7/month."
-msgstr ""
+msgstr "Cree el menú QR digital de su restaurante, cafetería o bar en 5 minutos. Sin impresión, actualizaciones de precios instantáneas, etiquetas dietéticas y pedidos desde la mesa. Desde $7/mes."
 
 #: .\templates\home.html:6
 msgid "MenuHub - Digital QR Code Menu for Restaurants & Cafes"
-msgstr ""
+msgstr "MenuHub - Menú QR digital para restaurantes y cafeterías"
 
 #: .\templates\home.html:7
 msgid ""
 "Create your digital menu in 5 minutes. Automatic QR code, live price "
 "updates, dietary labels, table-side ordering."
-msgstr ""
+msgstr "Cree su menú digital en 5 minutos. Código QR automático, actualizaciones de precios en vivo, etiquetas dietéticas, pedidos desde la mesa."
 
 #: .\templates\home.html:358
 msgid ""
 "MenuHub is currently in free beta - every plan's features are unlocked at no "
 "cost while we finish rolling out paid billing."
-msgstr ""
+msgstr "MenuHub está actualmente en beta gratuita - todas las funciones de cada plan están desbloqueadas sin coste mientras terminamos de implementar la facturación de pago."
 
 #: .\templates\home.html:367
 msgid "Digital menu with QR code"
-msgstr ""
+msgstr "Menú digital con código QR"
 
 #: .\templates\home.html:368
 msgid "Your restaurant's menu,"
-msgstr ""
+msgstr "El menú de su restaurante,"
 
 #: .\templates\home.html:368
 msgid "always up to date"
-msgstr ""
+msgstr "siempre actualizado"
 
 #: .\templates\home.html:370
 msgid ""
 "Create a digital QR code menu for your restaurant, cafe or bar in just a few "
 "minutes. Change prices and products whenever you like, with no reprinting, "
 "and accept orders directly from the table."
-msgstr ""
+msgstr "Cree un menú QR digital para su restaurante, cafetería o bar en solo unos minutos. Cambie precios y productos cuando quiera, sin necesidad de reimprimir, y acepte pedidos directamente desde la mesa."
 
 #: .\templates\home.html:374
 msgid "See the plans"
-msgstr ""
+msgstr "Ver los planes"
 
 #: .\templates\home.html:377
 msgid "No printing"
-msgstr ""
+msgstr "Sin impresión"
 
 #: .\templates\home.html:378
 msgid "Ready in 5 minutes"
-msgstr ""
+msgstr "Listo en 5 minutos"
 
 #: .\templates\home.html:379
 msgid "Works on every phone"
-msgstr ""
+msgstr "Funciona en cualquier teléfono"
 
 #: .\templates\home.html:385
 msgid "Your Restaurant"
-msgstr ""
+msgstr "Su restaurante"
 
 #: .\templates\home.html:386
 msgid "Menu Category"
-msgstr ""
+msgstr "Categoría del menú"
 
 #: .\templates\home.html:390
 msgid "Dish 1"
-msgstr ""
+msgstr "Plato 1"
 
 #: .\templates\home.html:394
 msgid "Dish 2"
-msgstr ""
+msgstr "Plato 2"
 
 #: .\templates\home.html:398
 msgid "Dish 3"
-msgstr ""
+msgstr "Plato 3"
 
 #: .\templates\home.html:402
 msgid "Dish 4"
-msgstr ""
+msgstr "Plato 4"
 
 #: .\templates\home.html:406
 msgid "Accepts orders"
-msgstr ""
+msgstr "Acepta pedidos"
 
 #: .\templates\home.html:419
 msgid "How it works"
-msgstr ""
+msgstr "Cómo funciona"
 
 #: .\templates\home.html:420
 msgid "From sign-up to the first scan, with no technical knowledge required."
-msgstr ""
+msgstr "Desde el registro hasta el primer escaneo, sin necesidad de conocimientos técnicos."
 
 #: .\templates\home.html:427
 msgid ""
 "Add categories and products with prices, photos and dietary labels (vegan, "
 "gluten-free, spicy)."
-msgstr ""
+msgstr "Añada categorías y productos con precios, fotos y etiquetas dietéticas (vegano, sin gluten, picante)."
 
 #: .\templates\home.html:433
 msgid "Get your QR code"
-msgstr ""
+msgstr "Obtenga su código QR"
 
 #: .\templates\home.html:434
 msgid ""
 "The QR code is generated automatically. Print it once on a sign or table — "
 "customers scan it with their phone camera and see the menu instantly, no app "
 "needed."
-msgstr ""
+msgstr "El código QR se genera automáticamente. Imprímalo una vez en un cartel o en la mesa — los clientes lo escanean con la cámara de su teléfono y ven el menú al instante, sin necesidad de aplicación."
 
 #: .\templates\home.html:440
 msgid "Serve & take orders"
-msgstr ""
+msgstr "Sirva y reciba pedidos"
 
 #: .\templates\home.html:441
 msgid ""
 "With the Pro or Business plan, customers can order directly from their phone "
 "by scanning the table's QR code, without needing to get up."
-msgstr ""
+msgstr "Con el plan Pro o Business, los clientes pueden pedir directamente desde su teléfono escaneando el código QR de la mesa, sin necesidad de levantarse."
 
 #: .\templates\home.html:452
 msgid "See it in action"
-msgstr ""
+msgstr "Véalo en acción"
 
 #: .\templates\home.html:453
 msgid "Real, live QR code menus built with MenuHub - not mockups."
-msgstr ""
+msgstr "Menús QR reales y en vivo creados con MenuHub, no maquetas."
 
 #: .\templates\home.html:467
 msgid "See our live menu examples"
-msgstr ""
+msgstr "Vea nuestros ejemplos de menús en vivo"
 
 #: .\templates\home.html:473
 msgid "See all live examples"
-msgstr ""
+msgstr "Ver todos los ejemplos en vivo"
 
 #: .\templates\home.html:482
 msgid "Everything your menu needs"
-msgstr ""
+msgstr "Todo lo que su menú necesita"
 
 #: .\templates\home.html:483
 msgid "Tools designed specifically for restaurants, cafes and bars."
-msgstr ""
+msgstr "Herramientas diseñadas específicamente para restaurantes, cafeterías y bares."
 
 #: .\templates\home.html:489
 msgid "Automatic QR Code"
-msgstr ""
+msgstr "Código QR automático"
 
 #: .\templates\home.html:490
 msgid ""
 "Every restaurant gets its own unique QR code, ready to print, with no extra "
 "steps."
-msgstr ""
+msgstr "Cada restaurante obtiene su propio código QR único, listo para imprimir, sin pasos adicionales."
 
 #: .\templates\home.html:496
 msgid "Organized into categories"
-msgstr ""
+msgstr "Organizado en categorías"
 
 #: .\templates\home.html:497
 msgid ""
 "Split your menu into categories (appetizers, mains, drinks) in the display "
 "order you want."
-msgstr ""
+msgstr "Divida su menú en categorías (entrantes, platos principales, bebidas) en el orden de visualización que desee."
 
 #: .\templates\home.html:503 .\templates\home.html:549
 msgid "Dietary labels"
-msgstr ""
+msgstr "Etiquetas dietéticas"
 
 #: .\templates\home.html:504
 msgid ""
 "Mark dishes as vegan, vegetarian, gluten-free or spicy, so customers can "
 "choose easily."
-msgstr ""
+msgstr "Marque los platos como veganos, vegetarianos, sin gluten o picantes, para que los clientes puedan elegir fácilmente."
 
 #: .\templates\home.html:510
 msgid "Orders from the table"
-msgstr ""
+msgstr "Pedidos desde la mesa"
 
 #: .\templates\home.html:511
 msgid ""
 "With the Pro or Business plan, customers send their order directly from "
 "their phone."
-msgstr ""
+msgstr "Con el plan Pro o Business, los clientes envían su pedido directamente desde su teléfono."
 
 #: .\templates\home.html:517
 msgid "Management Dashboard"
-msgstr ""
+msgstr "Panel de gestión"
 
 #: .\templates\home.html:518
 msgid ""
 "See orders, update their status and keep track of your products all in one "
 "place."
-msgstr ""
+msgstr "Vea los pedidos, actualice su estado y controle sus productos, todo en un solo lugar."
 
 #: .\templates\home.html:524
 msgid "Mobile friendly"
-msgstr ""
+msgstr "Adaptado a móviles"
 
 #: .\templates\home.html:525
 msgid ""
 "The menu opens instantly in any phone's browser, with no app installation."
-msgstr ""
+msgstr "El menú se abre al instante en el navegador de cualquier teléfono, sin necesidad de instalar ninguna aplicación."
 
 #: .\templates\home.html:537
 msgid "Simple pricing"
-msgstr ""
+msgstr "Precios simples"
 
 #: .\templates\home.html:538
 msgid "Start with Basic or go Pro/Business for orders, loyalty and statistics."
-msgstr ""
+msgstr "Empiece con Basic o pase a Pro/Business para pedidos, fidelización y estadísticas."
 
 #: .\templates\home.html:544 .\templates\home.html:569
 #: .\templates\home.html:594
 msgid "Your plan"
-msgstr ""
+msgstr "Su plan"
 
 #: .\templates\home.html:547
 msgid "Unlimited categories & products"
-msgstr ""
+msgstr "Categorías y productos ilimitados"
 
 #: .\templates\home.html:548
 msgid "Automatic QR code"
-msgstr ""
+msgstr "Código QR automático"
 
 #: .\templates\home.html:550
 msgid "Product photos"
-msgstr ""
+msgstr "Fotos de productos"
 
 #: .\templates\home.html:551
 msgid "Multilingual menu"
-msgstr ""
+msgstr "Menú multilingüe"
 
 #: .\templates\home.html:555 .\templates\home.html:581
 #: .\templates\home.html:605
 msgid "Your current plan"
-msgstr ""
+msgstr "Su plan actual"
 
 #: .\templates\home.html:557 .\templates\home.html:583
 msgid "Included in your plan"
-msgstr ""
+msgstr "Incluido en su plan"
 
 #: .\templates\home.html:559
 msgid "See your profile"
-msgstr ""
+msgstr "Ver su perfil"
 
 #: .\templates\home.html:562
 msgid "Start with Basic"
-msgstr ""
+msgstr "Empiece con Basic"
 
 #: .\templates\home.html:568
 msgid "Most popular"
-msgstr ""
+msgstr "Más popular"
 
 #: .\templates\home.html:572
 msgid "Everything in Basic"
-msgstr ""
+msgstr "Todo lo del plan Basic"
 
 #: .\templates\home.html:573
 msgid "Orders from table QR codes"
-msgstr ""
+msgstr "Pedidos desde códigos QR de mesa"
 
 #: .\templates\home.html:574
 msgid "Real-time order management"
-msgstr ""
+msgstr "Gestión de pedidos en tiempo real"
 
 #: .\templates\home.html:575
 msgid "Loyalty points for customers"
-msgstr ""
+msgstr "Puntos de fidelización para clientes"
 
 #: .\templates\home.html:576
 msgid "Discount codes"
-msgstr ""
+msgstr "Códigos de descuento"
 
 #: .\templates\home.html:577
 msgid "Zero commission per order"
-msgstr ""
+msgstr "Cero comisión por pedido"
 
 #: .\templates\home.html:585
 msgid "Upgrade to Pro"
-msgstr ""
+msgstr "Mejorar a Pro"
 
 #: .\templates\home.html:588
 msgid "Start with Pro"
-msgstr ""
+msgstr "Empiece con Pro"
 
 #: .\templates\home.html:597
 msgid "Everything in Pro"
-msgstr ""
+msgstr "Todo lo del plan Pro"
 
 #: .\templates\home.html:598
 msgid "Sales statistics & reports"
-msgstr ""
+msgstr "Estadísticas de ventas e informes"
 
 #: .\templates\home.html:599
 msgid "Export orders to CSV"
-msgstr ""
+msgstr "Exportar pedidos a CSV"
 
 #: .\templates\home.html:600
 msgid "Role-based staff management"
-msgstr ""
+msgstr "Gestión de personal por roles"
 
 #: .\templates\home.html:601
 msgid "Staff activity log"
-msgstr ""
+msgstr "Registro de actividad del personal"
 
 #: .\templates\home.html:607
 msgid "Upgrade to Business"
-msgstr ""
+msgstr "Mejorar a Business"
 
 #: .\templates\home.html:610
 msgid "Start with Business"
-msgstr ""
+msgstr "Empiece con Business"
 
 #: .\templates\home.html:624 .\templates\tools\free_qr_code_generator.html:222
 msgid "Frequently asked questions"
-msgstr ""
+msgstr "Preguntas frecuentes"
 
 #: .\templates\home.html:625
 msgid "Everything you need to know before you start."
-msgstr ""
+msgstr "Todo lo que necesita saber antes de empezar."
 
 #: .\templates\home.html:633
 msgid "What is a digital menu with QR code?"
-msgstr ""
+msgstr "¿Qué es un menú digital con código QR?"
 
 #: .\templates\home.html:638
 msgid ""
 "It's a restaurant menu that customers view by scanning a QR code with their "
 "phone, with no app install required. The menu opens instantly in the phone's "
 "browser."
-msgstr ""
+msgstr "Es un menú de restaurante que los clientes ven escaneando un código QR con su teléfono, sin necesidad de instalar ninguna aplicación. El menú se abre al instante en el navegador del teléfono."
 
 #: .\templates\home.html:645
 msgid "How much does MenuHub cost?"
-msgstr ""
+msgstr "¿Cuánto cuesta MenuHub?"
 
 #: .\templates\home.html:650
 msgid ""
@@ -2068,57 +2068,57 @@ msgid ""
 "table-side ordering, loyalty points and discount codes, with zero "
 "commission. The Business plan costs $39/month and adds statistics, reports "
 "and staff management."
-msgstr ""
+msgstr "El plan Basic comienza en $7/mes e incluye categorías y productos ilimitados con un código QR automático. El plan Pro cuesta $19/mes y añade pedidos desde la mesa, puntos de fidelización y códigos de descuento, sin comisión. El plan Business cuesta $39/mes y añade estadísticas, informes y gestión de personal."
 
 #: .\templates\home.html:657
 msgid "Do I need programming skills?"
-msgstr ""
+msgstr "¿Necesito conocimientos de programación?"
 
 #: .\templates\home.html:662
 msgid ""
 "No. Creating a menu is done through a simple form: you add categories, "
 "products, prices and photos, and the QR code is generated automatically."
-msgstr ""
+msgstr "No. La creación de un menú se realiza mediante un formulario sencillo: añade categorías, productos, precios y fotos, y el código QR se genera automáticamente."
 
 #: .\templates\home.html:669
 msgid "Can I accept orders from the table?"
-msgstr ""
+msgstr "¿Puedo aceptar pedidos desde la mesa?"
 
 #: .\templates\home.html:674
 msgid ""
 "Yes, with the Pro or Business plan customers can send an order directly from "
 "the digital menu by scanning their table's QR code, which you see in real "
 "time on the order management dashboard."
-msgstr ""
+msgstr "Sí, con el plan Pro o Business los clientes pueden enviar un pedido directamente desde el menú digital escaneando el código QR de su mesa, que usted ve en tiempo real en el panel de gestión de pedidos."
 
 #: .\templates\home.html:681
 msgid "How quickly do menu prices update?"
-msgstr ""
+msgstr "¿Con qué rapidez se actualizan los precios del menú?"
 
 #: .\templates\home.html:686
 msgid ""
 "Instantly. When you change a price or add a product from the dashboard, the "
 "change appears immediately on the menu customers see, with no reprinting "
 "needed."
-msgstr ""
+msgstr "Al instante. Cuando cambia un precio o añade un producto desde el panel, el cambio aparece inmediatamente en el menú que ven los clientes, sin necesidad de reimprimir."
 
 #: .\templates\home.html:693
 msgid "Does the menu work on all phones?"
-msgstr ""
+msgstr "¿Funciona el menú en todos los teléfonos?"
 
 #: .\templates\home.html:698
 msgid ""
 "Yes, the digital menu is fully mobile-first and opens correctly in any "
 "phone's browser, with no app installation required."
-msgstr ""
+msgstr "Sí, el menú digital está totalmente optimizado para móviles y se abre correctamente en el navegador de cualquier teléfono, sin necesidad de instalar ninguna aplicación."
 
 #: .\templates\home.html:713
 msgid "Create an account and get your menu's QR code today."
-msgstr ""
+msgstr "Cree una cuenta y obtenga hoy el código QR de su menú."
 
 #: .\templates\home.html:714
 msgid "Create an account"
-msgstr ""
+msgstr "Crear una cuenta"
 
 #: .\templates\orders\order_detail.html:7
 msgid "Order"
