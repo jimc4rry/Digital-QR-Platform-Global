@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-27 12:57+0300\n"
+"POT-Creation-Date: 2026-07-27 14:24+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,1780 +18,1436 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: .\accounts\billing.py:181
 msgid "The payment for this transaction failed."
 msgstr "Le paiement de cette transaction a échoué."
 
-#: .\accounts\forms.py:10
 msgid "Current Password"
 msgstr "Mot de passe actuel"
 
-#: .\accounts\forms.py:11
 msgid "New Password"
 msgstr "Nouveau mot de passe"
 
-#: .\accounts\forms.py:12
 msgid "Confirm New Password"
 msgstr "Confirmer le nouveau mot de passe"
 
-#: .\accounts\forms.py:16 .\templates\accounts\profile.html:12
 msgid "Business Name"
 msgstr "Nom de l'entreprise"
 
-#: .\accounts\forms.py:17 .\restaurants\forms.py:32 .\restaurants\forms.py:161
-#: .\templates\accounts\platform_admin_business_detail.html:23
-#: .\templates\orders\order_detail.html:34
-#: .\templates\restaurants\loyalty_list.html:37
-#: .\templates\tools\free_qr_code_generator.html:121
 msgid "Phone"
 msgstr "Téléphone"
 
-#: .\accounts\forms.py:19
 msgid "VAT / Tax ID"
 msgstr "Numéro de TVA"
 
-#: .\accounts\forms.py:20
 msgid "Optional - if your business has one."
 msgstr "Facultatif - si votre entreprise en a un."
 
-#: .\accounts\forms.py:24
 msgid "Business Type"
 msgstr "Type d'entreprise"
 
-#: .\accounts\forms.py:46 .\restaurants\forms.py:120
-#: .\templates\accounts\platform_admin_business_detail.html:21
 msgid "Username"
 msgstr "Nom d'utilisateur"
 
-#: .\accounts\forms.py:47 .\restaurants\forms.py:121
-#: .\templates\tools\free_qr_code_generator.html:170
 msgid "Password"
 msgstr "Mot de passe"
 
-#: .\accounts\forms.py:48 .\restaurants\forms.py:122
 msgid "Confirm Password"
 msgstr "Confirmer le mot de passe"
 
-#: .\accounts\forms.py:91 .\templates\accounts\profile.html:17
 msgid "Subscription Plan"
 msgstr "Formule d'abonnement"
 
-#: .\accounts\forms.py:92
 msgid "Subscription Active"
 msgstr "Abonnement actif"
 
-#: .\accounts\forms.py:93
 msgid "Subscription Ends (optional)"
 msgstr "Fin de l'abonnement (facultatif)"
 
-#: .\accounts\models.py:11
 msgid "Restaurant"
 msgstr "Restaurant"
 
-#: .\accounts\models.py:12 .\menu_platform\tool_views.py:17
 msgid "Cafe"
 msgstr "Café"
 
-#: .\accounts\models.py:13
 msgid "Bar"
 msgstr "Bar"
 
-#: .\accounts\models.py:14 .\menu_platform\tool_views.py:19
 msgid "Beach Bar"
 msgstr "Bar de plage"
 
-#: .\accounts\models.py:15
 msgid "Other"
 msgstr "Autre"
 
-#: .\accounts\models.py:24
 msgid "Optional - VAT/Tax ID, if your business has one."
 msgstr "Facultatif - numéro de TVA, si votre entreprise en a un."
 
-#: .\accounts\models.py:88 .\templates\accounts\platform_admin_payments.html:24
 msgid "Completed"
 msgstr "Terminé"
 
-#: .\accounts\models.py:89 .\orders\models.py:20
-#: .\templates\accounts\platform_admin_payments.html:25
 msgid "Failed"
 msgstr "Échoué"
 
-#: .\accounts\views.py:74
 msgid "Your GetMenuHub password was changed"
 msgstr "Votre mot de passe GetMenuHub a été modifié"
 
-#: .\accounts\views.py:75
 msgid ""
-"Your GetMenuHub account password was just changed. If this wasn't you, contact "
-"us immediately at info@getmenuhub.com."
-msgstr "Le mot de passe de votre compte GetMenuHub vient d'être modifié. Si ce n'était pas vous, contactez-nous immédiatement à info@getmenuhub.com."
+"Your GetMenuHub account password was just changed. If this wasn't you, "
+"contact us immediately at info@getmenuhub.com."
+msgstr ""
+"Le mot de passe de votre compte GetMenuHub vient d'être modifié. Si ce "
+"n'était pas vous, contactez-nous immédiatement à info@getmenuhub.com."
 
-#: .\accounts\views.py:86
 msgid ""
 "You do not have permission to change the password. Contact your store "
 "administrator."
-msgstr "Vous n'avez pas la permission de changer le mot de passe. Contactez l'administrateur de votre établissement."
+msgstr ""
+"Vous n'avez pas la permission de changer le mot de passe. Contactez "
+"l'administrateur de votre établissement."
 
-#: .\accounts\views.py:109
 msgid "Too many signup attempts from this network. Please try again later."
 msgstr ""
 "Trop de tentatives d'inscription depuis ce réseau. Veuillez réessayer plus "
 "tard."
 
-#: .\accounts\views.py:139
 msgid "Welcome to GetMenuHub!"
 msgstr "Bienvenue sur GetMenuHub !"
 
-#: .\accounts\views.py:140
 msgid ""
 "Your GetMenuHub account and restaurant have been created. You have a 30-day "
 "free trial of the Basic plan - log in anytime to set up your menu."
-msgstr "Votre compte GetMenuHub et votre restaurant ont été créés. Vous bénéficiez d'un essai gratuit de 30 jours de la formule Basic - connectez-vous à tout moment pour configurer votre menu."
+msgstr ""
+"Votre compte GetMenuHub et votre restaurant ont été créés. Vous bénéficiez "
+"d'un essai gratuit de 30 jours de la formule Basic - connectez-vous à tout "
+"moment pour configurer votre menu."
 
-#: .\accounts\views.py:143
 msgid ""
 "Your account has been created! You have a 30-day free trial of the Basic "
 "plan."
-msgstr "Votre compte a été créé ! Vous bénéficiez d'un essai gratuit de 30 jours de la formule Basic."
+msgstr ""
+"Votre compte a été créé ! Vous bénéficiez d'un essai gratuit de 30 jours de "
+"la formule Basic."
 
-#: .\accounts\views.py:146
 msgid "There are errors in the form. Please correct them."
 msgstr "Le formulaire contient des erreurs. Veuillez les corriger."
 
-#: .\accounts\views.py:163 .\accounts\views.py:250
 msgid "Only the business owner can manage the subscription."
 msgstr "Seul le propriétaire de l'entreprise peut gérer l'abonnement."
 
-#: .\accounts\views.py:187
 #, python-format
 msgid "Could not reach Paddle: %(error)s"
 msgstr "Impossible de contacter Paddle : %(error)s"
 
-#: .\accounts\views.py:233
 msgid "Payment completed! Your plan has been upgraded."
 msgstr "Paiement effectué ! Votre formule a été mise à niveau."
 
-#: .\accounts\views.py:254
 msgid "There is no active subscription to manage yet."
 msgstr "Il n'y a pas encore d'abonnement actif à gérer."
 
-#: .\accounts\views.py:335
 msgid "You do not have access to this page."
 msgstr "Vous n'avez pas accès à cette page."
 
-#: .\accounts\views.py:394
 msgid "The subscription was updated successfully!"
 msgstr "L'abonnement a été mis à jour avec succès !"
 
-#: .\accounts\views.py:421
 msgid "This account cannot be deleted from here."
 msgstr "Ce compte ne peut pas être supprimé depuis ici."
 
-#: .\accounts\views.py:426
 #, python-format
 msgid "\"%(name)s\" and all of its data have been permanently deleted."
 msgstr "« %(name)s » et toutes ses données ont été définitivement supprimés."
 
-#: .\blog\templates\blog\admin_delete_confirm.html:4
-#: .\blog\templates\blog\admin_delete_confirm.html:8
 msgid "Delete Post"
 msgstr ""
 
-#: .\blog\templates\blog\admin_delete_confirm.html:11
 #, python-format
 msgid "Are you sure you want to delete \"%(title)s\"? This cannot be undone."
 msgstr ""
 
-#: .\blog\templates\blog\admin_delete_confirm.html:14
-#: .\blog\templates\blog\admin_list.html:53
-#: .\feedback\templates\feedback\admin_delete_confirm.html:15
-#: .\feedback\templates\feedback\admin_detail.html:12
-#: .\feedback\templates\feedback\admin_list.html:59
-#: .\templates\accounts\platform_admin_business_detail.html:11
-#: .\templates\orders\order_detail.html:13
 msgid "Delete"
 msgstr "Supprimer"
 
-#: .\blog\templates\blog\admin_delete_confirm.html:15
-#: .\feedback\templates\feedback\admin_delete_confirm.html:16
-#: .\templates\accounts\platform_admin_business_delete.html:25
 msgid "Cancel"
 msgstr ""
 
-#: .\blog\templates\blog\admin_form.html:4
-#: .\blog\templates\blog\admin_form.html:9
-#: .\blog\templates\blog\admin_list.html:13
 msgid "New Post"
 msgstr ""
 
-#: .\blog\templates\blog\admin_form.html:4
-#: .\blog\templates\blog\admin_form.html:9
 msgid "Edit Post"
 msgstr ""
 
-#: .\blog\templates\blog\admin_form.html:13
-#: .\blog\templates\blog\admin_list.html:37
 msgid "View live"
 msgstr ""
 
-#: .\blog\templates\blog\admin_form.html:16
-#: .\blog\templates\blog\admin_list.html:11
-#: .\feedback\templates\feedback\admin_detail.html:11
-#: .\feedback\templates\feedback\admin_list.html:10
-#: .\templates\accounts\platform_admin_business_detail.html:12
-#: .\templates\accounts\platform_admin_payments.html:10
-#: .\templates\orders\order_detail.html:17
-#: .\templates\restaurants\loyalty_edit.html:17
-#: .\templates\restaurants\product_edit.html:15
 msgid "Back"
 msgstr "Retour"
 
-#: .\blog\templates\blog\admin_form.html:25
-#: .\templates\accounts\platform_admin_business_detail.html:54
-#: .\templates\restaurants\loyalty_edit.html:16
-#: .\templates\restaurants\product_edit.html:14
-#: .\templates\restaurants\settings.html:14
 msgid "Save"
 msgstr "Enregistrer"
 
-#: .\blog\templates\blog\admin_list.html:4
-#: .\blog\templates\blog\admin_list.html:9 .\templates\base.html:195
 msgid "Manage Blog"
 msgstr "Gérer le Blog"
 
-#: .\blog\templates\blog\admin_list.html:24
 msgid "Title"
 msgstr ""
 
-#: .\blog\templates\blog\admin_list.html:25
-#: .\feedback\templates\feedback\admin_detail.html:40
-#: .\feedback\templates\feedback\admin_list.html:23
-#: .\templates\accounts\payment_history.html:19
-#: .\templates\accounts\platform_admin_business_detail.html:69
-#: .\templates\accounts\platform_admin_dashboard.html:56
-#: .\templates\accounts\platform_admin_payments.html:21
-#: .\templates\accounts\platform_admin_payments.html:43
-#: .\templates\orders\order_detail.html:28
-#: .\templates\orders\order_list.html:23
-#: .\templates\restaurants\promo_code_list.html:34
 msgid "Status"
 msgstr "Statut"
 
-#: .\blog\templates\blog\admin_list.html:26
-#: .\blog\templates\blog\admin_list.html:44
 msgid "Published"
 msgstr ""
 
-#: .\blog\templates\blog\admin_list.html:27
 msgid "Updated"
 msgstr ""
 
-#: .\blog\templates\blog\admin_list.html:46
 msgid "Draft"
 msgstr ""
 
-#: .\blog\templates\blog\admin_list.html:52
 msgid "Edit"
 msgstr ""
 
-#: .\blog\templates\blog\admin_list.html:58
 msgid "No posts yet - create the first one."
 msgstr ""
 
-#: .\blog\templates\blog\blog_detail.html:63
 msgid "All posts"
 msgstr "Tous les articles"
 
-#: .\blog\templates\blog\blog_detail.html:70
-#: .\templates\guides\base_guide.html:47 .\templates\home.html:760
 msgid "Ready to digitize your menu?"
 msgstr "Prêt à numériser votre menu ?"
 
-#: .\blog\templates\blog\blog_detail.html:71
-#: .\templates\guides\base_guide.html:48
 msgid ""
 "Create your restaurant's QR code menu in minutes - no credit card required "
 "to start."
-msgstr "Créez le menu QR de votre restaurant en quelques minutes - aucune carte de crédit requise pour commencer."
+msgstr ""
+"Créez le menu QR de votre restaurant en quelques minutes - aucune carte de "
+"crédit requise pour commencer."
 
-#: .\blog\templates\blog\blog_detail.html:72
-#: .\templates\guides\base_guide.html:49 .\templates\home.html:381
-#: .\templates\home.html:434
 msgid "Create your menu"
 msgstr "Créez votre menu"
 
-#: .\blog\templates\blog\blog_list.html:4
 msgid "Blog - GetMenuHub"
 msgstr "Blog - GetMenuHub"
 
-#: .\blog\templates\blog\blog_list.html:5
 msgid ""
 "Tips, guides, and updates on digital QR code menus for restaurants, cafes, "
 "and bars."
-msgstr "Conseils, guides et actualités sur les menus QR numériques pour restaurants, cafés et bars."
+msgstr ""
+"Conseils, guides et actualités sur les menus QR numériques pour restaurants, "
+"cafés et bars."
 
-#: .\blog\templates\blog\blog_list.html:33
-#: .\templates\accounts\platform_admin_dashboard.html:15
-#: .\templates\base.html:116 .\templates\base.html:296
 msgid "Blog"
 msgstr "Blog"
 
-#: .\blog\templates\blog\blog_list.html:41
 msgid "No posts yet - check back soon."
 msgstr "Aucun article pour le moment - revenez bientôt."
 
-#: .\blog\views.py:33
 msgid "Post created."
 msgstr ""
 
-#: .\blog\views.py:47
 msgid "Post updated."
 msgstr ""
 
-#: .\blog\views.py:59
 msgid "Post deleted."
 msgstr ""
 
-#: .\feedback\templates\feedback\admin_delete_confirm.html:4
-#: .\feedback\templates\feedback\admin_delete_confirm.html:8
 msgid "Delete Feedback"
 msgstr ""
 
-#: .\feedback\templates\feedback\admin_delete_confirm.html:11
 msgid ""
 "Are you sure you want to delete this feedback entry? This cannot be undone."
 msgstr ""
 
-#: .\feedback\templates\feedback\admin_detail.html:4
-#: .\feedback\templates\feedback\admin_detail.html:9
-#: .\feedback\templates\feedback\admin_list.html:4
-#: .\feedback\templates\feedback\admin_list.html:9 .\templates\base.html:200
 msgid "Feedback"
 msgstr "Commentaires"
 
-#: .\feedback\templates\feedback\admin_detail.html:19
-#: .\feedback\templates\feedback\admin_list.html:19
-#: .\templates\accounts\platform_admin_dashboard.html:53
 msgid "User"
 msgstr ""
 
-#: .\feedback\templates\feedback\admin_detail.html:22
-#: .\feedback\templates\feedback\admin_list.html:20
-#: .\templates\accounts\platform_admin_dashboard.html:52
-#: .\templates\accounts\platform_admin_payments.html:40
 msgid "Business"
 msgstr ""
 
-#: .\feedback\templates\feedback\admin_detail.html:27
 msgid "No business account"
 msgstr ""
 
-#: .\feedback\templates\feedback\admin_detail.html:31
 msgid "Sent"
 msgstr ""
 
-#: .\feedback\templates\feedback\admin_detail.html:34
 msgid "Page"
 msgstr ""
 
-#: .\feedback\templates\feedback\admin_detail.html:37
 msgid "Browser"
 msgstr ""
 
-#: .\feedback\templates\feedback\admin_detail.html:42
-#: .\feedback\templates\feedback\admin_list.html:46
 msgid "Read"
 msgstr ""
 
-#: .\feedback\templates\feedback\admin_detail.html:43
 msgid "(marked read automatically when opened)"
 msgstr ""
 
-#: .\feedback\templates\feedback\admin_detail.html:46
-#: .\feedback\templates\feedback\admin_list.html:56
 msgid "Mark unread"
 msgstr ""
 
-#: .\feedback\templates\feedback\admin_detail.html:53
-#: .\feedback\templates\feedback\admin_list.html:21
 msgid "Message"
 msgstr ""
 
-#: .\feedback\templates\feedback\admin_list.html:22
-#: .\templates\accounts\payment_history.html:20
-#: .\templates\accounts\platform_admin_business_detail.html:70
-#: .\templates\accounts\platform_admin_payments.html:44
-#: .\templates\orders\order_detail.html:35
-#: .\templates\orders\order_list.html:24
 msgid "Date"
 msgstr "Date"
 
-#: .\feedback\templates\feedback\admin_list.html:48
 msgid "New"
 msgstr ""
 
-#: .\feedback\templates\feedback\admin_list.html:52
 msgid "View"
 msgstr ""
 
-#: .\feedback\templates\feedback\admin_list.html:56
 msgid "Mark read"
 msgstr ""
 
-#: .\feedback\templates\feedback\admin_list.html:64
 msgid "No feedback yet."
 msgstr ""
 
-#: .\feedback\templates\feedback\admin_list.html:72
 msgid "Feedback pagination"
 msgstr ""
 
-#: .\feedback\templates\feedback\admin_list.html:80
-#: .\templates\accounts\payment_history.html:55
-#: .\templates\accounts\platform_admin_dashboard.html:112
-#: .\templates\accounts\platform_admin_payments.html:85
-#: .\templates\orders\order_list.html:71
-#: .\templates\restaurants\loyalty_list.html:85
-#: .\templates\restaurants\product_list.html:68
 #, python-format
 msgid "Page %(current)s of %(total)s"
 msgstr "Page %(current)s sur %(total)s"
 
-#: .\feedback\views.py:71
 msgid "Feedback deleted."
 msgstr ""
 
-#: .\menu_platform\tool_views.py:18
 msgid "Taverna"
 msgstr "Taverne"
 
-#: .\menu_platform\tool_views.py:55
 msgid "Please enter a URL."
 msgstr "Veuillez saisir une URL."
 
-#: .\menu_platform\tool_views.py:61
 msgid "That doesn't look like a valid URL."
 msgstr "Cela ne ressemble pas à une URL valide."
 
-#: .\menu_platform\tool_views.py:68
 msgid "Please enter some text."
 msgstr "Veuillez saisir du texte."
 
-#: .\menu_platform\tool_views.py:82 .\menu_platform\tool_views.py:109
 msgid "Please enter a phone number."
 msgstr "Veuillez saisir un numéro de téléphone."
 
-#: .\menu_platform\tool_views.py:83 .\menu_platform\tool_views.py:110
 msgid "That doesn't look like a valid phone number."
 msgstr "Cela ne ressemble pas à un numéro de téléphone valide."
 
-#: .\menu_platform\tool_views.py:90
 msgid "Please enter an email address."
 msgstr "Veuillez saisir une adresse e-mail."
 
-#: .\menu_platform\tool_views.py:94 .\menu_platform\tool_views.py:147
 msgid "That doesn't look like a valid email address."
 msgstr "Cela ne ressemble pas à une adresse e-mail valide."
 
-#: .\menu_platform\tool_views.py:127
 msgid "Please enter a network name (SSID)."
 msgstr "Veuillez saisir un nom de réseau (SSID)."
 
-#: .\menu_platform\tool_views.py:141
 msgid "Please enter a name."
 msgstr "Veuillez saisir un nom."
 
-#: .\menu_platform\tool_views.py:156
 msgid "That does not look like a valid phone number."
 msgstr "Cela ne ressemble pas à un numéro de téléphone valide."
 
-#: .\orders\models.py:9 .\orders\models.py:18
 msgid "Pending"
 msgstr "En attente"
 
-#: .\orders\models.py:10
 msgid "Confirmed"
 msgstr "Confirmée"
 
-#: .\orders\models.py:11
 msgid "Preparing"
 msgstr "En préparation"
 
-#: .\orders\models.py:12
 msgid "Ready"
 msgstr "Prête"
 
-#: .\orders\models.py:13
 msgid "Delivered"
 msgstr "Livrée"
 
-#: .\orders\models.py:14
 msgid "Cancelled"
 msgstr "Annulée"
 
-#: .\orders\models.py:19
 msgid "Paid"
 msgstr "Payée"
 
-#: .\orders\models.py:21
 msgid "Refunded"
 msgstr "Remboursée"
 
-#: .\orders\views.py:109
 #, python-format
 msgid ""
 "Order status updated! The customer earned loyalty points (total: %(points)s)."
-msgstr "Statut de la commande mis à jour ! Le client a gagné des points de fidélité (total : %(points)s)."
+msgstr ""
+"Statut de la commande mis à jour ! Le client a gagné des points de fidélité "
+"(total : %(points)s)."
 
-#: .\orders\views.py:111
 msgid "Order status updated!"
 msgstr "Statut de la commande mis à jour !"
 
-#: .\orders\views.py:128
 msgid "Order deleted."
 msgstr "Commande supprimée."
 
-#: .\orders\views.py:300
 msgid "CSV reports are only available on the Business plan."
 msgstr "Les rapports CSV sont disponibles uniquement avec la formule Business."
 
-#: .\restaurants\forms.py:28
 msgid "Restaurant Name"
 msgstr "Nom du restaurant"
 
-#: .\restaurants\forms.py:29
 msgid "Subdomain"
 msgstr "Sous-domaine"
 
-#: .\restaurants\forms.py:30 .\restaurants\forms.py:63
-#: .\restaurants\forms.py:91
 msgid "Description"
 msgstr "Description"
 
-#: .\restaurants\forms.py:31
 msgid "Address"
 msgstr "Adresse"
 
-#: .\restaurants\forms.py:34
 msgid "Logo"
 msgstr "Logo"
 
-#: .\restaurants\forms.py:35
 msgid "Cover Image"
 msgstr "Image de couverture"
 
-#: .\restaurants\forms.py:36
 msgid "Accept orders"
 msgstr "Accepter les commandes"
 
-#: .\restaurants\forms.py:37
 msgid "Enable Loyalty (points for customers)"
 msgstr "Activer la fidélité (points pour les clients)"
 
-#: .\restaurants\forms.py:38
 msgid "Tax (%)"
 msgstr "TVA (%)"
 
-#: .\restaurants\forms.py:41
 msgid ""
 "Your public menu address: e.g. \"my-cafe\" becomes my-cafe.getmenuhub.com. "
 "Lowercase letters, numbers, and hyphens only."
-msgstr "L'adresse publique de votre menu : ex. « my-cafe » devient my-cafe.getmenuhub.com. Uniquement des lettres minuscules, des chiffres et des tirets."
+msgstr ""
+"L'adresse publique de votre menu : ex. « my-cafe » devient my-"
+"cafe.getmenuhub.com. Uniquement des lettres minuscules, des chiffres et des "
+"tirets."
 
-#: .\restaurants\forms.py:47
 msgid ""
 "Use only lowercase letters, numbers, and hyphens (no spaces, no leading/"
 "trailing hyphen)."
-msgstr "Utilisez uniquement des lettres minuscules, des chiffres et des tirets (pas d'espaces, pas de tiret en début/fin)."
+msgstr ""
+"Utilisez uniquement des lettres minuscules, des chiffres et des tirets (pas "
+"d'espaces, pas de tiret en début/fin)."
 
-#: .\restaurants\forms.py:49
 msgid "This subdomain is reserved. Please choose another."
 msgstr "Ce sous-domaine est réservé. Veuillez en choisir un autre."
 
-#: .\restaurants\forms.py:51
 msgid "This subdomain is already taken."
 msgstr "Ce sous-domaine est déjà pris."
 
-#: .\restaurants\forms.py:62
 msgid "Category Name"
 msgstr "Nom de la catégorie"
 
-#: .\restaurants\forms.py:64 .\restaurants\forms.py:101
 msgid "Display Order"
 msgstr "Ordre d'affichage"
 
-#: .\restaurants\forms.py:65 .\restaurants\forms.py:178
-#: .\templates\accounts\platform_admin_dashboard.html:78
-#: .\templates\accounts\profile.html:22
-#: .\templates\restaurants\promo_code_list.html:47
 msgid "Active"
 msgstr "Actif"
 
-#: .\restaurants\forms.py:88
 msgid "Category"
 msgstr "Catégorie"
 
-#: .\restaurants\forms.py:89
 msgid "Product Name"
 msgstr "Nom du produit"
 
-#: .\restaurants\forms.py:90
 msgid "Product Name (English)"
 msgstr "Nom du produit (anglais)"
 
-#: .\restaurants\forms.py:92 .\templates\orders\order_detail.html:89
 msgid "Price"
 msgstr "Prix"
 
-#: .\restaurants\forms.py:93
 msgid "Old Price"
 msgstr "Ancien prix"
 
-#: .\restaurants\forms.py:94
 msgid "Photo"
 msgstr "Photo"
 
-#: .\restaurants\forms.py:95 .\templates\restaurants\product_list.html:34
 msgid "Available"
 msgstr "Disponible"
 
-#: .\restaurants\forms.py:96
 msgid "Featured"
 msgstr "En vedette"
 
-#: .\restaurants\forms.py:99
 msgid "Gluten-Free"
 msgstr "Sans gluten"
 
-#: .\restaurants\forms.py:100
 msgid "Spicy"
 msgstr "Épicé"
 
-#: .\restaurants\forms.py:102
 msgid "Preparation Time (minutes)"
 msgstr "Temps de préparation (minutes)"
 
-#: .\restaurants\forms.py:113
 msgid "Option Name"
 msgstr "Nom de l'option"
 
-#: .\restaurants\forms.py:114
 msgid "Price Adjustment"
 msgstr "Ajustement de prix"
 
-#: .\restaurants\forms.py:115
 msgid "Default"
 msgstr "Par défaut"
 
-#: .\restaurants\forms.py:123 .\templates\accounts\profile.html:54
 msgid "Role"
 msgstr "Rôle"
 
-#: .\restaurants\forms.py:129
 msgid "This username already exists."
 msgstr "Ce nom d'utilisateur existe déjà."
 
-#: .\restaurants\forms.py:142
 msgid "Passwords do not match."
 msgstr "Les mots de passe ne correspondent pas."
 
-#: .\restaurants\forms.py:151
-#: .\templates\accounts\platform_admin_business_detail.html:24
-#: .\templates\accounts\profile.html:13
 msgid "Type"
 msgstr "Type"
 
-#: .\restaurants\forms.py:152
 msgid "Number / Name"
 msgstr "Numéro / Nom"
 
-#: .\restaurants\forms.py:162 .\templates\restaurants\loyalty_list.html:38
 msgid "Points"
 msgstr "Points"
 
-#: .\restaurants\forms.py:174 .\templates\restaurants\promo_code_list.html:30
 msgid "Promo Code"
 msgstr "Code promo"
 
-#: .\restaurants\forms.py:175
 msgid "Discount (%)"
 msgstr "Remise (%)"
 
-#: .\restaurants\forms.py:176
 msgid "Valid Until (optional)"
 msgstr "Valable jusqu'au (facultatif)"
 
-#: .\restaurants\forms.py:177
 msgid "Max Uses (optional)"
 msgstr "Utilisations maximales (facultatif)"
 
-#: .\restaurants\models.py:124
 msgid "English name (optional) - if left blank, the name above is shown"
 msgstr ""
 "Nom en anglais (facultatif) - si laissé vide, le nom ci-dessus s'affiche"
 
-#: .\restaurants\models.py:140
 msgid "Preparation time in minutes"
 msgstr "Temps de préparation en minutes"
 
-#: .\restaurants\models.py:180 .\templates\orders\order_detail.html:31
 msgid "Table"
 msgstr "Table"
 
-#: .\restaurants\models.py:181
 msgid "Sunbed"
 msgstr "Transat"
 
-#: .\restaurants\models.py:186
 msgid "e.g. 1, 2, Patio A"
 msgstr "ex. 1, 2, Terrasse A"
 
-#: .\restaurants\models.py:238
 msgid "Admin"
 msgstr "Administrateur"
 
-#: .\restaurants\models.py:239
 msgid "Employee"
 msgstr "Employé"
 
-#: .\restaurants\models.py:274
 msgid "Leave blank for unlimited uses"
 msgstr "Laisser vide pour des utilisations illimitées"
 
-#: .\restaurants\permissions.py:43
 msgid "You do not have access to any restaurant."
 msgstr "Vous n'avez accès à aucun restaurant."
 
-#: .\restaurants\permissions.py:46
 msgid "Your subscription/trial has expired. Choose a plan to continue."
 msgstr ""
 "Votre abonnement/essai a expiré. Choisissez une formule pour continuer."
 
-#: .\restaurants\permissions.py:48
 msgid "The business subscription has expired. Contact the owner."
 msgstr "L'abonnement de l'entreprise a expiré. Contactez le propriétaire."
 
-#: .\restaurants\permissions.py:50
 msgid "You do not have permission to access this page."
 msgstr "Vous n'avez pas la permission d'accéder à cette page."
 
-#: .\restaurants\views.py:156
 msgid "Settings saved successfully!"
 msgstr "Paramètres enregistrés avec succès !"
 
-#: .\restaurants\views.py:178
 msgid "Category created successfully!"
 msgstr "Catégorie créée avec succès !"
 
-#: .\restaurants\views.py:195
 msgid "Category deleted successfully!"
 msgstr "Catégorie supprimée avec succès !"
 
-#: .\restaurants\views.py:211
 msgid "Product created successfully!"
 msgstr "Produit créé avec succès !"
 
-#: .\restaurants\views.py:216
 msgid "You do not have permission to add products."
 msgstr "Vous n'avez pas la permission d'ajouter des produits."
 
-#: .\restaurants\views.py:238
 msgid "Product updated successfully!"
 msgstr "Produit mis à jour avec succès !"
 
-#: .\restaurants\views.py:258
 msgid "Product deleted successfully!"
 msgstr "Produit supprimé avec succès !"
 
-#: .\restaurants\views.py:363
 msgid "Staff management is available on the Business plan"
 msgstr "La gestion du personnel est disponible avec la formule Business"
 
-#: .\restaurants\views.py:364
 msgid ""
 "Upgrade to the Business plan to add admin and employee accounts with "
 "separate permissions."
-msgstr "Passez à la formule Business pour ajouter des comptes administrateur et employé avec des permissions distinctes."
+msgstr ""
+"Passez à la formule Business pour ajouter des comptes administrateur et "
+"employé avec des permissions distinctes."
 
-#: .\restaurants\views.py:381
 msgid "Staff account created successfully!"
 msgstr "Compte du personnel créé avec succès !"
 
-#: .\restaurants\views.py:397
 msgid "Staff management is available on the Business plan."
 msgstr "La gestion du personnel est disponible avec la formule Business."
 
-#: .\restaurants\views.py:402
 msgid "Staff account removed."
 msgstr "Compte du personnel supprimé."
 
-#: .\restaurants\views.py:412
 msgid "QR ordering tables are available from the Pro plan"
 msgstr "Les tables de commande QR sont disponibles à partir de la formule Pro"
 
-#: .\restaurants\views.py:413
 msgid ""
 "Upgrade to the Pro or Business plan to create table QR codes and accept "
 "orders."
-msgstr "Passez à la formule Pro ou Business pour créer des codes QR de table et accepter les commandes."
+msgstr ""
+"Passez à la formule Pro ou Business pour créer des codes QR de table et "
+"accepter les commandes."
 
-#: .\restaurants\views.py:424
 msgid "Table added successfully!"
 msgstr "Table ajoutée avec succès !"
 
-#: .\restaurants\views.py:427
 msgid "This number already exists for this type."
 msgstr "Ce numéro existe déjà pour ce type."
 
-#: .\restaurants\views.py:442
 msgid "Tables are available from the Pro plan."
 msgstr "Les tables sont disponibles à partir de la formule Pro."
 
-#: .\restaurants\views.py:445
 msgid "Table deleted."
 msgstr "Table supprimée."
 
-#: .\restaurants\views.py:455
 msgid "Promo codes are available from the Pro plan"
 msgstr "Les codes promo sont disponibles à partir de la formule Pro"
 
-#: .\restaurants\views.py:456
 msgid ""
 "Upgrade to the Pro or Business plan to create promo codes for your customers."
-msgstr "Passez à la formule Pro ou Business pour créer des codes promo pour vos clients."
+msgstr ""
+"Passez à la formule Pro ou Business pour créer des codes promo pour vos "
+"clients."
 
-#: .\restaurants\views.py:467
 msgid "Promo code created successfully!"
 msgstr "Code promo créé avec succès !"
 
-#: .\restaurants\views.py:470
 msgid "This code already exists."
 msgstr "Ce code existe déjà."
 
-#: .\restaurants\views.py:485
 msgid "Promo codes are available from the Pro plan."
 msgstr "Les codes promo sont disponibles à partir de la formule Pro."
 
-#: .\restaurants\views.py:488
 msgid "Promo code deleted."
 msgstr "Code promo supprimé."
 
-#: .\restaurants\views.py:499
 msgid "Loyalty is available from the Pro plan"
 msgstr "La fidélité est disponible à partir de la formule Pro"
 
-#: .\restaurants\views.py:500
 msgid ""
 "Upgrade to the Pro or Business plan to give loyalty points to your customers."
-msgstr "Passez à la formule Pro ou Business pour offrir des points de fidélité à vos clients."
+msgstr ""
+"Passez à la formule Pro ou Business pour offrir des points de fidélité à vos "
+"clients."
 
-#: .\restaurants\views.py:521 .\restaurants\views.py:544
 msgid "Loyalty is available from the Pro plan."
 msgstr "La fidélité est disponible à partir de la formule Pro."
 
-#: .\restaurants\views.py:528
 msgid "Loyalty account updated!"
 msgstr "Compte de fidélité mis à jour !"
 
-#: .\restaurants\views.py:547
 msgid "Loyalty account deleted."
 msgstr "Compte de fidélité supprimé."
 
-#: .\templates\accounts\checkout.html:4 .\templates\accounts\profile.html:40
 msgid "Upgrade Plan"
 msgstr "Améliorer la formule"
 
-#: .\templates\accounts\checkout.html:13
 msgid ""
-"GetMenuHub is in free beta right now - every plan's features are unlocked for "
-"your account at no cost. Paid plans are launching soon; you'll be able to "
-"subscribe right here once they do."
-msgstr "GetMenuHub est actuellement en bêta gratuite - toutes les fonctionnalités de chaque formule sont débloquées pour votre compte, gratuitement. Les formules payantes seront bientôt lancées ; vous pourrez vous y abonner ici même une fois disponibles."
+"GetMenuHub is in free beta right now - every plan's features are unlocked "
+"for your account at no cost. Paid plans are launching soon; you'll be able "
+"to subscribe right here once they do."
+msgstr ""
+"GetMenuHub est actuellement en bêta gratuite - toutes les fonctionnalités de "
+"chaque formule sont débloquées pour votre compte, gratuitement. Les formules "
+"payantes seront bientôt lancées ; vous pourrez vous y abonner ici même une "
+"fois disponibles."
 
-#: .\templates\accounts\checkout.html:18
 msgid ""
 "You'll pay through Paddle's secure embedded checkout. Your card details "
 "never pass through our servers."
-msgstr "Vous paierez via le paiement intégré et sécurisé de Paddle. Les détails de votre carte ne transitent jamais par nos serveurs."
+msgstr ""
+"Vous paierez via le paiement intégré et sécurisé de Paddle. Les détails de "
+"votre carte ne transitent jamais par nos serveurs."
 
-#: .\templates\accounts\checkout.html:29 .\templates\home.html:581
-#: .\templates\home.html:606 .\templates\home.html:631
 msgid "month"
 msgstr "mois"
 
-#: .\templates\accounts\checkout.html:34
 msgid "Upgrade"
 msgstr "Améliorer"
 
-#: .\templates\accounts\checkout.html:38
 msgid "Not available yet"
 msgstr "Pas encore disponible"
 
-#: .\templates\accounts\checkout.html:47
 msgid "You already have the top plan (Business)."
 msgstr "Vous avez déjà la formule la plus élevée (Business)."
 
-#: .\templates\accounts\login.html:10 .\templates\accounts\login.html:16
-#: .\templates\base.html:263
 msgid "Log In"
 msgstr "Connexion"
 
-#: .\templates\accounts\login.html:19
 msgid "Don't have an account? Sign up"
 msgstr "Vous n'avez pas de compte ? Inscrivez-vous"
 
-#: .\templates\accounts\password_change.html:4
-#: .\templates\accounts\password_change.html:12
-#: .\templates\accounts\password_change.html:18 .\templates\base.html:249
 msgid "Change Password"
 msgstr "Changer le mot de passe"
 
-#: .\templates\accounts\password_change_done.html:4
 msgid "Password Changed"
 msgstr "Mot de passe modifié"
 
-#: .\templates\accounts\password_change_done.html:9
 msgid "Your password has been changed successfully!"
 msgstr "Votre mot de passe a été modifié avec succès !"
 
-#: .\templates\accounts\password_change_done.html:10
 msgid "Back to Dashboard"
 msgstr "Retour au tableau de bord"
 
-#: .\templates\accounts\payment_history.html:4
-#: .\templates\accounts\payment_history.html:8
-#: .\templates\accounts\profile.html:44
 msgid "Payment History"
 msgstr "Historique des paiements"
 
-#: .\templates\accounts\payment_history.html:15
-#: .\templates\accounts\platform_admin_business_detail.html:66
-#: .\templates\accounts\platform_admin_payments.html:39
 msgid "Transaction ID"
 msgstr "ID de transaction"
 
-#: .\templates\accounts\payment_history.html:16
-#: .\templates\accounts\payment_success.html:14
-#: .\templates\accounts\platform_admin_business_detail.html:67
-#: .\templates\accounts\platform_admin_dashboard.html:30
-#: .\templates\accounts\platform_admin_dashboard.html:55
-#: .\templates\accounts\platform_admin_payments.html:41
 msgid "Plan"
 msgstr "Formule"
 
-#: .\templates\accounts\payment_history.html:17
-#: .\templates\accounts\payment_success.html:16
-#: .\templates\accounts\platform_admin_business_detail.html:68
-#: .\templates\accounts\platform_admin_payments.html:42
 msgid "Amount"
 msgstr "Montant"
 
-#: .\templates\accounts\payment_history.html:18
 msgid "Card"
 msgstr "Carte"
 
-#: .\templates\accounts\payment_history.html:41
-#: .\templates\accounts\platform_admin_business_detail.html:90
 msgid "No payments yet"
 msgstr "Aucun paiement pour le moment"
 
-#: .\templates\accounts\payment_success.html:4
 msgid "Payment Successful"
 msgstr "Paiement réussi"
 
-#: .\templates\accounts\payment_success.html:9
 msgid "Payment completed!"
 msgstr "Paiement effectué !"
 
-#: .\templates\accounts\payment_success.html:10
 msgid "Your plan has been upgraded successfully."
 msgstr "Votre formule a été mise à niveau avec succès."
 
-#: .\templates\accounts\payment_success.html:19
 msgid "Next renewal"
 msgstr "Prochain renouvellement"
 
-#: .\templates\accounts\payment_success.html:24
 msgid "Back to Profile"
 msgstr "Retour au profil"
 
-#: .\templates\accounts\platform_admin_business_delete.html:4
 #, python-format
 msgid "Delete %(name)s"
 msgstr ""
 
-#: .\templates\accounts\platform_admin_business_delete.html:8
 msgid "Delete Business Account"
 msgstr ""
 
-#: .\templates\accounts\platform_admin_business_delete.html:11
 msgid "This cannot be undone"
 msgstr ""
 
-#: .\templates\accounts\platform_admin_business_delete.html:13
 #, python-format
 msgid ""
 "You are about to permanently delete <strong>%(name)s</strong> and everything "
 "associated with it:"
 msgstr ""
 
-#: .\templates\accounts\platform_admin_business_delete.html:15
 msgid "The user account and login"
 msgstr ""
 
-#: .\templates\accounts\platform_admin_business_delete.html:16
 #, python-format
 msgid "%(counter)s product"
 msgid_plural "%(counter)s products"
 msgstr[0] ""
 msgstr[1] ""
 
-#: .\templates\accounts\platform_admin_business_delete.html:17
 #, python-format
 msgid "%(counter)s order"
 msgid_plural "%(counter)s orders"
 msgstr[0] ""
 msgstr[1] ""
 
-#: .\templates\accounts\platform_admin_business_delete.html:18
 msgid "Any staff accounts under this business"
 msgstr ""
 
-#: .\templates\accounts\platform_admin_business_delete.html:20
 msgid ""
 "Use this only for spam/bot signups or accounts the owner has asked you to "
 "remove - not as a substitute for canceling a subscription."
 msgstr ""
 
-#: .\templates\accounts\platform_admin_business_delete.html:24
 msgid "Permanently delete"
 msgstr ""
 
-#: .\templates\accounts\platform_admin_business_detail.html:4
 msgid "Business Management"
 msgstr ""
 
-#: .\templates\accounts\platform_admin_business_detail.html:19
 msgid "Business Info"
 msgstr ""
 
-#: .\templates\accounts\platform_admin_business_detail.html:25
-#: .\templates\accounts\profile.html:14
 msgid "Tax ID"
 msgstr "Numéro fiscal"
 
-#: .\templates\accounts\platform_admin_business_detail.html:26
 msgid "Signed up"
 msgstr ""
 
-#: .\templates\accounts\platform_admin_business_detail.html:31
 msgid "Stats"
 msgstr ""
 
-#: .\templates\accounts\platform_admin_business_detail.html:33
-#: .\templates\accounts\platform_admin_dashboard.html:59
-#: .\templates\base.html:149 .\templates\orders\order_list.html:6
-#: .\templates\restaurants\dashboard.html:38
 msgid "Orders"
 msgstr "Commandes"
 
-#: .\templates\accounts\platform_admin_business_detail.html:34
 msgid "Total Revenue"
 msgstr ""
 
-#: .\templates\accounts\platform_admin_business_detail.html:35
-#: .\templates\base.html:182 .\templates\restaurants\staff_list.html:4
-#: .\templates\restaurants\staff_list.html:8
 msgid "Staff"
 msgstr "Personnel"
 
-#: .\templates\accounts\platform_admin_business_detail.html:36
 msgid "Accepts Orders"
 msgstr ""
 
-#: .\templates\accounts\platform_admin_business_detail.html:38
 msgid "Yes"
 msgstr ""
 
-#: .\templates\accounts\platform_admin_business_detail.html:40
 msgid "No"
 msgstr ""
 
-#: .\templates\accounts\platform_admin_business_detail.html:49
 msgid "Manage Subscription"
 msgstr ""
 
-#: .\templates\accounts\platform_admin_business_detail.html:60
 msgid "Recent Payments"
 msgstr ""
 
-#: .\templates\accounts\platform_admin_dashboard.html:4
-#: .\templates\accounts\platform_admin_dashboard.html:9
 msgid "Platform Admin Dashboard"
 msgstr ""
 
-#: .\templates\accounts\platform_admin_dashboard.html:12
 msgid "Payments"
 msgstr ""
 
-#: .\templates\accounts\platform_admin_dashboard.html:18
-#: .\templates\base.html:208
 msgid "Django Admin"
 msgstr "Django Admin"
 
-#: .\templates\accounts\platform_admin_dashboard.html:22
 msgid ""
 "All businesses registered on GetMenuHub - plans, subscriptions and support."
 msgstr ""
 
-#: .\templates\accounts\platform_admin_dashboard.html:26
-#: .\templates\restaurants\loyalty_list.html:22
 msgid "Search"
 msgstr "Rechercher"
 
-#: .\templates\accounts\platform_admin_dashboard.html:27
 msgid "Username, email, business..."
 msgstr ""
 
-#: .\templates\accounts\platform_admin_dashboard.html:32
-#: .\templates\accounts\platform_admin_payments.html:23
-#: .\templates\orders\order_list.html:9
 msgid "All"
 msgstr ""
 
-#: .\templates\accounts\platform_admin_dashboard.html:39
-#: .\templates\accounts\platform_admin_payments.html:29
 msgid "Filter"
 msgstr ""
 
-#: .\templates\accounts\platform_admin_dashboard.html:41
-#: .\templates\restaurants\loyalty_list.html:25
 msgid "Clear"
 msgstr "Effacer"
 
-#: .\templates\accounts\platform_admin_dashboard.html:57
-#: .\templates\base.html:144 .\templates\orders\order_detail.html:81
-#: .\templates\restaurants\product_list.html:6
 msgid "Products"
 msgstr "Produits"
 
-#: .\templates\accounts\platform_admin_dashboard.html:58
 msgid "Tables"
 msgstr ""
 
-#: .\templates\accounts\platform_admin_dashboard.html:60
 msgid "Revenue"
 msgstr ""
 
-#: .\templates\accounts\platform_admin_dashboard.html:61
 msgid "Registered"
 msgstr ""
 
-#: .\templates\accounts\platform_admin_dashboard.html:80
-#: .\templates\restaurants\promo_code_list.html:49
 msgid "Inactive"
 msgstr ""
 
-#: .\templates\accounts\platform_admin_dashboard.html:90
 msgid "Manage"
 msgstr ""
 
-#: .\templates\accounts\platform_admin_dashboard.html:96
 msgid "No businesses found"
 msgstr ""
 
-#: .\templates\accounts\platform_admin_dashboard.html:104
 msgid "Business pagination"
 msgstr ""
 
-#: .\templates\accounts\platform_admin_payments.html:4
-#: .\templates\accounts\platform_admin_payments.html:9
 msgid "Platform Payments"
 msgstr ""
 
-#: .\templates\accounts\platform_admin_payments.html:15
 msgid "Total Revenue (completed payments)"
 msgstr ""
 
-#: .\templates\accounts\platform_admin_payments.html:71
 msgid "No payments found"
 msgstr ""
 
-#: .\templates\accounts\profile.html:6 .\templates\base.html:245
 msgid "My Profile"
 msgstr "Mon profil"
 
-#: .\templates\accounts\profile.html:24
 msgid "Expired"
 msgstr "Expiré"
 
-#: .\templates\accounts\profile.html:29
 msgid "Renews/ends:"
 msgstr "Se renouvelle/se termine :"
 
-#: .\templates\accounts\profile.html:33
 msgid ""
 "Your trial or subscription has ended - choose a plan to keep using the "
 "dashboard."
-msgstr "Votre essai ou abonnement a pris fin - choisissez une formule pour continuer à utiliser le tableau de bord."
+msgstr ""
+"Votre essai ou abonnement a pris fin - choisissez une formule pour continuer "
+"à utiliser le tableau de bord."
 
-#: .\templates\accounts\profile.html:40
 msgid "Choose a Plan"
 msgstr "Choisir une formule"
 
-#: .\templates\accounts\profile.html:48
 msgid "Manage Billing"
 msgstr "Gérer la facturation"
 
-#: .\templates\accounts\profile.html:54 .\templates\accounts\profile.html:56
 msgid "Platform Admin"
 msgstr "Administration de la plateforme"
 
-#: .\templates\accounts\signup.html:10
 msgid "Business Signup"
 msgstr "Inscription entreprise"
 
-#: .\templates\accounts\signup.html:18
 #, python-format
 msgid ""
 "By signing up, you accept the <a href=\"%(terms_url)s\" "
 "target=\"_blank\">Terms of Use</a>."
-msgstr "En vous inscrivant, vous acceptez les <a href=\"%(terms_url)s\" target=\"_blank\">Conditions d'Utilisation</a>."
+msgstr ""
+"En vous inscrivant, vous acceptez les <a href=\"%(terms_url)s\" "
+"target=\"_blank\">Conditions d'Utilisation</a>."
 
-#: .\templates\accounts\signup.html:20 .\templates\base.html:266
 msgid "Sign Up"
 msgstr "S'inscrire"
 
-#: .\templates\accounts\signup.html:23
 msgid "Already have an account? Log in"
 msgstr "Vous avez déjà un compte ? Connectez-vous"
 
-#: .\templates\base.html:14
 msgid "GetMenuHub - Digital QR Code Menus for Restaurants & Cafes"
 msgstr "GetMenuHub - Menus QR numériques pour restaurants et cafés"
 
-#: .\templates\base.html:15
 msgid ""
 "Create your restaurant or cafe's digital QR code menu in 5 minutes. No "
 "printing, instant price updates, orders straight from the table."
-msgstr "Créez le menu QR numérique de votre restaurant ou café en 5 minutes. Sans impression, mises à jour de prix instantanées, commandes directement depuis la table."
+msgstr ""
+"Créez le menu QR numérique de votre restaurant ou café en 5 minutes. Sans "
+"impression, mises à jour de prix instantanées, commandes directement depuis "
+"la table."
 
-#: .\templates\base.html:22
 msgid "GetMenuHub - Digital QR Code Menus"
 msgstr "GetMenuHub - Menus QR numériques"
 
-#: .\templates\base.html:23
 msgid "Create your restaurant or cafe's digital QR code menu in 5 minutes."
 msgstr "Créez le menu QR numérique de votre restaurant ou café en 5 minutes."
 
-#: .\templates\base.html:99
 msgid "Home"
 msgstr "Accueil"
 
-#: .\templates\base.html:105
 msgid "Pricing"
 msgstr "Tarifs"
 
-#: .\templates\base.html:111 .\templates\base.html:295
-#: .\templates\guides\index.html:31
 msgid "Guides"
 msgstr "Guides"
 
-#: .\templates\base.html:121
 msgid "Free QR Generator"
 msgstr "Générateur QR gratuit"
 
-#: .\templates\base.html:126 .\templates\base.html:298
 msgid "Printing Cost Calculator"
 msgstr "Calculateur de coût d'impression"
 
-#: .\templates\base.html:132
+msgid "Staff Efficiency Calculator"
+msgstr "Calculateur d'Efficacité du Personnel"
+
 msgid "Dashboard"
 msgstr "Tableau de bord"
 
-#: .\templates\base.html:138 .\templates\restaurants\category_list.html:6
-#: .\templates\restaurants\dashboard.html:30
 msgid "Categories"
 msgstr "Catégories"
 
-#: .\templates\base.html:158 .\templates\restaurants\table_list.html:4
-#: .\templates\restaurants\table_list.html:8
 msgid "Tables & Sunbeds"
 msgstr "Tables et transats"
 
-#: .\templates\base.html:163 .\templates\restaurants\promo_code_list.html:4
-#: .\templates\restaurants\promo_code_list.html:8
 msgid "Promo Codes"
 msgstr "Codes promo"
 
-#: .\templates\base.html:175 .\templates\restaurants\stats_dashboard.html:4
-#: .\templates\restaurants\stats_upgrade.html:4
 msgid "Statistics"
 msgstr "Statistiques"
 
-#: .\templates\base.html:190
 msgid "Platform Administration"
 msgstr "Administration de la plateforme"
 
-#: .\templates\base.html:215
 msgid "Toggle dark/light theme"
 msgstr "Basculer thème clair/sombre"
 
-#: .\templates\base.html:247 .\templates\restaurants\settings.html:6
 msgid "Restaurant Settings"
 msgstr "Paramètres du restaurant"
 
-#: .\templates\base.html:257
 msgid "Log Out"
 msgstr "Déconnexion"
 
-#: .\templates\base.html:291
 msgid "Digital Menus for Restaurants & Cafes"
 msgstr "Menus numériques pour restaurants et cafés"
 
-#: .\templates\base.html:294
 msgid "All Rights Reserved"
 msgstr "Tous droits réservés"
 
-#: .\templates\base.html:297 .\templates\tools\free_qr_code_generator.html:106
 msgid "Free QR Code Generator"
 msgstr "Générateur QR gratuit"
 
-#: .\templates\base.html:299 .\templates\terms.html:4 .\templates\terms.html:10
+msgid "Staffing Shortage Solution"
+msgstr "Solution à la Pénurie de Personnel"
+
 msgid "Terms of Use"
 msgstr "Conditions d'Utilisation"
 
-#: .\templates\base.html:300 .\templates\privacy.html:4
-#: .\templates\privacy.html:10
 msgid "Privacy Policy"
 msgstr "Politique de Confidentialité"
 
-#: .\templates\base.html:301 .\templates\refund_policy.html:4
-#: .\templates\refund_policy.html:10
 msgid "Refund Policy"
 msgstr "Politique de Remboursement"
 
-#: .\templates\base.html:309 .\templates\base.html:317
 msgid "Send feedback"
 msgstr "Envoyer un commentaire"
 
-#: .\templates\base.html:321
 msgid "Found a bug, or have an idea to improve GetMenuHub? Let us know."
 msgstr ""
-"Vous avez trouvé un bug ou une idée pour améliorer GetMenuHub ? Dites-le-nous."
+"Vous avez trouvé un bug ou une idée pour améliorer GetMenuHub ? Dites-le-"
+"nous."
 
-#: .\templates\base.html:322
 msgid "Your feedback..."
 msgstr "Votre commentaire..."
 
-#: .\templates\base.html:324
 msgid "Thanks! Your feedback was sent."
 msgstr "Merci ! Votre commentaire a été envoyé."
 
-#: .\templates\base.html:327 .\templates\restaurants\public_menu.html:202
 msgid "Close"
 msgstr "Fermer"
 
-#: .\templates\base.html:328
 msgid "Send"
 msgstr "Envoyer"
 
-#: .\templates\base.html:418
 msgid "Please write something first."
 msgstr "Veuillez d'abord écrire quelque chose."
 
-#: .\templates\base.html:432 .\templates\restaurants\public_menu.html:223
 msgid "Something went wrong. Please try again."
 msgstr "Une erreur s'est produite. Veuillez réessayer."
 
-#: .\templates\base.html:436 .\templates\restaurants\public_menu.html:224
 msgid "Connection error. Please try again."
 msgstr "Erreur de connexion. Veuillez réessayer."
 
-#: .\templates\guides\base_guide.html:42
 msgid "All guides"
 msgstr "Tous les guides"
 
-#: .\templates\guides\how_to_create_qr_menu.html:4
 msgid "How to Create a QR Code Menu for Your Restaurant (Step by Step)"
 msgstr "Comment créer un menu QR pour votre restaurant (étape par étape)"
 
-#: .\templates\guides\how_to_create_qr_menu.html:5
 msgid ""
 "A complete step-by-step guide to creating a digital QR code menu for your "
 "restaurant, cafe, or bar - no technical skills or app required."
-msgstr "Un guide complet étape par étape pour créer un menu QR numérique pour votre restaurant, café ou bar - sans compétences techniques ni application requise."
+msgstr ""
+"Un guide complet étape par étape pour créer un menu QR numérique pour votre "
+"restaurant, café ou bar - sans compétences techniques ni application requise."
 
-#: .\templates\guides\how_to_create_qr_menu.html:6
-#: .\templates\guides\how_to_create_qr_menu.html:29
-#: .\templates\guides\index.html:33
 msgid "How to Create a QR Code Menu for Your Restaurant"
 msgstr "Comment créer un menu QR pour votre restaurant"
 
-#: .\templates\guides\how_to_create_qr_menu.html:7
 msgid ""
 "A complete step-by-step guide to creating a digital QR code menu - no "
 "technical skills required."
-msgstr "Un guide complet étape par étape pour créer un menu QR numérique - aucune compétence technique requise."
+msgstr ""
+"Un guide complet étape par étape pour créer un menu QR numérique - aucune "
+"compétence technique requise."
 
-#: .\templates\guides\how_to_create_qr_menu.html:30
 msgid ""
 "You don't need a designer, a developer, or an app. Here's exactly how to go "
 "from a printed menu to a scannable digital one in about five minutes."
-msgstr "Vous n'avez besoin ni d'un designer, ni d'un développeur, ni d'une application. Voici exactement comment passer d'un menu imprimé à un menu numérique scannable en environ cinq minutes."
+msgstr ""
+"Vous n'avez besoin ni d'un designer, ni d'un développeur, ni d'une "
+"application. Voici exactement comment passer d'un menu imprimé à un menu "
+"numérique scannable en environ cinq minutes."
 
-#: .\templates\guides\how_to_create_qr_menu.html:32
 msgid "1. Create an account"
 msgstr "1. Créez un compte"
 
-#: .\templates\guides\how_to_create_qr_menu.html:33
 msgid ""
 "Sign up with your business name, email, and a password. A restaurant profile "
 "is created for you automatically the moment you sign up, along with a 30-day "
 "free trial - no credit card required to start."
-msgstr "Inscrivez-vous avec le nom de votre entreprise, votre e-mail et un mot de passe. Un profil de restaurant est créé automatiquement dès votre inscription, avec un essai gratuit de 30 jours - aucune carte de crédit requise pour commencer."
+msgstr ""
+"Inscrivez-vous avec le nom de votre entreprise, votre e-mail et un mot de "
+"passe. Un profil de restaurant est créé automatiquement dès votre "
+"inscription, avec un essai gratuit de 30 jours - aucune carte de crédit "
+"requise pour commencer."
 
-#: .\templates\guides\how_to_create_qr_menu.html:35
 msgid "2. Organize your menu into categories"
 msgstr "2. Organisez votre menu en catégories"
 
-#: .\templates\guides\how_to_create_qr_menu.html:36
 msgid ""
 "Before adding individual dishes, set up your categories - Starters, Mains, "
 "Drinks, Desserts, or whatever structure fits your menu. You can reorder them "
 "anytime, and customers see them exactly as you arrange them."
-msgstr "Avant d'ajouter des plats individuels, configurez vos catégories - Entrées, Plats principaux, Boissons, Desserts, ou toute structure adaptée à votre menu. Vous pouvez les réorganiser à tout moment, et les clients les voient exactement comme vous les avez arrangées."
+msgstr ""
+"Avant d'ajouter des plats individuels, configurez vos catégories - Entrées, "
+"Plats principaux, Boissons, Desserts, ou toute structure adaptée à votre "
+"menu. Vous pouvez les réorganiser à tout moment, et les clients les voient "
+"exactement comme vous les avez arrangées."
 
-#: .\templates\guides\how_to_create_qr_menu.html:38
 msgid "3. Add your products"
 msgstr "3. Ajoutez vos produits"
 
-#: .\templates\guides\how_to_create_qr_menu.html:39
 msgid ""
 "For each dish or drink, add a name, price, and a short description. You can "
 "attach a photo, mark items as vegan, vegetarian, gluten-free, or spicy, and "
 "add optional extras like \"add cheese\" with their own price adjustment."
-msgstr "Pour chaque plat ou boisson, ajoutez un nom, un prix et une courte description. Vous pouvez joindre une photo, marquer les articles comme végétaliens, végétariens, sans gluten ou épicés, et ajouter des suppléments optionnels comme « ajouter du fromage » avec leur propre ajustement de prix."
+msgstr ""
+"Pour chaque plat ou boisson, ajoutez un nom, un prix et une courte "
+"description. Vous pouvez joindre une photo, marquer les articles comme "
+"végétaliens, végétariens, sans gluten ou épicés, et ajouter des suppléments "
+"optionnels comme « ajouter du fromage » avec leur propre ajustement de prix."
 
-#: .\templates\guides\how_to_create_qr_menu.html:41
 msgid "4. Your QR code is generated automatically"
 msgstr "4. Votre code QR est généré automatiquement"
 
-#: .\templates\guides\how_to_create_qr_menu.html:42
 msgid ""
 "As soon as your account is created, a unique QR code is generated for your "
 "menu - no design tool or third-party QR generator needed. If you take table-"
 "side orders, each table or sunbed can also get its own QR code that pins the "
 "order to that exact spot."
-msgstr "Dès que votre compte est créé, un code QR unique est généré pour votre menu - aucun outil de conception ni générateur QR tiers nécessaire. Si vous acceptez les commandes à table, chaque table ou transat peut également avoir son propre code QR qui associe la commande à cet emplacement précis."
+msgstr ""
+"Dès que votre compte est créé, un code QR unique est généré pour votre menu "
+"- aucun outil de conception ni générateur QR tiers nécessaire. Si vous "
+"acceptez les commandes à table, chaque table ou transat peut également avoir "
+"son propre code QR qui associe la commande à cet emplacement précis."
 
-#: .\templates\guides\how_to_create_qr_menu.html:44
 msgid "5. Print it once, use it everywhere"
 msgstr "5. Imprimez-le une fois, utilisez-le partout"
 
-#: .\templates\guides\how_to_create_qr_menu.html:45
 msgid ""
 "Print the QR code on a table tent, a sticker at the entrance, or a small "
 "sign at the bar. Customers scan it with their phone's camera - no app to "
 "download - and the menu opens instantly in their browser."
-msgstr "Imprimez le code QR sur un chevalet de table, un autocollant à l'entrée, ou une petite pancarte au bar. Les clients le scannent avec l'appareil photo de leur téléphone - aucune application à télécharger - et le menu s'ouvre instantanément dans leur navigateur."
+msgstr ""
+"Imprimez le code QR sur un chevalet de table, un autocollant à l'entrée, ou "
+"une petite pancarte au bar. Les clients le scannent avec l'appareil photo de "
+"leur téléphone - aucune application à télécharger - et le menu s'ouvre "
+"instantanément dans leur navigateur."
 
-#: .\templates\guides\how_to_create_qr_menu.html:47
 msgid "6. Update your menu anytime, for free"
 msgstr "6. Mettez à jour votre menu à tout moment, gratuitement"
 
-#: .\templates\guides\how_to_create_qr_menu.html:48
 msgid ""
 "This is the real advantage over a printed menu: when a price changes, an "
 "item sells out, or you add a new seasonal dish, you update it from your "
 "dashboard and the change is live immediately. No reprinting, no waiting, no "
 "extra cost."
-msgstr "C'est le véritable avantage par rapport à un menu imprimé : lorsqu'un prix change, qu'un article est épuisé, ou que vous ajoutez un nouveau plat saisonnier, vous le mettez à jour depuis votre tableau de bord et le changement est immédiatement visible. Pas de réimpression, pas d'attente, pas de coût supplémentaire."
+msgstr ""
+"C'est le véritable avantage par rapport à un menu imprimé : lorsqu'un prix "
+"change, qu'un article est épuisé, ou que vous ajoutez un nouveau plat "
+"saisonnier, vous le mettez à jour depuis votre tableau de bord et le "
+"changement est immédiatement visible. Pas de réimpression, pas d'attente, "
+"pas de coût supplémentaire."
 
-#: .\templates\guides\how_to_create_qr_menu.html:50
 msgid "What about taking orders?"
 msgstr "Qu'en est-il de la prise de commandes ?"
 
-#: .\templates\guides\how_to_create_qr_menu.html:51
 msgid ""
 "If you want customers to order directly from their phone, table-side "
 "ordering can be turned on so each QR code is tied to a specific table. "
 "Orders land on a live dashboard your staff can manage in real time, with no "
 "extra hardware required."
-msgstr "Si vous souhaitez que les clients commandent directement depuis leur téléphone, la commande à table peut être activée afin que chaque code QR soit lié à une table spécifique. Les commandes arrivent sur un tableau de bord en direct que votre personnel peut gérer en temps réel, sans matériel supplémentaire nécessaire."
+msgstr ""
+"Si vous souhaitez que les clients commandent directement depuis leur "
+"téléphone, la commande à table peut être activée afin que chaque code QR "
+"soit lié à une table spécifique. Les commandes arrivent sur un tableau de "
+"bord en direct que votre personnel peut gérer en temps réel, sans matériel "
+"supplémentaire nécessaire."
 
-#: .\templates\guides\index.html:4
 msgid "Guides - GetMenuHub"
 msgstr "Guides - GetMenuHub"
 
-#: .\templates\guides\index.html:5
 msgid ""
 "Practical guides on digital QR code menus for restaurants, cafes, and bars - "
 "setup, pricing, and how it compares to printed menus."
-msgstr "Guides pratiques sur les menus QR numériques pour restaurants, cafés et bars - configuration, tarifs, et comparaison avec les menus imprimés."
+msgstr ""
+"Guides pratiques sur les menus QR numériques pour restaurants, cafés et bars "
+"- configuration, tarifs, et comparaison avec les menus imprimés."
 
-#: .\templates\guides\index.html:34
 msgid ""
 "A complete step-by-step guide, from signup to your first scanned QR code."
-msgstr "Un guide complet étape par étape, de l'inscription à votre premier code QR scanné."
+msgstr ""
+"Un guide complet étape par étape, de l'inscription à votre premier code QR "
+"scanné."
 
-#: .\templates\guides\index.html:37 .\templates\guides\qr_menu_cost.html:6
-#: .\templates\guides\qr_menu_cost.html:10
 msgid "How Much Does a QR Code Menu Cost?"
 msgstr "Combien coûte un menu QR ?"
 
-#: .\templates\guides\index.html:38
 msgid ""
 "A clear pricing breakdown and how it compares to reprinting a physical menu."
-msgstr "Une analyse claire des tarifs et une comparaison avec la réimpression d'un menu physique."
+msgstr ""
+"Une analyse claire des tarifs et une comparaison avec la réimpression d'un "
+"menu physique."
 
-#: .\templates\guides\index.html:41
-#: .\templates\guides\qr_vs_printed_menu.html:6
 msgid "QR Code Menu vs. Printed Menu"
 msgstr "Menu QR vs menu imprimé"
 
-#: .\templates\guides\index.html:42
 msgid "Cost, flexibility, hygiene, and customer experience, compared."
 msgstr "Coût, flexibilité, hygiène et expérience client, comparés."
 
-#: .\templates\guides\qr_menu_cost.html:4
 msgid "How Much Does a QR Code Menu Cost? (2026 Pricing Breakdown)"
 msgstr "Combien coûte un menu QR ? (Analyse des tarifs 2026)"
 
-#: .\templates\guides\qr_menu_cost.html:5
 msgid ""
 "A clear breakdown of what a digital QR code menu costs for restaurants, "
 "cafes, and bars, and how it compares to the ongoing cost of printed menus."
-msgstr "Une analyse claire du coût d'un menu QR numérique pour restaurants, cafés et bars, et une comparaison avec le coût continu des menus imprimés."
+msgstr ""
+"Une analyse claire du coût d'un menu QR numérique pour restaurants, cafés et "
+"bars, et une comparaison avec le coût continu des menus imprimés."
 
-#: .\templates\guides\qr_menu_cost.html:7
 msgid ""
 "A clear breakdown of what a digital QR code menu costs, and how it compares "
 "to printed menus."
-msgstr "Une analyse claire du coût d'un menu QR numérique, et une comparaison avec les menus imprimés."
+msgstr ""
+"Une analyse claire du coût d'un menu QR numérique, et une comparaison avec "
+"les menus imprimés."
 
-#: .\templates\guides\qr_menu_cost.html:11
 msgid ""
 "A digital QR menu is priced as a monthly subscription rather than a one-time "
 "print job. Here's what's actually included at each level, and how it stacks "
 "up against reprinting a physical menu."
-msgstr "Un menu QR numérique est facturé sous forme d'abonnement mensuel plutôt que d'une impression unique. Voici ce qui est réellement inclus à chaque niveau, et comment cela se compare à la réimpression d'un menu physique."
+msgstr ""
+"Un menu QR numérique est facturé sous forme d'abonnement mensuel plutôt que "
+"d'une impression unique. Voici ce qui est réellement inclus à chaque niveau, "
+"et comment cela se compare à la réimpression d'un menu physique."
 
-#: .\templates\guides\qr_menu_cost.html:13
 msgid "GetMenuHub pricing at a glance"
 msgstr "Les tarifs de GetMenuHub en un coup d'œil"
 
-#: .\templates\guides\qr_menu_cost.html:15
 msgid "Basic - $7/month:"
 msgstr "Basic - 7 $/mois :"
 
-#: .\templates\guides\qr_menu_cost.html:15
 msgid ""
 "unlimited categories and products, with an automatically generated QR code."
-msgstr "catégories et produits illimités, avec un code QR généré automatiquement."
+msgstr ""
+"catégories et produits illimités, avec un code QR généré automatiquement."
 
-#: .\templates\guides\qr_menu_cost.html:16
 msgid "Pro - $19/month:"
 msgstr "Pro - 19 $/mois :"
 
-#: .\templates\guides\qr_menu_cost.html:16
 msgid ""
 "everything in Basic, plus table-side ordering, loyalty points, and promo "
 "codes."
-msgstr "tout ce qui est inclus dans Basic, plus les commandes à table, les points de fidélité et les codes promo."
+msgstr ""
+"tout ce qui est inclus dans Basic, plus les commandes à table, les points de "
+"fidélité et les codes promo."
 
-#: .\templates\guides\qr_menu_cost.html:17
 msgid "Business - $39/month:"
 msgstr "Business - 39 $/mois :"
 
-#: .\templates\guides\qr_menu_cost.html:17
 msgid ""
 "everything in Pro, plus sales statistics and staff accounts with admin/"
 "employee permissions."
-msgstr "tout ce qui est inclus dans Pro, plus les statistiques de ventes et les comptes du personnel avec permissions administrateur/employé."
+msgstr ""
+"tout ce qui est inclus dans Pro, plus les statistiques de ventes et les "
+"comptes du personnel avec permissions administrateur/employé."
 
-#: .\templates\guides\qr_menu_cost.html:19
 msgid ""
 "Every plan includes a 30-day free trial, so you can set up your full menu "
 "before paying anything."
-msgstr "Chaque formule inclut un essai gratuit de 30 jours, afin que vous puissiez configurer l'intégralité de votre menu avant de payer quoi que ce soit."
+msgstr ""
+"Chaque formule inclut un essai gratuit de 30 jours, afin que vous puissiez "
+"configurer l'intégralité de votre menu avant de payer quoi que ce soit."
 
-#: .\templates\guides\qr_menu_cost.html:21
 msgid "What drives the cost of a printed menu"
 msgstr "Ce qui détermine le coût d'un menu imprimé"
 
-#: .\templates\guides\qr_menu_cost.html:22
 msgid ""
 "A printed menu looks cheaper upfront, but the real cost shows up over time: "
 "a price change, a seasonal dish, or a supplier shortage means a reprint - "
 "design time, printing costs, and menus that are wrong until the new batch "
 "arrives. Multiply that by however many times a year your prices or dishes "
 "change."
-msgstr "Un menu imprimé semble moins cher au départ, mais le coût réel apparaît avec le temps : un changement de prix, un plat saisonnier, ou une pénurie de fournisseur signifie une réimpression - temps de conception, coûts d'impression, et des menus erronés jusqu'à l'arrivée du nouveau lot. Multipliez cela par le nombre de fois par an où vos prix ou plats changent."
+msgstr ""
+"Un menu imprimé semble moins cher au départ, mais le coût réel apparaît avec "
+"le temps : un changement de prix, un plat saisonnier, ou une pénurie de "
+"fournisseur signifie une réimpression - temps de conception, coûts "
+"d'impression, et des menus erronés jusqu'à l'arrivée du nouveau lot. "
+"Multipliez cela par le nombre de fois par an où vos prix ou plats changent."
 
-#: .\templates\guides\qr_menu_cost.html:24
 msgid "What you're actually paying for"
 msgstr "Ce que vous payez réellement"
 
-#: .\templates\guides\qr_menu_cost.html:25
 msgid ""
 "The subscription isn't just hosting a PDF online. It covers the QR code "
 "generation, unlimited menu edits with no reprinting cost, dietary labels, "
 "and - on the higher plans - order management and sales reporting that a "
 "printed menu simply can't provide."
-msgstr "L'abonnement ne se limite pas à héberger un PDF en ligne. Il couvre la génération du code QR, des modifications de menu illimitées sans frais de réimpression, des étiquettes diététiques, et - sur les formules supérieures - la gestion des commandes et les rapports de ventes qu'un menu imprimé ne peut tout simplement pas offrir."
+msgstr ""
+"L'abonnement ne se limite pas à héberger un PDF en ligne. Il couvre la "
+"génération du code QR, des modifications de menu illimitées sans frais de "
+"réimpression, des étiquettes diététiques, et - sur les formules supérieures "
+"- la gestion des commandes et les rapports de ventes qu'un menu imprimé ne "
+"peut tout simplement pas offrir."
 
-#: .\templates\guides\qr_menu_cost.html:27
 msgid "Which plan should you pick?"
 msgstr "Quelle formule devriez-vous choisir ?"
 
-#: .\templates\guides\qr_menu_cost.html:28
 msgid ""
 "If you just want to replace a printed menu with something always up to date, "
 "Basic covers it. If customers should be able to order directly from the "
 "table without waving down a server, Pro is the natural fit. If you're "
 "running a busier operation with staff accounts and want to see which dishes "
 "actually sell, Business adds the reporting layer on top."
-msgstr "Si vous voulez simplement remplacer un menu imprimé par quelque chose de toujours à jour, Basic suffit. Si les clients doivent pouvoir commander directement depuis la table sans avoir à héler un serveur, Pro est le choix naturel. Si vous gérez une activité plus animée avec des comptes du personnel et souhaitez voir quels plats se vendent réellement, Business ajoute la couche de rapports."
+msgstr ""
+"Si vous voulez simplement remplacer un menu imprimé par quelque chose de "
+"toujours à jour, Basic suffit. Si les clients doivent pouvoir commander "
+"directement depuis la table sans avoir à héler un serveur, Pro est le choix "
+"naturel. Si vous gérez une activité plus animée avec des comptes du "
+"personnel et souhaitez voir quels plats se vendent réellement, Business "
+"ajoute la couche de rapports."
 
-#: .\templates\guides\qr_vs_printed_menu.html:4
-#: .\templates\guides\qr_vs_printed_menu.html:10
 msgid "QR Code Menu vs. Printed Menu: Which Is Right for Your Restaurant?"
 msgstr "Menu QR vs menu imprimé : lequel convient à votre restaurant ?"
 
-#: .\templates\guides\qr_vs_printed_menu.html:5
 msgid ""
 "A practical comparison of QR code menus and printed menus - cost, "
 "flexibility, hygiene, and customer experience - to help you decide what's "
 "right for your restaurant."
-msgstr "Une comparaison pratique des menus QR et des menus imprimés - coût, flexibilité, hygiène et expérience client - pour vous aider à décider ce qui convient à votre restaurant."
+msgstr ""
+"Une comparaison pratique des menus QR et des menus imprimés - coût, "
+"flexibilité, hygiène et expérience client - pour vous aider à décider ce qui "
+"convient à votre restaurant."
 
-#: .\templates\guides\qr_vs_printed_menu.html:7
 msgid ""
 "A practical comparison to help you decide what's right for your restaurant."
-msgstr "Une comparaison pratique pour vous aider à décider ce qui convient à votre restaurant."
+msgstr ""
+"Une comparaison pratique pour vous aider à décider ce qui convient à votre "
+"restaurant."
 
-#: .\templates\guides\qr_vs_printed_menu.html:11
 msgid ""
 "Most restaurants don't need to choose one exclusively - but understanding "
 "the trade-offs makes it obvious where each one wins."
-msgstr "La plupart des restaurants n'ont pas besoin de choisir l'un exclusivement - mais comprendre les compromis rend évident où chacun l'emporte."
+msgstr ""
+"La plupart des restaurants n'ont pas besoin de choisir l'un exclusivement - "
+"mais comprendre les compromis rend évident où chacun l'emporte."
 
-#: .\templates\guides\qr_vs_printed_menu.html:13
 msgid "Cost over time"
 msgstr "Coût dans le temps"
 
-#: .\templates\guides\qr_vs_printed_menu.html:14
 msgid ""
 "A printed menu has a low one-time cost but an ongoing one every time "
 "something changes - a price update, a sold-out dish, a new seasonal item. A "
 "QR menu has a small monthly cost but updates are free and instant, however "
 "often you make them."
-msgstr "Un menu imprimé a un faible coût unique mais un coût continu à chaque changement - une mise à jour de prix, un plat épuisé, un nouvel article saisonnier. Un menu QR a un faible coût mensuel mais les mises à jour sont gratuites et instantanées, aussi souvent que vous les effectuiez."
+msgstr ""
+"Un menu imprimé a un faible coût unique mais un coût continu à chaque "
+"changement - une mise à jour de prix, un plat épuisé, un nouvel article "
+"saisonnier. Un menu QR a un faible coût mensuel mais les mises à jour sont "
+"gratuites et instantanées, aussi souvent que vous les effectuiez."
 
-#: .\templates\guides\qr_vs_printed_menu.html:16
 msgid "Flexibility"
 msgstr "Flexibilité"
 
-#: .\templates\guides\qr_vs_printed_menu.html:17
 msgid ""
 "Printed menus are fixed the moment they're printed. A digital menu can "
 "change prices mid-shift, mark a dish unavailable the second it sells out, or "
 "run a limited-time offer without touching a single physical page."
-msgstr "Les menus imprimés sont figés dès leur impression. Un menu numérique peut changer les prix en plein service, marquer un plat comme indisponible dès qu'il est épuisé, ou lancer une offre à durée limitée sans toucher une seule page physique."
+msgstr ""
+"Les menus imprimés sont figés dès leur impression. Un menu numérique peut "
+"changer les prix en plein service, marquer un plat comme indisponible dès "
+"qu'il est épuisé, ou lancer une offre à durée limitée sans toucher une seule "
+"page physique."
 
-#: .\templates\guides\qr_vs_printed_menu.html:19
 msgid "Customer experience"
 msgstr "Expérience client"
 
-#: .\templates\guides\qr_vs_printed_menu.html:20
 msgid ""
 "A QR menu opens instantly in a customer's own phone browser - no app to "
 "install - and can show photos, dietary tags, and live availability that a "
 "printed page can't. Some guests still prefer the simplicity of picking up a "
 "physical menu, particularly older customers less comfortable scanning codes."
-msgstr "Un menu QR s'ouvre instantanément dans le navigateur du téléphone du client - aucune application à installer - et peut afficher des photos, des étiquettes diététiques et une disponibilité en direct qu'une page imprimée ne peut pas offrir. Certains clients préfèrent encore la simplicité de prendre un menu physique, en particulier les clients plus âgés moins à l'aise pour scanner des codes."
+msgstr ""
+"Un menu QR s'ouvre instantanément dans le navigateur du téléphone du client "
+"- aucune application à installer - et peut afficher des photos, des "
+"étiquettes diététiques et une disponibilité en direct qu'une page imprimée "
+"ne peut pas offrir. Certains clients préfèrent encore la simplicité de "
+"prendre un menu physique, en particulier les clients plus âgés moins à "
+"l'aise pour scanner des codes."
 
-#: .\templates\guides\qr_vs_printed_menu.html:22
 msgid "Hygiene and durability"
 msgstr "Hygiène et durabilité"
 
-#: .\templates\guides\qr_vs_printed_menu.html:23
 msgid ""
 "Printed menus get handled by every table and need regular cleaning or "
 "replacing when they wear out. A QR code printed once on a table tent or "
 "sticker is touched by nobody but scanned by everybody - and never needs "
 "replacing unless it physically wears out."
-msgstr "Les menus imprimés passent entre les mains de chaque table et nécessitent un nettoyage régulier ou un remplacement lorsqu'ils s'usent. Un code QR imprimé une fois sur un chevalet de table ou un autocollant n'est touché par personne mais scanné par tout le monde - et n'a jamais besoin d'être remplacé sauf s'il s'use physiquement."
+msgstr ""
+"Les menus imprimés passent entre les mains de chaque table et nécessitent un "
+"nettoyage régulier ou un remplacement lorsqu'ils s'usent. Un code QR imprimé "
+"une fois sur un chevalet de table ou un autocollant n'est touché par "
+"personne mais scanné par tout le monde - et n'a jamais besoin d'être "
+"remplacé sauf s'il s'use physiquement."
 
-#: .\templates\guides\qr_vs_printed_menu.html:25
 msgid "Ordering speed"
 msgstr "Rapidité de commande"
 
-#: .\templates\guides\qr_vs_printed_menu.html:26
 msgid ""
 "With a printed menu, ordering still depends on flagging down a server. A QR "
 "menu with table-side ordering lets a customer send their order the moment "
 "they've decided, which is particularly useful during busy shifts or at large "
 "outdoor venues like beach bars."
-msgstr "Avec un menu imprimé, la commande dépend toujours du fait d'attirer l'attention d'un serveur. Un menu QR avec commande à table permet à un client d'envoyer sa commande dès qu'il s'est décidé, ce qui est particulièrement utile pendant les services chargés ou dans les grands espaces extérieurs comme les bars de plage."
+msgstr ""
+"Avec un menu imprimé, la commande dépend toujours du fait d'attirer "
+"l'attention d'un serveur. Un menu QR avec commande à table permet à un "
+"client d'envoyer sa commande dès qu'il s'est décidé, ce qui est "
+"particulièrement utile pendant les services chargés ou dans les grands "
+"espaces extérieurs comme les bars de plage."
 
-#: .\templates\guides\qr_vs_printed_menu.html:28
 msgid "So which should you choose?"
 msgstr "Alors, lequel choisir ?"
 
-#: .\templates\guides\qr_vs_printed_menu.html:29
 msgid ""
 "Most restaurants get the best result running both: a QR code as the primary, "
 "always-current menu, with a handful of printed copies on hand for guests who "
 "prefer paper or don't have a smartphone on them. You get the cost and "
 "flexibility benefits of digital without losing anyone."
-msgstr "La plupart des restaurants obtiennent le meilleur résultat en utilisant les deux : un code QR comme menu principal, toujours à jour, avec quelques exemplaires imprimés à disposition pour les clients qui préfèrent le papier ou n'ont pas de smartphone sur eux. Vous bénéficiez des avantages de coût et de flexibilité du numérique sans laisser personne de côté."
+msgstr ""
+"La plupart des restaurants obtiennent le meilleur résultat en utilisant les "
+"deux : un code QR comme menu principal, toujours à jour, avec quelques "
+"exemplaires imprimés à disposition pour les clients qui préfèrent le papier "
+"ou n'ont pas de smartphone sur eux. Vous bénéficiez des avantages de coût et "
+"de flexibilité du numérique sans laisser personne de côté."
 
-#: .\templates\home.html:4
-msgid "GetMenuHub - Digital QR Code Menu for Restaurants, Cafes & Bars"
-msgstr "GetMenuHub - Menu QR numérique pour restaurants, cafés et bars"
+msgid "GetMenuHub - QR Menu & Table Ordering, Less Staff Needed"
+msgstr "GetMenuHub - Menu QR et Commande à Table, Moins de Personnel Nécessaire"
 
-#: .\templates\home.html:5
 msgid ""
-"QR code menu for restaurants & cafes - table-side ordering means you need "
-"less staff to run service smoothly, plus zero printing costs. Set up in 5 "
-"minutes. From $7/month."
-msgstr "Menu QR pour restaurants et cafés - les commandes à table signifient moins de personnel nécessaire pour un service fluide, sans frais d'impression. Configuration en 5 minutes. À partir de 7 $/mois."
+"The staffing shortage solution for restaurants: customers scan and order "
+"themselves from the table, so your team runs service with fewer hands. Zero "
+"printing costs. From $7/month."
+msgstr "La solution à la pénurie de personnel pour les restaurants : les clients scannent et commandent eux-mêmes depuis la table, afin que votre équipe assure le service avec moins de personnel. Zéro frais d'impression. À partir de 7 $/mois."
 
-#: .\templates\home.html:6
-msgid "GetMenuHub - Digital QR Code Menu for Restaurants & Cafes"
-msgstr "GetMenuHub - Menu QR numérique pour restaurants et cafés"
-
-#: .\templates\home.html:7
 msgid ""
-"Table-side ordering that needs less staff to run smoothly, instant price "
-"updates, and zero printing costs. Create your digital menu in 5 minutes."
-msgstr "Des commandes à table qui nécessitent moins de personnel pour fonctionner sans accroc, des mises à jour de prix instantanées et aucun frais d'impression. Créez votre menu numérique en 5 minutes."
+"Customers scan and order themselves from the table, so your team runs "
+"service with fewer hands. Zero printing costs, instant price updates."
+msgstr "Les clients scannent et commandent eux-mêmes depuis la table, afin que votre équipe assure le service avec moins de personnel. Zéro frais d'impression, mises à jour des prix instantanées."
 
-#: .\templates\home.html:366
 msgid ""
-"GetMenuHub is currently in free beta - every plan's features are unlocked at no "
-"cost while we finish rolling out paid billing."
+"GetMenuHub is currently in free beta - every plan's features are unlocked at "
+"no cost while we finish rolling out paid billing."
 msgstr ""
 "GetMenuHub est actuellement en bêta gratuite - toutes les fonctionnalités de "
 "chaque formule sont débloquées gratuitement pendant que nous finalisons la "
 "mise en place de la facturation payante."
 
-#: .\templates\home.html:375
 msgid "Digital menu with QR code"
 msgstr "Menu numérique avec code QR"
 
-#: .\templates\home.html:376
 msgid "Your restaurant's menu,"
 msgstr "Le menu de votre restaurant,"
 
-#: .\templates\home.html:376
 msgid "always up to date"
 msgstr "toujours à jour"
 
-#: .\templates\home.html:378
 msgid ""
 "Create a digital QR code menu for your restaurant, cafe or bar in just a few "
 "minutes. Change prices and products whenever you like, with no reprinting, "
@@ -1802,60 +1458,46 @@ msgstr ""
 "souhaitez, sans réimpression, et acceptez les commandes directement depuis "
 "la table."
 
-#: .\templates\home.html:382
 msgid "See the plans"
 msgstr "Voir les formules"
 
-#: .\templates\home.html:385
 msgid "No printing"
 msgstr "Sans impression"
 
-#: .\templates\home.html:386
 msgid "Ready in 5 minutes"
 msgstr "Prêt en 5 minutes"
 
-#: .\templates\home.html:387
 msgid "Works on every phone"
 msgstr "Fonctionne sur tous les téléphones"
 
-#: .\templates\home.html:393
 msgid "Your Restaurant"
 msgstr "Votre restaurant"
 
-#: .\templates\home.html:394
 msgid "Menu Category"
 msgstr "Catégorie de menu"
 
-#: .\templates\home.html:398
 msgid "Dish 1"
 msgstr "Plat 1"
 
-#: .\templates\home.html:402
 msgid "Dish 2"
 msgstr "Plat 2"
 
-#: .\templates\home.html:406
 msgid "Dish 3"
 msgstr "Plat 3"
 
-#: .\templates\home.html:410
 msgid "Dish 4"
 msgstr "Plat 4"
 
-#: .\templates\home.html:414
 msgid "Accepts orders"
 msgstr "Accepte les commandes"
 
-#: .\templates\home.html:427
 msgid "How it works"
 msgstr "Comment ça marche"
 
-#: .\templates\home.html:428
 msgid "From sign-up to the first scan, with no technical knowledge required."
 msgstr ""
 "De l'inscription au premier scan, sans connaissances techniques requises."
 
-#: .\templates\home.html:435
 msgid ""
 "Add categories and products with prices, photos and dietary labels (vegan, "
 "gluten-free, spicy)."
@@ -1863,11 +1505,9 @@ msgstr ""
 "Ajoutez des catégories et des produits avec prix, photos et étiquettes "
 "diététiques (végétalien, sans gluten, épicé)."
 
-#: .\templates\home.html:441
 msgid "Get your QR code"
 msgstr "Obtenez votre code QR"
 
-#: .\templates\home.html:442
 msgid ""
 "The QR code is generated automatically. Print it once on a sign or table — "
 "customers scan it with their phone camera and see the menu instantly, no app "
@@ -1877,11 +1517,9 @@ msgstr ""
 "ou sur la table — les clients le scannent avec l'appareil photo de leur "
 "téléphone et voient le menu instantanément, sans application."
 
-#: .\templates\home.html:448
 msgid "Serve & take orders"
 msgstr "Servez et prenez des commandes"
 
-#: .\templates\home.html:449
 msgid ""
 "With the Pro or Business plan, customers can order directly from their phone "
 "by scanning the table's QR code, without needing to get up."
@@ -1890,92 +1528,85 @@ msgstr ""
 "depuis leur téléphone en scannant le code QR de la table, sans avoir à se "
 "lever."
 
-#: .\templates\home.html:461
 msgid "Built for today's staffing reality"
 msgstr "Conçu pour la réalité actuelle du personnel"
 
-#: .\templates\home.html:462
 msgid "Short-staffed? Your menu can carry more of the workload."
-msgstr "Manque de personnel ? Votre menu peut prendre en charge une plus grande partie du travail."
+msgstr ""
+"Manque de personnel ? Votre menu peut prendre en charge une plus grande "
+"partie du travail."
 
-#: .\templates\home.html:463
 msgid ""
 "Finding and keeping enough staff is one of the hardest parts of running a "
 "restaurant right now. With table-side ordering, customers order directly "
 "from their phone - no server needed to walk over, take the order, and relay "
 "it to the kitchen. The staff you do have can spend their time on the parts "
 "of service that actually need a person."
-msgstr "Trouver et conserver suffisamment de personnel est aujourd'hui l'une des parties les plus difficiles de la gestion d'un restaurant. Avec les commandes à table, les clients commandent directement depuis leur téléphone - sans qu'un serveur ait besoin de s'approcher, de prendre la commande et de la transmettre à la cuisine. Le personnel dont vous disposez peut consacrer son temps aux aspects du service qui nécessitent vraiment une personne."
+msgstr ""
+"Trouver et conserver suffisamment de personnel est aujourd'hui l'une des "
+"parties les plus difficiles de la gestion d'un restaurant. Avec les "
+"commandes à table, les clients commandent directement depuis leur téléphone "
+"- sans qu'un serveur ait besoin de s'approcher, de prendre la commande et de "
+"la transmettre à la cuisine. Le personnel dont vous disposez peut consacrer "
+"son temps aux aspects du service qui nécessitent vraiment une personne."
 
-#: .\templates\home.html:465
 msgid "Fewer staff needed to run a full shift smoothly"
 msgstr "Moins de personnel nécessaire pour assurer un service fluide"
 
-#: .\templates\home.html:466
 msgid "Existing staff handle more tables, more efficiently"
 msgstr "Le personnel existant gère plus de tables, plus efficacement"
 
-#: .\templates\home.html:467
 msgid "Zero reprinting costs when prices or dishes change"
 msgstr "Aucun frais de réimpression lors du changement de prix ou de plats"
 
-#: .\templates\home.html:469
-#, fuzzy
-#| msgid "How it works"
 msgid "See how it works"
-msgstr "Comment ça marche"
+msgstr "Découvrez comment ça marche"
 
-#: .\templates\home.html:473
+msgid "Read the full staffing guide"
+msgstr "Lire le guide complet sur le personnel"
+
 msgid "Without digital ordering"
 msgstr "Sans commande numérique"
 
-#: .\templates\home.html:474
 msgid ""
 "A server notices the table is ready, walks over, takes the order, walks it "
 "to the kitchen - then repeats for the next table."
-msgstr "Un serveur remarque que la table est prête, s'approche, prend la commande, l'apporte en cuisine - puis recommence pour la table suivante."
+msgstr ""
+"Un serveur remarque que la table est prête, s'approche, prend la commande, "
+"l'apporte en cuisine - puis recommence pour la table suivante."
 
-#: .\templates\home.html:476
-#, fuzzy
-#| msgid "Welcome to GetMenuHub!"
 msgid "With GetMenuHub"
-msgstr "Bienvenue sur GetMenuHub !"
+msgstr "Avec GetMenuHub"
 
-#: .\templates\home.html:477
 msgid ""
 "The customer scans the table's QR code and orders directly from their phone "
 "- it lands on your dashboard instantly, no walk needed."
-msgstr "Le client scanne le code QR de la table et commande directement depuis son téléphone - la commande arrive instantanément sur votre tableau de bord, sans aucun déplacement nécessaire."
+msgstr ""
+"Le client scanne le code QR de la table et commande directement depuis son "
+"téléphone - la commande arrive instantanément sur votre tableau de bord, "
+"sans aucun déplacement nécessaire."
 
-#: .\templates\home.html:488
 msgid "See it in action"
 msgstr "Voyez-le en action"
 
-#: .\templates\home.html:489
 msgid "Real, live QR code menus built with GetMenuHub - not mockups."
 msgstr "De vrais menus QR en direct créés avec GetMenuHub - pas des maquettes."
 
-#: .\templates\home.html:503
 msgid "See our live menu examples"
 msgstr "Voir nos exemples de menus en direct"
 
-#: .\templates\home.html:509
 msgid "See all live examples"
 msgstr "Voir tous les exemples en direct"
 
-#: .\templates\home.html:518
 msgid "Everything your menu needs"
 msgstr "Tout ce dont votre menu a besoin"
 
-#: .\templates\home.html:519
 msgid "Tools designed specifically for restaurants, cafes and bars."
 msgstr "Des outils conçus spécifiquement pour les restaurants, cafés et bars."
 
-#: .\templates\home.html:525
 msgid "Automatic QR Code"
 msgstr "Code QR automatique"
 
-#: .\templates\home.html:526
 msgid ""
 "Every restaurant gets its own unique QR code, ready to print, with no extra "
 "steps."
@@ -1983,11 +1614,9 @@ msgstr ""
 "Chaque restaurant obtient son propre code QR unique, prêt à imprimer, sans "
 "étapes supplémentaires."
 
-#: .\templates\home.html:532
 msgid "Organized into categories"
 msgstr "Organisé en catégories"
 
-#: .\templates\home.html:533
 msgid ""
 "Split your menu into categories (appetizers, mains, drinks) in the display "
 "order you want."
@@ -1995,11 +1624,9 @@ msgstr ""
 "Répartissez votre menu en catégories (entrées, plats principaux, boissons) "
 "dans l'ordre d'affichage souhaité."
 
-#: .\templates\home.html:539 .\templates\home.html:585
 msgid "Dietary labels"
 msgstr "Étiquettes diététiques"
 
-#: .\templates\home.html:540
 msgid ""
 "Mark dishes as vegan, vegetarian, gluten-free or spicy, so customers can "
 "choose easily."
@@ -2007,11 +1634,9 @@ msgstr ""
 "Marquez les plats comme végétaliens, végétariens, sans gluten ou épicés, "
 "afin que les clients puissent choisir facilement."
 
-#: .\templates\home.html:546
 msgid "Orders from the table"
 msgstr "Commandes depuis la table"
 
-#: .\templates\home.html:547
 msgid ""
 "With the Pro or Business plan, customers send their order directly from "
 "their phone."
@@ -2019,11 +1644,9 @@ msgstr ""
 "Avec la formule Pro ou Business, les clients envoient leur commande "
 "directement depuis leur téléphone."
 
-#: .\templates\home.html:553
 msgid "Management Dashboard"
 msgstr "Tableau de bord de gestion"
 
-#: .\templates\home.html:554
 msgid ""
 "See orders, update their status and keep track of your products all in one "
 "place."
@@ -2031,142 +1654,107 @@ msgstr ""
 "Consultez les commandes, mettez à jour leur statut et suivez vos produits, "
 "le tout au même endroit."
 
-#: .\templates\home.html:560
 msgid "Mobile friendly"
 msgstr "Adapté aux mobiles"
 
-#: .\templates\home.html:561
 msgid ""
 "The menu opens instantly in any phone's browser, with no app installation."
 msgstr ""
 "Le menu s'ouvre instantanément dans le navigateur de n'importe quel "
 "téléphone, sans installation d'application."
 
-#: .\templates\home.html:573
 msgid "Simple pricing"
 msgstr "Tarification simple"
 
-#: .\templates\home.html:574
 msgid "Start with Basic or go Pro/Business for orders, loyalty and statistics."
 msgstr ""
 "Commencez avec Basic ou passez à Pro/Business pour les commandes, la "
 "fidélité et les statistiques."
 
-#: .\templates\home.html:580 .\templates\home.html:605
-#: .\templates\home.html:630
 msgid "Your plan"
 msgstr "Votre formule"
 
-#: .\templates\home.html:583
 msgid "Unlimited categories & products"
 msgstr "Catégories et produits illimités"
 
-#: .\templates\home.html:584
 msgid "Automatic QR code"
 msgstr "Code QR automatique"
 
-#: .\templates\home.html:586
 msgid "Product photos"
 msgstr "Photos des produits"
 
-#: .\templates\home.html:587
 msgid "Multilingual menu"
 msgstr "Menu multilingue"
 
-#: .\templates\home.html:591 .\templates\home.html:617
-#: .\templates\home.html:641
 msgid "Your current plan"
 msgstr "Votre formule actuelle"
 
-#: .\templates\home.html:593 .\templates\home.html:619
 msgid "Included in your plan"
 msgstr "Inclus dans votre formule"
 
-#: .\templates\home.html:595
 msgid "See your profile"
 msgstr "Voir votre profil"
 
-#: .\templates\home.html:598
 msgid "Start with Basic"
 msgstr "Commencer avec Basic"
 
-#: .\templates\home.html:604
 msgid "Most popular"
 msgstr "Le plus populaire"
 
-#: .\templates\home.html:608
 msgid "Everything in Basic"
 msgstr "Tout ce qui est inclus dans Basic"
 
-#: .\templates\home.html:609
 msgid "Orders from table QR codes"
 msgstr "Commandes depuis les codes QR de table"
 
-#: .\templates\home.html:610
 msgid "Real-time order management"
 msgstr "Gestion des commandes en temps réel"
 
-#: .\templates\home.html:611
 msgid "Loyalty points for customers"
 msgstr "Points de fidélité pour les clients"
 
-#: .\templates\home.html:612
 msgid "Discount codes"
 msgstr "Codes de réduction"
 
-#: .\templates\home.html:613
 msgid "Zero commission per order"
 msgstr "Aucune commission par commande"
 
-#: .\templates\home.html:621
 msgid "Upgrade to Pro"
 msgstr "Passer à Pro"
 
-#: .\templates\home.html:624
 msgid "Start with Pro"
 msgstr "Commencer avec Pro"
 
-#: .\templates\home.html:633
 msgid "Everything in Pro"
 msgstr "Tout ce qui est inclus dans Pro"
 
-#: .\templates\home.html:634
 msgid "Sales statistics & reports"
 msgstr "Statistiques de ventes et rapports"
 
-#: .\templates\home.html:635
 msgid "Export orders to CSV"
 msgstr "Exporter les commandes en CSV"
 
-#: .\templates\home.html:636
 msgid "Role-based staff management"
 msgstr "Gestion du personnel par rôles"
 
-#: .\templates\home.html:637
 msgid "Staff activity log"
 msgstr "Journal d'activité du personnel"
 
-#: .\templates\home.html:643
 msgid "Upgrade to Business"
 msgstr "Passer à Business"
 
-#: .\templates\home.html:646
 msgid "Start with Business"
 msgstr "Commencer avec Business"
 
-#: .\templates\home.html:660 .\templates\tools\free_qr_code_generator.html:222
 msgid "Frequently asked questions"
 msgstr "Questions fréquentes"
 
-#: .\templates\home.html:661
 msgid "Everything you need to know before you start."
 msgstr "Tout ce que vous devez savoir avant de commencer."
 
-#: .\templates\home.html:669
 msgid "What is a digital menu with QR code?"
 msgstr "Qu'est-ce qu'un menu numérique avec code QR ?"
 
-#: .\templates\home.html:674
 msgid ""
 "It's a restaurant menu that customers view by scanning a QR code with their "
 "phone, with no app install required. The menu opens instantly in the phone's "
@@ -2176,11 +1764,9 @@ msgstr ""
 "QR avec leur téléphone, sans avoir besoin d'installer une application. Le "
 "menu s'ouvre instantanément dans le navigateur du téléphone."
 
-#: .\templates\home.html:681
 msgid "How much does GetMenuHub cost?"
 msgstr "Combien coûte GetMenuHub ?"
 
-#: .\templates\home.html:686
 msgid ""
 "The Basic plan starts at $7/month and includes unlimited categories and "
 "products with an automatic QR code. The Pro plan costs $19/month and adds "
@@ -2194,11 +1780,9 @@ msgstr ""
 "réduction, sans commission. La formule Business coûte 39 $/mois et ajoute "
 "les statistiques, les rapports et la gestion du personnel."
 
-#: .\templates\home.html:693
 msgid "Do I need programming skills?"
 msgstr "Ai-je besoin de compétences en programmation ?"
 
-#: .\templates\home.html:698
 msgid ""
 "No. Creating a menu is done through a simple form: you add categories, "
 "products, prices and photos, and the QR code is generated automatically."
@@ -2207,11 +1791,9 @@ msgstr ""
 "des catégories, des produits, des prix et des photos, et le code QR est "
 "généré automatiquement."
 
-#: .\templates\home.html:705
 msgid "Can I accept orders from the table?"
 msgstr "Puis-je accepter des commandes depuis la table ?"
 
-#: .\templates\home.html:710
 msgid ""
 "Yes, with the Pro or Business plan customers can send an order directly from "
 "the digital menu by scanning their table's QR code, which you see in real "
@@ -2222,11 +1804,9 @@ msgstr ""
 "table, que vous consultez en temps réel sur le tableau de bord de gestion "
 "des commandes."
 
-#: .\templates\home.html:717
 msgid "How quickly do menu prices update?"
 msgstr "À quelle vitesse les prix du menu sont-ils mis à jour ?"
 
-#: .\templates\home.html:722
 msgid ""
 "Instantly. When you change a price or add a product from the dashboard, the "
 "change appears immediately on the menu customers see, with no reprinting "
@@ -2236,11 +1816,9 @@ msgstr ""
 "le tableau de bord, la modification apparaît immédiatement sur le menu vu "
 "par les clients, sans réimpression nécessaire."
 
-#: .\templates\home.html:729
 msgid "Does the menu work on all phones?"
 msgstr "Le menu fonctionne-t-il sur tous les téléphones ?"
 
-#: .\templates\home.html:734
 msgid ""
 "Yes, the digital menu is fully mobile-first and opens correctly in any "
 "phone's browser, with no app installation required."
@@ -2249,1073 +1827,1166 @@ msgstr ""
 "correctement dans le navigateur de n'importe quel téléphone, sans "
 "installation d'application requise."
 
-#: .\templates\home.html:741
 msgid "Can a digital menu help if my restaurant is short-staffed?"
-msgstr "Un menu numérique peut-il aider si mon restaurant manque de personnel ?"
+msgstr ""
+"Un menu numérique peut-il aider si mon restaurant manque de personnel ?"
 
-#: .\templates\home.html:746
 msgid ""
 "Yes. Table-side ordering lets customers order directly from their phone by "
 "scanning the table's QR code, without a server having to walk over, take the "
 "order, and relay it to the kitchen. That means fewer staff are needed to run "
 "a full shift smoothly, and the staff you do have can focus on service that "
 "actually needs a person."
-msgstr "Oui. Les commandes à table permettent aux clients de commander directement depuis leur téléphone en scannant le code QR de la table, sans qu'un serveur ait besoin de s'approcher, de prendre la commande et de la transmettre à la cuisine. Cela signifie que moins de personnel est nécessaire pour assurer un service fluide, et que le personnel dont vous disposez peut se concentrer sur le service qui nécessite vraiment une personne."
+msgstr ""
+"Oui. Les commandes à table permettent aux clients de commander directement "
+"depuis leur téléphone en scannant le code QR de la table, sans qu'un serveur "
+"ait besoin de s'approcher, de prendre la commande et de la transmettre à la "
+"cuisine. Cela signifie que moins de personnel est nécessaire pour assurer un "
+"service fluide, et que le personnel dont vous disposez peut se concentrer "
+"sur le service qui nécessite vraiment une personne."
 
-#: .\templates\home.html:761
 msgid "Create an account and get your menu's QR code today."
 msgstr "Créez un compte et obtenez le code QR de votre menu dès aujourd'hui."
 
-#: .\templates\home.html:762
 msgid "Create an account"
 msgstr "Créer un compte"
 
-#: .\templates\orders\order_detail.html:7
 msgid "Order"
 msgstr "Commande"
 
-#: .\templates\orders\order_detail.html:10
-#: .\templates\orders\order_list.html:44
 msgid "Are you sure you want to delete this order?"
 msgstr "Êtes-vous sûr de vouloir supprimer cette commande ?"
 
-#: .\templates\orders\order_detail.html:25
 msgid "Order Details"
 msgstr "Détails de la commande"
 
-#: .\templates\orders\order_detail.html:32
-#: .\templates\orders\order_list.html:20
 msgid "Customer"
 msgstr "Client"
 
-#: .\templates\orders\order_detail.html:36
 msgid "Notes"
 msgstr "Notes"
 
-#: .\templates\orders\order_detail.html:44
 msgid "Change Status"
 msgstr "Changer le statut"
 
-#: .\templates\orders\order_detail.html:58
 msgid "Update"
 msgstr "Mettre à jour"
 
-#: .\templates\orders\order_detail.html:65
 msgid "Summary"
 msgstr "Résumé"
 
-#: .\templates\orders\order_detail.html:68
 msgid "Subtotal"
 msgstr "Sous-total"
 
-#: .\templates\orders\order_detail.html:70
-#: .\templates\restaurants\promo_code_list.html:31
 msgid "Discount"
 msgstr "Remise"
 
-#: .\templates\orders\order_detail.html:72
 msgid "VAT"
 msgstr "TVA"
 
-#: .\templates\orders\order_detail.html:73
-#: .\templates\orders\order_detail.html:90
-#: .\templates\orders\order_list.html:22
-#: .\templates\restaurants\public_menu.html:161
-#: .\templates\restaurants\public_menu.html:226
 msgid "Total"
 msgstr "Total"
 
-#: .\templates\orders\order_detail.html:87
 msgid "Product"
 msgstr "Produit"
 
-#: .\templates\orders\order_detail.html:88
 msgid "Quantity"
 msgstr "Quantité"
 
-#: .\templates\orders\order_detail.html:109
 msgid "Activity History"
 msgstr "Historique d'activité"
 
-#: .\templates\orders\order_detail.html:112
 msgid "Unknown"
 msgstr "Inconnu"
 
-#: .\templates\orders\order_detail.html:116
 #, python-format
 msgid ""
 "\n"
 "                        <strong>%(who)s</strong> changed the status from "
 "<em>%(old)s</em> to <em>%(new)s</em>\n"
 "                        "
-msgstr "\n                        <strong>%(who)s</strong> a changé le statut de <em>%(old)s</em> à <em>%(new)s</em>\n                        "
+msgstr ""
+"\n"
+"                        <strong>%(who)s</strong> a changé le statut de "
+"<em>%(old)s</em> à <em>%(new)s</em>\n"
+"                        "
 
-#: .\templates\orders\order_detail.html:122
 msgid "No status changes yet"
 msgstr "Aucun changement de statut pour le moment"
 
-#: .\templates\orders\order_list.html:19
 msgid "Order No."
 msgstr "N° de commande"
 
-#: .\templates\orders\order_list.html:21
 msgid "Table/Sunbed"
 msgstr "Table/Transat"
 
-#: .\templates\orders\order_list.html:25
-#: .\templates\restaurants\loyalty_list.html:40
 msgid "Actions"
 msgstr "Actions"
 
-#: .\templates\orders\order_list.html:42
 msgid "Details"
 msgstr "Détails"
 
-#: .\templates\orders\order_list.html:55
 msgid "No orders found"
 msgstr "Aucune commande trouvée"
 
-#: .\templates\orders\order_list.html:63
 msgid "Order pagination"
 msgstr "Pagination des commandes"
 
-#: .\templates\privacy.html:11 .\templates\refund_policy.html:11
-#: .\templates\terms.html:11
 msgid "Last updated"
 msgstr "Dernière mise à jour"
 
-#: .\templates\privacy.html:13
 msgid "Who we are"
 msgstr "Qui nous sommes"
 
-#: .\templates\privacy.html:14
 msgid ""
 "GetMenuHub is operated by an individual (sole trader), not a registered "
 "company. Throughout this policy, \"we\" or \"the provider\" refers to the "
 "individual operating GetMenuHub."
-msgstr "GetMenuHub est exploité par une personne physique (entreprise individuelle), et non par une société enregistrée. Dans l'ensemble de cette politique, « nous » ou « le fournisseur » désigne la personne physique exploitant GetMenuHub."
+msgstr ""
+"GetMenuHub est exploité par une personne physique (entreprise individuelle), "
+"et non par une société enregistrée. Dans l'ensemble de cette politique, "
+"« nous » ou « le fournisseur » désigne la personne physique exploitant "
+"GetMenuHub."
 
-#: .\templates\privacy.html:16
 msgid "What information we collect"
 msgstr "Quelles informations nous collectons"
 
-#: .\templates\privacy.html:17
 msgid ""
 "When you create a business account, we collect your username, email address, "
 "business name, business type, phone number, and optional VAT/Tax ID. When "
 "customers place an order through a restaurant's digital menu, we collect the "
 "order details and, if provided, a customer name and phone number (used for "
 "loyalty points)."
-msgstr "Lorsque vous créez un compte professionnel, nous collectons votre nom d'utilisateur, adresse e-mail, nom de l'entreprise, type d'entreprise, numéro de téléphone, et numéro de TVA facultatif. Lorsque des clients passent une commande via le menu numérique d'un restaurant, nous collectons les détails de la commande et, si fourni, le nom et le numéro de téléphone du client (utilisés pour les points de fidélité)."
+msgstr ""
+"Lorsque vous créez un compte professionnel, nous collectons votre nom "
+"d'utilisateur, adresse e-mail, nom de l'entreprise, type d'entreprise, "
+"numéro de téléphone, et numéro de TVA facultatif. Lorsque des clients "
+"passent une commande via le menu numérique d'un restaurant, nous collectons "
+"les détails de la commande et, si fourni, le nom et le numéro de téléphone "
+"du client (utilisés pour les points de fidélité)."
 
-#: .\templates\privacy.html:19
 msgid "How we use your information"
 msgstr "Comment nous utilisons vos informations"
 
-#: .\templates\privacy.html:20
 msgid ""
 "We use this information to operate the Service: creating and managing your "
 "account and restaurant menu, processing and displaying orders, calculating "
 "loyalty points, and communicating with you about your account. We do not "
 "sell your personal information to third parties."
-msgstr "Nous utilisons ces informations pour exploiter le Service : création et gestion de votre compte et du menu de votre restaurant, traitement et affichage des commandes, calcul des points de fidélité, et communication avec vous au sujet de votre compte. Nous ne vendons pas vos informations personnelles à des tiers."
+msgstr ""
+"Nous utilisons ces informations pour exploiter le Service : création et "
+"gestion de votre compte et du menu de votre restaurant, traitement et "
+"affichage des commandes, calcul des points de fidélité, et communication "
+"avec vous au sujet de votre compte. Nous ne vendons pas vos informations "
+"personnelles à des tiers."
 
-#: .\templates\privacy.html:22
 msgid "Payment processing"
 msgstr "Traitement des paiements"
 
-#: .\templates\privacy.html:23
 msgid ""
 "Subscription payments are handled entirely by Paddle.com, our Merchant of "
 "Record. Paddle collects and processes your payment card details directly - "
 "we never see or store your card information on our servers. Paddle's own "
 "privacy policy governs how they handle this data."
-msgstr "Les paiements d'abonnement sont entièrement gérés par Paddle.com, notre Merchant of Record. Paddle collecte et traite directement les détails de votre carte de paiement - nous ne voyons ni ne stockons jamais les informations de votre carte sur nos serveurs. La politique de confidentialité propre à Paddle régit la manière dont ils traitent ces données."
+msgstr ""
+"Les paiements d'abonnement sont entièrement gérés par Paddle.com, notre "
+"Merchant of Record. Paddle collecte et traite directement les détails de "
+"votre carte de paiement - nous ne voyons ni ne stockons jamais les "
+"informations de votre carte sur nos serveurs. La politique de "
+"confidentialité propre à Paddle régit la manière dont ils traitent ces "
+"données."
 
-#: .\templates\privacy.html:25
 msgid "Data storage and hosting"
 msgstr "Stockage des données et hébergement"
 
-#: .\templates\privacy.html:26
 msgid ""
 "Your account and menu data is stored on infrastructure provided by our "
 "hosting provider. Uploaded images (logos, product photos) may be stored on "
 "cloud storage where configured."
-msgstr "Les données de votre compte et de votre menu sont stockées sur l'infrastructure fournie par notre hébergeur. Les images téléchargées (logos, photos de produits) peuvent être stockées sur un espace de stockage cloud lorsque configuré."
+msgstr ""
+"Les données de votre compte et de votre menu sont stockées sur "
+"l'infrastructure fournie par notre hébergeur. Les images téléchargées "
+"(logos, photos de produits) peuvent être stockées sur un espace de stockage "
+"cloud lorsque configuré."
 
-#: .\templates\privacy.html:28
 msgid "Cookies"
 msgstr "Cookies"
 
-#: .\templates\privacy.html:29
 msgid ""
 "We use a session cookie to keep you logged in and a CSRF-protection cookie "
 "for security. We do not use advertising or tracking cookies."
-msgstr "Nous utilisons un cookie de session pour vous maintenir connecté et un cookie de protection CSRF pour la sécurité. Nous n'utilisons pas de cookies publicitaires ou de suivi."
+msgstr ""
+"Nous utilisons un cookie de session pour vous maintenir connecté et un "
+"cookie de protection CSRF pour la sécurité. Nous n'utilisons pas de cookies "
+"publicitaires ou de suivi."
 
-#: .\templates\privacy.html:31
 msgid "Data retention"
 msgstr "Conservation des données"
 
-#: .\templates\privacy.html:32
 msgid ""
 "We retain your account and order data for as long as your account is active. "
 "If you close your account, you can request deletion of your personal data by "
 "contacting us, subject to any records we're required to keep for tax or "
 "legal purposes."
-msgstr "Nous conservons les données de votre compte et de vos commandes tant que votre compte est actif. Si vous fermez votre compte, vous pouvez demander la suppression de vos données personnelles en nous contactant, sous réserve des documents que nous sommes tenus de conserver à des fins fiscales ou légales."
+msgstr ""
+"Nous conservons les données de votre compte et de vos commandes tant que "
+"votre compte est actif. Si vous fermez votre compte, vous pouvez demander la "
+"suppression de vos données personnelles en nous contactant, sous réserve des "
+"documents que nous sommes tenus de conserver à des fins fiscales ou légales."
 
-#: .\templates\privacy.html:34
 msgid "Your rights"
 msgstr "Vos droits"
 
-#: .\templates\privacy.html:35
 msgid ""
 "Depending on where you're located, you may have the right to access, "
 "correct, export, or delete your personal data. To exercise any of these "
 "rights, contact us using the details below."
-msgstr "Selon votre lieu de résidence, vous pouvez avoir le droit d'accéder à, de corriger, d'exporter, ou de supprimer vos données personnelles. Pour exercer l'un de ces droits, contactez-nous en utilisant les coordonnées ci-dessous."
+msgstr ""
+"Selon votre lieu de résidence, vous pouvez avoir le droit d'accéder à, de "
+"corriger, d'exporter, ou de supprimer vos données personnelles. Pour exercer "
+"l'un de ces droits, contactez-nous en utilisant les coordonnées ci-dessous."
 
-#: .\templates\privacy.html:37
 msgid "Changes to this policy"
 msgstr "Modifications de cette politique"
 
-#: .\templates\privacy.html:38
 msgid ""
 "We may update this policy from time to time. Continued use of the Service "
 "after a change constitutes acceptance of the updated policy."
-msgstr "Nous pouvons mettre à jour cette politique de temps à autre. L'utilisation continue du Service après une modification constitue une acceptation de la politique mise à jour."
+msgstr ""
+"Nous pouvons mettre à jour cette politique de temps à autre. L'utilisation "
+"continue du Service après une modification constitue une acceptation de la "
+"politique mise à jour."
 
-#: .\templates\privacy.html:40 .\templates\refund_policy.html:28
-#: .\templates\terms.html:34 .\templates\tools\free_qr_code_generator.html:133
 msgid "Contact"
 msgstr "Contact"
 
-#: .\templates\privacy.html:41
 msgid ""
 "For questions about this Privacy Policy or to exercise your data rights, "
 "contact us at <a href=\"mailto:info@getmenuhub.com\">info@getmenuhub.com</a>."
-msgstr "Pour toute question concernant cette Politique de Confidentialité ou pour exercer vos droits sur vos données, contactez-nous à <a href=\"mailto:info@getmenuhub.com\">info@getmenuhub.com</a>."
+msgstr ""
+"Pour toute question concernant cette Politique de Confidentialité ou pour "
+"exercer vos droits sur vos données, contactez-nous à <a "
+"href=\"mailto:info@getmenuhub.com\">info@getmenuhub.com</a>."
 
-#: .\templates\refund_policy.html:13
 msgid "Subscriptions"
 msgstr "Abonnements"
 
-#: .\templates\refund_policy.html:14
 msgid ""
-"GetMenuHub subscriptions (Basic, Pro, Business) are billed monthly in advance. "
-"Payments are non-refundable, including for partial billing periods."
-msgstr "Les abonnements GetMenuHub (Basic, Pro, Business) sont facturés mensuellement à l'avance. Les paiements ne sont pas remboursables, y compris pour les périodes de facturation partielles."
+"GetMenuHub subscriptions (Basic, Pro, Business) are billed monthly in "
+"advance. Payments are non-refundable, including for partial billing periods."
+msgstr ""
+"Les abonnements GetMenuHub (Basic, Pro, Business) sont facturés "
+"mensuellement à l'avance. Les paiements ne sont pas remboursables, y compris "
+"pour les périodes de facturation partielles."
 
-#: .\templates\refund_policy.html:16
 msgid "Cancellation"
 msgstr "Annulation"
 
-#: .\templates\refund_policy.html:17
 msgid ""
 "You can cancel your subscription at any time from your account or Paddle's "
 "customer portal. Cancelling stops future billing, but does not refund the "
 "current billing period - you keep access to your paid plan until the end of "
 "the period you've already paid for."
-msgstr "Vous pouvez annuler votre abonnement à tout moment depuis votre compte ou le portail client de Paddle. L'annulation arrête la facturation future, mais ne rembourse pas la période de facturation en cours - vous conservez l'accès à votre formule payante jusqu'à la fin de la période déjà payée."
+msgstr ""
+"Vous pouvez annuler votre abonnement à tout moment depuis votre compte ou le "
+"portail client de Paddle. L'annulation arrête la facturation future, mais ne "
+"rembourse pas la période de facturation en cours - vous conservez l'accès à "
+"votre formule payante jusqu'à la fin de la période déjà payée."
 
-#: .\templates\refund_policy.html:19
 msgid "Free trial"
 msgstr "Essai gratuit"
 
-#: .\templates\refund_policy.html:20
 msgid ""
 "New accounts start on a free trial. You are not charged during the trial, "
 "and can cancel at any point before it ends with no charge."
-msgstr "Les nouveaux comptes commencent par un essai gratuit. Vous n'êtes pas facturé pendant l'essai, et pouvez annuler à tout moment avant sa fin sans frais."
+msgstr ""
+"Les nouveaux comptes commencent par un essai gratuit. Vous n'êtes pas "
+"facturé pendant l'essai, et pouvez annuler à tout moment avant sa fin sans "
+"frais."
 
-#: .\templates\refund_policy.html:22
 msgid "Exceptions"
 msgstr "Exceptions"
 
-#: .\templates\refund_policy.html:23
 msgid ""
 "If you were charged due to a proven technical error on our part (for "
 "example, a duplicate charge), contact us and we will review and correct it. "
 "Refund requests are handled case by case at our discretion outside of this "
 "scenario."
-msgstr "Si vous avez été facturé en raison d'une erreur technique avérée de notre part (par exemple, un double prélèvement), contactez-nous et nous l'examinerons et le corrigerons. Les demandes de remboursement sont traitées au cas par cas, à notre discrétion, en dehors de ce scénario."
+msgstr ""
+"Si vous avez été facturé en raison d'une erreur technique avérée de notre "
+"part (par exemple, un double prélèvement), contactez-nous et nous "
+"l'examinerons et le corrigerons. Les demandes de remboursement sont traitées "
+"au cas par cas, à notre discrétion, en dehors de ce scénario."
 
-#: .\templates\refund_policy.html:25
 msgid "How payments are processed"
 msgstr "Comment les paiements sont traités"
 
-#: .\templates\refund_policy.html:26
 msgid ""
 "All payments are processed by Paddle.com, our Merchant of Record, who also "
 "handles applicable taxes. Any dispute regarding a specific charge can also "
 "be raised directly with Paddle."
-msgstr "Tous les paiements sont traités par Paddle.com, notre Merchant of Record, qui gère également les taxes applicables. Tout litige concernant un prélèvement spécifique peut également être soulevé directement auprès de Paddle."
+msgstr ""
+"Tous les paiements sont traités par Paddle.com, notre Merchant of Record, "
+"qui gère également les taxes applicables. Tout litige concernant un "
+"prélèvement spécifique peut également être soulevé directement auprès de "
+"Paddle."
 
-#: .\templates\refund_policy.html:29
 msgid ""
 "For questions about this Refund Policy, contact us at <a "
 "href=\"mailto:info@getmenuhub.com\">info@getmenuhub.com</a>."
-msgstr "Pour toute question concernant cette Politique de Remboursement, contactez-nous à <a href=\"mailto:info@getmenuhub.com\">info@getmenuhub.com</a>."
+msgstr ""
+"Pour toute question concernant cette Politique de Remboursement, contactez-"
+"nous à <a href=\"mailto:info@getmenuhub.com\">info@getmenuhub.com</a>."
 
-#: .\templates\restaurants\category_list.html:10
 msgid "New Category"
 msgstr "Nouvelle catégorie"
 
-#: .\templates\restaurants\category_list.html:15
-#: .\templates\restaurants\product_list.html:16
-#: .\templates\restaurants\promo_code_list.html:17
-#: .\templates\restaurants\staff_list.html:18
-#: .\templates\restaurants\table_list.html:18
 msgid "Create"
 msgstr "Créer"
 
-#: .\templates\restaurants\category_list.html:22
 msgid "Category List"
 msgstr "Liste des catégories"
 
-#: .\templates\restaurants\category_list.html:29
-#: .\templates\restaurants\public_menu.html:143
 msgid "products"
 msgstr "produits"
 
-#: .\templates\restaurants\category_list.html:33
 msgid "Are you sure you want to delete this category?"
 msgstr "Êtes-vous sûr de vouloir supprimer cette catégorie ?"
 
-#: .\templates\restaurants\category_list.html:39
 msgid "No categories yet"
 msgstr "Aucune catégorie pour le moment"
 
-#: .\templates\restaurants\dashboard.html:6
 #, python-format
 msgid "Welcome, %(user)s!"
 msgstr "Bienvenue, %(user)s !"
 
-#: .\templates\restaurants\dashboard.html:7
 msgid "This is your restaurant's dashboard."
 msgstr "Voici le tableau de bord de votre restaurant."
 
-#: .\templates\restaurants\dashboard.html:14
 msgid "Total Products"
 msgstr "Total des produits"
 
-#: .\templates\restaurants\dashboard.html:22
 msgid "Available Products"
 msgstr "Produits disponibles"
 
-#: .\templates\restaurants\feature_upgrade.html:11
 msgid "View Plans"
 msgstr "Voir les formules"
 
-#: .\templates\restaurants\loyalty_edit.html:4
 msgid "Edit Loyalty"
 msgstr "Modifier la fidélité"
 
-#: .\templates\restaurants\loyalty_edit.html:8
 msgid "Edit Loyalty Account"
 msgstr "Modifier le compte de fidélité"
 
-#: .\templates\restaurants\loyalty_list.html:4
-#: .\templates\restaurants\loyalty_list.html:8
 msgid "Customer Loyalty"
 msgstr "Fidélité client"
 
-#: .\templates\restaurants\loyalty_list.html:9
 msgid ""
 "Customers earn 1 point per euro they spend, tracked by their phone number."
-msgstr "Les clients gagnent 1 point par euro dépensé, suivi via leur numéro de téléphone."
+msgstr ""
+"Les clients gagnent 1 point par euro dépensé, suivi via leur numéro de "
+"téléphone."
 
-#: .\templates\restaurants\loyalty_list.html:13
 msgid "Loyalty is currently disabled - customers are not earning points."
 msgstr ""
 "La fidélité est actuellement désactivée - les clients ne gagnent pas de "
 "points."
 
-#: .\templates\restaurants\loyalty_list.html:14
 msgid "Enable from Settings"
 msgstr "Activer depuis les paramètres"
 
-#: .\templates\restaurants\loyalty_list.html:20
 msgid "Search by phone..."
 msgstr "Rechercher par téléphone..."
 
-#: .\templates\restaurants\loyalty_list.html:31
 msgid "Points Ranking"
 msgstr "Classement des points"
 
-#: .\templates\restaurants\loyalty_list.html:39
 msgid "Last Updated"
 msgstr "Dernière mise à jour"
 
-#: .\templates\restaurants\loyalty_list.html:53
 msgid "Are you sure you want to delete this loyalty account?"
 msgstr "Êtes-vous sûr de vouloir supprimer ce compte de fidélité ?"
 
-#: .\templates\restaurants\loyalty_list.html:65
 msgid "No results found"
 msgstr "Aucun résultat trouvé"
 
-#: .\templates\restaurants\loyalty_list.html:67
 msgid "No loyalty points yet"
 msgstr "Aucun point de fidélité pour le moment"
 
-#: .\templates\restaurants\loyalty_list.html:77
 msgid "Loyalty pagination"
 msgstr "Pagination de fidélité"
 
-#: .\templates\restaurants\product_edit.html:6
 msgid "Edit Product"
 msgstr "Modifier le produit"
 
-#: .\templates\restaurants\product_list.html:11
 msgid "New Product"
 msgstr "Nouveau produit"
 
-#: .\templates\restaurants\product_list.html:24
 msgid "Product List"
 msgstr "Liste des produits"
 
-#: .\templates\restaurants\product_list.html:36
 msgid "Unavailable"
 msgstr "Indisponible"
 
-#: .\templates\restaurants\product_list.html:46
 msgid "Are you sure you want to delete this product?"
 msgstr "Êtes-vous sûr de vouloir supprimer ce produit ?"
 
-#: .\templates\restaurants\product_list.html:55
 msgid "No products yet"
 msgstr "Aucun produit pour le moment"
 
-#: .\templates\restaurants\product_list.html:60
 msgid "Product pagination"
 msgstr "Pagination des produits"
 
-#: .\templates\restaurants\promo_code_list.html:12
 msgid "New Promo Code"
 msgstr "Nouveau code promo"
 
-#: .\templates\restaurants\promo_code_list.html:24
 msgid "Promo Code List"
 msgstr "Liste des codes promo"
 
-#: .\templates\restaurants\promo_code_list.html:32
 msgid "Uses"
 msgstr "Utilisations"
 
-#: .\templates\restaurants\promo_code_list.html:33
 msgid "Valid Until"
 msgstr "Valable jusqu'au"
 
-#: .\templates\restaurants\promo_code_list.html:55
 msgid "Are you sure you want to delete this promo code?"
 msgstr "Êtes-vous sûr de vouloir supprimer ce code promo ?"
 
-#: .\templates\restaurants\promo_code_list.html:63
 msgid "No promo codes yet"
 msgstr "Aucun code promo pour le moment"
 
-#: .\templates\restaurants\public_menu.html:4
 msgid "Menu"
 msgstr "Menu"
 
-#: .\templates\restaurants\public_menu.html:66
 msgid "Accepting orders"
 msgstr "Accepte les commandes"
 
-#: .\templates\restaurants\public_menu.html:115
 msgid "Add"
 msgstr "Ajouter"
 
-#: .\templates\restaurants\public_menu.html:128
 msgid "No products available"
 msgstr "Aucun produit disponible"
 
-#: .\templates\restaurants\public_menu.html:136
 msgid "Powered by"
 msgstr "Propulsé par"
 
-#: .\templates\restaurants\public_menu.html:145
 msgid "View order"
 msgstr "Voir la commande"
 
-#: .\templates\restaurants\public_menu.html:154
 msgid "Your Order"
 msgstr "Votre commande"
 
-#: .\templates\restaurants\public_menu.html:166
 msgid "Table number"
 msgstr "Numéro de table"
 
-#: .\templates\restaurants\public_menu.html:177
 msgid "Name (optional)"
 msgstr "Nom (facultatif)"
 
-#: .\templates\restaurants\public_menu.html:182
 msgid "Phone (optional, for Loyalty points)"
 msgstr "Téléphone (facultatif, pour les points de fidélité)"
 
-#: .\templates\restaurants\public_menu.html:187
 msgid "Promo Code (optional)"
 msgstr "Code promo (facultatif)"
 
-#: .\templates\restaurants\public_menu.html:190
 msgid "Apply"
 msgstr "Appliquer"
 
-#: .\templates\restaurants\public_menu.html:195
 msgid "Notes (optional)"
 msgstr "Notes (facultatif)"
 
-#: .\templates\restaurants\public_menu.html:203
-#: .\templates\restaurants\public_menu.html:222
 msgid "Send Order"
 msgstr "Envoyer la commande"
 
-#: .\templates\restaurants\public_menu.html:219
 msgid "Your cart is empty."
 msgstr "Votre panier est vide."
 
-#: .\templates\restaurants\public_menu.html:220
 msgid "Added"
 msgstr "Ajouté"
 
-#: .\templates\restaurants\public_menu.html:221
 msgid "Sending..."
 msgstr "Envoi en cours..."
 
-#: .\templates\restaurants\public_menu.html:225
 msgid "Your order has been sent! Number"
 msgstr "Votre commande a été envoyée ! Numéro"
 
-#: .\templates\restaurants\public_menu.html:227
 msgid "You will earn Loyalty points once your order is confirmed."
 msgstr ""
 "Vous gagnerez des points de fidélité une fois votre commande confirmée."
 
-#: .\templates\restaurants\public_menu.html:228
 msgid "Invalid promo code."
 msgstr "Code promo invalide."
 
-#: .\templates\restaurants\public_menu.html:229
 msgid "Promo code applied!"
 msgstr "Code promo appliqué !"
 
-#: .\templates\restaurants\settings.html:22
 msgid "Your Menu Site"
 msgstr "Votre site de menu"
 
-#: .\templates\restaurants\settings.html:26
 msgid "Change the subdomain in the form to the left."
 msgstr "Modifiez le sous-domaine dans le formulaire à gauche."
 
-#: .\templates\restaurants\settings.html:34
 msgid "Scan to view the menu"
 msgstr "Scannez pour voir le menu"
 
-#: .\templates\restaurants\settings.html:36
-#: .\templates\restaurants\table_list.html:40
 msgid "Download"
 msgstr "Télécharger"
 
-#: .\templates\restaurants\settings.html:39
 msgid "The QR Code will be generated automatically"
 msgstr "Le code QR sera généré automatiquement"
 
-#: .\templates\restaurants\staff_list.html:9
 msgid ""
 "Create accounts for your staff. The \"Admin\" has access to almost "
 "everything except staff management. The \"Employee\" only sees the products "
 "and manages orders."
-msgstr "Créez des comptes pour votre personnel. L'« Administrateur » a accès à presque tout sauf la gestion du personnel. L'« Employé » ne voit que les produits et gère les commandes."
+msgstr ""
+"Créez des comptes pour votre personnel. L'« Administrateur » a accès à "
+"presque tout sauf la gestion du personnel. L'« Employé » ne voit que les "
+"produits et gère les commandes."
 
-#: .\templates\restaurants\staff_list.html:13
 msgid "New Account"
 msgstr "Nouveau compte"
 
-#: .\templates\restaurants\staff_list.html:25
 msgid "Staff List"
 msgstr "Liste du personnel"
 
-#: .\templates\restaurants\staff_list.html:38
 msgid "Are you sure you want to remove this account?"
 msgstr "Êtes-vous sûr de vouloir supprimer ce compte ?"
 
-#: .\templates\restaurants\staff_list.html:44
 msgid "No staff yet"
 msgstr "Aucun membre du personnel pour le moment"
 
-#: .\templates\restaurants\stats_dashboard.html:9
 msgid "Sales Statistics"
 msgstr "Statistiques de ventes"
 
-#: .\templates\restaurants\stats_dashboard.html:11
 msgid "Export CSV"
 msgstr "Exporter en CSV"
 
-#: .\templates\restaurants\stats_dashboard.html:19
 msgid "Today"
 msgstr "Aujourd'hui"
 
-#: .\templates\restaurants\stats_dashboard.html:21
-#: .\templates\restaurants\stats_dashboard.html:30
-#: .\templates\restaurants\stats_dashboard.html:39
 msgid "orders"
 msgstr "commandes"
 
-#: .\templates\restaurants\stats_dashboard.html:28
 msgid "This Week"
 msgstr "Cette semaine"
 
-#: .\templates\restaurants\stats_dashboard.html:37
 msgid "This Month"
 msgstr "Ce mois-ci"
 
-#: .\templates\restaurants\stats_dashboard.html:48
 msgid "Revenue - Last 14 Days"
 msgstr "Revenus - 14 derniers jours"
 
-#: .\templates\restaurants\stats_dashboard.html:56
 msgid "Popular Products"
 msgstr "Produits populaires"
 
-#: .\templates\restaurants\stats_dashboard.html:65
 msgid "No sales yet"
 msgstr "Aucune vente pour le moment"
 
-#: .\templates\restaurants\stats_dashboard.html:88
 msgid "Revenue ($)"
 msgstr "Revenus ($)"
 
-#: .\templates\restaurants\stats_upgrade.html:9
 msgid "Statistics are available on the Business plan"
 msgstr "Les statistiques sont disponibles avec la formule Business"
 
-#: .\templates\restaurants\stats_upgrade.html:11
 msgid ""
 "Upgrade to the Business plan to see daily/weekly/monthly revenue,\n"
 "        popular products and sales trends."
-msgstr "Passez à la formule Business pour voir les revenus quotidiens/hebdomadaires/mensuels,\n        les produits populaires et les tendances de ventes."
+msgstr ""
+"Passez à la formule Business pour voir les revenus quotidiens/hebdomadaires/"
+"mensuels,\n"
+"        les produits populaires et les tendances de ventes."
 
-#: .\templates\restaurants\stats_upgrade.html:14
 msgid "View plans"
 msgstr "voir les formules"
 
-#: .\templates\restaurants\table_list.html:9
 msgid ""
 "Create a QR code for each table or sunbed. Anyone who scans it sees the menu "
 "with their location already selected and can order directly."
-msgstr "Créez un code QR pour chaque table ou transat. Quiconque le scanne voit le menu avec son emplacement déjà sélectionné et peut commander directement."
+msgstr ""
+"Créez un code QR pour chaque table ou transat. Quiconque le scanne voit le "
+"menu avec son emplacement déjà sélectionné et peut commander directement."
 
-#: .\templates\restaurants\table_list.html:13
 msgid "New Location"
 msgstr "Nouvel emplacement"
 
-#: .\templates\restaurants\table_list.html:45
 msgid "Are you sure you want to delete this?"
 msgstr "Êtes-vous sûr de vouloir supprimer ceci ?"
 
-#: .\templates\restaurants\table_list.html:55
 msgid "No tables or sunbeds yet"
 msgstr "Aucune table ni transat pour le moment"
 
-#: .\templates\terms.html:13
+msgid "Less Staff, More Orders: The Restaurant Staffing Shortage Solution"
+msgstr "Moins de Personnel, Plus de Commandes : La Solution à la Pénurie de Personnel en Restauration"
+
+msgid ""
+"Short-staffed restaurant? Table-side QR ordering lets customers order "
+"themselves, so your existing team runs a full shift without extra hires. See "
+"how it works."
+msgstr "Restaurant en sous-effectif ? La commande QR à table permet aux clients de commander eux-mêmes, afin que votre équipe actuelle assure tout le service sans nouvelle embauche. Découvrez comment ça marche."
+
+msgid ""
+"Table-side QR ordering lets customers order themselves, so your existing "
+"team runs a full shift without extra hires."
+msgstr "La commande QR à table permet aux clients de commander eux-mêmes, afin que votre équipe actuelle assure tout le service sans nouvelle embauche."
+
+msgid "Less Staff, More Orders: The Solution to Your Staffing Shortage"
+msgstr "Moins de Personnel, Plus de Commandes : La Solution à Votre Pénurie de Personnel"
+
+msgid ""
+"Don't lose tables because your servers can't keep up. With GetMenuHub, "
+"customers scan, order for themselves, and your existing staff spend their "
+"time on service - not running back and forth to take orders."
+msgstr "Ne perdez plus de tables parce que vos serveurs sont débordés. Avec GetMenuHub, les clients scannent, commandent eux-mêmes, et votre personnel actuel consacre son temps au service - pas aux allers-retours pour prendre les commandes."
+
+msgid "The problem: not enough hands, same number of tables"
+msgstr "Le problème : moins de bras, le même nombre de tables"
+
+msgid ""
+"Finding and keeping enough staff is one of the hardest parts of running a "
+"restaurant right now. When you're short-handed, the first thing that suffers "
+"is speed - tables wait longer to order, kitchens fall behind, and the staff "
+"you do have end up stretched across too many things at once."
+msgstr "Trouver et garder suffisamment de personnel est l'une des parties les plus difficiles de la gestion d'un restaurant en ce moment. Quand le personnel manque, la première chose qui en pâtit est la rapidité : les tables attendent plus longtemps pour commander, la cuisine prend du retard, et le personnel dont vous disposez se retrouve dispersé sur trop de choses à la fois."
+
+msgid "How GetMenuHub helps"
+msgstr "Comment GetMenuHub vous aide"
+
+msgid ""
+"Table-side ordering removes the single most repetitive part of service: "
+"walking to a table, writing down an order, and walking it back to the "
+"kitchen."
+msgstr "La commande à table élimine la partie la plus répétitive du service : se déplacer à la table, noter la commande et la transmettre en cuisine."
+
+msgid "Customers scan the table's QR code and order directly from their phone"
+msgstr "Les clients scannent le code QR de la table et commandent directement depuis leur téléphone"
+
+msgid "Orders land on your dashboard instantly - no relaying, no lost tickets"
+msgstr "Les commandes arrivent instantanément sur votre tableau de bord - sans intermédiaire, sans ticket perdu"
+
+msgid "Existing staff cover more tables without feeling stretched thin"
+msgstr "Le personnel actuel couvre plus de tables sans se sentir débordé"
+
+msgid "Menu changes go live immediately, with zero reprinting"
+msgstr "Les modifications du menu sont publiées instantanément, sans aucune réimpression"
+
+msgid ""
+"A server notices the table is ready, walks over, takes the order by hand, "
+"walks it to the kitchen - then repeats for the next table, one at a time."
+msgstr "Un serveur remarque que la table est prête, s'y rend, prend la commande à la main, la porte en cuisine - puis recommence pour la table suivante, une par une."
+
+msgid ""
+"The customer scans the table's QR code and orders directly from their phone. "
+"It lands on your dashboard instantly, so your staff can go straight to what "
+"needs a person."
+msgstr "Le client scanne le code QR de la table et commande directement depuis son téléphone. La commande arrive instantanément sur votre tableau de bord, afin que votre personnel se consacre directement à ce qui nécessite vraiment une personne."
+
+msgid "How many hours could you free up?"
+msgstr "Combien d'heures pourriez-vous libérer ?"
+
+msgid ""
+"Use the free Staff Efficiency Calculator to estimate the staff time table-"
+"side ordering could save your restaurant every day."
+msgstr "Utilisez le Calculateur d'Efficacité du Personnel gratuit pour estimer le temps de personnel que la commande à table pourrait faire économiser chaque jour à votre restaurant."
+
+msgid "Try the Staff Efficiency Calculator"
+msgstr "Essayer le Calculateur d'Efficacité du Personnel"
+
+msgid "Related reading"
+msgstr "Articles associés"
+
+msgid "Staff Shortage in Restaurants: How QR Ordering Saves Your Season"
+msgstr "Pénurie de Personnel dans la Restauration : Comment la Commande QR Sauve Votre Saison"
+
+msgid "Cost Breakdown: A $19/Month Digital Menu vs. Hiring Extra Staff"
+msgstr "Analyse des Coûts : Menu Numérique à 19 $/mois contre Embauche de Personnel Supplémentaire"
+
+msgid "How to Increase Table Turnover at Peak Hours, Even With Fewer Staff"
+msgstr "Comment Augmenter la Rotation des Tables aux Heures de Pointe, Même avec Moins de Personnel"
+
+msgid "Let your menu carry more of the workload"
+msgstr "Laissez votre menu prendre en charge une plus grande part du travail"
+
+msgid ""
+"Set up your digital menu in about 5 minutes. No printer, no extra hire, no "
+"app for your customers to install."
+msgstr "Créez votre menu numérique en environ 5 minutes. Pas d'imprimante, pas de nouvelle embauche, pas d'application à installer pour vos clients."
+
+msgid "Start free"
+msgstr "Commencer gratuitement"
+
 msgid "Scope"
 msgstr "Champ d'application"
 
-#: .\templates\terms.html:14
 msgid ""
 "The GetMenuHub service (\"the Service\") is operated by an individual (sole "
 "trader) and is available to businesses worldwide. A valid VAT/Tax ID is not "
 "required to sign up, but may be requested where applicable for invoicing or "
 "tax compliance."
-msgstr "Le service GetMenuHub (« le Service ») est exploité par une personne physique (entreprise individuelle) et est disponible pour les entreprises du monde entier. Un numéro de TVA valide n'est pas requis pour s'inscrire, mais peut être demandé le cas échéant pour la facturation ou la conformité fiscale."
+msgstr ""
+"Le service GetMenuHub (« le Service ») est exploité par une personne "
+"physique (entreprise individuelle) et est disponible pour les entreprises du "
+"monde entier. Un numéro de TVA valide n'est pas requis pour s'inscrire, mais "
+"peut être demandé le cas échéant pour la facturation ou la conformité "
+"fiscale."
 
-#: .\templates\terms.html:16
 msgid "Service Description"
 msgstr "Description du Service"
 
-#: .\templates\terms.html:17
 msgid ""
 "GetMenuHub provides a platform for creating a digital QR-code menu, managing "
 "products/categories, taking orders (depending on subscription plan), and "
 "related tools (loyalty, discount codes, statistics). The Service is in beta "
 "and may change without notice."
-msgstr "GetMenuHub fournit une plateforme pour créer un menu QR numérique, gérer les produits/catégories, prendre des commandes (selon la formule d'abonnement), et des outils associés (fidélité, codes de réduction, statistiques). Le Service est en version bêta et peut changer sans préavis."
+msgstr ""
+"GetMenuHub fournit une plateforme pour créer un menu QR numérique, gérer les "
+"produits/catégories, prendre des commandes (selon la formule d'abonnement), "
+"et des outils associés (fidélité, codes de réduction, statistiques). Le "
+"Service est en version bêta et peut changer sans préavis."
 
-#: .\templates\terms.html:19
 msgid "Plans & Billing"
 msgstr "Formules et Facturation"
 
-#: .\templates\terms.html:20
 msgid ""
 "Subscription plan prices are listed on the pricing page. Payments are "
 "processed by Paddle.com, our authorized reseller and Merchant of Record, who "
 "handles billing, applicable taxes, and invoicing on our behalf."
-msgstr "Les prix des formules d'abonnement sont indiqués sur la page des tarifs. Les paiements sont traités par Paddle.com, notre revendeur agréé et Merchant of Record, qui gère la facturation, les taxes applicables, et l'émission des factures en notre nom."
+msgstr ""
+"Les prix des formules d'abonnement sont indiqués sur la page des tarifs. Les "
+"paiements sont traités par Paddle.com, notre revendeur agréé et Merchant of "
+"Record, qui gère la facturation, les taxes applicables, et l'émission des "
+"factures en notre nom."
 
-#: .\templates\terms.html:22
 msgid "User Responsibility"
 msgstr "Responsabilité de l'Utilisateur"
 
-#: .\templates\terms.html:23
 msgid ""
 "The user is solely responsible for the accuracy of the information they "
 "enter (prices, descriptions, photos, dietary labels) and for managing their "
 "staff's access to the platform."
-msgstr "L'utilisateur est seul responsable de l'exactitude des informations qu'il saisit (prix, descriptions, photos, étiquettes diététiques) et de la gestion de l'accès de son personnel à la plateforme."
+msgstr ""
+"L'utilisateur est seul responsable de l'exactitude des informations qu'il "
+"saisit (prix, descriptions, photos, étiquettes diététiques) et de la gestion "
+"de l'accès de son personnel à la plateforme."
 
-#: .\templates\terms.html:25
 msgid "Limitation of Liability"
 msgstr "Limitation de Responsabilité"
 
-#: .\templates\terms.html:26
 msgid ""
 "The Service is provided \"as is\", without any guarantee of uninterrupted "
 "operation. The provider is not liable for indirect damages arising from use "
 "or inability to use the Service."
-msgstr "Le Service est fourni « tel quel », sans aucune garantie de fonctionnement ininterrompu. Le fournisseur n'est pas responsable des dommages indirects résultant de l'utilisation ou de l'impossibilité d'utiliser le Service."
+msgstr ""
+"Le Service est fourni « tel quel », sans aucune garantie de fonctionnement "
+"ininterrompu. Le fournisseur n'est pas responsable des dommages indirects "
+"résultant de l'utilisation ou de l'impossibilité d'utiliser le Service."
 
-#: .\templates\terms.html:28
 msgid "Governing Law"
 msgstr "Droit Applicable"
 
-#: .\templates\terms.html:29
 msgid ""
 "These Terms are governed by the laws applicable in the provider's place of "
 "business, without regard to conflict-of-law principles."
-msgstr "Les présentes Conditions sont régies par les lois applicables au lieu d'activité du fournisseur, sans égard aux principes de conflit de lois."
+msgstr ""
+"Les présentes Conditions sont régies par les lois applicables au lieu "
+"d'activité du fournisseur, sans égard aux principes de conflit de lois."
 
-#: .\templates\terms.html:31
 msgid "Changes"
 msgstr "Modifications"
 
-#: .\templates\terms.html:32
 msgid ""
 "These Terms may be updated from time to time. Continued use of the Service "
 "after a change constitutes acceptance of the new terms."
-msgstr "Les présentes Conditions peuvent être mises à jour de temps à autre. L'utilisation continue du Service après une modification constitue une acceptation des nouvelles conditions."
+msgstr ""
+"Les présentes Conditions peuvent être mises à jour de temps à autre. "
+"L'utilisation continue du Service après une modification constitue une "
+"acceptation des nouvelles conditions."
 
-#: .\templates\terms.html:35
 msgid ""
 "For questions about these Terms of Use, contact us at <a "
 "href=\"mailto:info@getmenuhub.com\">info@getmenuhub.com</a>."
-msgstr "Pour toute question concernant ces Conditions d'Utilisation, contactez-nous à <a href=\"mailto:info@getmenuhub.com\">info@getmenuhub.com</a>."
+msgstr ""
+"Pour toute question concernant ces Conditions d'Utilisation, contactez-nous "
+"à <a href=\"mailto:info@getmenuhub.com\">info@getmenuhub.com</a>."
 
-#: .\templates\tools\free_qr_code_generator.html:4
 msgid "Free QR Code Generator - No Sign-up Required"
 msgstr "Générateur QR gratuit - Sans inscription"
 
-#: .\templates\tools\free_qr_code_generator.html:5
 msgid ""
 "Generate a free QR code for a URL, text, phone number, email, SMS, Wi-Fi "
 "login, or contact card. No sign-up, no watermark."
-msgstr "Générez un code QR gratuit pour une URL, du texte, un numéro de téléphone, un e-mail, un SMS, une connexion Wi-Fi ou une carte de contact. Sans inscription, sans filigrane."
+msgstr ""
+"Générez un code QR gratuit pour une URL, du texte, un numéro de téléphone, "
+"un e-mail, un SMS, une connexion Wi-Fi ou une carte de contact. Sans "
+"inscription, sans filigrane."
 
-#: .\templates\tools\free_qr_code_generator.html:107
 msgid ""
 "Pick a type, fill in the details, get a downloadable QR code. No account, no "
 "watermark, no catch."
-msgstr "Choisissez un type, remplissez les détails, obtenez un code QR téléchargeable. Sans compte, sans filigrane, sans piège."
+msgstr ""
+"Choisissez un type, remplissez les détails, obtenez un code QR "
+"téléchargeable. Sans compte, sans filigrane, sans piège."
 
-#: .\templates\tools\free_qr_code_generator.html:113
 msgid "QR code type"
 msgstr "Type de code QR"
 
-#: .\templates\tools\free_qr_code_generator.html:115
 msgid "URL"
 msgstr "URL"
 
-#: .\templates\tools\free_qr_code_generator.html:118
-#: .\templates\tools\free_qr_code_generator.html:142
 msgid "Text"
 msgstr "Texte"
 
-#: .\templates\tools\free_qr_code_generator.html:124
 msgid "Email"
 msgstr "E-mail"
 
-#: .\templates\tools\free_qr_code_generator.html:127
 msgid "SMS"
 msgstr "SMS"
 
-#: .\templates\tools\free_qr_code_generator.html:130
 msgid "Wi-Fi"
 msgstr "Wi-Fi"
 
-#: .\templates\tools\free_qr_code_generator.html:137
 msgid "URL to encode"
 msgstr "URL à encoder"
 
-#: .\templates\tools\free_qr_code_generator.html:147
-#: .\templates\tools\free_qr_code_generator.html:161
 msgid "Phone number"
 msgstr "Numéro de téléphone"
 
-#: .\templates\tools\free_qr_code_generator.html:152
 msgid "Email address"
 msgstr "Adresse e-mail"
 
-#: .\templates\tools\free_qr_code_generator.html:154
 msgid "Subject (optional)"
 msgstr "Objet (facultatif)"
 
-#: .\templates\tools\free_qr_code_generator.html:156
-#: .\templates\tools\free_qr_code_generator.html:163
 msgid "Message (optional)"
 msgstr "Message (facultatif)"
 
-#: .\templates\tools\free_qr_code_generator.html:168
 msgid "Network name (SSID)"
 msgstr "Nom du réseau (SSID)"
 
-#: .\templates\tools\free_qr_code_generator.html:172
 msgid "Security"
 msgstr "Sécurité"
 
-#: .\templates\tools\free_qr_code_generator.html:176
 msgid "No password"
 msgstr "Sans mot de passe"
 
-#: .\templates\tools\free_qr_code_generator.html:181
 msgid "Name"
 msgstr "Nom"
 
-#: .\templates\tools\free_qr_code_generator.html:183
 msgid "Phone (optional)"
 msgstr "Téléphone (facultatif)"
 
-#: .\templates\tools\free_qr_code_generator.html:185
 msgid "Email (optional)"
 msgstr "E-mail (facultatif)"
 
-#: .\templates\tools\free_qr_code_generator.html:187
 msgid "Company (optional)"
 msgstr "Entreprise (facultatif)"
 
-#: .\templates\tools\free_qr_code_generator.html:194
 msgid "Generate QR Code"
 msgstr "Générer le code QR"
 
-#: .\templates\tools\free_qr_code_generator.html:199
 msgid "Generated QR code"
 msgstr "Code QR généré"
 
-#: .\templates\tools\free_qr_code_generator.html:202
 msgid "Download PNG"
 msgstr "Télécharger PNG"
 
-#: .\templates\tools\free_qr_code_generator.html:210
 msgid "Run a restaurant, cafe, or bar?"
 msgstr "Vous gérez un restaurant, un café ou un bar ?"
 
-#: .\templates\tools\free_qr_code_generator.html:211
 msgid ""
-"A plain QR code just opens a link. GetMenuHub turns it into a full digital menu "
-"you can update instantly - no reprinting, ever - with optional ordering "
+"A plain QR code just opens a link. GetMenuHub turns it into a full digital "
+"menu you can update instantly - no reprinting, ever - with optional ordering "
 "straight from the table."
-msgstr "Un simple code QR ouvre juste un lien. GetMenuHub le transforme en un menu numérique complet que vous pouvez mettre à jour instantanément - sans jamais réimprimer - avec commande optionnelle directement depuis la table."
+msgstr ""
+"Un simple code QR ouvre juste un lien. GetMenuHub le transforme en un menu "
+"numérique complet que vous pouvez mettre à jour instantanément - sans jamais "
+"réimprimer - avec commande optionnelle directement depuis la table."
 
-#: .\templates\tools\free_qr_code_generator.html:212
-#: .\templates\tools\qr_menu_examples.html:67
 msgid "Create your free QR menu"
 msgstr "Créez votre menu QR gratuit"
 
-#: .\templates\tools\free_qr_code_generator.html:216
 msgid "How this QR code works"
 msgstr "Comment fonctionne ce code QR"
 
-#: .\templates\tools\free_qr_code_generator.html:217
 msgid ""
 "Scanning the code with any phone camera reads back exactly what you entered "
 "- a link opens instantly, a Wi-Fi code offers to join the network, a contact "
 "card offers to save itself. Nothing about it depends on GetMenuHub staying "
 "online except URL codes, which simply open the link you gave them."
-msgstr "Scanner le code avec n'importe quel appareil photo de téléphone restitue exactement ce que vous avez saisi - un lien s'ouvre instantanément, un code Wi-Fi propose de rejoindre le réseau, une carte de contact propose de s'enregistrer. Rien de tout cela ne dépend du fonctionnement de GetMenuHub, sauf les codes URL, qui ouvrent simplement le lien que vous avez fourni."
+msgstr ""
+"Scanner le code avec n'importe quel appareil photo de téléphone restitue "
+"exactement ce que vous avez saisi - un lien s'ouvre instantanément, un code "
+"Wi-Fi propose de rejoindre le réseau, une carte de contact propose de "
+"s'enregistrer. Rien de tout cela ne dépend du fonctionnement de GetMenuHub, "
+"sauf les codes URL, qui ouvrent simplement le lien que vous avez fourni."
 
-#: .\templates\tools\free_qr_code_generator.html:218
 msgid "Curious what a QR code menu actually looks like in practice?"
 msgstr "Curieux de voir à quoi ressemble réellement un menu QR en pratique ?"
 
-#: .\templates\tools\free_qr_code_generator.html:218
 msgid "See how to create one"
 msgstr "Voir comment en créer un"
 
-#: .\templates\tools\free_qr_code_generator.html:218
 msgid "or"
 msgstr "ou"
 
-#: .\templates\tools\free_qr_code_generator.html:218
 msgid "browse live examples"
 msgstr "parcourir des exemples en direct"
 
-#: .\templates\tools\free_qr_code_generator.html:224
 msgid "Can I use this to make a QR code for a bank transfer?"
 msgstr "Puis-je l'utiliser pour créer un code QR pour un virement bancaire ?"
 
-#: .\templates\tools\free_qr_code_generator.html:225
 msgid ""
 "Not directly. This tool generates a standard QR code that opens a link or "
 "encodes text, a phone number, Wi-Fi login, or similar - it doesn't format "
 "payment details the way banking apps expect. A QR code your bank app can "
 "read and auto-fill a transfer from needs the SEPA/EPC QR code format, which "
 "your bank provides directly in its own app or online banking."
-msgstr "Pas directement. Cet outil génère un code QR standard qui ouvre un lien ou encode du texte, un numéro de téléphone, une connexion Wi-Fi ou similaire - il ne formate pas les détails de paiement comme l'attendent les applications bancaires. Un code QR que votre application bancaire peut lire et utiliser pour pré-remplir un virement nécessite le format de code QR SEPA/EPC, que votre banque fournit directement dans sa propre application ou sa banque en ligne."
+msgstr ""
+"Pas directement. Cet outil génère un code QR standard qui ouvre un lien ou "
+"encode du texte, un numéro de téléphone, une connexion Wi-Fi ou similaire - "
+"il ne formate pas les détails de paiement comme l'attendent les applications "
+"bancaires. Un code QR que votre application bancaire peut lire et utiliser "
+"pour pré-remplir un virement nécessite le format de code QR SEPA/EPC, que "
+"votre banque fournit directement dans sa propre application ou sa banque en "
+"ligne."
 
-#: .\templates\tools\free_qr_code_generator.html:228
 msgid "Is this QR code generator really free?"
 msgstr "Ce générateur de codes QR est-il vraiment gratuit ?"
 
-#: .\templates\tools\free_qr_code_generator.html:229
 msgid ""
 "Yes. No account, no watermark, no usage limit. You can generate and download "
 "as many QR codes as you want."
-msgstr "Oui. Sans compte, sans filigrane, sans limite d'utilisation. Vous pouvez générer et télécharger autant de codes QR que vous le souhaitez."
+msgstr ""
+"Oui. Sans compte, sans filigrane, sans limite d'utilisation. Vous pouvez "
+"générer et télécharger autant de codes QR que vous le souhaitez."
 
-#: .\templates\tools\free_qr_code_generator.html:232
 msgid "Does the QR code expire?"
 msgstr "Le code QR expire-t-il ?"
 
-#: .\templates\tools\free_qr_code_generator.html:233
 msgid ""
 "No. The QR code itself never expires - a URL code will keep working for as "
 "long as the destination URL stays live; a text, phone, Wi-Fi, or contact "
 "code has the information built in and works forever."
-msgstr "Non. Le code QR lui-même n'expire jamais - un code URL continuera de fonctionner tant que l'URL de destination reste active ; un code texte, téléphone, Wi-Fi ou contact contient l'information intégrée et fonctionne indéfiniment."
+msgstr ""
+"Non. Le code QR lui-même n'expire jamais - un code URL continuera de "
+"fonctionner tant que l'URL de destination reste active ; un code texte, "
+"téléphone, Wi-Fi ou contact contient l'information intégrée et fonctionne "
+"indéfiniment."
 
-#: .\templates\tools\free_qr_code_generator.html:236
 msgid "What types of QR codes can I create?"
 msgstr "Quels types de codes QR puis-je créer ?"
 
-#: .\templates\tools\free_qr_code_generator.html:237
 msgid ""
 "A website link, plain text, a phone number, an email address, an SMS "
 "message, a Wi-Fi network login, or a contact card (vCard) that saves "
 "straight into someone's phone contacts when scanned."
-msgstr "Un lien vers un site web, du texte brut, un numéro de téléphone, une adresse e-mail, un message SMS, une connexion réseau Wi-Fi, ou une carte de contact (vCard) qui s'enregistre directement dans les contacts du téléphone lors du scan."
+msgstr ""
+"Un lien vers un site web, du texte brut, un numéro de téléphone, une adresse "
+"e-mail, un message SMS, une connexion réseau Wi-Fi, ou une carte de contact "
+"(vCard) qui s'enregistre directement dans les contacts du téléphone lors du "
+"scan."
 
-#: .\templates\tools\printing_cost_calculator.html:4
 msgid "Menu Printing Cost Calculator - Free Tool"
 msgstr "Calculateur de coût d'impression de menu - Outil gratuit"
 
-#: .\templates\tools\printing_cost_calculator.html:5
 msgid ""
 "See exactly how much you spend reprinting menus every year, and what "
 "switching to a QR code menu would save you."
-msgstr "Découvrez exactement combien vous dépensez chaque année en réimpressions de menus, et ce que vous économiseriez en passant à un menu QR."
+msgstr ""
+"Découvrez exactement combien vous dépensez chaque année en réimpressions de "
+"menus, et ce que vous économiseriez en passant à un menu QR."
 
-#: .\templates\tools\printing_cost_calculator.html:50
 msgid "Menu Printing Cost Calculator"
 msgstr "Calculateur de coût d'impression de menu"
 
-#: .\templates\tools\printing_cost_calculator.html:51
 msgid ""
 "See how much reprinting your menu actually costs you per year - and what a "
 "QR code menu would save."
-msgstr "Découvrez combien vous coûte réellement la réimpression de votre menu par an - et ce qu'un menu QR vous ferait économiser."
+msgstr ""
+"Découvrez combien vous coûte réellement la réimpression de votre menu par an "
+"- et ce qu'un menu QR vous ferait économiser."
 
-#: .\templates\tools\printing_cost_calculator.html:56
 msgid "Menus printed each time"
 msgstr "Menus imprimés à chaque fois"
 
-#: .\templates\tools\printing_cost_calculator.html:60
 msgid "Reprints per year"
 msgstr "Réimpressions par an"
 
-#: .\templates\tools\printing_cost_calculator.html:62
 msgid "Price changes, seasonal menus, wear and tear"
 msgstr "Changements de prix, menus saisonniers, usure"
 
-#: .\templates\tools\printing_cost_calculator.html:65
 msgid "Cost per printed menu ($)"
 msgstr "Coût par menu imprimé ($)"
 
-#: .\templates\tools\printing_cost_calculator.html:69
 msgid "Design/layout cost per revision ($)"
 msgstr "Coût de conception/mise en page par révision ($)"
 
-#: .\templates\tools\printing_cost_calculator.html:71
 msgid "Leave at 0 if you design it yourself"
 msgstr "Laissez à 0 si vous le concevez vous-même"
 
-#: .\templates\tools\printing_cost_calculator.html:78
 msgid "Printed menus"
 msgstr "Menus imprimés"
 
-#: .\templates\tools\printing_cost_calculator.html:86
 msgid "GetMenuHub (Basic)"
 msgstr "GetMenuHub (Basic)"
 
-#: .\templates\tools\printing_cost_calculator.html:96
 msgid "Fill in your numbers above to see your savings."
 msgstr "Remplissez vos chiffres ci-dessus pour voir vos économies."
 
-#: .\templates\tools\printing_cost_calculator.html:102
 msgid "Stop paying for reprints"
 msgstr "Arrêtez de payer pour des réimpressions"
 
-#: .\templates\tools\printing_cost_calculator.html:103
 msgid ""
 "Update your menu instantly from your phone or computer - no printer, no "
 "graphic designer, no waiting."
-msgstr "Mettez à jour votre menu instantanément depuis votre téléphone ou ordinateur - sans imprimante, sans graphiste, sans attente."
+msgstr ""
+"Mettez à jour votre menu instantanément depuis votre téléphone ou ordinateur "
+"- sans imprimante, sans graphiste, sans attente."
 
-#: .\templates\tools\printing_cost_calculator.html:104
 msgid "Switch to a QR menu"
 msgstr "Passez à un menu QR"
 
-#: .\templates\tools\printing_cost_calculator.html:152
 msgid "You could save about"
 msgstr "Vous pourriez économiser environ"
 
-#: .\templates\tools\printing_cost_calculator.html:152
 msgid "a year by switching to a QR menu."
 msgstr "par an en passant à un menu QR."
 
-#: .\templates\tools\printing_cost_calculator.html:156
 msgid ""
 "Your printing costs are already low - but you would also get instant "
 "updates, no waiting on a print shop."
-msgstr "Vos coûts d'impression sont déjà bas - mais vous bénéficieriez aussi de mises à jour instantanées, sans attendre un imprimeur."
+msgstr ""
+"Vos coûts d'impression sont déjà bas - mais vous bénéficieriez aussi de "
+"mises à jour instantanées, sans attendre un imprimeur."
 
-#: .\templates\tools\qr_menu_examples.html:4
 msgid "QR Menu Examples - See GetMenuHub in Action"
 msgstr "Exemples de menu QR - Voyez GetMenuHub en action"
 
-#: .\templates\tools\qr_menu_examples.html:5
 msgid ""
 "See real, live QR code menu examples for a cafe, a taverna, and a beach bar "
 "- built with GetMenuHub. No sign-up needed to look."
-msgstr "Découvrez de vrais exemples de menus QR en direct pour un café, une taverne et un bar de plage - créés avec GetMenuHub. Aucune inscription nécessaire pour les consulter."
+msgstr ""
+"Découvrez de vrais exemples de menus QR en direct pour un café, une taverne "
+"et un bar de plage - créés avec GetMenuHub. Aucune inscription nécessaire "
+"pour les consulter."
 
-#: .\templates\tools\qr_menu_examples.html:44
 msgid "See GetMenuHub in Action"
 msgstr "Voyez GetMenuHub en action"
 
-#: .\templates\tools\qr_menu_examples.html:45
 msgid ""
-"Real, live digital menus built with GetMenuHub - scan them with your own phone, "
-"or just click through. No sign-up needed to look around."
-msgstr "De vrais menus numériques en direct créés avec GetMenuHub - scannez-les avec votre propre téléphone, ou cliquez simplement pour les consulter. Aucune inscription nécessaire."
+"Real, live digital menus built with GetMenuHub - scan them with your own "
+"phone, or just click through. No sign-up needed to look around."
+msgstr ""
+"De vrais menus numériques en direct créés avec GetMenuHub - scannez-les avec "
+"votre propre téléphone, ou cliquez simplement pour les consulter. Aucune "
+"inscription nécessaire."
 
-#: .\templates\tools\qr_menu_examples.html:55
 msgid "View live demo"
 msgstr "Voir la démo en direct"
 
-#: .\templates\tools\qr_menu_examples.html:61
 msgid "Examples coming soon."
 msgstr "Exemples à venir."
 
-#: .\templates\tools\qr_menu_examples.html:65
 msgid "Like what you see?"
 msgstr "Vous aimez ce que vous voyez ?"
 
-#: .\templates\tools\qr_menu_examples.html:66
 msgid ""
 "Build your own menu in about 5 minutes - your own categories, products, "
 "photos, and an automatic QR code."
-msgstr "Créez votre propre menu en environ 5 minutes - vos propres catégories, produits, photos et un code QR automatique."
+msgstr ""
+"Créez votre propre menu en environ 5 minutes - vos propres catégories, "
+"produits, photos et un code QR automatique."
+
+msgid "Staff Efficiency Calculator - Free Tool"
+msgstr "Calculateur d'Efficacité du Personnel - Outil Gratuit"
+
+msgid ""
+"See how many hours of staff time table-side QR ordering could free up in "
+"your restaurant every day - based on your own numbers."
+msgstr "Découvrez combien d'heures de personnel la commande QR à table pourrait libérer chaque jour dans votre restaurant, sur la base de vos propres chiffres."
+
+msgid ""
+"See how many hours of staff time you could free up every day by letting "
+"customers order straight from the table."
+msgstr "Découvrez combien d'heures de personnel vous pourriez économiser chaque jour en laissant les clients commander directement depuis la table."
+
+msgid "Table orders per day"
+msgstr "Commandes par table et par jour"
+
+msgid "Roughly how many times a table places an order"
+msgstr "Environ combien de fois une table passe une commande"
+
+msgid "Minutes per order today"
+msgstr "Minutes par commande actuellement"
+
+msgid "From table ready to order reaching the kitchen"
+msgstr "De la table prête à commander jusqu'à l'arrivée en cuisine"
+
+msgid "Staff cost per hour ($, optional)"
+msgstr "Coût du personnel par heure ($, facultatif)"
+
+msgid "Without GetMenuHub"
+msgstr "Sans GetMenuHub"
+
+msgid "Fill in your numbers above to see your time savings."
+msgstr "Renseignez vos chiffres ci-dessus pour voir votre gain de temps."
+
+msgid ""
+"Estimate based on the minutes you enter above. Assumes table-side ordering "
+"still takes about 1 minute of staff attention per order (delivering food, "
+"checking in)."
+msgstr "L'estimation se base sur les minutes indiquées ci-dessus. On suppose que la commande à table nécessite encore environ 1 minute d'attention du personnel par commande (service des plats, passage à table)."
+
+msgid "Give your staff that time back"
+msgstr "Rendez ce temps à votre personnel"
+
+msgid ""
+"Customers scan, browse, and order straight from their phone - no walk to the "
+"table needed just to take an order."
+msgstr "Les clients scannent, parcourent et commandent directement depuis leur téléphone - sans avoir à se déplacer à la table juste pour prendre la commande."
+
+msgid "Try GetMenuHub free"
+msgstr "Essayez GetMenuHub gratuitement"
+
+msgid "min/day"
+msgstr "min/jour"
+
+msgid "That is about"
+msgstr "Cela représente environ"
+
+msgid "hours of staff time freed up every day."
+msgstr "heures de temps de personnel libérées chaque jour."
+
+msgid "Roughly"
+msgstr "Environ"
+
+msgid "in staff time per day."
+msgstr "en temps de personnel par jour."
+
+msgid "Enter your numbers above to see your estimated time savings."
+msgstr "Saisissez vos chiffres ci-dessus pour voir votre gain de temps estimé."
+
+#~ msgid "GetMenuHub - Digital QR Code Menu for Restaurants, Cafes & Bars"
+#~ msgstr "GetMenuHub - Menu QR numérique pour restaurants, cafés et bars"
+
+#~ msgid ""
+#~ "QR code menu for restaurants & cafes - table-side ordering means you need "
+#~ "less staff to run service smoothly, plus zero printing costs. Set up in 5 "
+#~ "minutes. From $7/month."
+#~ msgstr ""
+#~ "Menu QR pour restaurants et cafés - les commandes à table signifient "
+#~ "moins de personnel nécessaire pour un service fluide, sans frais "
+#~ "d'impression. Configuration en 5 minutes. À partir de 7 $/mois."
+
+#~ msgid "GetMenuHub - Digital QR Code Menu for Restaurants & Cafes"
+#~ msgstr "GetMenuHub - Menu QR numérique pour restaurants et cafés"
+
+#~ msgid ""
+#~ "Table-side ordering that needs less staff to run smoothly, instant price "
+#~ "updates, and zero printing costs. Create your digital menu in 5 minutes."
+#~ msgstr ""
+#~ "Des commandes à table qui nécessitent moins de personnel pour fonctionner "
+#~ "sans accroc, des mises à jour de prix instantanées et aucun frais "
+#~ "d'impression. Créez votre menu numérique en 5 minutes."
 
 #~ msgid "Language"
 #~ msgstr "Langue"

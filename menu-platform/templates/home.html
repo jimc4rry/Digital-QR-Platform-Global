@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 {% load static i18n %}
 
-{% block title %}{% blocktrans %}GetMenuHub - Digital QR Code Menu for Restaurants, Cafes & Bars{% endblocktrans %}{% endblock %}
-{% block meta_description %}{% blocktrans %}QR code menu for restaurants & cafes - table-side ordering means you need less staff to run service smoothly, plus zero printing costs. Set up in 5 minutes. From $7/month.{% endblocktrans %}{% endblock %}
-{% block og_title %}{% blocktrans %}GetMenuHub - Digital QR Code Menu for Restaurants & Cafes{% endblocktrans %}{% endblock %}
-{% block og_description %}{% blocktrans %}Table-side ordering that needs less staff to run smoothly, instant price updates, and zero printing costs. Create your digital menu in 5 minutes.{% endblocktrans %}{% endblock %}
+{% block title %}{% blocktrans %}GetMenuHub - QR Menu & Table Ordering, Less Staff Needed{% endblocktrans %}{% endblock %}
+{% block meta_description %}{% blocktrans %}The staffing shortage solution for restaurants: customers scan and order themselves from the table, so your team runs service with fewer hands. Zero printing costs. From $7/month.{% endblocktrans %}{% endblock %}
+{% block og_title %}{% blocktrans %}GetMenuHub - QR Menu & Table Ordering, Less Staff Needed{% endblocktrans %}{% endblock %}
+{% block og_description %}{% blocktrans %}Customers scan and order themselves from the table, so your team runs service with fewer hands. Zero printing costs, instant price updates.{% endblocktrans %}{% endblock %}
 
 {% block structured_data %}
 <script type="application/ld+json">
@@ -467,6 +467,7 @@
                         <li class="mb-2"><i class="bi bi-check2-circle text-primary"></i> {% trans "Zero reprinting costs when prices or dishes change" %}</li>
                     </ul>
                     <a href="{% url 'signup' %}" class="btn btn-lp-primary btn-lg mt-2">{% trans "See how it works" %}</a>
+                    <a href="{% url 'solution_staff_shortage' %}" class="btn btn-outline-primary btn-lg mt-2 ms-2">{% trans "Read the full staffing guide" %}</a>
                 </div>
                 <div class="col-lg-6 mh-reveal">
                     <div class="lp-card">

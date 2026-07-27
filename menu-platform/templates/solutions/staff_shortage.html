@@ -1,0 +1,163 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Less Staff, More Orders: The Restaurant Staffing Shortage Solution" %} | GetMenuHub{% endblock %}
+{% block meta_description %}{% trans "Short-staffed restaurant? Table-side QR ordering lets customers order themselves, so your existing team runs a full shift without extra hires. See how it works." %}{% endblock %}
+{% block og_title %}{% trans "Less Staff, More Orders: The Restaurant Staffing Shortage Solution" %}{% endblock %}
+{% block og_description %}{% trans "Table-side QR ordering lets customers order themselves, so your existing team runs a full shift without extra hires." %}{% endblock %}
+
+{% block structured_data %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How does a QR code menu reduce the staff I need?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "With table-side ordering, customers scan a QR code, browse the menu, and place their order directly from their phone. The order lands on your dashboard instantly, so nobody has to walk over, take it down on paper, and relay it to the kitchen. That frees up your existing staff to focus on food, drinks, and service instead of order-taking."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this meant to replace my waiters?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. It removes the order-taking step, not the people. Your staff still deliver food, check in on tables, and handle anything that needs a human touch - they just spend less time walking back and forth to write down orders."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does table-side ordering cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Table-side ordering is included from the Pro plan at $19/month, with zero commission on orders. The Basic plan at $7/month covers the digital menu itself without ordering."
+      }
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .solution-page { padding: 56px 0 72px; }
+    .solution-hero { text-align: center; max-width: 760px; margin: 0 auto 48px; }
+    .solution-hero .eyebrow {
+        display: inline-block; font-size: .78rem; font-weight: 700; letter-spacing: .03em;
+        text-transform: uppercase; color: var(--mh-primary); background: var(--mh-primary-light);
+        padding: 6px 14px; border-radius: 999px; margin-bottom: 16px;
+    }
+    .solution-hero h1 { font-size: clamp(1.9rem, 4.2vw, 2.6rem); font-weight: 800; margin-bottom: 16px; }
+    .solution-hero p { color: var(--mh-text-muted); font-size: 1.05rem; }
+    .solution-section { max-width: 900px; margin: 0 auto 56px; }
+    .solution-section h2 { font-size: 1.5rem; font-weight: 800; margin-bottom: 14px; }
+    .solution-section p { color: var(--mh-text-muted); }
+    .solution-list { list-style: none; padding: 0; margin: 20px 0 0; }
+    .solution-list li {
+        display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px; font-weight: 500;
+    }
+    .solution-list li i { color: var(--mh-primary); margin-top: 3px; }
+    .compare-card {
+        background: var(--mh-bg); border: 1px solid var(--mh-border); border-radius: 18px;
+        padding: 26px; box-shadow: 0 16px 36px -18px rgba(15,23,42,.15);
+    }
+    .compare-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
+    .compare-card hr { margin: 18px 0; }
+    .tool-cta {
+        background: var(--mh-bg-subtle); border: 1px dashed var(--mh-border); border-radius: 18px;
+        padding: 26px; text-align: center; margin-bottom: 56px;
+    }
+    .tool-cta h3 { font-weight: 700; margin-bottom: 8px; }
+    .related-articles { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+    .related-articles a {
+        display: block; background: var(--mh-bg); border: 1px solid var(--mh-border); border-radius: 14px;
+        padding: 18px; text-decoration: none; color: inherit; font-weight: 600; font-size: .92rem;
+    }
+    .related-articles a:hover { border-color: var(--mh-primary); }
+    .qr-upsell {
+        background: #0f172a; border-radius: 20px; padding: 36px 28px; color: #fff;
+        text-align: center; max-width: 900px; margin: 0 auto;
+    }
+    .qr-upsell h2 { color: #fff; font-size: 1.4rem; margin-top: 0; }
+    .qr-upsell p { color: rgba(255,255,255,.75); }
+    .btn-lp-primary {
+        background: var(--mh-primary); border-color: var(--mh-primary); color: #fff; font-weight: 600;
+        border-radius: 10px; padding: 12px 28px; display: inline-block; text-decoration: none;
+        margin-top: 8px;
+    }
+    .btn-lp-primary:hover { background: var(--mh-primary-dark); border-color: var(--mh-primary-dark); color: #fff; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="solution-page">
+    <div class="container">
+
+        <div class="solution-hero">
+            <span class="eyebrow"><i class="bi bi-people"></i> {% trans "Built for today's staffing reality" %}</span>
+            <h1>{% trans "Less Staff, More Orders: The Solution to Your Staffing Shortage" %}</h1>
+            <p>{% trans "Don't lose tables because your servers can't keep up. With GetMenuHub, customers scan, order for themselves, and your existing staff spend their time on service - not running back and forth to take orders." %}</p>
+        </div>
+
+        <div class="solution-section">
+            <h2>{% trans "The problem: not enough hands, same number of tables" %}</h2>
+            <p>{% blocktrans %}Finding and keeping enough staff is one of the hardest parts of running a restaurant right now. When you're short-handed, the first thing that suffers is speed - tables wait longer to order, kitchens fall behind, and the staff you do have end up stretched across too many things at once.{% endblocktrans %}</p>
+        </div>
+
+        <div class="solution-section">
+            <h2>{% trans "How GetMenuHub helps" %}</h2>
+            <p>{% trans "Table-side ordering removes the single most repetitive part of service: walking to a table, writing down an order, and walking it back to the kitchen." %}</p>
+            <ul class="solution-list">
+                <li><i class="bi bi-check2-circle"></i> {% trans "Customers scan the table's QR code and order directly from their phone" %}</li>
+                <li><i class="bi bi-check2-circle"></i> {% trans "Orders land on your dashboard instantly - no relaying, no lost tickets" %}</li>
+                <li><i class="bi bi-check2-circle"></i> {% trans "Existing staff cover more tables without feeling stretched thin" %}</li>
+                <li><i class="bi bi-check2-circle"></i> {% trans "Menu changes go live immediately, with zero reprinting" %}</li>
+            </ul>
+        </div>
+
+        <div class="solution-section">
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="compare-card">
+                        <h3 class="text-muted-lp">{% trans "Without digital ordering" %}</h3>
+                        <p class="mb-0">{% trans "A server notices the table is ready, walks over, takes the order by hand, walks it to the kitchen - then repeats for the next table, one at a time." %}</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="compare-card">
+                        <h3 class="text-primary">{% trans "With GetMenuHub" %}</h3>
+                        <p class="mb-0">{% trans "The customer scans the table's QR code and orders directly from their phone. It lands on your dashboard instantly, so your staff can go straight to what needs a person." %}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tool-cta">
+            <h3>{% trans "How many hours could you free up?" %}</h3>
+            <p class="mb-3">{% trans "Use the free Staff Efficiency Calculator to estimate the staff time table-side ordering could save your restaurant every day." %}</p>
+            <a href="{% url 'staff_efficiency_calculator' %}" class="btn btn-outline-primary">
+                <i class="bi bi-calculator"></i> {% trans "Try the Staff Efficiency Calculator" %}
+            </a>
+        </div>
+
+        <div class="solution-section">
+            <h2>{% trans "Related reading" %}</h2>
+            <div class="related-articles">
+                <a href="{% url 'blog:blog_detail' 'staff-shortage-restaurants-qr-ordering-saves-season' %}">{% trans "Staff Shortage in Restaurants: How QR Ordering Saves Your Season" %}</a>
+                <a href="{% url 'blog:blog_detail' 'digital-menu-cost-vs-extra-staff-savings' %}">{% trans "Cost Breakdown: A $19/Month Digital Menu vs. Hiring Extra Staff" %}</a>
+                <a href="{% url 'blog:blog_detail' 'increase-table-turnover-peak-hours-fewer-staff' %}">{% trans "How to Increase Table Turnover at Peak Hours, Even With Fewer Staff" %}</a>
+            </div>
+        </div>
+
+        <div class="qr-upsell">
+            <h2>{% trans "Let your menu carry more of the workload" %}</h2>
+            <p>{% trans "Set up your digital menu in about 5 minutes. No printer, no extra hire, no app for your customers to install." %}</p>
+            <a href="{% url 'signup' %}" class="btn-lp-primary">{% trans "Start free" %}</a>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

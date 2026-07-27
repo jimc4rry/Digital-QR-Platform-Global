@@ -29,6 +29,8 @@ def sitemap_xml(request):
         request.build_absolute_uri(reverse('blog:blog_list')),
         request.build_absolute_uri(reverse('free_qr_code_generator')),
         request.build_absolute_uri(reverse('printing_cost_calculator')),
+        request.build_absolute_uri(reverse('staff_efficiency_calculator')),
+        request.build_absolute_uri(reverse('solution_staff_shortage')),
         request.build_absolute_uri(reverse('qr_menu_examples')),
     ]
     for post in Post.objects.filter(is_published=True):

@@ -1,0 +1,167 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Staff Efficiency Calculator - Free Tool" %} | GetMenuHub{% endblock %}
+{% block meta_description %}{% trans "See how many hours of staff time table-side QR ordering could free up in your restaurant every day - based on your own numbers." %}{% endblock %}
+
+{% block extra_css %}
+<style>
+    .calc-tool { padding: 56px 0 72px; }
+    .calc-tool .container { max-width: 640px; }
+    .calc-tool h1 { font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 800; text-align: center; margin-bottom: 10px; }
+    .calc-tool .lede { text-align: center; color: var(--mh-text-muted); margin-bottom: 32px; }
+    .calc-form-card {
+        background: var(--mh-bg); border: 1px solid var(--mh-border); border-radius: 20px;
+        padding: 28px; box-shadow: 0 20px 45px -20px rgba(15,23,42,.15);
+    }
+    .calc-form-card .form-label { font-weight: 600; font-size: .9rem; }
+    .calc-form-card .form-text { font-size: .8rem; }
+    .calc-result { margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--mh-border); }
+    .calc-bars { display: flex; flex-direction: column; gap: 14px; margin: 18px 0 6px; }
+    .calc-bar-row { display: flex; align-items: center; gap: 12px; }
+    .calc-bar-label { width: 130px; flex-shrink: 0; font-size: .85rem; font-weight: 600; color: var(--mh-text-muted); }
+    .calc-bar-track { flex: 1; background: var(--mh-bg-subtle); border-radius: 8px; height: 32px; position: relative; overflow: hidden; }
+    .calc-bar-fill { height: 100%; border-radius: 8px; transition: width .25s ease; display: flex; align-items: center; justify-content: flex-end; padding-right: 10px; }
+    .calc-bar-fill.manual { background: linear-gradient(90deg, #f97373, #ef4444); }
+    .calc-bar-fill.menuhub { background: linear-gradient(90deg, #818cf8, #6366f1); }
+    .calc-bar-fill span { color: #fff; font-weight: 700; font-size: .82rem; white-space: nowrap; }
+    .calc-savings {
+        text-align: center; margin-top: 20px; padding: 18px; border-radius: 14px;
+        background: var(--mh-success-bg); color: var(--mh-success); font-weight: 700; font-size: 1.05rem;
+    }
+    .calc-note { font-size: .78rem; color: var(--mh-text-muted); text-align: center; margin-top: 14px; }
+    .qr-upsell {
+        background: #0f172a; border-radius: 20px; padding: 32px 28px; color: #fff;
+        text-align: center; margin-top: 40px;
+    }
+    .qr-upsell h2 { color: #fff; font-size: 1.3rem; margin-top: 0; }
+    .qr-upsell p { color: rgba(255,255,255,.75); }
+    .btn-lp-primary {
+        background: var(--mh-primary); border-color: var(--mh-primary); color: #fff; font-weight: 600;
+        border-radius: 10px; padding: 12px 28px; display: inline-block; text-decoration: none;
+        margin-top: 8px;
+    }
+    .btn-lp-primary:hover { background: var(--mh-primary-dark); border-color: var(--mh-primary-dark); color: #fff; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="calc-tool">
+    <div class="container">
+        <h1>{% trans "Staff Efficiency Calculator" %}</h1>
+        <p class="lede">{% trans "See how many hours of staff time you could free up every day by letting customers order straight from the table." %}</p>
+
+        <div class="calc-form-card">
+            <div class="row g-3">
+                <div class="col-sm-6">
+                    <label for="tables-served" class="form-label">{% trans "Table orders per day" %}</label>
+                    <input type="number" id="tables-served" class="form-control" min="1" value="60">
+                    <div class="form-text text-muted">{% trans "Roughly how many times a table places an order" %}</div>
+                </div>
+                <div class="col-sm-6">
+                    <label for="manual-minutes" class="form-label">{% trans "Minutes per order today" %}</label>
+                    <input type="number" id="manual-minutes" class="form-control" min="0" step="0.5" value="6">
+                    <div class="form-text text-muted">{% trans "From table ready to order reaching the kitchen" %}</div>
+                </div>
+                <div class="col-sm-6">
+                    <label for="staff-wage" class="form-label">{% trans "Staff cost per hour ($, optional)" %}</label>
+                    <input type="number" id="staff-wage" class="form-control" min="0" step="0.50" value="12">
+                </div>
+            </div>
+
+            <div class="calc-result">
+                <div class="calc-bars">
+                    <div class="calc-bar-row">
+                        <div class="calc-bar-label">{% trans "Without GetMenuHub" %}</div>
+                        <div class="calc-bar-track">
+                            <div class="calc-bar-fill manual" id="bar-manual" style="width: 100%;">
+                                <span id="value-manual">0 min/day</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="calc-bar-row">
+                        <div class="calc-bar-label">{% trans "With GetMenuHub" %}</div>
+                        <div class="calc-bar-track">
+                            <div class="calc-bar-fill menuhub" id="bar-menuhub" style="width: 10%;">
+                                <span id="value-menuhub">0 min/day</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="calc-savings" id="savings-box">
+                    {% trans "Fill in your numbers above to see your time savings." %}
+                </div>
+                <p class="calc-note">{% trans "Estimate based on the minutes you enter above. Assumes table-side ordering still takes about 1 minute of staff attention per order (delivering food, checking in)." %}</p>
+            </div>
+        </div>
+
+        <div class="qr-upsell">
+            <h2>{% trans "Give your staff that time back" %}</h2>
+            <p>{% trans "Customers scan, browse, and order straight from their phone - no walk to the table needed just to take an order." %}</p>
+            <a href="{% url 'signup' %}" class="btn-lp-primary">{% trans "Try GetMenuHub free" %}</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+(function() {
+    const MENUHUB_MINUTES_PER_ORDER = 1;
+
+    const inputs = {
+        tablesServed: document.getElementById('tables-served'),
+        manualMinutes: document.getElementById('manual-minutes'),
+        staffWage: document.getElementById('staff-wage'),
+    };
+    const barManual = document.getElementById('bar-manual');
+    const barMenuhub = document.getElementById('bar-menuhub');
+    const valueManual = document.getElementById('value-manual');
+    const valueMenuhub = document.getElementById('value-menuhub');
+    const savingsBox = document.getElementById('savings-box');
+
+    function num(el) {
+        const v = parseFloat(el.value);
+        return isNaN(v) || v < 0 ? 0 : v;
+    }
+
+    function recalculate() {
+        const tablesServed = num(inputs.tablesServed);
+        const manualMinutes = num(inputs.manualMinutes);
+        const staffWage = num(inputs.staffWage);
+
+        const menuhubMinutesPerOrder = Math.min(MENUHUB_MINUTES_PER_ORDER, manualMinutes);
+        const manualTotal = tablesServed * manualMinutes;
+        const menuhubTotal = tablesServed * menuhubMinutesPerOrder;
+        const maxValue = Math.max(manualTotal, menuhubTotal, 1);
+
+        barManual.style.width = Math.max((manualTotal / maxValue) * 100, 6) + '%';
+        barMenuhub.style.width = Math.max((menuhubTotal / maxValue) * 100, 6) + '%';
+        valueManual.textContent = Math.round(manualTotal) + ' {% trans "min/day" %}';
+        valueMenuhub.textContent = Math.round(menuhubTotal) + ' {% trans "min/day" %}';
+
+        const minutesSaved = manualTotal - menuhubTotal;
+        const hoursSaved = minutesSaved / 60;
+
+        if (minutesSaved > 0) {
+            let text = '{% trans "That is about" %} ' + hoursSaved.toFixed(1) + ' {% trans "hours of staff time freed up every day." %}';
+            if (staffWage > 0) {
+                const dailyValue = hoursSaved * staffWage;
+                text += ' ' + '{% trans "Roughly" %} $' + dailyValue.toFixed(0) + ' {% trans "in staff time per day." %}';
+            }
+            savingsBox.textContent = text;
+            savingsBox.style.background = 'var(--mh-success-bg)';
+            savingsBox.style.color = 'var(--mh-success)';
+        } else {
+            savingsBox.textContent = '{% trans "Enter your numbers above to see your estimated time savings." %}';
+            savingsBox.style.background = 'var(--mh-primary-light)';
+            savingsBox.style.color = 'var(--mh-primary-dark)';
+        }
+    }
+
+    Object.values(inputs).forEach(el => el.addEventListener('input', recalculate));
+    recalculate();
+})();
+</script>
+{% endblock %}

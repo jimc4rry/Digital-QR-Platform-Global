@@ -22,6 +22,8 @@ urlpatterns = [
     path('feedback/', include('feedback.urls', namespace='feedback')),
     path('free-qr-code-generator/', tool_views.free_qr_code_generator, name='free_qr_code_generator'),
     path('tools/printing-cost-calculator/', TemplateView.as_view(template_name='tools/printing_cost_calculator.html'), name='printing_cost_calculator'),
+    path('tools/staff-efficiency-calculator/', TemplateView.as_view(template_name='tools/staff_efficiency_calculator.html'), name='staff_efficiency_calculator'),
+    path('solutions/staff-shortage/', TemplateView.as_view(template_name='solutions/staff_shortage.html'), name='solution_staff_shortage'),
     path('examples/', tool_views.qr_menu_examples, name='qr_menu_examples'),
     path('accounts/', include('accounts.urls')),
     path('restaurant/', include('restaurants.urls')),
