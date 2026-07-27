@@ -118,14 +118,14 @@ msgid "Failed"
 msgstr "Απέτυχε"
 
 #: .\accounts\views.py:74
-msgid "Your MenuHub password was changed"
-msgstr "Ο κωδικός σας στο MenuHub άλλαξε"
+msgid "Your GetMenuHub password was changed"
+msgstr "Ο κωδικός σας στο GetMenuHub άλλαξε"
 
 #: .\accounts\views.py:75
 msgid ""
-"Your MenuHub account password was just changed. If this wasn't you, contact "
+"Your GetMenuHub account password was just changed. If this wasn't you, contact "
 "us immediately at info@getmenuhub.com."
-msgstr "Ο κωδικός του λογαριασμού σας στο MenuHub μόλις άλλαξε. Αν δεν ήσασταν εσείς, επικοινωνήστε αμέσως μαζί μας στο info@getmenuhub.com."
+msgstr "Ο κωδικός του λογαριασμού σας στο GetMenuHub μόλις άλλαξε. Αν δεν ήσασταν εσείς, επικοινωνήστε αμέσως μαζί μας στο info@getmenuhub.com."
 
 #: .\accounts\views.py:86
 msgid ""
@@ -139,14 +139,14 @@ msgstr ""
 "Πάρα πολλές προσπάθειες εγγραφής από αυτό το δίκτυο. Δοκιμάστε ξανά αργότερα."
 
 #: .\accounts\views.py:139
-msgid "Welcome to MenuHub!"
-msgstr "Καλώς ήρθατε στο MenuHub!"
+msgid "Welcome to GetMenuHub!"
+msgstr "Καλώς ήρθατε στο GetMenuHub!"
 
 #: .\accounts\views.py:140
 msgid ""
-"Your MenuHub account and restaurant have been created. You have a 30-day "
+"Your GetMenuHub account and restaurant have been created. You have a 30-day "
 "free trial of the Basic plan - log in anytime to set up your menu."
-msgstr "Ο λογαριασμός και το εστιατόριό σας στο MenuHub δημιουργήθηκαν. Έχετε δωρεάν δοκιμή 30 ημερών του πλάνου Basic - συνδεθείτε όποτε θέλετε για να ρυθμίσετε το μενού σας."
+msgstr "Ο λογαριασμός και το εστιατόριό σας στο GetMenuHub δημιουργήθηκαν. Έχετε δωρεάν δοκιμή 30 ημερών του πλάνου Basic - συνδεθείτε όποτε θέλετε για να ρυθμίσετε το μενού σας."
 
 #: .\accounts\views.py:143
 msgid ""
@@ -321,8 +321,8 @@ msgid "Create your menu"
 msgstr "Δημιουργήστε το μενού σας"
 
 #: .\blog\templates\blog\blog_list.html:4
-msgid "Blog - MenuHub"
-msgstr "Blog - MenuHub"
+msgid "Blog - GetMenuHub"
+msgstr "Blog - GetMenuHub"
 
 #: .\blog\templates\blog\blog_list.html:5
 msgid ""
@@ -902,10 +902,10 @@ msgstr "Αναβάθμιση Πλάνου"
 
 #: .\templates\accounts\checkout.html:13
 msgid ""
-"MenuHub is in free beta right now - every plan's features are unlocked for "
+"GetMenuHub is in free beta right now - every plan's features are unlocked for "
 "your account at no cost. Paid plans are launching soon; you'll be able to "
 "subscribe right here once they do."
-msgstr "Το MenuHub βρίσκεται αυτή τη στιγμή σε δωρεάν beta - όλες οι λειτουργίες κάθε πλάνου είναι ξεκλείδωτες για τον λογαριασμό σας χωρίς κόστος. Τα επί πληρωμή πλάνα θα ξεκινήσουν σύντομα· θα μπορείτε να εγγραφείτε ακριβώς εδώ μόλις γίνει αυτό."
+msgstr "Το GetMenuHub βρίσκεται αυτή τη στιγμή σε δωρεάν beta - όλες οι λειτουργίες κάθε πλάνου είναι ξεκλείδωτες για τον λογαριασμό σας χωρίς κόστος. Τα επί πληρωμή πλάνα θα ξεκινήσουν σύντομα· θα μπορείτε να εγγραφείτε ακριβώς εδώ μόλις γίνει αυτό."
 
 #: .\templates\accounts\checkout.html:18
 msgid ""
@@ -1140,7 +1140,7 @@ msgstr "Django Admin"
 
 #: .\templates\accounts\platform_admin_dashboard.html:22
 msgid ""
-"All businesses registered on MenuHub - plans, subscriptions and support."
+"All businesses registered on GetMenuHub - plans, subscriptions and support."
 msgstr ""
 
 #: .\templates\accounts\platform_admin_dashboard.html:26
@@ -1266,8 +1266,8 @@ msgid "Already have an account? Log in"
 msgstr "Έχετε ήδη λογαριασμό; Συνδεθείτε"
 
 #: .\templates\base.html:14
-msgid "MenuHub - Digital QR Code Menus for Restaurants & Cafes"
-msgstr "MenuHub - Ψηφιακά Μενού QR για Εστιατόρια & Καφετέριες"
+msgid "GetMenuHub - Digital QR Code Menus for Restaurants & Cafes"
+msgstr "GetMenuHub - Ψηφιακά Μενού QR για Εστιατόρια & Καφετέριες"
 
 #: .\templates\base.html:15
 msgid ""
@@ -1276,8 +1276,8 @@ msgid ""
 msgstr "Δημιουργήστε το ψηφιακό μενού QR του εστιατορίου ή της καφετέριάς σας σε 5 λεπτά. Χωρίς εκτύπωση, άμεσες ενημερώσεις τιμών, παραγγελίες απευθείας από το τραπέζι."
 
 #: .\templates\base.html:22
-msgid "MenuHub - Digital QR Code Menus"
-msgstr "MenuHub - Ψηφιακά Μενού QR"
+msgid "GetMenuHub - Digital QR Code Menus"
+msgstr "GetMenuHub - Ψηφιακά Μενού QR"
 
 #: .\templates\base.html:23
 msgid "Create your restaurant or cafe's digital QR code menu in 5 minutes."
@@ -1377,9 +1377,9 @@ msgid "Send feedback"
 msgstr "Αποστολή σχολίων"
 
 #: .\templates\base.html:321
-msgid "Found a bug, or have an idea to improve MenuHub? Let us know."
+msgid "Found a bug, or have an idea to improve GetMenuHub? Let us know."
 msgstr ""
-"Βρήκατε κάποιο πρόβλημα ή έχετε μια ιδέα για να βελτιώσουμε το MenuHub; "
+"Βρήκατε κάποιο πρόβλημα ή έχετε μια ιδέα για να βελτιώσουμε το GetMenuHub; "
 "Πείτε μας."
 
 #: .\templates\base.html:322
@@ -1523,8 +1523,8 @@ msgid ""
 msgstr "Αν θέλετε οι πελάτες να παραγγέλνουν απευθείας από το κινητό τους, μπορείτε να ενεργοποιήσετε τις παραγγελίες από το τραπέζι, ώστε κάθε κωδικός QR να συνδέεται με συγκεκριμένο τραπέζι. Οι παραγγελίες φτάνουν σε έναν ζωντανό πίνακα ελέγχου που το προσωπικό σας μπορεί να διαχειριστεί σε πραγματικό χρόνο, χωρίς να χρειάζεται επιπλέον εξοπλισμός."
 
 #: .\templates\guides\index.html:4
-msgid "Guides - MenuHub"
-msgstr "Οδηγοί - MenuHub"
+msgid "Guides - GetMenuHub"
+msgstr "Οδηγοί - GetMenuHub"
 
 #: .\templates\guides\index.html:5
 msgid ""
@@ -1580,8 +1580,8 @@ msgid ""
 msgstr "Ένα ψηφιακό μενού QR τιμολογείται ως μηνιαία συνδρομή αντί για μία εφάπαξ εκτύπωση. Δείτε τι περιλαμβάνεται πραγματικά σε κάθε επίπεδο, και πώς συγκρίνεται με την επανεκτύπωση ενός φυσικού μενού."
 
 #: .\templates\guides\qr_menu_cost.html:13
-msgid "MenuHub pricing at a glance"
-msgstr "Οι τιμές του MenuHub με μια ματιά"
+msgid "GetMenuHub pricing at a glance"
+msgstr "Οι τιμές του GetMenuHub με μια ματιά"
 
 #: .\templates\guides\qr_menu_cost.html:15
 msgid "Basic - $7/month:"
@@ -1751,8 +1751,8 @@ msgid ""
 msgstr "Τα περισσότερα εστιατόρια πετυχαίνουν το καλύτερο αποτέλεσμα χρησιμοποιώντας και τα δύο: έναν κωδικό QR ως το κύριο, πάντα ενημερωμένο μενού, με λίγα εκτυπωμένα αντίγραφα διαθέσιμα για πελάτες που προτιμούν το χαρτί ή δεν έχουν μαζί τους smartphone. Έτσι αποκτάτε τα οφέλη κόστους και ευελιξίας του ψηφιακού χωρίς να χάνετε κανέναν."
 
 #: .\templates\home.html:4
-msgid "MenuHub - Digital QR Code Menu for Restaurants, Cafes & Bars"
-msgstr "MenuHub - Ψηφιακό Μενού QR για Εστιατόρια, Καφετέριες & Μπαρ"
+msgid "GetMenuHub - Digital QR Code Menu for Restaurants, Cafes & Bars"
+msgstr "GetMenuHub - Ψηφιακό Μενού QR για Εστιατόρια, Καφετέριες & Μπαρ"
 
 #: .\templates\home.html:5
 msgid ""
@@ -1762,8 +1762,8 @@ msgid ""
 msgstr "Μενού QR για εστιατόρια & καφετέριες - οι παραγγελίες από το τραπέζι σημαίνουν λιγότερο προσωπικό για ομαλή λειτουργία, και μηδενικά κόστη εκτύπωσης. Ρύθμιση σε 5 λεπτά. Από $7/μήνα."
 
 #: .\templates\home.html:6
-msgid "MenuHub - Digital QR Code Menu for Restaurants & Cafes"
-msgstr "MenuHub - Ψηφιακό Μενού QR για Εστιατόρια & Καφετέριες"
+msgid "GetMenuHub - Digital QR Code Menu for Restaurants & Cafes"
+msgstr "GetMenuHub - Ψηφιακό Μενού QR για Εστιατόρια & Καφετέριες"
 
 #: .\templates\home.html:7
 msgid ""
@@ -1773,10 +1773,10 @@ msgstr "Παραγγελίες από το τραπέζι που χρειάζο�
 
 #: .\templates\home.html:366
 msgid ""
-"MenuHub is currently in free beta - every plan's features are unlocked at no "
+"GetMenuHub is currently in free beta - every plan's features are unlocked at no "
 "cost while we finish rolling out paid billing."
 msgstr ""
-"Το MenuHub βρίσκεται αυτή τη στιγμή σε δωρεάν beta - όλες οι λειτουργίες "
+"Το GetMenuHub βρίσκεται αυτή τη στιγμή σε δωρεάν beta - όλες οι λειτουργίες "
 "κάθε πλάνου είναι ξεκλείδωτες χωρίς κόστος όσο ολοκληρώνουμε την "
 "ενεργοποίηση των πληρωμών."
 
@@ -1938,9 +1938,9 @@ msgstr "Ένας σερβιτόρος παρατηρεί ότι το τραπέ�
 
 #: .\templates\home.html:476
 #, fuzzy
-#| msgid "Welcome to MenuHub!"
-msgid "With MenuHub"
-msgstr "Καλώς ήρθατε στο MenuHub!"
+#| msgid "Welcome to GetMenuHub!"
+msgid "With GetMenuHub"
+msgstr "Καλώς ήρθατε στο GetMenuHub!"
 
 #: .\templates\home.html:477
 msgid ""
@@ -1953,8 +1953,8 @@ msgid "See it in action"
 msgstr "Δείτε το σε δράση"
 
 #: .\templates\home.html:489
-msgid "Real, live QR code menus built with MenuHub - not mockups."
-msgstr "Πραγματικά, ζωντανά μενού QR φτιαγμένα με το MenuHub - όχι μακέτες."
+msgid "Real, live QR code menus built with GetMenuHub - not mockups."
+msgstr "Πραγματικά, ζωντανά μενού QR φτιαγμένα με το GetMenuHub - όχι μακέτες."
 
 #: .\templates\home.html:503
 msgid "See our live menu examples"
@@ -2178,8 +2178,8 @@ msgstr ""
 "ανοίγει ακαριαία στον browser του κινητού."
 
 #: .\templates\home.html:681
-msgid "How much does MenuHub cost?"
-msgstr "Πόσο κοστίζει το MenuHub;"
+msgid "How much does GetMenuHub cost?"
+msgstr "Πόσο κοστίζει το GetMenuHub;"
 
 #: .\templates\home.html:686
 msgid ""
@@ -2390,10 +2390,10 @@ msgstr "Ποιοι είμαστε"
 
 #: .\templates\privacy.html:14
 msgid ""
-"MenuHub is operated by an individual (sole trader), not a registered "
+"GetMenuHub is operated by an individual (sole trader), not a registered "
 "company. Throughout this policy, \"we\" or \"the provider\" refers to the "
-"individual operating MenuHub."
-msgstr "Το MenuHub λειτουργεί από φυσικό πρόσωπο (ατομική επιχείρηση), όχι από εγγεγραμμένη εταιρεία. Σε όλη αυτή την πολιτική, οι όροι «εμείς» ή «ο πάροχος» αναφέρονται στο φυσικό πρόσωπο που λειτουργεί το MenuHub."
+"individual operating GetMenuHub."
+msgstr "Το GetMenuHub λειτουργεί από φυσικό πρόσωπο (ατομική επιχείρηση), όχι από εγγεγραμμένη εταιρεία. Σε όλη αυτή την πολιτική, οι όροι «εμείς» ή «ο πάροχος» αναφέρονται στο φυσικό πρόσωπο που λειτουργεί το GetMenuHub."
 
 #: .\templates\privacy.html:16
 msgid "What information we collect"
@@ -2503,9 +2503,9 @@ msgstr "Συνδρομές"
 
 #: .\templates\refund_policy.html:14
 msgid ""
-"MenuHub subscriptions (Basic, Pro, Business) are billed monthly in advance. "
+"GetMenuHub subscriptions (Basic, Pro, Business) are billed monthly in advance. "
 "Payments are non-refundable, including for partial billing periods."
-msgstr "Οι συνδρομές του MenuHub (Basic, Pro, Business) χρεώνονται μηνιαία εκ των προτέρων. Οι πληρωμές δεν επιστρέφονται, ούτε για μερικές περιόδους χρέωσης."
+msgstr "Οι συνδρομές του GetMenuHub (Basic, Pro, Business) χρεώνονται μηνιαία εκ των προτέρων. Οι πληρωμές δεν επιστρέφονται, ούτε για μερικές περιόδους χρέωσης."
 
 #: .\templates\refund_policy.html:16
 msgid "Cancellation"
@@ -2923,11 +2923,11 @@ msgstr "Πεδίο Εφαρμογής"
 
 #: .\templates\terms.html:14
 msgid ""
-"The MenuHub service (\"the Service\") is operated by an individual (sole "
+"The GetMenuHub service (\"the Service\") is operated by an individual (sole "
 "trader) and is available to businesses worldwide. A valid VAT/Tax ID is not "
 "required to sign up, but may be requested where applicable for invoicing or "
 "tax compliance."
-msgstr "Η υπηρεσία MenuHub («η Υπηρεσία») λειτουργεί από φυσικό πρόσωπο (ατομική επιχείρηση) και είναι διαθέσιμη σε επιχειρήσεις παγκοσμίως. Δεν απαιτείται έγκυρος ΑΦΜ για την εγγραφή, αλλά μπορεί να ζητηθεί όπου ισχύει για τιμολόγηση ή φορολογική συμμόρφωση."
+msgstr "Η υπηρεσία GetMenuHub («η Υπηρεσία») λειτουργεί από φυσικό πρόσωπο (ατομική επιχείρηση) και είναι διαθέσιμη σε επιχειρήσεις παγκοσμίως. Δεν απαιτείται έγκυρος ΑΦΜ για την εγγραφή, αλλά μπορεί να ζητηθεί όπου ισχύει για τιμολόγηση ή φορολογική συμμόρφωση."
 
 #: .\templates\terms.html:16
 msgid "Service Description"
@@ -2935,11 +2935,11 @@ msgstr "Περιγραφή Υπηρεσίας"
 
 #: .\templates\terms.html:17
 msgid ""
-"MenuHub provides a platform for creating a digital QR-code menu, managing "
+"GetMenuHub provides a platform for creating a digital QR-code menu, managing "
 "products/categories, taking orders (depending on subscription plan), and "
 "related tools (loyalty, discount codes, statistics). The Service is in beta "
 "and may change without notice."
-msgstr "Το MenuHub παρέχει μια πλατφόρμα για τη δημιουργία ψηφιακού μενού QR, τη διαχείριση προϊόντων/κατηγοριών, τη λήψη παραγγελιών (ανάλογα με το πλάνο συνδρομής), και σχετικά εργαλεία (loyalty, κωδικοί έκπτωσης, στατιστικά). Η Υπηρεσία βρίσκεται σε beta και μπορεί να αλλάξει χωρίς προειδοποίηση."
+msgstr "Το GetMenuHub παρέχει μια πλατφόρμα για τη δημιουργία ψηφιακού μενού QR, τη διαχείριση προϊόντων/κατηγοριών, τη λήψη παραγγελιών (ανάλογα με το πλάνο συνδρομής), και σχετικά εργαλεία (loyalty, κωδικοί έκπτωσης, στατιστικά). Η Υπηρεσία βρίσκεται σε beta και μπορεί να αλλάξει χωρίς προειδοποίηση."
 
 #: .\templates\terms.html:19
 msgid "Plans & Billing"
@@ -3109,10 +3109,10 @@ msgstr "Διαχειρίζεστε εστιατόριο, καφετέρια ή �
 
 #: .\templates\tools\free_qr_code_generator.html:211
 msgid ""
-"A plain QR code just opens a link. MenuHub turns it into a full digital menu "
+"A plain QR code just opens a link. GetMenuHub turns it into a full digital menu "
 "you can update instantly - no reprinting, ever - with optional ordering "
 "straight from the table."
-msgstr "Ένας απλός κωδικός QR απλώς ανοίγει έναν σύνδεσμο. Το MenuHub τον μετατρέπει σε πλήρες ψηφιακό μενού που ενημερώνετε ακαριαία - χωρίς ποτέ επανεκτύπωση - με προαιρετική δυνατότητα παραγγελίας απευθείας από το τραπέζι."
+msgstr "Ένας απλός κωδικός QR απλώς ανοίγει έναν σύνδεσμο. Το GetMenuHub τον μετατρέπει σε πλήρες ψηφιακό μενού που ενημερώνετε ακαριαία - χωρίς ποτέ επανεκτύπωση - με προαιρετική δυνατότητα παραγγελίας απευθείας από το τραπέζι."
 
 #: .\templates\tools\free_qr_code_generator.html:212
 #: .\templates\tools\qr_menu_examples.html:67
@@ -3127,9 +3127,9 @@ msgstr "Πώς λειτουργεί αυτός ο κωδικός QR"
 msgid ""
 "Scanning the code with any phone camera reads back exactly what you entered "
 "- a link opens instantly, a Wi-Fi code offers to join the network, a contact "
-"card offers to save itself. Nothing about it depends on MenuHub staying "
+"card offers to save itself. Nothing about it depends on GetMenuHub staying "
 "online except URL codes, which simply open the link you gave them."
-msgstr "Σαρώνοντας τον κωδικό με οποιαδήποτε κάμερα κινητού διαβάζεται ακριβώς ό,τι εισαγάγατε - ένας σύνδεσμος ανοίγει ακαριαία, ένας κωδικός Wi-Fi προσφέρει σύνδεση στο δίκτυο, μια κάρτα επαφής προσφέρεται να αποθηκευτεί. Τίποτα δεν εξαρτάται από τη λειτουργία του MenuHub εκτός από τους κωδικούς URL, οι οποίοι απλώς ανοίγουν τον σύνδεσμο που δώσατε."
+msgstr "Σαρώνοντας τον κωδικό με οποιαδήποτε κάμερα κινητού διαβάζεται ακριβώς ό,τι εισαγάγατε - ένας σύνδεσμος ανοίγει ακαριαία, ένας κωδικός Wi-Fi προσφέρει σύνδεση στο δίκτυο, μια κάρτα επαφής προσφέρεται να αποθηκευτεί. Τίποτα δεν εξαρτάται από τη λειτουργία του GetMenuHub εκτός από τους κωδικούς URL, οι οποίοι απλώς ανοίγουν τον σύνδεσμο που δώσατε."
 
 #: .\templates\tools\free_qr_code_generator.html:218
 msgid "Curious what a QR code menu actually looks like in practice?"
@@ -3241,8 +3241,8 @@ msgid "Printed menus"
 msgstr "Εκτυπωμένα μενού"
 
 #: .\templates\tools\printing_cost_calculator.html:86
-msgid "MenuHub (Basic)"
-msgstr "MenuHub (Basic)"
+msgid "GetMenuHub (Basic)"
+msgstr "GetMenuHub (Basic)"
 
 #: .\templates\tools\printing_cost_calculator.html:96
 msgid "Fill in your numbers above to see your savings."
@@ -3277,24 +3277,24 @@ msgid ""
 msgstr "Τα κόστη εκτύπωσής σας είναι ήδη χαμηλά - αλλά θα αποκτούσατε επίσης ακαριαίες ενημερώσεις, χωρίς αναμονή σε τυπογραφείο."
 
 #: .\templates\tools\qr_menu_examples.html:4
-msgid "QR Menu Examples - See MenuHub in Action"
-msgstr "Παραδείγματα Μενού QR - Δείτε το MenuHub σε Δράση"
+msgid "QR Menu Examples - See GetMenuHub in Action"
+msgstr "Παραδείγματα Μενού QR - Δείτε το GetMenuHub σε Δράση"
 
 #: .\templates\tools\qr_menu_examples.html:5
 msgid ""
 "See real, live QR code menu examples for a cafe, a taverna, and a beach bar "
-"- built with MenuHub. No sign-up needed to look."
-msgstr "Δείτε πραγματικά, ζωντανά παραδείγματα μενού QR για μια καφετέρια, μια ταβέρνα και ένα beach bar - φτιαγμένα με το MenuHub. Δεν χρειάζεται εγγραφή για να τα δείτε."
+"- built with GetMenuHub. No sign-up needed to look."
+msgstr "Δείτε πραγματικά, ζωντανά παραδείγματα μενού QR για μια καφετέρια, μια ταβέρνα και ένα beach bar - φτιαγμένα με το GetMenuHub. Δεν χρειάζεται εγγραφή για να τα δείτε."
 
 #: .\templates\tools\qr_menu_examples.html:44
-msgid "See MenuHub in Action"
-msgstr "Δείτε το MenuHub σε Δράση"
+msgid "See GetMenuHub in Action"
+msgstr "Δείτε το GetMenuHub σε Δράση"
 
 #: .\templates\tools\qr_menu_examples.html:45
 msgid ""
-"Real, live digital menus built with MenuHub - scan them with your own phone, "
+"Real, live digital menus built with GetMenuHub - scan them with your own phone, "
 "or just click through. No sign-up needed to look around."
-msgstr "Πραγματικά, ζωντανά ψηφιακά μενού φτιαγμένα με το MenuHub - σαρώστε τα με το δικό σας κινητό, ή απλά κάντε κλικ για να τα δείτε. Δεν χρειάζεται εγγραφή."
+msgstr "Πραγματικά, ζωντανά ψηφιακά μενού φτιαγμένα με το GetMenuHub - σαρώστε τα με το δικό σας κινητό, ή απλά κάντε κλικ για να τα δείτε. Δεν χρειάζεται εγγραφή."
 
 #: .\templates\tools\qr_menu_examples.html:55
 msgid "View live demo"

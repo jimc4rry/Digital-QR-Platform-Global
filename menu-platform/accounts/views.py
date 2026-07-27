@@ -71,8 +71,8 @@ class _NotifyingPasswordChangeView(auth_views.PasswordChangeView):
         response = super().form_valid(form)
         _send_account_email(
             self.request.user.email,
-            _('Your MenuHub password was changed'),
-            _("Your MenuHub account password was just changed. If this wasn't you, contact us immediately at info@getmenuhub.com."),
+            _('Your GetMenuHub password was changed'),
+            _("Your GetMenuHub account password was just changed. If this wasn't you, contact us immediately at info@getmenuhub.com."),
         )
         return response
 
@@ -136,8 +136,8 @@ def signup(request):
 
             _send_account_email(
                 user.email,
-                _('Welcome to MenuHub!'),
-                _('Your MenuHub account and restaurant have been created. You have a 30-day free trial of the Basic plan - log in anytime to set up your menu.'),
+                _('Welcome to GetMenuHub!'),
+                _('Your GetMenuHub account and restaurant have been created. You have a 30-day free trial of the Basic plan - log in anytime to set up your menu.'),
             )
             login(request, user)
             messages.success(request, _('Your account has been created! You have a 30-day free trial of the Basic plan.'))

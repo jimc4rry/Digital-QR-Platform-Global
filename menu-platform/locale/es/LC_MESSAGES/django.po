@@ -118,14 +118,14 @@ msgid "Failed"
 msgstr "Fallido"
 
 #: .\accounts\views.py:74
-msgid "Your MenuHub password was changed"
-msgstr "Se cambió la contraseña de su cuenta de MenuHub"
+msgid "Your GetMenuHub password was changed"
+msgstr "Se cambió la contraseña de su cuenta de GetMenuHub"
 
 #: .\accounts\views.py:75
 msgid ""
-"Your MenuHub account password was just changed. If this wasn't you, contact "
+"Your GetMenuHub account password was just changed. If this wasn't you, contact "
 "us immediately at info@getmenuhub.com."
-msgstr "La contraseña de su cuenta de MenuHub acaba de cambiarse. Si no fue usted, contáctenos de inmediato en info@getmenuhub.com."
+msgstr "La contraseña de su cuenta de GetMenuHub acaba de cambiarse. Si no fue usted, contáctenos de inmediato en info@getmenuhub.com."
 
 #: .\accounts\views.py:86
 msgid ""
@@ -139,14 +139,14 @@ msgstr ""
 "Demasiados intentos de registro desde esta red. Inténtelo de nuevo más tarde."
 
 #: .\accounts\views.py:139
-msgid "Welcome to MenuHub!"
-msgstr "¡Bienvenido a MenuHub!"
+msgid "Welcome to GetMenuHub!"
+msgstr "¡Bienvenido a GetMenuHub!"
 
 #: .\accounts\views.py:140
 msgid ""
-"Your MenuHub account and restaurant have been created. You have a 30-day "
+"Your GetMenuHub account and restaurant have been created. You have a 30-day "
 "free trial of the Basic plan - log in anytime to set up your menu."
-msgstr "Se han creado su cuenta y restaurante de MenuHub. Tiene una prueba gratuita de 30 días del plan Basic - inicie sesión cuando quiera para configurar su menú."
+msgstr "Se han creado su cuenta y restaurante de GetMenuHub. Tiene una prueba gratuita de 30 días del plan Basic - inicie sesión cuando quiera para configurar su menú."
 
 #: .\accounts\views.py:143
 msgid ""
@@ -321,8 +321,8 @@ msgid "Create your menu"
 msgstr "Cree su menú"
 
 #: .\blog\templates\blog\blog_list.html:4
-msgid "Blog - MenuHub"
-msgstr "Blog - MenuHub"
+msgid "Blog - GetMenuHub"
+msgstr "Blog - GetMenuHub"
 
 #: .\blog\templates\blog\blog_list.html:5
 msgid ""
@@ -903,10 +903,10 @@ msgstr "Mejorar plan"
 
 #: .\templates\accounts\checkout.html:13
 msgid ""
-"MenuHub is in free beta right now - every plan's features are unlocked for "
+"GetMenuHub is in free beta right now - every plan's features are unlocked for "
 "your account at no cost. Paid plans are launching soon; you'll be able to "
 "subscribe right here once they do."
-msgstr "MenuHub está actualmente en beta gratuita - todas las funciones de cada plan están desbloqueadas para su cuenta sin coste alguno. Los planes de pago se lanzarán próximamente; podrá suscribirse aquí mismo en cuanto estén disponibles."
+msgstr "GetMenuHub está actualmente en beta gratuita - todas las funciones de cada plan están desbloqueadas para su cuenta sin coste alguno. Los planes de pago se lanzarán próximamente; podrá suscribirse aquí mismo en cuanto estén disponibles."
 
 #: .\templates\accounts\checkout.html:18
 msgid ""
@@ -1141,7 +1141,7 @@ msgstr "Django Admin"
 
 #: .\templates\accounts\platform_admin_dashboard.html:22
 msgid ""
-"All businesses registered on MenuHub - plans, subscriptions and support."
+"All businesses registered on GetMenuHub - plans, subscriptions and support."
 msgstr ""
 
 #: .\templates\accounts\platform_admin_dashboard.html:26
@@ -1267,8 +1267,8 @@ msgid "Already have an account? Log in"
 msgstr "¿Ya tiene una cuenta? Inicie sesión"
 
 #: .\templates\base.html:14
-msgid "MenuHub - Digital QR Code Menus for Restaurants & Cafes"
-msgstr "MenuHub - Menús QR digitales para restaurantes y cafeterías"
+msgid "GetMenuHub - Digital QR Code Menus for Restaurants & Cafes"
+msgstr "GetMenuHub - Menús QR digitales para restaurantes y cafeterías"
 
 #: .\templates\base.html:15
 msgid ""
@@ -1277,8 +1277,8 @@ msgid ""
 msgstr "Cree el menú QR digital de su restaurante o cafetería en 5 minutos. Sin impresión, actualizaciones de precios instantáneas, pedidos directamente desde la mesa."
 
 #: .\templates\base.html:22
-msgid "MenuHub - Digital QR Code Menus"
-msgstr "MenuHub - Menús QR digitales"
+msgid "GetMenuHub - Digital QR Code Menus"
+msgstr "GetMenuHub - Menús QR digitales"
 
 #: .\templates\base.html:23
 msgid "Create your restaurant or cafe's digital QR code menu in 5 minutes."
@@ -1376,8 +1376,8 @@ msgid "Send feedback"
 msgstr "Enviar comentarios"
 
 #: .\templates\base.html:321
-msgid "Found a bug, or have an idea to improve MenuHub? Let us know."
-msgstr "¿Encontró un error o tiene una idea para mejorar MenuHub? Cuéntenoslo."
+msgid "Found a bug, or have an idea to improve GetMenuHub? Let us know."
+msgstr "¿Encontró un error o tiene una idea para mejorar GetMenuHub? Cuéntenoslo."
 
 #: .\templates\base.html:322
 msgid "Your feedback..."
@@ -1520,8 +1520,8 @@ msgid ""
 msgstr "Si desea que los clientes pidan directamente desde su teléfono, se puede activar el pedido desde la mesa para que cada código QR esté vinculado a una mesa específica. Los pedidos llegan a un panel en vivo que su personal puede gestionar en tiempo real, sin necesidad de hardware adicional."
 
 #: .\templates\guides\index.html:4
-msgid "Guides - MenuHub"
-msgstr "Guías - MenuHub"
+msgid "Guides - GetMenuHub"
+msgstr "Guías - GetMenuHub"
 
 #: .\templates\guides\index.html:5
 msgid ""
@@ -1577,8 +1577,8 @@ msgid ""
 msgstr "Un menú digital QR se cobra como una suscripción mensual en lugar de un trabajo de impresión único. Esto es lo que realmente incluye cada nivel, y cómo se compara con la reimpresión de un menú físico."
 
 #: .\templates\guides\qr_menu_cost.html:13
-msgid "MenuHub pricing at a glance"
-msgstr "Los precios de MenuHub de un vistazo"
+msgid "GetMenuHub pricing at a glance"
+msgstr "Los precios de GetMenuHub de un vistazo"
 
 #: .\templates\guides\qr_menu_cost.html:15
 msgid "Basic - $7/month:"
@@ -1748,8 +1748,8 @@ msgid ""
 msgstr "La mayoría de los restaurantes obtienen el mejor resultado usando ambos: un código QR como menú principal, siempre actualizado, con un puñado de copias impresas a mano para los clientes que prefieren el papel o no llevan un smartphone. Obtiene los beneficios de coste y flexibilidad de lo digital sin dejar a nadie fuera."
 
 #: .\templates\home.html:4
-msgid "MenuHub - Digital QR Code Menu for Restaurants, Cafes & Bars"
-msgstr "MenuHub - Menú QR digital para restaurantes, cafeterías y bares"
+msgid "GetMenuHub - Digital QR Code Menu for Restaurants, Cafes & Bars"
+msgstr "GetMenuHub - Menú QR digital para restaurantes, cafeterías y bares"
 
 #: .\templates\home.html:5
 msgid ""
@@ -1759,8 +1759,8 @@ msgid ""
 msgstr "Menú QR para restaurantes y cafeterías - los pedidos desde la mesa significan que necesita menos personal para un servicio fluido, además de cero costes de impresión. Configúrelo en 5 minutos. Desde $7/mes."
 
 #: .\templates\home.html:6
-msgid "MenuHub - Digital QR Code Menu for Restaurants & Cafes"
-msgstr "MenuHub - Menú QR digital para restaurantes y cafeterías"
+msgid "GetMenuHub - Digital QR Code Menu for Restaurants & Cafes"
+msgstr "GetMenuHub - Menú QR digital para restaurantes y cafeterías"
 
 #: .\templates\home.html:7
 msgid ""
@@ -1770,10 +1770,10 @@ msgstr "Pedidos desde la mesa que necesitan menos personal para funcionar sin pr
 
 #: .\templates\home.html:366
 msgid ""
-"MenuHub is currently in free beta - every plan's features are unlocked at no "
+"GetMenuHub is currently in free beta - every plan's features are unlocked at no "
 "cost while we finish rolling out paid billing."
 msgstr ""
-"MenuHub está actualmente en beta gratuita - todas las funciones de cada plan "
+"GetMenuHub está actualmente en beta gratuita - todas las funciones de cada plan "
 "están desbloqueadas sin coste mientras terminamos de implementar la "
 "facturación de pago."
 
@@ -1934,9 +1934,9 @@ msgstr "Un camarero se da cuenta de que la mesa está lista, se acerca, toma el 
 
 #: .\templates\home.html:476
 #, fuzzy
-#| msgid "Welcome to MenuHub!"
-msgid "With MenuHub"
-msgstr "¡Bienvenido a MenuHub!"
+#| msgid "Welcome to GetMenuHub!"
+msgid "With GetMenuHub"
+msgstr "¡Bienvenido a GetMenuHub!"
 
 #: .\templates\home.html:477
 msgid ""
@@ -1949,8 +1949,8 @@ msgid "See it in action"
 msgstr "Véalo en acción"
 
 #: .\templates\home.html:489
-msgid "Real, live QR code menus built with MenuHub - not mockups."
-msgstr "Menús QR reales y en vivo creados con MenuHub, no maquetas."
+msgid "Real, live QR code menus built with GetMenuHub - not mockups."
+msgstr "Menús QR reales y en vivo creados con GetMenuHub, no maquetas."
 
 #: .\templates\home.html:503
 msgid "See our live menu examples"
@@ -2175,8 +2175,8 @@ msgstr ""
 "al instante en el navegador del teléfono."
 
 #: .\templates\home.html:681
-msgid "How much does MenuHub cost?"
-msgstr "¿Cuánto cuesta MenuHub?"
+msgid "How much does GetMenuHub cost?"
+msgstr "¿Cuánto cuesta GetMenuHub?"
 
 #: .\templates\home.html:686
 msgid ""
@@ -2387,10 +2387,10 @@ msgstr "Quiénes somos"
 
 #: .\templates\privacy.html:14
 msgid ""
-"MenuHub is operated by an individual (sole trader), not a registered "
+"GetMenuHub is operated by an individual (sole trader), not a registered "
 "company. Throughout this policy, \"we\" or \"the provider\" refers to the "
-"individual operating MenuHub."
-msgstr "MenuHub está operado por una persona física (autónomo), no por una empresa registrada. A lo largo de esta política, «nosotros» o «el proveedor» se refiere a la persona física que opera MenuHub."
+"individual operating GetMenuHub."
+msgstr "GetMenuHub está operado por una persona física (autónomo), no por una empresa registrada. A lo largo de esta política, «nosotros» o «el proveedor» se refiere a la persona física que opera GetMenuHub."
 
 #: .\templates\privacy.html:16
 msgid "What information we collect"
@@ -2500,9 +2500,9 @@ msgstr "Suscripciones"
 
 #: .\templates\refund_policy.html:14
 msgid ""
-"MenuHub subscriptions (Basic, Pro, Business) are billed monthly in advance. "
+"GetMenuHub subscriptions (Basic, Pro, Business) are billed monthly in advance. "
 "Payments are non-refundable, including for partial billing periods."
-msgstr "Las suscripciones de MenuHub (Basic, Pro, Business) se facturan mensualmente por adelantado. Los pagos no son reembolsables, incluso para períodos de facturación parciales."
+msgstr "Las suscripciones de GetMenuHub (Basic, Pro, Business) se facturan mensualmente por adelantado. Los pagos no son reembolsables, incluso para períodos de facturación parciales."
 
 #: .\templates\refund_policy.html:16
 msgid "Cancellation"
@@ -2921,11 +2921,11 @@ msgstr "Ámbito"
 
 #: .\templates\terms.html:14
 msgid ""
-"The MenuHub service (\"the Service\") is operated by an individual (sole "
+"The GetMenuHub service (\"the Service\") is operated by an individual (sole "
 "trader) and is available to businesses worldwide. A valid VAT/Tax ID is not "
 "required to sign up, but may be requested where applicable for invoicing or "
 "tax compliance."
-msgstr "El servicio MenuHub («el Servicio») está operado por una persona física (autónomo) y está disponible para empresas de todo el mundo. No se requiere un NIF/CIF válido para registrarse, pero puede solicitarse cuando corresponda para facturación o cumplimiento fiscal."
+msgstr "El servicio GetMenuHub («el Servicio») está operado por una persona física (autónomo) y está disponible para empresas de todo el mundo. No se requiere un NIF/CIF válido para registrarse, pero puede solicitarse cuando corresponda para facturación o cumplimiento fiscal."
 
 #: .\templates\terms.html:16
 msgid "Service Description"
@@ -2933,11 +2933,11 @@ msgstr "Descripción del Servicio"
 
 #: .\templates\terms.html:17
 msgid ""
-"MenuHub provides a platform for creating a digital QR-code menu, managing "
+"GetMenuHub provides a platform for creating a digital QR-code menu, managing "
 "products/categories, taking orders (depending on subscription plan), and "
 "related tools (loyalty, discount codes, statistics). The Service is in beta "
 "and may change without notice."
-msgstr "MenuHub proporciona una plataforma para crear un menú digital con código QR, gestionar productos/categorías, recibir pedidos (según el plan de suscripción), y herramientas relacionadas (fidelización, códigos de descuento, estadísticas). El Servicio está en beta y puede cambiar sin previo aviso."
+msgstr "GetMenuHub proporciona una plataforma para crear un menú digital con código QR, gestionar productos/categorías, recibir pedidos (según el plan de suscripción), y herramientas relacionadas (fidelización, códigos de descuento, estadísticas). El Servicio está en beta y puede cambiar sin previo aviso."
 
 #: .\templates\terms.html:19
 msgid "Plans & Billing"
@@ -3107,10 +3107,10 @@ msgstr "¿Dirige un restaurante, cafetería o bar?"
 
 #: .\templates\tools\free_qr_code_generator.html:211
 msgid ""
-"A plain QR code just opens a link. MenuHub turns it into a full digital menu "
+"A plain QR code just opens a link. GetMenuHub turns it into a full digital menu "
 "you can update instantly - no reprinting, ever - with optional ordering "
 "straight from the table."
-msgstr "Un código QR simple solo abre un enlace. MenuHub lo convierte en un menú digital completo que puede actualizar al instante - sin reimpresiones, nunca - con pedidos opcionales directamente desde la mesa."
+msgstr "Un código QR simple solo abre un enlace. GetMenuHub lo convierte en un menú digital completo que puede actualizar al instante - sin reimpresiones, nunca - con pedidos opcionales directamente desde la mesa."
 
 #: .\templates\tools\free_qr_code_generator.html:212
 #: .\templates\tools\qr_menu_examples.html:67
@@ -3125,9 +3125,9 @@ msgstr "Cómo funciona este código QR"
 msgid ""
 "Scanning the code with any phone camera reads back exactly what you entered "
 "- a link opens instantly, a Wi-Fi code offers to join the network, a contact "
-"card offers to save itself. Nothing about it depends on MenuHub staying "
+"card offers to save itself. Nothing about it depends on GetMenuHub staying "
 "online except URL codes, which simply open the link you gave them."
-msgstr "Al escanear el código con cualquier cámara de teléfono se lee exactamente lo que introdujo - un enlace se abre al instante, un código Wi-Fi ofrece unirse a la red, una tarjeta de contacto se ofrece a guardarse. Nada de esto depende de que MenuHub siga en línea, excepto los códigos URL, que simplemente abren el enlace que proporcionó."
+msgstr "Al escanear el código con cualquier cámara de teléfono se lee exactamente lo que introdujo - un enlace se abre al instante, un código Wi-Fi ofrece unirse a la red, una tarjeta de contacto se ofrece a guardarse. Nada de esto depende de que GetMenuHub siga en línea, excepto los códigos URL, que simplemente abren el enlace que proporcionó."
 
 #: .\templates\tools\free_qr_code_generator.html:218
 msgid "Curious what a QR code menu actually looks like in practice?"
@@ -3239,8 +3239,8 @@ msgid "Printed menus"
 msgstr "Menús impresos"
 
 #: .\templates\tools\printing_cost_calculator.html:86
-msgid "MenuHub (Basic)"
-msgstr "MenuHub (Basic)"
+msgid "GetMenuHub (Basic)"
+msgstr "GetMenuHub (Basic)"
 
 #: .\templates\tools\printing_cost_calculator.html:96
 msgid "Fill in your numbers above to see your savings."
@@ -3275,24 +3275,24 @@ msgid ""
 msgstr "Sus costes de impresión ya son bajos - pero también obtendría actualizaciones instantáneas, sin esperar a una imprenta."
 
 #: .\templates\tools\qr_menu_examples.html:4
-msgid "QR Menu Examples - See MenuHub in Action"
-msgstr "Ejemplos de menú QR - Vea MenuHub en acción"
+msgid "QR Menu Examples - See GetMenuHub in Action"
+msgstr "Ejemplos de menú QR - Vea GetMenuHub en acción"
 
 #: .\templates\tools\qr_menu_examples.html:5
 msgid ""
 "See real, live QR code menu examples for a cafe, a taverna, and a beach bar "
-"- built with MenuHub. No sign-up needed to look."
-msgstr "Vea ejemplos reales y en vivo de menús con código QR para una cafetería, una taberna y un bar de playa - creados con MenuHub. No necesita registrarse para verlos."
+"- built with GetMenuHub. No sign-up needed to look."
+msgstr "Vea ejemplos reales y en vivo de menús con código QR para una cafetería, una taberna y un bar de playa - creados con GetMenuHub. No necesita registrarse para verlos."
 
 #: .\templates\tools\qr_menu_examples.html:44
-msgid "See MenuHub in Action"
-msgstr "Vea MenuHub en acción"
+msgid "See GetMenuHub in Action"
+msgstr "Vea GetMenuHub en acción"
 
 #: .\templates\tools\qr_menu_examples.html:45
 msgid ""
-"Real, live digital menus built with MenuHub - scan them with your own phone, "
+"Real, live digital menus built with GetMenuHub - scan them with your own phone, "
 "or just click through. No sign-up needed to look around."
-msgstr "Menús digitales reales y en vivo creados con MenuHub - escanéelos con su propio teléfono, o simplemente haga clic para verlos. No necesita registrarse para explorarlos."
+msgstr "Menús digitales reales y en vivo creados con GetMenuHub - escanéelos con su propio teléfono, o simplemente haga clic para verlos. No necesita registrarse para explorarlos."
 
 #: .\templates\tools\qr_menu_examples.html:55
 msgid "View live demo"

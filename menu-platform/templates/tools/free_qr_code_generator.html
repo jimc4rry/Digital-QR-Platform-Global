@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load i18n %}
 
-{% block title %}{% trans "Free QR Code Generator - No Sign-up Required" %} | MenuHub{% endblock %}
+{% block title %}{% trans "Free QR Code Generator - No Sign-up Required" %} | GetMenuHub{% endblock %}
 {% block meta_description %}{% trans "Generate a free QR code for a URL, text, phone number, email, SMS, Wi-Fi login, or contact card. No sign-up, no watermark." %}{% endblock %}
 
 {% block structured_data %}
@@ -208,13 +208,13 @@
 
         <div class="qr-upsell">
             <h2>{% trans "Run a restaurant, cafe, or bar?" %}</h2>
-            <p>{% trans "A plain QR code just opens a link. MenuHub turns it into a full digital menu you can update instantly - no reprinting, ever - with optional ordering straight from the table." %}</p>
+            <p>{% trans "A plain QR code just opens a link. GetMenuHub turns it into a full digital menu you can update instantly - no reprinting, ever - with optional ordering straight from the table." %}</p>
             <a href="{% url 'signup' %}" class="btn-lp-primary">{% trans "Create your free QR menu" %}</a>
         </div>
 
         <div class="qr-info">
             <h2>{% trans "How this QR code works" %}</h2>
-            <p>{% trans "Scanning the code with any phone camera reads back exactly what you entered - a link opens instantly, a Wi-Fi code offers to join the network, a contact card offers to save itself. Nothing about it depends on MenuHub staying online except URL codes, which simply open the link you gave them." %}</p>
+            <p>{% trans "Scanning the code with any phone camera reads back exactly what you entered - a link opens instantly, a Wi-Fi code offers to join the network, a contact card offers to save itself. Nothing about it depends on GetMenuHub staying online except URL codes, which simply open the link you gave them." %}</p>
             <p>{% trans "Curious what a QR code menu actually looks like in practice?" %} <a href="{% url 'guide_how_to_create' %}">{% trans "See how to create one" %}</a> {% trans "or" %} <a href="{% url 'qr_menu_examples' %}">{% trans "browse live examples" %}</a>.</p>
         </div>
 

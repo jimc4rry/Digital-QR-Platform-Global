@@ -56,7 +56,7 @@ class Command(BaseCommand):
             f'{billing._api_base()}/products',
             headers=billing._headers(),
             json={
-                'name': f'MenuHub {plan.capitalize()}',
+                'name': f'GetMenuHub {plan.capitalize()}',
                 'tax_category': 'saas',
                 'custom_data': {'plan_code': plan},
             },
@@ -71,7 +71,7 @@ class Command(BaseCommand):
             headers=billing._headers(),
             json={
                 'product_id': product_id,
-                'description': f'MenuHub {plan.capitalize()} - monthly',
+                'description': f'GetMenuHub {plan.capitalize()} - monthly',
                 'unit_price': {'amount': str(price_usd * 100), 'currency_code': 'USD'},
                 'billing_cycle': {'interval': 'month', 'frequency': 1},
             },

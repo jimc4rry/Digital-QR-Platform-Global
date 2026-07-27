@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 {% load static i18n %}
 
-{% block title %}{% blocktrans %}MenuHub - Digital QR Code Menu for Restaurants, Cafes & Bars{% endblocktrans %}{% endblock %}
+{% block title %}{% blocktrans %}GetMenuHub - Digital QR Code Menu for Restaurants, Cafes & Bars{% endblocktrans %}{% endblock %}
 {% block meta_description %}{% blocktrans %}QR code menu for restaurants & cafes - table-side ordering means you need less staff to run service smoothly, plus zero printing costs. Set up in 5 minutes. From $7/month.{% endblocktrans %}{% endblock %}
-{% block og_title %}{% blocktrans %}MenuHub - Digital QR Code Menu for Restaurants & Cafes{% endblocktrans %}{% endblock %}
+{% block og_title %}{% blocktrans %}GetMenuHub - Digital QR Code Menu for Restaurants & Cafes{% endblocktrans %}{% endblock %}
 {% block og_description %}{% blocktrans %}Table-side ordering that needs less staff to run smoothly, instant price updates, and zero printing costs. Create your digital menu in 5 minutes.{% endblocktrans %}{% endblock %}
 
 {% block structured_data %}
@@ -11,7 +11,7 @@
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  "name": "MenuHub",
+  "name": "GetMenuHub",
   "applicationCategory": "BusinessApplication",
   "operatingSystem": "Web",
   "description": "Platform for creating a digital QR-code menu for restaurants, cafes, and bars, with table-side ordering that reduces the staff needed to run service, product management, and dietary labels.",
@@ -39,7 +39,7 @@
     },
     {
       "@type": "Question",
-      "name": "How much does the MenuHub digital menu cost?",
+      "name": "How much does the GetMenuHub digital menu cost?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "The Basic plan starts at $7/month and includes unlimited categories and products with an automatic QR code. The Pro plan costs $19/month and adds table-side ordering, loyalty points, and discount codes. The Business plan costs $39/month and adds statistics and staff management."
@@ -363,7 +363,7 @@
     {% if beta_mode %}
         <div class="alert alert-success text-center rounded-0 mb-0">
             <i class="bi bi-stars"></i>
-            {% trans "MenuHub is currently in free beta - every plan's features are unlocked at no cost while we finish rolling out paid billing." %}
+            {% trans "GetMenuHub is currently in free beta - every plan's features are unlocked at no cost while we finish rolling out paid billing." %}
         </div>
     {% endif %}
 
@@ -473,7 +473,7 @@
                         <h3 class="h6 text-muted-lp mb-3">{% trans "Without digital ordering" %}</h3>
                         <p class="mb-4">{% trans "A server notices the table is ready, walks over, takes the order, walks it to the kitchen - then repeats for the next table." %}</p>
                         <hr>
-                        <h3 class="h6 text-primary mb-3">{% trans "With MenuHub" %}</h3>
+                        <h3 class="h6 text-primary mb-3">{% trans "With GetMenuHub" %}</h3>
                         <p class="mb-0">{% trans "The customer scans the table's QR code and orders directly from their phone - it lands on your dashboard instantly, no walk needed." %}</p>
                     </div>
                 </div>
@@ -486,7 +486,7 @@
         <div class="container">
             <div class="lp-section-head mh-reveal">
                 <h2>{% trans "See it in action" %}</h2>
-                <p>{% trans "Real, live QR code menus built with MenuHub - not mockups." %}</p>
+                <p>{% trans "Real, live QR code menus built with GetMenuHub - not mockups." %}</p>
             </div>
             <div class="row g-4">
                 {% for example in examples %}
@@ -678,7 +678,7 @@
                         <div class="accordion-item">
                             <h3 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
-                                    {% trans "How much does MenuHub cost?" %}
+                                    {% trans "How much does GetMenuHub cost?" %}
                                 </button>
                             </h3>
                             <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">

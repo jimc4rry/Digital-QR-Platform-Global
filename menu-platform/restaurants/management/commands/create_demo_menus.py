@@ -12,7 +12,7 @@ DEMO_RESTAURANTS = [
     {
         'username': 'demo_cafe',
         'name': 'Aroma Coffee House',
-        'description': 'A neighborhood cafe menu, built with MenuHub in a few minutes.',
+        'description': 'A neighborhood cafe menu, built with GetMenuHub in a few minutes.',
         'categories': [
             {
                 'name': 'Coffee',
