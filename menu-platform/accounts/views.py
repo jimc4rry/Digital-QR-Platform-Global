@@ -1,5 +1,6 @@
 import json
 import logging
+import threading
 from datetime import timedelta
 from decimal import Decimal
 from functools import wraps
@@ -35,19 +36,30 @@ def _send_account_email(recipient, subject, message):
     """Best-effort account email (signup, password change) - never blocks the
     request that triggered it. This is the ONLY place the platform sends
     informational email; nothing else (e.g. new-order alerts) should call
-    send_mail directly."""
+    send_mail directly.
+
+    Sent from a background thread rather than inline: a try/except alone only
+    protects against send_mail *raising*, not against the SMTP connection
+    hanging (e.g. Brevo unreachable/slow) - a hang would block this thread
+    until gunicorn's worker timeout kills it, 502-ing the request entirely.
+    Backgrounding it means the request always returns immediately regardless
+    of SMTP health. EMAIL_TIMEOUT (settings.py) bounds the thread itself."""
     if not recipient:
         return
-    try:
-        send_mail(
-            subject=subject,
-            message=message,
-            from_email=None,
-            recipient_list=[recipient],
-            fail_silently=False,
-        )
-    except Exception:
-        logger.exception('Failed to send account email "%s" to %s', subject, recipient)
+
+    def _send():
+        try:
+            send_mail(
+                subject=subject,
+                message=message,
+                from_email=None,
+                recipient_list=[recipient],
+                fail_silently=False,
+            )
+        except Exception:
+            logger.exception('Failed to send account email "%s" to %s', subject, recipient)
+
+    threading.Thread(target=_send, daemon=True).start()
 
 
 class _NotifyingPasswordChangeView(auth_views.PasswordChangeView):
