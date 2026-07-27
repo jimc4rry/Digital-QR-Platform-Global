@@ -2,9 +2,9 @@
 {% load static i18n %}
 
 {% block title %}{% blocktrans %}MenuHub - Digital QR Code Menu for Restaurants, Cafes & Bars{% endblocktrans %}{% endblock %}
-{% block meta_description %}{% blocktrans %}Create your restaurant, cafe or bar's digital QR code menu in 5 minutes. No printing, instant price updates, dietary labels and table-side ordering. From $7/month.{% endblocktrans %}{% endblock %}
+{% block meta_description %}{% blocktrans %}QR code menu for restaurants & cafes - table-side ordering means you need less staff to run service smoothly, plus zero printing costs. Set up in 5 minutes. From $7/month.{% endblocktrans %}{% endblock %}
 {% block og_title %}{% blocktrans %}MenuHub - Digital QR Code Menu for Restaurants & Cafes{% endblocktrans %}{% endblock %}
-{% block og_description %}{% blocktrans %}Create your digital menu in 5 minutes. Automatic QR code, live price updates, dietary labels, table-side ordering.{% endblocktrans %}{% endblock %}
+{% block og_description %}{% blocktrans %}Table-side ordering that needs less staff to run smoothly, instant price updates, and zero printing costs. Create your digital menu in 5 minutes.{% endblocktrans %}{% endblock %}
 
 {% block structured_data %}
 <script type="application/ld+json">
@@ -14,7 +14,7 @@
   "name": "MenuHub",
   "applicationCategory": "BusinessApplication",
   "operatingSystem": "Web",
-  "description": "Platform for creating a digital QR-code menu for restaurants, cafes, and bars, with product management, dietary labels, and table-side ordering.",
+  "description": "Platform for creating a digital QR-code menu for restaurants, cafes, and bars, with table-side ordering that reduces the staff needed to run service, product management, and dietary labels.",
   "offers": {
     "@type": "AggregateOffer",
     "lowPrice": "7",
@@ -75,6 +75,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Yes, the digital menu is fully mobile-first and opens correctly in any phone's browser, with no app install required."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can a digital menu help if my restaurant is short-staffed?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Table-side ordering lets customers order directly from their phone by scanning the table's QR code, without a server having to walk over, take the order, and relay it to the kitchen. That means fewer staff are needed to run a full shift smoothly, and the staff you do have can focus on service that actually needs a person."
       }
     }
   ]
@@ -445,6 +453,34 @@
         </div>
     </section>
 
+    <!-- Short-staffed value proposition -->
+    <section class="lp-section">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6 mh-reveal">
+                    <span class="lp-eyebrow"><i class="bi bi-people"></i> {% trans "Built for today's staffing reality" %}</span>
+                    <h2>{% trans "Short-staffed? Your menu can carry more of the workload." %}</h2>
+                    <p class="text-muted-lp">{% blocktrans %}Finding and keeping enough staff is one of the hardest parts of running a restaurant right now. With table-side ordering, customers order directly from their phone - no server needed to walk over, take the order, and relay it to the kitchen. The staff you do have can spend their time on the parts of service that actually need a person.{% endblocktrans %}</p>
+                    <ul class="list-unstyled mt-3">
+                        <li class="mb-2"><i class="bi bi-check2-circle text-primary"></i> {% trans "Fewer staff needed to run a full shift smoothly" %}</li>
+                        <li class="mb-2"><i class="bi bi-check2-circle text-primary"></i> {% trans "Existing staff handle more tables, more efficiently" %}</li>
+                        <li class="mb-2"><i class="bi bi-check2-circle text-primary"></i> {% trans "Zero reprinting costs when prices or dishes change" %}</li>
+                    </ul>
+                    <a href="{% url 'signup' %}" class="btn btn-lp-primary btn-lg mt-2">{% trans "See how it works" %}</a>
+                </div>
+                <div class="col-lg-6 mh-reveal">
+                    <div class="lp-card">
+                        <h3 class="h6 text-muted-lp mb-3">{% trans "Without digital ordering" %}</h3>
+                        <p class="mb-4">{% trans "A server notices the table is ready, walks over, takes the order, walks it to the kitchen - then repeats for the next table." %}</p>
+                        <hr>
+                        <h3 class="h6 text-primary mb-3">{% trans "With MenuHub" %}</h3>
+                        <p class="mb-0">{% trans "The customer scans the table's QR code and orders directly from their phone - it lands on your dashboard instantly, no walk needed." %}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Live examples teaser -->
     <section class="lp-section">
         <div class="container">
@@ -696,6 +732,18 @@
                             <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                                 <div class="accordion-body text-muted-lp">
                                     {% trans "Yes, the digital menu is fully mobile-first and opens correctly in any phone's browser, with no app installation required." %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq7">
+                                    {% trans "Can a digital menu help if my restaurant is short-staffed?" %}
+                                </button>
+                            </h3>
+                            <div id="faq7" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted-lp">
+                                    {% trans "Yes. Table-side ordering lets customers order directly from their phone by scanning the table's QR code, without a server having to walk over, take the order, and relay it to the kitchen. That means fewer staff are needed to run a full shift smoothly, and the staff you do have can focus on service that actually needs a person." %}
                                 </div>
                             </div>
                         </div>
