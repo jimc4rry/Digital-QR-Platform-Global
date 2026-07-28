@@ -29,6 +29,11 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_simplejwt',
 
+    # Login brute-force lockout - tracked in the database (AXES_HANDLER below),
+    # not the cache, so it works correctly regardless of gunicorn worker count
+    # or how many app instances are running.
+    'axes',
+
     # Local
     'accounts',
     'restaurants',
@@ -39,6 +44,11 @@ INSTALLED_APPS = [
 
     # Must come after the apps whose models it cleans up media for.
     'django_cleanup.apps.CleanupConfig',
+]
+
+AUTHENTICATION_BACKENDS = [
+    'axes.backends.AxesStandaloneBackend',  # must be first - checks the lockout before real auth runs
+    'django.contrib.auth.backends.ModelBackend',
 ]
 
 MIDDLEWARE = [
@@ -53,7 +63,19 @@ MIDDLEWARE = [
     'menu_platform.middleware.RestaurantSubdomainMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'axes.middleware.AxesMiddleware',  # must be last
 ]
+
+# Login brute-force protection (django-axes). Locked out on the combination of
+# username + IP, not either alone - an attacker spamming one known username
+# from one IP gets locked out, but that doesn't lock the real owner out if
+# they log in from their own IP, and one attacker can't lock out many
+# different accounts at once by spraying passwords from a single IP either.
+AXES_HANDLER = 'axes.handlers.database.AxesDatabaseHandler'
+AXES_FAILURE_LIMIT = 5
+AXES_COOLOFF_TIME = 1  # hours
+AXES_LOCKOUT_PARAMETERS = [['username', 'ip_address']]
+AXES_RESET_ON_SUCCESS = True
 
 ROOT_URLCONF = 'menu_platform.urls'
 
