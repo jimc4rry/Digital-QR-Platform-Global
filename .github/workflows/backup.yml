@@ -1,0 +1,30 @@
+name: Database backup
+
+on:
+  schedule:
+    - cron: "15 3 * * *"  # 03:15 UTC daily
+  workflow_dispatch: {}   # allows a manual "Run workflow" from the Actions tab
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install PostgreSQL 18 client (must match the server's major version)
+        run: |
+          sudo sh -c 'echo "deb https://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
+          curl -fsSL https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/postgresql.gpg
+          sudo apt-get update
+          sudo apt-get install -y postgresql-client-18
+
+      - name: Dump and compress
+        env:
+          BACKUP_DATABASE_URL: ${{ secrets.BACKUP_DATABASE_URL }}
+        run: |
+          pg_dump "$BACKUP_DATABASE_URL" --no-owner --no-privileges | gzip > "backup-$(date +%Y-%m-%d).sql.gz"
+
+      - name: Upload as workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: db-backup-${{ github.run_id }}
+          path: backup-*.sql.gz
+          retention-days: 30
