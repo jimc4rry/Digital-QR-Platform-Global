@@ -127,7 +127,7 @@ def signup(request):
                 user.save(update_fields=['subscription_plan', 'subscription_active', 'subscription_ends'])
 
                 # Auto-create the restaurant that goes with this account
-                Restaurant.objects.create(
+                restaurant = Restaurant.objects.create(
                     user=user,
                     name=user.business_name or f"{user.username}'s Restaurant",
                     is_active=True,
@@ -138,6 +138,22 @@ def signup(request):
                 user.email,
                 _('Welcome to GetMenuHub!'),
                 _('Your GetMenuHub account and restaurant have been created. You have a 30-day free trial of the Basic plan - log in anytime to set up your menu.'),
+            )
+            # Fixed-language admin alert, deliberately not run through gettext -
+            # it must stay readable regardless of which language the signup
+            # request happened to be in.
+            _send_account_email(
+                'info@getmenuhub.com',
+                f'Νέα εγγραφή στο GetMenuHub: {restaurant.name}',
+                (
+                    f'Δημιουργήθηκε νέος λογαριασμός και εστιατόριο.\n\n'
+                    f'Επιχείρηση: {user.business_name or "-"}\n'
+                    f'Τύπος: {user.get_business_type_display()}\n'
+                    f'Username: {user.username}\n'
+                    f'Email: {user.email}\n'
+                    f'Τηλέφωνο: {user.phone or "-"}\n'
+                    f'Πλάνο: 30ήμερη δωρεάν δοκιμή (Basic)'
+                ),
             )
             login(request, user)
             messages.success(request, _('Your account has been created! You have a 30-day free trial of the Basic plan.'))
