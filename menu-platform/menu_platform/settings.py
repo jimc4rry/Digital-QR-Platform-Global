@@ -111,6 +111,25 @@ DATABASES = {
     )
 }
 
+# Cache - local in-memory by default (fine for local dev, a single process).
+# Set REDIS_URL to switch to a shared Redis cache in production - REQUIRED
+# whenever more than one gunicorn worker/app instance is running, since
+# LocMemCache is per-process: the order-creation rate limit
+# (orders/views.py) and the signup rate limit (accounts/views.py) both rely
+# on Django's cache being shared across every process handling requests,
+# otherwise each process enforces its own separate limit and the real,
+# combined limit is (configured limit) x (number of processes).
+REDIS_URL = config('REDIS_URL', default='')
+CACHES = {
+    'default': {
+        'BACKEND': 'django_redis.cache.RedisCache',
+        'LOCATION': REDIS_URL,
+        'OPTIONS': {'CLIENT_CLASS': 'django_redis.client.DefaultClient'},
+    } if REDIS_URL else {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+    }
+}
+
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
