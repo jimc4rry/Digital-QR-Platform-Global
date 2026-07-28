@@ -26,5 +26,6 @@ urlpatterns = [
     path('platform-admin/', views.platform_admin_dashboard, name='platform_admin_dashboard'),
     path('platform-admin/payments/', views.platform_admin_payments, name='platform_admin_payments'),
     path('platform-admin/<int:pk>/', views.platform_admin_business_detail, name='platform_admin_business_detail'),
+    path('platform-admin/<int:pk>/export/', views.platform_admin_business_export, name='platform_admin_business_export'),
     path('platform-admin/<int:pk>/delete/', views.platform_admin_business_delete, name='platform_admin_business_delete'),
 ]

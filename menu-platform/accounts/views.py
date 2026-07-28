@@ -427,6 +427,81 @@ def platform_admin_business_detail(request, pk):
 
 
 @platform_admin_required
+def platform_admin_business_export(request, pk):
+    """Downloads everything stored about one business as a single JSON file -
+    covers the GDPR/right-to-portability request path (Art. 20), which the
+    account-deletion tool above doesn't: a customer can ask for a copy of
+    their data without necessarily wanting the account closed. There's no
+    self-service version of this - it's triggered by the platform operator
+    on request, same as the delete tool, and is fine at this scale (manual
+    handling "without undue delay" satisfies the legal requirement; it
+    doesn't require self-service automation)."""
+    business_user = get_object_or_404(User, pk=pk, restaurant__isnull=False)
+    restaurant = business_user.restaurant
+
+    def field_dict(instance, fields):
+        return {f: getattr(instance, f) for f in fields}
+
+    data = {
+        'exported_at': timezone.now().isoformat(),
+        'account': field_dict(business_user, [
+            'username', 'email', 'phone', 'business_name', 'business_type',
+            'tax_id', 'subscription_plan', 'subscription_active', 'date_joined',
+        ]),
+        'restaurant': field_dict(restaurant, [
+            'name', 'slug', 'description', 'address', 'phone', 'email',
+            'is_active', 'allow_ordering', 'loyalty_enabled', 'tax_rate',
+            'currency', 'created_at',
+        ]),
+        'staff': [
+            field_dict(s, ['role', 'created_at']) | {'username': s.user.username, 'email': s.user.email}
+            for s in restaurant.staff_members.select_related('user')
+        ],
+        'categories': [
+            {
+                **field_dict(c, ['name', 'description', 'is_active']),
+                'products': [
+                    field_dict(p, [
+                        'name', 'description', 'price', 'is_available',
+                        'is_vegan', 'is_vegetarian', 'is_gluten_free', 'is_spicy',
+                    ])
+                    for p in c.products.all()
+                ],
+            }
+            for c in restaurant.categories.all()
+        ],
+        'tables': [field_dict(t, ['table_type', 'number', 'created_at']) for t in restaurant.tables.all()],
+        'promo_codes': [
+            field_dict(p, ['code', 'discount_percent', 'is_active', 'used_count', 'created_at'])
+            for p in restaurant.promo_codes.all()
+        ],
+        'loyalty_accounts': [
+            field_dict(l, ['phone', 'points', 'created_at'])
+            for l in restaurant.loyalty_accounts.all()
+        ],
+        'orders': [
+            field_dict(o, [
+                'order_number', 'table_type', 'table_number', 'customer_name',
+                'customer_email', 'customer_phone', 'items', 'subtotal',
+                'discount', 'tax', 'total', 'status', 'created_at',
+            ])
+            for o in restaurant.orders.all()
+        ],
+        'payments': [
+            field_dict(p, ['plan', 'amount', 'currency', 'status', 'transaction_id', 'created_at'])
+            for p in Payment.objects.filter(user=business_user)
+        ],
+    }
+
+    response = HttpResponse(
+        json.dumps(data, indent=2, default=str, ensure_ascii=False),
+        content_type='application/json',
+    )
+    response['Content-Disposition'] = f'attachment; filename="{restaurant.slug or business_user.username}-data-export.json"'
+    return response
+
+
+@platform_admin_required
 def platform_admin_business_delete(request, pk):
     """Permanently removes a business account - for spam/bot signups. Deleting the
     User cascades to its Restaurant and everything under it (categories, products,
