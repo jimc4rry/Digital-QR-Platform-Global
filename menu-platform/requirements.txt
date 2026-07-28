@@ -6,6 +6,7 @@ qrcode==7.4.2
 django-cleanup==7.0.0
 django-axes==8.3.1
 django-redis==5.4.0
+django-csp==3.8
 python-decouple==3.8
 gunicorn==21.2.0
 whitenoise==6.6.0

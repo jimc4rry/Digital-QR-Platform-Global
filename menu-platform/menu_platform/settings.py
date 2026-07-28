@@ -64,8 +64,27 @@ MIDDLEWARE = [
     'menu_platform.middleware.RestaurantSubdomainMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'csp.middleware.CSPMiddleware',
     'axes.middleware.AxesMiddleware',  # must be last
 ]
+
+# Content-Security-Policy. Not a "strict" CSP (nonces, no inline scripts) -
+# templates rely on inline <script>/<style> blocks throughout (calculators,
+# theme toggle, etc.), and rewriting all of that is out of scope here. What
+# this DOES stop is the most common real-world injection: an attacker-
+# controlled <script src="https://evil.example/x.js"> or an XHR/fetch
+# exfiltrating data to an attacker's domain - both are blocked because
+# script-src/connect-src only allow 'self' plus the specific external hosts
+# the site actually uses (Bootstrap CDN, Google Fonts, Paddle checkout).
+CSP_DEFAULT_SRC = ("'self'",)
+CSP_SCRIPT_SRC = ("'self'", "'unsafe-inline'", 'https://cdn.jsdelivr.net', 'https://code.jquery.com', 'https://cdn.paddle.com')
+CSP_STYLE_SRC = ("'self'", "'unsafe-inline'", 'https://cdn.jsdelivr.net', 'https://fonts.googleapis.com')
+CSP_FONT_SRC = ("'self'", 'https://fonts.gstatic.com', 'https://cdn.jsdelivr.net', 'data:')
+CSP_IMG_SRC = ("'self'", 'data:', 'https:')  # 'https:' covers S3/R2-hosted uploads, whatever bucket domain is configured
+CSP_CONNECT_SRC = ("'self'",)
+CSP_FRAME_SRC = ('https://buy.paddle.com', 'https://sandbox-buy.paddle.com')
+CSP_OBJECT_SRC = ("'none'",)
+CSP_BASE_URI = ("'self'",)
 
 # Login brute-force protection (django-axes). Locked out on the combination of
 # username + IP, not either alone - an attacker spamming one known username
