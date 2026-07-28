@@ -8,6 +8,8 @@ from rest_framework import generics, status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
+from rest_framework_simplejwt.exceptions import TokenError
+from rest_framework_simplejwt.tokens import RefreshToken
 
 from orders.models import Order
 from orders.views import _apply_order_status_change
@@ -317,6 +319,24 @@ class PromoCodeDeleteView(APIView):
         promo = generics.get_object_or_404(PromoCode, pk=pk, restaurant=request.restaurant)
         promo.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+class LogoutView(APIView):
+    """Blacklists the refresh token being logged out with, so it can't be used
+    again even if it leaks after this point (e.g. a lost/uninstalled device) -
+    without this, "logging out" only cleared the token client-side while it
+    stayed valid server-side until its natural 30-day expiry."""
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request):
+        refresh = request.data.get('refresh')
+        if not refresh:
+            return Response({'error': 'refresh token is required.'}, status=status.HTTP_400_BAD_REQUEST)
+        try:
+            RefreshToken(refresh).blacklist()
+        except TokenError:
+            pass  # already invalid/expired/blacklisted - logout still succeeds
+        return Response(status=status.HTTP_205_RESET_CONTENT)
 
 
 class DeviceTokenRegisterView(APIView):

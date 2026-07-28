@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
     'rest_framework_simplejwt',
+    'rest_framework_simplejwt.token_blacklist',
 
     # Login brute-force lockout - tracked in the database (AXES_HANDLER below),
     # not the cache, so it works correctly regardless of gunicorn worker count
@@ -208,6 +209,10 @@ SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(hours=8),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=30),
     'ROTATE_REFRESH_TOKENS': True,
+    # Without this, rotation issues a new refresh token but never invalidates
+    # the old one - a leaked older token would stay usable indefinitely
+    # alongside the current one. Requires the token_blacklist app above.
+    'BLACKLIST_AFTER_ROTATION': True,
 }
 
 # CORS: only needed so the Flutter app (running from a different origin - an emulator,

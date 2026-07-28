@@ -62,6 +62,13 @@ class AuthService extends ChangeNotifier {
         final data = jsonDecode(response.body) as Map<String, dynamic>;
         _accessToken = data['access'] as String;
         await _storage.write(key: _accessKey, value: _accessToken);
+        // The backend rotates the refresh token on every use (and blacklists
+        // the old one) - the old token stops working after this point, so it
+        // must be persisted or the *next* refresh call fails as if logged out.
+        final rotatedRefresh = data['refresh'] as String?;
+        if (rotatedRefresh != null) {
+          await _storage.write(key: _refreshKey, value: rotatedRefresh);
+        }
         notifyListeners();
         return true;
       }
@@ -72,7 +79,28 @@ class AuthService extends ChangeNotifier {
     return false;
   }
 
+  /// Tells the backend to blacklist the current refresh token before
+  /// clearing local storage, so a logged-out session can't be replayed if the
+  /// token leaked (e.g. from a lost/reset device). Best-effort - local
+  /// storage is always cleared even if the server call fails (offline, etc.).
   Future<void> logout() async {
+    final refreshToken = await _storage.read(key: _refreshKey);
+    final currentAccess = _accessToken;
+    if (refreshToken != null && currentAccess != null) {
+      try {
+        await http.post(
+          Uri.parse('${ApiConfig.apiBaseUrl}/auth/logout/'),
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer $currentAccess',
+          },
+          body: jsonEncode({'refresh': refreshToken}),
+        );
+      } catch (_) {
+        // offline or server unreachable - still clear the local session below
+      }
+    }
+
     _accessToken = null;
     await _storage.delete(key: _accessKey);
     await _storage.delete(key: _refreshKey);
