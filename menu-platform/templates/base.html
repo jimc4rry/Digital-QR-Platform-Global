@@ -137,6 +137,14 @@
                                 <i class="bi bi-speedometer2"></i> {% trans "Dashboard" %}
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'feedback:notification_list' %}">
+                                <i class="bi bi-bell"></i> {% trans "Notifications" %}
+                                {% if unread_notification_count %}
+                                    <span class="badge bg-danger rounded-pill">{{ unread_notification_count }}</span>
+                                {% endif %}
+                            </a>
+                        </li>
                         {% if can_manage_menu %}
                             <li class="nav-item">
                                 <a class="nav-link" href="{% url 'category_list' %}">

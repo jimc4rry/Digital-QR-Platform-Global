@@ -52,6 +52,23 @@
 
             <h2 class="h6">{% trans "Message" %}</h2>
             <p style="white-space: pre-wrap;">{{ entry.message }}</p>
+
+            <hr>
+
+            <h2 class="h6">{% trans "Your reply" %}</h2>
+            {% if entry.admin_reply %}
+                <div class="alert alert-secondary" style="white-space: pre-wrap;">{{ entry.admin_reply }}</div>
+                <p class="text-muted small">{% blocktrans with date=entry.replied_at|date:"d/m/Y H:i" %}Sent {{ date }} - the user was notified in-app.{% endblocktrans %}</p>
+            {% endif %}
+            <form method="post">
+                {% csrf_token %}
+                <div class="mb-2">
+                    <textarea name="reply" class="form-control" rows="4" placeholder="{% trans 'Write a reply - the user will see it as an in-app notification' %}">{{ entry.admin_reply }}</textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    {% if entry.admin_reply %}{% trans "Update reply" %}{% else %}{% trans "Send reply" %}{% endif %}
+                </button>
+            </form>
         </div>
     </div>
 </div>

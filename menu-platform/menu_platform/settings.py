@@ -114,6 +114,7 @@ TEMPLATES = [
                 'accounts.context_processors.beta_context',
                 'accounts.context_processors.site_context',
                 'feedback.context_processors.feedback_context',
+                'feedback.context_processors.notification_context',
             ],
         },
     },

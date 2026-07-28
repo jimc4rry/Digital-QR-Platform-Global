@@ -1,14 +1,16 @@
 import json
 
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from django.http import JsonResponse, HttpResponseBadRequest
 from django.shortcuts import render, get_object_or_404, redirect
+from django.utils import timezone
 from django.utils.translation import gettext as _
 from django.views.decorators.http import require_POST
 
 from accounts.views import platform_admin_required
-from .models import Feedback
+from .models import Feedback, Notification
 
 FEEDBACK_PAGE_SIZE = 20
 
@@ -46,8 +48,27 @@ def feedback_admin_list(request):
 
 @platform_admin_required
 def feedback_admin_detail(request, pk):
-    """Full detail view for one feedback entry - viewing it marks it read."""
+    """Full detail view for one feedback entry - viewing it marks it read.
+    POSTing a reply here saves it on the entry and creates a Notification for
+    whoever originally sent the feedback, so they see it in-app rather than
+    needing an email round-trip."""
     entry = get_object_or_404(Feedback.objects.select_related('user', 'user__restaurant'), pk=pk)
+
+    if request.method == 'POST':
+        reply_text = (request.POST.get('reply') or '').strip()
+        if reply_text:
+            entry.admin_reply = reply_text
+            entry.replied_at = timezone.now()
+            entry.save(update_fields=['admin_reply', 'replied_at'])
+            Notification.objects.create(
+                recipient=entry.user,
+                title=_('Reply to your feedback'),
+                message=reply_text,
+                feedback=entry,
+            )
+            messages.success(request, _('Reply sent.'))
+        return redirect('feedback:admin_detail', pk=entry.pk)
+
     if not entry.is_read:
         entry.is_read = True
         entry.save(update_fields=['is_read'])
@@ -71,3 +92,22 @@ def feedback_admin_delete(request, pk):
         messages.success(request, _('Feedback deleted.'))
         return redirect('feedback:admin_list')
     return render(request, 'feedback/admin_delete_confirm.html', {'entry': entry})
+
+
+NOTIFICATION_PAGE_SIZE = 20
+
+
+@login_required
+def notification_list(request):
+    """Any logged-in restaurant user's own notifications (owner or staff -
+    whoever the Notification.recipient is). Opening this page marks
+    everything currently on it read, the same "viewing marks read" pattern
+    used for feedback on the admin side."""
+    notifications = Notification.objects.filter(recipient=request.user).select_related('feedback')
+    page_obj = Paginator(notifications, NOTIFICATION_PAGE_SIZE).get_page(request.GET.get('page'))
+
+    unread_ids = [n.pk for n in page_obj if not n.is_read]
+    if unread_ids:
+        Notification.objects.filter(pk__in=unread_ids).update(is_read=True)
+
+    return render(request, 'feedback/notification_list.html', {'page_obj': page_obj})
