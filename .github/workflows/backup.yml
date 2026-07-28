@@ -20,7 +20,19 @@ jobs:
         env:
           BACKUP_DATABASE_URL: ${{ secrets.BACKUP_DATABASE_URL }}
         run: |
-          pg_dump "$BACKUP_DATABASE_URL" --no-owner --no-privileges | gzip > "backup-$(date +%Y-%m-%d).sql.gz"
+          set -o pipefail
+          FILE="backup-$(date +%Y-%m-%d).sql.gz"
+          pg_dump "$BACKUP_DATABASE_URL" --no-owner --no-privileges --verbose | gzip > "$FILE"
+          echo "Dump written: $FILE ($(du -h "$FILE" | cut -f1))"
+          # A real dump of this app's schema is at minimum tens of KB - anything
+          # near-empty means pg_dump silently produced nothing useful (e.g. wrong
+          # connection string, or the pipe swallowing a failed pg_dump exit code).
+          MIN_BYTES=5000
+          ACTUAL_BYTES=$(stat -c%s "$FILE")
+          if [ "$ACTUAL_BYTES" -lt "$MIN_BYTES" ]; then
+            echo "::error::Backup file is only $ACTUAL_BYTES bytes (expected at least $MIN_BYTES) - pg_dump likely failed silently."
+            exit 1
+          fi
 
       - name: Upload as workflow artifact
         uses: actions/upload-artifact@v4
