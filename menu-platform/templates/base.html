@@ -256,6 +256,9 @@
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end">
                                     <li><a class="dropdown-item" href="{% url 'profile' %}"><i class="bi bi-person"></i> {% trans "My Profile" %}</a></li>
+                                    {% if active_restaurant %}
+                                        <li><a class="dropdown-item" href="{{ active_restaurant.get_subdomain_url }}" target="_blank" rel="noopener"><i class="bi bi-box-arrow-up-right"></i> {% trans "View my menu site" %}</a></li>
+                                    {% endif %}
                                     {% if can_manage_menu %}
                                         <li><a class="dropdown-item" href="{% url 'restaurant_settings' %}"><i class="bi bi-shop"></i> {% trans "Restaurant Settings" %}</a></li>
                                     {% endif %}
