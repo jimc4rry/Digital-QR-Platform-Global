@@ -21,8 +21,15 @@ jobs:
           BACKUP_DATABASE_URL: ${{ secrets.BACKUP_DATABASE_URL }}
         run: |
           set -o pipefail
+          # ubuntu-latest ships its own (older) postgresql-client already, and
+          # it wins on PATH over the v18 one just installed above - confirmed
+          # by a real failure here (pg_dump 16.14 refusing to talk to an 18.4
+          # server). Call the versioned binary explicitly instead of relying
+          # on whatever "pg_dump" resolves to on PATH.
+          PGDUMP=/usr/lib/postgresql/18/bin/pg_dump
+          "$PGDUMP" --version
           FILE="backup-$(date +%Y-%m-%d).sql.gz"
-          pg_dump "$BACKUP_DATABASE_URL" --no-owner --no-privileges --verbose | gzip > "$FILE"
+          "$PGDUMP" "$BACKUP_DATABASE_URL" --no-owner --no-privileges --verbose | gzip > "$FILE"
           echo "Dump written: $FILE ($(du -h "$FILE" | cut -f1))"
           # A real dump of this app's schema is at minimum tens of KB - anything
           # near-empty means pg_dump silently produced nothing useful (e.g. wrong
