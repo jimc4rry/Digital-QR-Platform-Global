@@ -12,6 +12,10 @@ RESERVED_SLUGS = {
     'www', 'api', 'admin', 'app', 'mail', 'ftp', 'static', 'media', 'cdn',
     'blog', 'guides', 'dashboard', 'staging', 'test', 'assets', 'help',
     'support', 'status', 'docs', 'shop', 'store',
+    # Explicit (non-wildcard) DNS records for the staging environment - these
+    # override the *.getmenuhub.com wildcard, so a restaurant that picked one
+    # of these slugs would silently be routed to staging instead of prod.
+    'uat', 'uat-staging',
 }
 
 
