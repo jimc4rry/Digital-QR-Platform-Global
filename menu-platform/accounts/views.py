@@ -3,6 +3,7 @@ import logging
 import threading
 from datetime import timedelta
 from decimal import Decimal
+from email.utils import parseaddr
 from functools import wraps
 
 import requests
@@ -38,24 +39,55 @@ def _send_account_email(recipient, subject, message):
     informational email; nothing else (e.g. new-order alerts) should call
     send_mail directly.
 
+    Sent via Brevo's HTTPS API rather than Django's SMTP EmailBackend when
+    BREVO_API_KEY is set: confirmed by hand that Railway's network blocks
+    outbound SMTP entirely (ports 587/465/25/2525 all connection-timeout,
+    even dialing Brevo's IP directly - it's not a DNS or Brevo-outage issue),
+    while HTTPS to api.brevo.com connects instantly. Falls back to Django's
+    normal send_mail() when BREVO_API_KEY isn't set, so local dev (console
+    backend) is unaffected.
+
     Sent from a background thread rather than inline: a try/except alone only
-    protects against send_mail *raising*, not against the SMTP connection
-    hanging (e.g. Brevo unreachable/slow) - a hang would block this thread
-    until gunicorn's worker timeout kills it, 502-ing the request entirely.
-    Backgrounding it means the request always returns immediately regardless
-    of SMTP health. EMAIL_TIMEOUT (settings.py) bounds the thread itself."""
+    protects against the send call *raising*, not against it hanging (a slow
+    provider) - a hang would block this thread until gunicorn's worker
+    timeout kills it, 502-ing the request entirely. Backgrounding it means
+    the request always returns immediately regardless of provider health.
+    EMAIL_TIMEOUT (settings.py) bounds the thread itself either way."""
     if not recipient:
         return
 
     def _send():
         try:
-            send_mail(
-                subject=subject,
-                message=message,
-                from_email=None,
-                recipient_list=[recipient],
-                fail_silently=False,
-            )
+            if settings.BREVO_API_KEY:
+                from_name, from_email = parseaddr(settings.DEFAULT_FROM_EMAIL)
+                response = requests.post(
+                    'https://api.brevo.com/v3/smtp/email',
+                    headers={
+                        'api-key': settings.BREVO_API_KEY,
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json',
+                    },
+                    json={
+                        'sender': {'name': from_name or 'GetMenuHub', 'email': from_email},
+                        'to': [{'email': recipient}],
+                        'subject': subject,
+                        'textContent': message,
+                    },
+                    timeout=settings.EMAIL_TIMEOUT,
+                )
+                if response.status_code >= 300:
+                    logger.error(
+                        'Brevo API rejected account email "%s" to %s: %s %s',
+                        subject, recipient, response.status_code, response.text,
+                    )
+            else:
+                send_mail(
+                    subject=subject,
+                    message=message,
+                    from_email=None,
+                    recipient_list=[recipient],
+                    fail_silently=False,
+                )
         except Exception:
             logger.exception('Failed to send account email "%s" to %s', subject, recipient)
 

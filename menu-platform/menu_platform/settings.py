@@ -303,6 +303,13 @@ EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', default='')
 EMAIL_TIMEOUT = config('EMAIL_TIMEOUT', default=10, cast=int)
 DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL', default='GetMenuHub <info@getmenuhub.com>')
 
+# When set, accounts/views.py::_send_account_email sends via Brevo's HTTPS API
+# instead of the SMTP settings above - required in production, since Railway
+# blocks outbound SMTP (confirmed: ports 587/465/25/2525 all time out even
+# dialing Brevo's IP directly, while HTTPS to api.brevo.com connects fine).
+# Generate under Brevo -> Settings -> SMTP & API -> API Keys.
+BREVO_API_KEY = config('BREVO_API_KEY', default='')
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # File upload limits (protect against decompression-bomb / DoS uploads)
