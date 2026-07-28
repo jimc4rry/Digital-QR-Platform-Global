@@ -1,17 +1,19 @@
-# MenuHub — Digital QR Code Menus for Restaurants, Cafes, Bars & Beach Bars
+# GetMenuHub — Digital QR Code Menus for Restaurants, Cafes, Bars & Beach Bars
 
-Django SaaS platform that lets restaurants/cafes/bars/beach bars create a
-digital menu accessible via QR code, with optional online ordering (from a
-table **or** a sunbed), staff management, loyalty points, discount codes,
-sales statistics, and real subscription billing via **Paddle** (Merchant of
-Record — handles international VAT/sales tax automatically). Includes a
-separate mobile app (Flutter) for owners/staff.
+Django SaaS platform ([getmenuhub.com](https://getmenuhub.com)) that lets
+restaurants/cafes/bars/beach bars create a digital menu accessible via QR
+code, with optional online ordering (from a table **or** a sunbed), staff
+management, loyalty points, discount codes, sales statistics, and real
+subscription billing via **Paddle** (Merchant of Record — handles
+international VAT/sales tax automatically). Includes a separate mobile app
+(Flutter) for owners/staff, and a marketing/SEO site (guides, blog, free
+tools, per-restaurant subdomains) built to attract organic signups.
 
-This is the **Global edition** of MenuHub: English-only, available to
-businesses worldwide, billed in USD through Paddle. It was forked from the
-original Greek-market edition (Stripe billing, Greek Tax ID requirement,
-Greek-only dashboard) — same feature set, adapted for an international
-audience.
+Available to businesses worldwide, billed in USD through Paddle. The
+dashboard/marketing site is available in **English, Greek, Spanish and
+French** (see §5.6) — English is always the source language and the only
+one anonymous/bot traffic ever sees, so SEO stays stable regardless of a
+visitor's browser language.
 
 ---
 
@@ -36,7 +38,11 @@ statistics, and their subscription.
    `Restaurant` relationship), with a random `qr_code_token` and a QR code
    image generated on the model's first `save()`. The account starts with a
    **30-day free trial** on the Basic plan (`subscription_active=True`,
-   `subscription_ends=+30d`).
+   `subscription_ends=+30d`). Two emails fire in the background: a welcome
+   email to the new owner, and an internal alert to `info@getmenuhub.com`
+   with the new business's name/type/username/email/phone
+   (`accounts/views.py::signup`) - see §5.5 for why this can't block the
+   request.
 2. **Creates Categories** (e.g. "Starters", "Mains") and **Products** (price,
    photo, dietary labels: vegan/vegetarian/gluten-free/spicy, optional
    per-product "options" like size/filling with a price adjustment).
@@ -159,17 +165,25 @@ currently logged in):
 ### 5.1 Django apps
 
 ```
-menu_platform/   # project config: settings, root urls, wsgi/asgi, seo_views (robots.txt/sitemap.xml)
+menu_platform/   # project config: settings, root urls, wsgi/asgi, middleware.py (language +
+                 # per-restaurant subdomain routing), seo_views (robots.txt/sitemap.xml),
+                 # tool_views (free QR generator, live examples), views (homepage)
 accounts/        # custom User model, signup/login/password-change, Paddle billing (billing.py,
                  # checkout/webhook/portal views), Payment model, management command sync_paddle_plans
 restaurants/     # Restaurant, Category, Product, ProductOption, StaffMember, RestaurantTable
                  # (table/sunbed), PromoCode, LoyaltyAccount + all owner/admin/employee views
 orders/          # Order, OrderItem, OrderStatusLog + public ordering API + reports
 api/             # REST API (DRF + JWT) for the Flutter staff app - /api/v1/..., same DB/models
-templates/       # all HTML templates (split per app + shared base.html)
-locale/en/       # gettext .po/.mo translations (kept as the runtime i18n mechanism; the site
-                 # renders English-only via LANGUAGE_CODE='en' / LANGUAGES=[('en', 'English')])
-static/          # static assets
+blog/            # DB-backed Post model + public list/detail views + an in-app admin UI
+                 # (/blog/manage/...) for writing posts without touching Django admin
+feedback/        # floating in-app feedback widget (bug reports/suggestions) + an admin
+                 # management UI - deliberately hidden from platform-admin/superuser accounts
+templates/       # all HTML templates (split per app + shared base.html), plus the marketing
+                 # site: home.html, guides/, blog/, tools/ (free QR generator, printing cost
+                 # calculator, staff efficiency calculator), solutions/ (staffing-shortage
+                 # landing page)
+locale/          # gettext .po/.mo translations for en/el/es/fr (see §5.6)
+static/          # static assets (design-system.css holds the shared --mh-* CSS tokens/dark mode)
 media/           # uploads (photos, QR codes) - local in dev, S3-compatible in production
 ```
 
@@ -268,7 +282,7 @@ unauthenticated endpoint that writes data:
 |---|---|---|
 | Database | SQLite (default) | Env var `DATABASE_URL=postgres://...` (via `dj-database-url`) |
 | File storage | Local filesystem | Env vars `AWS_STORAGE_BUCKET_NAME` + credentials → S3-compatible (AWS S3/Cloudflare R2/Spaces) via `django-storages` |
-| Email | Console backend (prints to terminal) | Needs a real `EMAIL_BACKEND`/SMTP config before production |
+| Email | Console backend (prints to terminal) by default | Env vars `EMAIL_BACKEND`/`EMAIL_HOST`/`EMAIL_HOST_USER`/`EMAIL_HOST_PASSWORD` → real SMTP (production uses Brevo). `EMAIL_TIMEOUT` (default 10s) bounds a hung/unreachable SMTP server so it can't block a gunicorn worker; every account email (welcome, password-changed, admin new-signup alert - see §2.A) is sent from a background thread for the same reason - a slow or down SMTP provider degrades to "email silently not sent, logged" rather than a failed/502 request |
 | Payments | Paddle **sandbox** (`PADDLE_ENV=sandbox`) | Same code, just live keys (`PADDLE_ENV=production`) + a real webhook endpoint registered in the Paddle dashboard |
 | Static files | WhiteNoise | Already production-ready |
 | Cookie/HSTS security | Off under `DEBUG=True` | Turned on automatically when `DEBUG=False` |
@@ -277,21 +291,76 @@ None of these changes need a code change - only environment variables.
 
 ### 5.6 Internationalization (i18n)
 
-The Global edition is **English-only**: `LANGUAGE_CODE='en'` and
-`LANGUAGES=[('en', 'English')]` in settings. Under the hood the app still
-uses Django's `gettext` machinery (`{% trans %}`/`{% blocktrans %}` +
-`LocaleMiddleware`) with translations compiled into
-`locale/en/LC_MESSAGES/django.mo` - this was inherited from the original
-bilingual (Greek/English) edition and simply renders English everywhere now
-that English is the only configured language. There's no language switcher
-in the UI since there's only one language available.
+The whole public site and dashboard support **English, Greek, Spanish and
+French** (`LANGUAGES` in settings) via Django's standard `gettext` machinery
+(`{% trans %}`/`{% blocktrans %}`, `.po`/`.mo` catalogs under `locale/<lang>/LC_MESSAGES/`).
+A language dropdown (globe icon in the navbar) is available to **every**
+visitor, logged in or not.
+
+Two things are deliberately custom rather than using Django's stock
+`LocaleMiddleware`, both for SEO safety:
+
+- **`menu_platform.middleware.LanguageMiddleware`** replaces it. Language is
+  decided *only* from the `django_language` cookie (set via
+  `django.views.i18n.set_language`, which in Django 4.2 stores it as a
+  cookie, not in the session) - it deliberately does **not** look at the
+  browser's `Accept-Language` header. That means Google (and any other
+  cookie-less/anonymous visitor) always gets the canonical English version
+  regardless of their locale, so there's exactly one indexable version of
+  each page rather than the crawler seeing whatever language its request
+  headers happen to imply.
+- **`RestaurantSubdomainMiddleware`** runs after `LanguageMiddleware` in
+  `MIDDLEWARE` (order matters - a subdomain request can short-circuit before
+  reaching the view, so language must already be activated by then) - see
+  §5.8.
+
+Schema.org JSON-LD structured data (see §5.7) is always emitted in English,
+on purpose - it's for search engines, which are treated as anonymous/English
+by the same middleware anyway.
 
 ### 5.7 SEO
 
 Dynamic meta tags (title/description/OG/canonical) via template blocks in
 `base.html`, JSON-LD structured data (SoftwareApplication + FAQPage) on the
 homepage, and automatic `robots.txt`/`sitemap.xml` (the sitemap includes every
-active public menu URL).
+guide/blog/tool page plus every active public menu URL).
+
+Beyond the core product, a growing set of pages exist purely to attract
+organic search traffic and get linked/shared:
+
+- **Guides** (`/guides/...`) - static how-to/cost-comparison articles.
+- **Blog** (`/blog/...`) - DB-backed (`blog.Post`), written either through
+  Django admin or the in-app editor at `/blog/manage/`.
+- **Free tools** - `/free-qr-code-generator/`, `/tools/printing-cost-calculator/`,
+  `/tools/staff-efficiency-calculator/` - no login required, meant to earn
+  backlinks/traffic and funnel into signup.
+- **Solutions pages** - e.g. `/solutions/staff-shortage/`, a deep-dive
+  landing page the homepage and blog posts link into, built around a single
+  keyword theme rather than splitting the same content across multiple thin
+  pages.
+
+### 5.8 Per-restaurant subdomains
+
+Each `Restaurant` has a unique `slug` (validated in `restaurants/forms.py`
+against a DNS-safe pattern + a reserved-word blocklist - subdomains can't use
+underscores even though Django's default `validate_slug` allows them). The
+restaurant's menu is reachable both at `/menu/<qr_code_token>/` (existing
+token-based URL, still works) and at `https://<slug>.getmenuhub.com/`.
+
+Implementation deliberately doesn't swap `request.urlconf` per-subdomain -
+`RestaurantSubdomainMiddleware` (in `menu_platform/middleware.py`) instead
+inspects the `Host` header for a small, specific set of subdomain URL
+patterns and calls `restaurants.views.public_menu_by_slug` directly for
+those; every other path (media, static, the order API, the dashboard) falls
+through completely unchanged. `Restaurant.get_subdomain_url()` builds the
+canonical subdomain URL, which every public menu page's `<link rel="canonical">`
+points at regardless of which of the two URLs actually served the request -
+this avoids duplicate-content SEO dilution between the token URL and the
+subdomain URL for the same menu.
+
+Requires a wildcard DNS record (`*.getmenuhub.com`) and, on Railway, a plan
+that allows more than one custom domain - not yet enabled on the current
+plan, so this feature is code-complete but not yet reachable in production.
 
 ## 6. Tech Stack
 
@@ -307,12 +376,8 @@ active public menu URL).
 - **QR codes**: `qrcode` + `Pillow`
 - **API**: Django REST Framework + `djangorestframework-simplejwt` (JWT auth for the mobile app)
 - **Push notifications**: `firebase-admin` (server-side ready, inactive until a Firebase project is added)
-- **Deployment**: `gunicorn` + `whitenoise` (static files)
-
-> ⚠️ `django-cleanup` is in `requirements.txt` but is **not** registered in
-> `INSTALLED_APPS` - currently inert (old media files aren't auto-deleted
-> when replaced). Either add it to `INSTALLED_APPS` or remove it from
-> requirements.
+- **Media cleanup**: `django-cleanup` (auto-deletes old media files - photos, QR codes - when replaced or the row is deleted)
+- **Deployment**: `gunicorn` + `whitenoise` (static files), hosted on **Railway** (see §9)
 
 ## 7. Running locally
 
@@ -354,10 +419,30 @@ tunnel to `localhost:8000/accounts/webhooks/paddle/` (e.g. via ngrok) in the
 Paddle sandbox dashboard - Paddle doesn't have a CLI-based local forwarder
 like Stripe's.
 
-## 8. Known limitations
+## 8. Deployment (Railway)
 
-- **Email via console backend**: order notifications print to the terminal
-  instead of actually being sent, until a real SMTP config is set in production.
+Production runs on [Railway](https://railway.com) (project **GetMenuHub**,
+service `Digital-QR-Platform-Global`), auto-deploying on every push to
+`main`. `railway status`/`railway logs`/`railway ssh` (CLI, run from
+`menu-platform/`) are the fastest way to check deploy state or run a
+one-off management command against the production database - `railway ssh`
+in particular runs the command **inside** the deployed container, which is
+required for anything touching Postgres since `DATABASE_URL` uses Railway's
+internal hostname (unreachable from outside their network, so plain
+`railway run` - which only injects env vars locally - can't reach it).
+
+GitHub Actions (`.github/workflows/ci.yml`) runs `manage.py test` on every
+push/PR; `SECURE_SSL_REDIRECT` is forced `False` in CI only (it defaults
+`True`-if-`DEBUG=False` otherwise, which would 301 every plain-HTTP test
+request). Postgres is a separate Railway-managed service; media uploads
+persist on a Railway volume mounted at `/app/media`.
+
+The email provider in production is **Brevo** SMTP - see §5.5 for how a
+Brevo outage degrades (skipped email + logged error) rather than breaking
+signup/checkout.
+
+## 9. Known limitations
+
 - **Push notifications inactive**: the code (server + mobile) is ready but
   needs a real Firebase project to activate.
 - **Loyalty/Promotions have no customer-facing UI**: the customer only sees
@@ -366,6 +451,12 @@ like Stripe's.
   frictionless).
 - **Public menu/ordering doesn't lock** if the owner's subscription expires
   (intentional, see §4.1) - only the staff dashboard locks.
+- **Per-restaurant subdomains are code-complete but not live** (see §5.8) -
+  blocked on a Railway plan upgrade (multiple custom domains) and the
+  wildcard DNS record.
+- **No email retry queue**: if an SMTP provider is down when
+  welcome/admin-alert/password-changed emails are sent, that specific email
+  is lost rather than retried once the provider recovers (see §5.5/§8).
 
 ### Roadmap (not yet built)
 
