@@ -187,7 +187,7 @@ def signup(request):
                     f'Πλάνο: 30ήμερη δωρεάν δοκιμή (Basic)'
                 ),
             )
-            login(request, user)
+            login(request, user, backend='django.contrib.auth.backends.ModelBackend')
             messages.success(request, _('Your account has been created! You have a 30-day free trial of the Basic plan.'))
             return redirect('restaurant_dashboard')
         else:
