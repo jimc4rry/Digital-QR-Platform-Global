@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-29 02:04+0300\n"
+"POT-Creation-Date: 2026-07-29 11:04+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,78 +18,110 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: .\accounts\billing.py:181
 msgid "The payment for this transaction failed."
 msgstr "Η πληρωμή για αυτή τη συναλλαγή απέτυχε."
 
+#: .\accounts\forms.py:10
 msgid "Current Password"
 msgstr "Τρέχων Κωδικός"
 
+#: .\accounts\forms.py:11
 msgid "New Password"
 msgstr "Νέος Κωδικός"
 
+#: .\accounts\forms.py:12
 msgid "Confirm New Password"
 msgstr "Επιβεβαίωση Νέου Κωδικού"
 
+#: .\accounts\forms.py:16 .\templates\accounts\profile.html:12
 msgid "Business Name"
 msgstr "Επωνυμία Επιχείρησης"
 
+#: .\accounts\forms.py:17 .\restaurants\forms.py:36 .\restaurants\forms.py:166
+#: .\templates\accounts\platform_admin_business_detail.html:24
+#: .\templates\orders\order_detail.html:34
+#: .\templates\restaurants\loyalty_list.html:37
+#: .\templates\tools\free_qr_code_generator.html:121
 msgid "Phone"
 msgstr "Τηλέφωνο"
 
+#: .\accounts\forms.py:19
 msgid "VAT / Tax ID"
 msgstr "ΑΦΜ"
 
+#: .\accounts\forms.py:20
 msgid "Optional - if your business has one."
 msgstr "Προαιρετικό - αν η επιχείρησή σας έχει."
 
+#: .\accounts\forms.py:24
 msgid "Business Type"
 msgstr "Τύπος Επιχείρησης"
 
+#: .\accounts\forms.py:46 .\restaurants\forms.py:125
+#: .\templates\accounts\platform_admin_business_detail.html:22
 msgid "Username"
 msgstr "Όνομα Χρήστη"
 
+#: .\accounts\forms.py:47 .\restaurants\forms.py:126
+#: .\templates\tools\free_qr_code_generator.html:170
 msgid "Password"
 msgstr "Κωδικός"
 
+#: .\accounts\forms.py:48 .\restaurants\forms.py:127
 msgid "Confirm Password"
 msgstr "Επιβεβαίωση Κωδικού"
 
+#: .\accounts\forms.py:91 .\templates\accounts\profile.html:17
 msgid "Subscription Plan"
 msgstr "Πλάνο Συνδρομής"
 
+#: .\accounts\forms.py:92
 msgid "Subscription Active"
 msgstr "Ενεργή Συνδρομή"
 
+#: .\accounts\forms.py:93
 msgid "Subscription Ends (optional)"
 msgstr "Λήξη Συνδρομής (προαιρετικό)"
 
+#: .\accounts\models.py:11
 msgid "Restaurant"
 msgstr "Εστιατόριο"
 
+#: .\accounts\models.py:12 .\menu_platform\tool_views.py:17
 msgid "Cafe"
 msgstr "Καφετέρια"
 
+#: .\accounts\models.py:13
 msgid "Bar"
 msgstr "Μπαρ"
 
+#: .\accounts\models.py:14 .\menu_platform\tool_views.py:19
 msgid "Beach Bar"
 msgstr "Μπαρ Παραλίας"
 
+#: .\accounts\models.py:15
 msgid "Other"
 msgstr "Άλλο"
 
+#: .\accounts\models.py:24
 msgid "Optional - VAT/Tax ID, if your business has one."
 msgstr "Προαιρετικό - ΑΦΜ, αν η επιχείρησή σας έχει."
 
+#: .\accounts\models.py:88 .\templates\accounts\platform_admin_payments.html:24
 msgid "Completed"
 msgstr "Ολοκληρώθηκε"
 
+#: .\accounts\models.py:89 .\orders\models.py:20
+#: .\templates\accounts\platform_admin_payments.html:25
 msgid "Failed"
 msgstr "Απέτυχε"
 
+#: .\accounts\views.py:106
 msgid "Your GetMenuHub password was changed"
 msgstr "Ο κωδικός σας στο GetMenuHub άλλαξε"
 
+#: .\accounts\views.py:107
 msgid ""
 "Your GetMenuHub account password was just changed. If this wasn't you, "
 "contact us immediately at info@getmenuhub.com."
@@ -97,6 +129,7 @@ msgstr ""
 "Ο κωδικός του λογαριασμού σας στο GetMenuHub μόλις άλλαξε. Αν δεν ήσασταν "
 "εσείς, επικοινωνήστε αμέσως μαζί μας στο info@getmenuhub.com."
 
+#: .\accounts\views.py:118
 msgid ""
 "You do not have permission to change the password. Contact your store "
 "administrator."
@@ -104,13 +137,16 @@ msgstr ""
 "Δεν έχετε δικαίωμα αλλαγής κωδικού. Επικοινωνήστε με τον διαχειριστή του "
 "καταστήματός σας."
 
+#: .\accounts\views.py:141
 msgid "Too many signup attempts from this network. Please try again later."
 msgstr ""
 "Πάρα πολλές προσπάθειες εγγραφής από αυτό το δίκτυο. Δοκιμάστε ξανά αργότερα."
 
+#: .\accounts\views.py:171
 msgid "Welcome to GetMenuHub!"
 msgstr "Καλώς ήρθατε στο GetMenuHub!"
 
+#: .\accounts\views.py:172
 msgid ""
 "Your GetMenuHub account and restaurant have been created. You have a 30-day "
 "free trial of the Basic plan - log in anytime to set up your menu."
@@ -119,6 +155,7 @@ msgstr ""
 "δωρεάν δοκιμή 30 ημερών του πλάνου Basic - συνδεθείτε όποτε θέλετε για να "
 "ρυθμίσετε το μενού σας."
 
+#: .\accounts\views.py:191
 msgid ""
 "Your account has been created! You have a 30-day free trial of the Basic "
 "plan."
@@ -126,93 +163,161 @@ msgstr ""
 "Ο λογαριασμός σας δημιουργήθηκε! Έχετε δωρεάν δοκιμή 30 ημερών του πλάνου "
 "Basic."
 
+#: .\accounts\views.py:194
 msgid "There are errors in the form. Please correct them."
 msgstr "Υπάρχουν σφάλματα στη φόρμα. Παρακαλούμε διορθώστε τα."
 
+#: .\accounts\views.py:211 .\accounts\views.py:298
 msgid "Only the business owner can manage the subscription."
 msgstr "Μόνο ο ιδιοκτήτης της επιχείρησης μπορεί να διαχειριστεί τη συνδρομή."
 
+#: .\accounts\views.py:235
 #, python-format
 msgid "Could not reach Paddle: %(error)s"
 msgstr "Αδυναμία σύνδεσης με το Paddle: %(error)s"
 
+#: .\accounts\views.py:281
 msgid "Payment completed! Your plan has been upgraded."
 msgstr "Η πληρωμή ολοκληρώθηκε! Το πλάνο σας αναβαθμίστηκε."
 
+#: .\accounts\views.py:302
 msgid "There is no active subscription to manage yet."
 msgstr "Δεν υπάρχει ακόμα ενεργή συνδρομή για διαχείριση."
 
+#: .\accounts\views.py:383
 msgid "You do not have access to this page."
 msgstr "Δεν έχετε πρόσβαση σε αυτή τη σελίδα."
 
+#: .\accounts\views.py:442
 msgid "The subscription was updated successfully!"
 msgstr "Η συνδρομή ενημερώθηκε με επιτυχία!"
 
+#: .\accounts\views.py:544
 msgid "This account cannot be deleted from here."
 msgstr "Αυτός ο λογαριασμός δεν μπορεί να διαγραφεί από εδώ."
 
+#: .\accounts\views.py:549
 #, python-format
 msgid "\"%(name)s\" and all of its data have been permanently deleted."
 msgstr "«%(name)s» και όλα τα δεδομένα του διαγράφηκαν οριστικά."
 
+#: .\blog\templates\blog\admin_delete_confirm.html:4
+#: .\blog\templates\blog\admin_delete_confirm.html:8
 msgid "Delete Post"
 msgstr ""
 
+#: .\blog\templates\blog\admin_delete_confirm.html:11
 #, python-format
 msgid "Are you sure you want to delete \"%(title)s\"? This cannot be undone."
 msgstr ""
 
+#: .\blog\templates\blog\admin_delete_confirm.html:14
+#: .\blog\templates\blog\admin_list.html:53
+#: .\feedback\templates\feedback\admin_delete_confirm.html:15
+#: .\feedback\templates\feedback\admin_detail.html:12
+#: .\feedback\templates\feedback\admin_list.html:62
+#: .\templates\accounts\platform_admin_business_detail.html:12
+#: .\templates\orders\order_detail.html:13
 msgid "Delete"
 msgstr "Διαγραφή"
 
+#: .\blog\templates\blog\admin_delete_confirm.html:15
+#: .\feedback\templates\feedback\admin_delete_confirm.html:16
+#: .\templates\accounts\platform_admin_business_delete.html:25
 msgid "Cancel"
 msgstr ""
 
+#: .\blog\templates\blog\admin_form.html:4
+#: .\blog\templates\blog\admin_form.html:9
+#: .\blog\templates\blog\admin_list.html:13
 msgid "New Post"
 msgstr ""
 
+#: .\blog\templates\blog\admin_form.html:4
+#: .\blog\templates\blog\admin_form.html:9
 msgid "Edit Post"
 msgstr ""
 
+#: .\blog\templates\blog\admin_form.html:13
+#: .\blog\templates\blog\admin_list.html:37
 msgid "View live"
 msgstr ""
 
+#: .\blog\templates\blog\admin_form.html:16
+#: .\blog\templates\blog\admin_list.html:11
+#: .\feedback\templates\feedback\admin_detail.html:11
+#: .\feedback\templates\feedback\admin_list.html:10
+#: .\templates\accounts\platform_admin_business_detail.html:13
+#: .\templates\accounts\platform_admin_payments.html:10
+#: .\templates\orders\order_detail.html:17
+#: .\templates\restaurants\loyalty_edit.html:17
+#: .\templates\restaurants\product_edit.html:15
 msgid "Back"
 msgstr "Πίσω"
 
+#: .\blog\templates\blog\admin_form.html:25
+#: .\templates\accounts\platform_admin_business_detail.html:55
+#: .\templates\restaurants\loyalty_edit.html:16
+#: .\templates\restaurants\product_edit.html:14
+#: .\templates\restaurants\settings.html:14
 msgid "Save"
 msgstr "Αποθήκευση"
 
+#: .\blog\templates\blog\admin_list.html:4
+#: .\blog\templates\blog\admin_list.html:9 .\templates\base.html:233
 msgid "Manage Blog"
 msgstr "Διαχείριση Blog"
 
+#: .\blog\templates\blog\admin_list.html:24
 msgid "Title"
 msgstr ""
 
+#: .\blog\templates\blog\admin_list.html:25
+#: .\feedback\templates\feedback\admin_detail.html:40
+#: .\feedback\templates\feedback\admin_list.html:23
+#: .\templates\accounts\payment_history.html:19
+#: .\templates\accounts\platform_admin_business_detail.html:70
+#: .\templates\accounts\platform_admin_dashboard.html:56
+#: .\templates\accounts\platform_admin_payments.html:21
+#: .\templates\accounts\platform_admin_payments.html:43
+#: .\templates\orders\order_detail.html:28
+#: .\templates\orders\order_list.html:23
+#: .\templates\restaurants\promo_code_list.html:34
 msgid "Status"
 msgstr "Κατάσταση"
 
+#: .\blog\templates\blog\admin_list.html:26
+#: .\blog\templates\blog\admin_list.html:44
 msgid "Published"
 msgstr ""
 
+#: .\blog\templates\blog\admin_list.html:27
 msgid "Updated"
 msgstr ""
 
+#: .\blog\templates\blog\admin_list.html:46
 msgid "Draft"
 msgstr ""
 
+#: .\blog\templates\blog\admin_list.html:52
 msgid "Edit"
 msgstr ""
 
+#: .\blog\templates\blog\admin_list.html:58
 msgid "No posts yet - create the first one."
 msgstr ""
 
+#: .\blog\templates\blog\blog_detail.html:63
 msgid "All posts"
 msgstr "Όλα τα άρθρα"
 
+#: .\blog\templates\blog\blog_detail.html:70
+#: .\templates\guides\base_guide.html:47 .\templates\home.html:763
 msgid "Ready to digitize your menu?"
 msgstr "Έτοιμοι να ψηφιοποιήσετε το μενού σας;"
 
+#: .\blog\templates\blog\blog_detail.html:71
+#: .\templates\guides\base_guide.html:48
 msgid ""
 "Create your restaurant's QR code menu in minutes - no credit card required "
 "to start."
@@ -220,12 +325,17 @@ msgstr ""
 "Δημιουργήστε το μενού QR του εστιατορίου σας σε λίγα λεπτά - δεν απαιτείται "
 "πιστωτική κάρτα για να ξεκινήσετε."
 
+#: .\blog\templates\blog\blog_detail.html:72
+#: .\templates\guides\base_guide.html:49 .\templates\home.html:381
+#: .\templates\home.html:434
 msgid "Create your menu"
 msgstr "Δημιουργήστε το μενού σας"
 
+#: .\blog\templates\blog\blog_list.html:4
 msgid "Blog - GetMenuHub"
 msgstr "Blog - GetMenuHub"
 
+#: .\blog\templates\blog\blog_list.html:5
 msgid ""
 "Tips, guides, and updates on digital QR code menus for restaurants, cafes, "
 "and bars."
@@ -233,177 +343,262 @@ msgstr ""
 "Συμβουλές, οδηγοί, και ενημερώσεις για ψηφιακά μενού QR για εστιατόρια, "
 "καφετέριες, και μπαρ."
 
+#: .\blog\templates\blog\blog_list.html:33
+#: .\templates\accounts\platform_admin_dashboard.html:15
+#: .\templates\base.html:141 .\templates\base.html:337
 msgid "Blog"
 msgstr "Blog"
 
+#: .\blog\templates\blog\blog_list.html:41
 msgid "No posts yet - check back soon."
 msgstr "Κανένα άρθρο ακόμα - επιστρέψτε σύντομα."
 
+#: .\blog\views.py:33
 msgid "Post created."
 msgstr ""
 
+#: .\blog\views.py:47
 msgid "Post updated."
 msgstr ""
 
+#: .\blog\views.py:59
 msgid "Post deleted."
 msgstr ""
 
+#: .\feedback\templates\feedback\admin_delete_confirm.html:4
+#: .\feedback\templates\feedback\admin_delete_confirm.html:8
 msgid "Delete Feedback"
 msgstr ""
 
+#: .\feedback\templates\feedback\admin_delete_confirm.html:11
 msgid ""
 "Are you sure you want to delete this feedback entry? This cannot be undone."
 msgstr ""
 
+#: .\feedback\templates\feedback\admin_detail.html:4
+#: .\feedback\templates\feedback\admin_detail.html:9
+#: .\feedback\templates\feedback\admin_list.html:4
+#: .\feedback\templates\feedback\admin_list.html:9 .\templates\base.html:238
 msgid "Feedback"
 msgstr "Σχόλια"
 
+#: .\feedback\templates\feedback\admin_detail.html:19
+#: .\feedback\templates\feedback\admin_list.html:19
+#: .\templates\accounts\platform_admin_dashboard.html:53
 msgid "User"
 msgstr ""
 
+#: .\feedback\templates\feedback\admin_detail.html:22
+#: .\feedback\templates\feedback\admin_list.html:20
+#: .\templates\accounts\platform_admin_dashboard.html:52
+#: .\templates\accounts\platform_admin_payments.html:40
 msgid "Business"
 msgstr ""
 
+#: .\feedback\templates\feedback\admin_detail.html:27
 msgid "No business account"
 msgstr ""
 
+#: .\feedback\templates\feedback\admin_detail.html:31
 msgid "Sent"
 msgstr ""
 
+#: .\feedback\templates\feedback\admin_detail.html:34
 msgid "Page"
 msgstr ""
 
+#: .\feedback\templates\feedback\admin_detail.html:37
 msgid "Browser"
 msgstr ""
 
+#: .\feedback\templates\feedback\admin_detail.html:42
+#: .\feedback\templates\feedback\admin_list.html:46
 msgid "Read"
 msgstr ""
 
+#: .\feedback\templates\feedback\admin_detail.html:43
 msgid "(marked read automatically when opened)"
 msgstr ""
 
+#: .\feedback\templates\feedback\admin_detail.html:46
+#: .\feedback\templates\feedback\admin_list.html:59
 msgid "Mark unread"
 msgstr ""
 
+#: .\feedback\templates\feedback\admin_detail.html:53
+#: .\feedback\templates\feedback\admin_list.html:21
 msgid "Message"
 msgstr ""
 
+#: .\feedback\templates\feedback\admin_detail.html:58
 msgid "Your reply"
 msgstr ""
 
+#: .\feedback\templates\feedback\admin_detail.html:61
 #, python-format
 msgid "Sent %(date)s - the user was notified in-app."
 msgstr ""
 
+#: .\feedback\templates\feedback\admin_detail.html:66
 msgid "Write a reply - the user will see it as an in-app notification"
 msgstr ""
 
+#: .\feedback\templates\feedback\admin_detail.html:69
 msgid "Update reply"
 msgstr ""
 
+#: .\feedback\templates\feedback\admin_detail.html:69
 msgid "Send reply"
 msgstr ""
 
+#: .\feedback\templates\feedback\admin_list.html:22
+#: .\templates\accounts\payment_history.html:20
+#: .\templates\accounts\platform_admin_business_detail.html:71
+#: .\templates\accounts\platform_admin_payments.html:44
+#: .\templates\orders\order_detail.html:35
+#: .\templates\orders\order_list.html:24
 msgid "Date"
 msgstr "Ημερομηνία"
 
+#: .\feedback\templates\feedback\admin_list.html:48
 msgid "New"
 msgstr ""
 
+#: .\feedback\templates\feedback\admin_list.html:51
 msgid "Replied"
 msgstr ""
 
+#: .\feedback\templates\feedback\admin_list.html:55
 msgid "View"
 msgstr ""
 
+#: .\feedback\templates\feedback\admin_list.html:59
 msgid "Mark read"
 msgstr ""
 
+#: .\feedback\templates\feedback\admin_list.html:67
 msgid "No feedback yet."
 msgstr ""
 
+#: .\feedback\templates\feedback\admin_list.html:75
 msgid "Feedback pagination"
 msgstr ""
 
+#: .\feedback\templates\feedback\admin_list.html:83
+#: .\feedback\templates\feedback\notification_list.html:35
+#: .\templates\accounts\payment_history.html:55
+#: .\templates\accounts\platform_admin_dashboard.html:112
+#: .\templates\accounts\platform_admin_payments.html:85
+#: .\templates\orders\order_list.html:71
+#: .\templates\restaurants\loyalty_list.html:85
+#: .\templates\restaurants\product_list.html:68
 #, python-format
 msgid "Page %(current)s of %(total)s"
 msgstr "Σελίδα %(current)s από %(total)s"
 
+#: .\feedback\templates\feedback\notification_list.html:4
+#: .\feedback\templates\feedback\notification_list.html:9
+#: .\templates\base.html:167
 msgid "Notifications"
 msgstr "Ειδοποιήσεις"
 
+#: .\feedback\templates\feedback\notification_list.html:22
 msgid "No notifications yet."
 msgstr "Δεν υπάρχουν ειδοποιήσεις ακόμα."
 
+#: .\feedback\templates\feedback\notification_list.html:27
 msgid "Notifications pagination"
 msgstr "Σελιδοποίηση Ειδοποιήσεων"
 
+#: .\feedback\views.py:65
 msgid "Reply to your feedback"
 msgstr "Απάντηση στο σχόλιό σας"
 
+#: .\feedback\views.py:69
 msgid "Reply sent."
 msgstr ""
 
+#: .\feedback\views.py:92
 msgid "Feedback deleted."
 msgstr ""
 
+#: .\menu_platform\tool_views.py:18
 msgid "Taverna"
 msgstr "Ταβέρνα"
 
+#: .\menu_platform\tool_views.py:55
 msgid "Please enter a URL."
 msgstr "Παρακαλούμε εισάγετε ένα URL."
 
+#: .\menu_platform\tool_views.py:61
 msgid "That doesn't look like a valid URL."
 msgstr "Αυτό δεν μοιάζει με έγκυρο URL."
 
+#: .\menu_platform\tool_views.py:68
 msgid "Please enter some text."
 msgstr "Παρακαλούμε εισάγετε κάποιο κείμενο."
 
+#: .\menu_platform\tool_views.py:82 .\menu_platform\tool_views.py:109
 msgid "Please enter a phone number."
 msgstr "Παρακαλούμε εισάγετε έναν αριθμό τηλεφώνου."
 
+#: .\menu_platform\tool_views.py:83 .\menu_platform\tool_views.py:110
 msgid "That doesn't look like a valid phone number."
 msgstr "Αυτό δεν μοιάζει με έγκυρο αριθμό τηλεφώνου."
 
+#: .\menu_platform\tool_views.py:90
 msgid "Please enter an email address."
 msgstr "Παρακαλούμε εισάγετε μια διεύθυνση email."
 
+#: .\menu_platform\tool_views.py:94 .\menu_platform\tool_views.py:147
 msgid "That doesn't look like a valid email address."
 msgstr "Αυτό δεν μοιάζει με έγκυρη διεύθυνση email."
 
+#: .\menu_platform\tool_views.py:127
 msgid "Please enter a network name (SSID)."
 msgstr "Παρακαλούμε εισάγετε ένα όνομα δικτύου (SSID)."
 
+#: .\menu_platform\tool_views.py:141
 msgid "Please enter a name."
 msgstr "Παρακαλούμε εισάγετε ένα όνομα."
 
+#: .\menu_platform\tool_views.py:156
 msgid "That does not look like a valid phone number."
 msgstr "Αυτό δεν μοιάζει με έγκυρο αριθμό τηλεφώνου."
 
+#: .\orders\models.py:9 .\orders\models.py:18
 msgid "Pending"
 msgstr "Εκκρεμεί"
 
+#: .\orders\models.py:10
 msgid "Confirmed"
 msgstr "Επιβεβαιώθηκε"
 
+#: .\orders\models.py:11
 msgid "Preparing"
 msgstr "Σε Προετοιμασία"
 
+#: .\orders\models.py:12
 msgid "Ready"
 msgstr "Έτοιμη"
 
+#: .\orders\models.py:13
 msgid "Delivered"
 msgstr "Παραδόθηκε"
 
+#: .\orders\models.py:14
 msgid "Cancelled"
 msgstr "Ακυρώθηκε"
 
+#: .\orders\models.py:19
 msgid "Paid"
 msgstr "Πληρώθηκε"
 
+#: .\orders\models.py:21
 msgid "Refunded"
 msgstr "Επιστράφηκε"
 
+#: .\orders\views.py:109
 #, python-format
 msgid ""
 "Order status updated! The customer earned loyalty points (total: %(points)s)."
@@ -411,42 +606,56 @@ msgstr ""
 "Η κατάσταση της παραγγελίας ενημερώθηκε! Ο πελάτης κέρδισε πόντους Loyalty "
 "(σύνολο: %(points)s)."
 
+#: .\orders\views.py:111
 msgid "Order status updated!"
 msgstr "Η κατάσταση της παραγγελίας ενημερώθηκε!"
 
+#: .\orders\views.py:128
 msgid "Order deleted."
 msgstr "Η παραγγελία διαγράφηκε."
 
+#: .\orders\views.py:300
 msgid "CSV reports are only available on the Business plan."
 msgstr "Οι αναφορές CSV είναι διαθέσιμες μόνο στο πλάνο Business."
 
+#: .\restaurants\forms.py:32
 msgid "Restaurant Name"
 msgstr "Όνομα Εστιατορίου"
 
+#: .\restaurants\forms.py:33
 msgid "Subdomain"
 msgstr "Υποτομέας"
 
+#: .\restaurants\forms.py:34 .\restaurants\forms.py:67
+#: .\restaurants\forms.py:95
 msgid "Description"
 msgstr "Περιγραφή"
 
+#: .\restaurants\forms.py:35
 msgid "Address"
 msgstr "Διεύθυνση"
 
+#: .\restaurants\forms.py:38
 msgid "Logo"
 msgstr "Λογότυπο"
 
+#: .\restaurants\forms.py:39
 msgid "Cover Image"
 msgstr "Εικόνα Εξωφύλλου"
 
+#: .\restaurants\forms.py:40
 msgid "Accept orders"
 msgstr "Αποδοχή παραγγελιών"
 
+#: .\restaurants\forms.py:41
 msgid "Enable Loyalty (points for customers)"
 msgstr "Ενεργοποίηση Loyalty (πόντοι για πελάτες)"
 
+#: .\restaurants\forms.py:42
 msgid "Tax (%)"
 msgstr "ΦΠΑ (%)"
 
+#: .\restaurants\forms.py:45
 msgid ""
 "Your public menu address: e.g. \"my-cafe\" becomes my-cafe.getmenuhub.com. "
 "Lowercase letters, numbers, and hyphens only."
@@ -454,6 +663,7 @@ msgstr ""
 "Η δημόσια διεύθυνση του μενού σας: π.χ. «my-cafe» γίνεται my-"
 "cafe.getmenuhub.com. Μόνο πεζά γράμματα, αριθμοί, και παύλες."
 
+#: .\restaurants\forms.py:51
 msgid ""
 "Use only lowercase letters, numbers, and hyphens (no spaces, no leading/"
 "trailing hyphen)."
@@ -461,154 +671,221 @@ msgstr ""
 "Χρησιμοποιήστε μόνο πεζά γράμματα, αριθμούς, και παύλες (χωρίς κενά, χωρίς "
 "παύλα στην αρχή/τέλος)."
 
+#: .\restaurants\forms.py:53
 msgid "This subdomain is reserved. Please choose another."
 msgstr "Αυτός ο υποτομέας είναι δεσμευμένος. Παρακαλούμε επιλέξτε άλλον."
 
+#: .\restaurants\forms.py:55
 msgid "This subdomain is already taken."
 msgstr "Αυτός ο υποτομέας χρησιμοποιείται ήδη."
 
+#: .\restaurants\forms.py:66
 msgid "Category Name"
 msgstr "Όνομα Κατηγορίας"
 
+#: .\restaurants\forms.py:68 .\restaurants\forms.py:105
 msgid "Display Order"
 msgstr "Σειρά Εμφάνισης"
 
+#: .\restaurants\forms.py:69 .\restaurants\forms.py:183
+#: .\templates\accounts\platform_admin_dashboard.html:78
+#: .\templates\accounts\profile.html:22
+#: .\templates\restaurants\promo_code_list.html:47
 msgid "Active"
 msgstr "Ενεργό"
 
+#: .\restaurants\forms.py:92
 msgid "Category"
 msgstr "Κατηγορία"
 
+#: .\restaurants\forms.py:93
 msgid "Product Name"
 msgstr "Όνομα Προϊόντος"
 
+#: .\restaurants\forms.py:94
 msgid "Product Name (English)"
 msgstr "Όνομα Προϊόντος (Αγγλικά)"
 
+#: .\restaurants\forms.py:96 .\templates\orders\order_detail.html:89
 msgid "Price"
 msgstr "Τιμή"
 
+#: .\restaurants\forms.py:97
 msgid "Old Price"
 msgstr "Παλιά Τιμή"
 
+#: .\restaurants\forms.py:98
 msgid "Photo"
 msgstr "Φωτογραφία"
 
+#: .\restaurants\forms.py:99 .\templates\restaurants\product_list.html:34
 msgid "Available"
 msgstr "Διαθέσιμο"
 
+#: .\restaurants\forms.py:100
 msgid "Featured"
 msgstr "Προτεινόμενο"
 
+#: .\restaurants\forms.py:103
 msgid "Gluten-Free"
 msgstr "Χωρίς Γλουτένη"
 
+#: .\restaurants\forms.py:104
 msgid "Spicy"
 msgstr "Πικάντικο"
 
+#: .\restaurants\forms.py:106
 msgid "Preparation Time (minutes)"
 msgstr "Χρόνος Προετοιμασίας (λεπτά)"
 
+#: .\restaurants\forms.py:117 .\templates\restaurants\product_edit.html:31
+msgid "Group (optional)"
+msgstr "Ομάδα (προαιρετικό)"
+
+#: .\restaurants\forms.py:118 .\templates\restaurants\product_edit.html:35
 msgid "Option Name"
 msgstr "Όνομα Επιλογής"
 
+#: .\restaurants\forms.py:119 .\templates\restaurants\product_edit.html:39
 msgid "Price Adjustment"
 msgstr "Προσαρμογή Τιμής"
 
+#: .\restaurants\forms.py:120 .\templates\restaurants\product_edit.html:45
+#: .\templates\restaurants\product_edit.html:71
 msgid "Default"
 msgstr "Προεπιλογή"
 
+#: .\restaurants\forms.py:128 .\templates\accounts\profile.html:54
 msgid "Role"
 msgstr "Ρόλος"
 
+#: .\restaurants\forms.py:134
 msgid "This username already exists."
 msgstr "Αυτό το όνομα χρήστη υπάρχει ήδη."
 
+#: .\restaurants\forms.py:147
 msgid "Passwords do not match."
 msgstr "Οι κωδικοί δεν ταιριάζουν."
 
+#: .\restaurants\forms.py:156
+#: .\templates\accounts\platform_admin_business_detail.html:25
+#: .\templates\accounts\profile.html:13
 msgid "Type"
 msgstr "Τύπος"
 
+#: .\restaurants\forms.py:157
 msgid "Number / Name"
 msgstr "Αριθμός / Όνομα"
 
+#: .\restaurants\forms.py:167 .\templates\restaurants\loyalty_list.html:38
 msgid "Points"
 msgstr "Πόντοι"
 
+#: .\restaurants\forms.py:179 .\templates\restaurants\promo_code_list.html:30
 msgid "Promo Code"
 msgstr "Κωδικός Προσφοράς"
 
+#: .\restaurants\forms.py:180
 msgid "Discount (%)"
 msgstr "Έκπτωση (%)"
 
+#: .\restaurants\forms.py:181
 msgid "Valid Until (optional)"
 msgstr "Ισχύει Έως (προαιρετικό)"
 
+#: .\restaurants\forms.py:182
 msgid "Max Uses (optional)"
 msgstr "Μέγιστες Χρήσεις (προαιρετικό)"
 
+#: .\restaurants\models.py:124
 msgid "English name (optional) - if left blank, the name above is shown"
 msgstr ""
 "Αγγλικό όνομα (προαιρετικό) - αν μείνει κενό, εμφανίζεται το παραπάνω όνομα"
 
+#: .\restaurants\models.py:140
 msgid "Preparation time in minutes"
 msgstr "Χρόνος προετοιμασίας σε λεπτά"
 
+#: .\restaurants\models.py:201 .\templates\orders\order_detail.html:31
 msgid "Table"
 msgstr "Τραπέζι"
 
+#: .\restaurants\models.py:202
 msgid "Sunbed"
 msgstr "Ξαπλώστρα"
 
+#: .\restaurants\models.py:207
 msgid "e.g. 1, 2, Patio A"
 msgstr "π.χ. 1, 2, Αυλή Α"
 
+#: .\restaurants\models.py:255
+msgid ""
+"Optional. Give two or more options the same group name to make them mutually "
+"exclusive (e.g. group \"Sweetness\" with options \"Plain\", \"Medium\", "
+"\"Sweet\"). Leave blank for an independent add-on."
+msgstr "Προαιρετικό. Δώστε σε δύο ή περισσότερες επιλογές το ίδιο όνομα ομάδας για να γίνουν αμοιβαία αποκλειόμενες (π.χ. ομάδα \"Γλυκύτητα\" με επιλογές \"Σκέτος\", \"Μέτριος\", \"Γλυκός\"). Αφήστε το κενό για μια ανεξάρτητη πρόσθετη επιλογή."
+
+#: .\restaurants\models.py:271
 msgid "Admin"
 msgstr "Διαχειριστής"
 
+#: .\restaurants\models.py:272
 msgid "Employee"
 msgstr "Υπάλληλος"
 
+#: .\restaurants\models.py:307
 msgid "Leave blank for unlimited uses"
 msgstr "Αφήστε κενό για απεριόριστες χρήσεις"
 
+#: .\restaurants\permissions.py:43
 msgid "You do not have access to any restaurant."
 msgstr "Δεν έχετε πρόσβαση σε κανένα εστιατόριο."
 
+#: .\restaurants\permissions.py:46
 msgid "Your subscription/trial has expired. Choose a plan to continue."
 msgstr "Η συνδρομή/δοκιμή σας έληξε. Επιλέξτε ένα πλάνο για να συνεχίσετε."
 
+#: .\restaurants\permissions.py:48
 msgid "The business subscription has expired. Contact the owner."
 msgstr "Η συνδρομή της επιχείρησης έληξε. Επικοινωνήστε με τον ιδιοκτήτη."
 
+#: .\restaurants\permissions.py:50
 msgid "You do not have permission to access this page."
 msgstr "Δεν έχετε δικαίωμα πρόσβασης σε αυτή τη σελίδα."
 
+#: .\restaurants\views.py:156
 msgid "Settings saved successfully!"
 msgstr "Οι ρυθμίσεις αποθηκεύτηκαν με επιτυχία!"
 
+#: .\restaurants\views.py:178
 msgid "Category created successfully!"
 msgstr "Η κατηγορία δημιουργήθηκε με επιτυχία!"
 
+#: .\restaurants\views.py:195
 msgid "Category deleted successfully!"
 msgstr "Η κατηγορία διαγράφηκε με επιτυχία!"
 
+#: .\restaurants\views.py:211
 msgid "Product created successfully!"
 msgstr "Το προϊόν δημιουργήθηκε με επιτυχία!"
 
+#: .\restaurants\views.py:216
 msgid "You do not have permission to add products."
 msgstr "Δεν έχετε δικαίωμα προσθήκης προϊόντων."
 
+#: .\restaurants\views.py:238
 msgid "Product updated successfully!"
 msgstr "Το προϊόν ενημερώθηκε με επιτυχία!"
 
+#: .\restaurants\views.py:258
 msgid "Product deleted successfully!"
 msgstr "Το προϊόν διαγράφηκε με επιτυχία!"
 
+#: .\restaurants\views.py:366
 msgid "Staff management is available on the Business plan"
 msgstr "Η διαχείριση προσωπικού είναι διαθέσιμη στο πλάνο Business"
 
+#: .\restaurants\views.py:367
 msgid ""
 "Upgrade to the Business plan to add admin and employee accounts with "
 "separate permissions."
@@ -616,18 +893,23 @@ msgstr ""
 "Αναβαθμίστε στο πλάνο Business για να προσθέσετε λογαριασμούς διαχειριστή "
 "και υπαλλήλου με ξεχωριστά δικαιώματα."
 
+#: .\restaurants\views.py:384
 msgid "Staff account created successfully!"
 msgstr "Ο λογαριασμός προσωπικού δημιουργήθηκε με επιτυχία!"
 
+#: .\restaurants\views.py:400
 msgid "Staff management is available on the Business plan."
 msgstr "Η διαχείριση προσωπικού είναι διαθέσιμη στο πλάνο Business."
 
+#: .\restaurants\views.py:405
 msgid "Staff account removed."
 msgstr "Ο λογαριασμός προσωπικού αφαιρέθηκε."
 
+#: .\restaurants\views.py:415
 msgid "QR ordering tables are available from the Pro plan"
 msgstr "Τα τραπέζια παραγγελίας QR είναι διαθέσιμα από το πλάνο Pro"
 
+#: .\restaurants\views.py:416
 msgid ""
 "Upgrade to the Pro or Business plan to create table QR codes and accept "
 "orders."
@@ -635,60 +917,77 @@ msgstr ""
 "Αναβαθμίστε στο πλάνο Pro ή Business για να δημιουργήσετε κωδικούς QR "
 "τραπεζιού και να δέχεστε παραγγελίες."
 
+#: .\restaurants\views.py:427
 msgid "Table added successfully!"
 msgstr "Το τραπέζι προστέθηκε με επιτυχία!"
 
+#: .\restaurants\views.py:430
 msgid "This number already exists for this type."
 msgstr "Αυτός ο αριθμός υπάρχει ήδη για αυτόν τον τύπο."
 
+#: .\restaurants\views.py:445
 msgid "Tables are available from the Pro plan."
 msgstr "Τα τραπέζια είναι διαθέσιμα από το πλάνο Pro."
 
+#: .\restaurants\views.py:448
 msgid "Table deleted."
 msgstr "Το τραπέζι διαγράφηκε."
 
+#: .\restaurants\views.py:458
 msgid "Promo codes are available from the Pro plan"
 msgstr "Οι κωδικοί προσφοράς είναι διαθέσιμοι από το πλάνο Pro"
 
+#: .\restaurants\views.py:459
 msgid ""
 "Upgrade to the Pro or Business plan to create promo codes for your customers."
 msgstr ""
 "Αναβαθμίστε στο πλάνο Pro ή Business για να δημιουργήσετε κωδικούς προσφοράς "
 "για τους πελάτες σας."
 
+#: .\restaurants\views.py:470
 msgid "Promo code created successfully!"
 msgstr "Ο κωδικός προσφοράς δημιουργήθηκε με επιτυχία!"
 
+#: .\restaurants\views.py:473
 msgid "This code already exists."
 msgstr "Αυτός ο κωδικός υπάρχει ήδη."
 
+#: .\restaurants\views.py:488
 msgid "Promo codes are available from the Pro plan."
 msgstr "Οι κωδικοί προσφοράς είναι διαθέσιμοι από το πλάνο Pro."
 
+#: .\restaurants\views.py:491
 msgid "Promo code deleted."
 msgstr "Ο κωδικός προσφοράς διαγράφηκε."
 
+#: .\restaurants\views.py:502
 msgid "Loyalty is available from the Pro plan"
 msgstr "Το Loyalty είναι διαθέσιμο από το πλάνο Pro"
 
+#: .\restaurants\views.py:503
 msgid ""
 "Upgrade to the Pro or Business plan to give loyalty points to your customers."
 msgstr ""
 "Αναβαθμίστε στο πλάνο Pro ή Business για να δίνετε πόντους Loyalty στους "
 "πελάτες σας."
 
+#: .\restaurants\views.py:524 .\restaurants\views.py:547
 msgid "Loyalty is available from the Pro plan."
 msgstr "Το Loyalty είναι διαθέσιμο από το πλάνο Pro."
 
+#: .\restaurants\views.py:531
 msgid "Loyalty account updated!"
 msgstr "Ο λογαριασμός Loyalty ενημερώθηκε!"
 
+#: .\restaurants\views.py:550
 msgid "Loyalty account deleted."
 msgstr "Ο λογαριασμός Loyalty διαγράφηκε."
 
+#: .\templates\accounts\checkout.html:4 .\templates\accounts\profile.html:40
 msgid "Upgrade Plan"
 msgstr "Αναβάθμιση Πλάνου"
 
+#: .\templates\accounts\checkout.html:13
 msgid ""
 "GetMenuHub is in free beta right now - every plan's features are unlocked "
 "for your account at no cost. Paid plans are launching soon; you'll be able "
@@ -699,6 +998,7 @@ msgstr ""
 "πληρωμή πλάνα θα ξεκινήσουν σύντομα· θα μπορείτε να εγγραφείτε ακριβώς εδώ "
 "μόλις γίνει αυτό."
 
+#: .\templates\accounts\checkout.html:18
 msgid ""
 "You'll pay through Paddle's secure embedded checkout. Your card details "
 "never pass through our servers."
@@ -706,223 +1006,326 @@ msgstr ""
 "Θα πληρώσετε μέσω του ασφαλούς ενσωματωμένου checkout της Paddle. Τα "
 "στοιχεία της κάρτας σας δεν περνούν ποτέ από τους διακομιστές μας."
 
+#: .\templates\accounts\checkout.html:29 .\templates\home.html:584
+#: .\templates\home.html:609 .\templates\home.html:634
 msgid "month"
 msgstr "μήνα"
 
+#: .\templates\accounts\checkout.html:34
 msgid "Upgrade"
 msgstr "Αναβάθμιση"
 
+#: .\templates\accounts\checkout.html:38
 msgid "Not available yet"
 msgstr "Δεν είναι ακόμα διαθέσιμο"
 
+#: .\templates\accounts\checkout.html:47
 msgid "You already have the top plan (Business)."
 msgstr "Έχετε ήδη το ανώτερο πλάνο (Business)."
 
+#: .\templates\accounts\login.html:10 .\templates\accounts\login.html:16
+#: .\templates\base.html:304
 msgid "Log In"
 msgstr "Σύνδεση"
 
+#: .\templates\accounts\login.html:19
 msgid "Don't have an account? Sign up"
 msgstr "Δεν έχετε λογαριασμό; Εγγραφείτε"
 
+#: .\templates\accounts\password_change.html:4
+#: .\templates\accounts\password_change.html:12
+#: .\templates\accounts\password_change.html:18 .\templates\base.html:290
 msgid "Change Password"
 msgstr "Αλλαγή Κωδικού"
 
+#: .\templates\accounts\password_change_done.html:4
 msgid "Password Changed"
 msgstr "Ο Κωδικός Άλλαξε"
 
+#: .\templates\accounts\password_change_done.html:9
 msgid "Your password has been changed successfully!"
 msgstr "Ο κωδικός σας άλλαξε με επιτυχία!"
 
+#: .\templates\accounts\password_change_done.html:10
 msgid "Back to Dashboard"
 msgstr "Επιστροφή στο Dashboard"
 
+#: .\templates\accounts\payment_history.html:4
+#: .\templates\accounts\payment_history.html:8
+#: .\templates\accounts\profile.html:44
 msgid "Payment History"
 msgstr "Ιστορικό Πληρωμών"
 
+#: .\templates\accounts\payment_history.html:15
+#: .\templates\accounts\platform_admin_business_detail.html:67
+#: .\templates\accounts\platform_admin_payments.html:39
 msgid "Transaction ID"
 msgstr "Αναγνωριστικό Συναλλαγής"
 
+#: .\templates\accounts\payment_history.html:16
+#: .\templates\accounts\payment_success.html:14
+#: .\templates\accounts\platform_admin_business_detail.html:68
+#: .\templates\accounts\platform_admin_dashboard.html:30
+#: .\templates\accounts\platform_admin_dashboard.html:55
+#: .\templates\accounts\platform_admin_payments.html:41
 msgid "Plan"
 msgstr "Πλάνο"
 
+#: .\templates\accounts\payment_history.html:17
+#: .\templates\accounts\payment_success.html:16
+#: .\templates\accounts\platform_admin_business_detail.html:69
+#: .\templates\accounts\platform_admin_payments.html:42
 msgid "Amount"
 msgstr "Ποσό"
 
+#: .\templates\accounts\payment_history.html:18
 msgid "Card"
 msgstr "Κάρτα"
 
+#: .\templates\accounts\payment_history.html:41
+#: .\templates\accounts\platform_admin_business_detail.html:91
 msgid "No payments yet"
 msgstr "Καμία πληρωμή ακόμα"
 
+#: .\templates\accounts\payment_success.html:4
 msgid "Payment Successful"
 msgstr "Επιτυχής Πληρωμή"
 
+#: .\templates\accounts\payment_success.html:9
 msgid "Payment completed!"
 msgstr "Η πληρωμή ολοκληρώθηκε!"
 
+#: .\templates\accounts\payment_success.html:10
 msgid "Your plan has been upgraded successfully."
 msgstr "Το πλάνο σας αναβαθμίστηκε με επιτυχία."
 
+#: .\templates\accounts\payment_success.html:19
 msgid "Next renewal"
 msgstr "Επόμενη ανανέωση"
 
+#: .\templates\accounts\payment_success.html:24
 msgid "Back to Profile"
 msgstr "Επιστροφή στο Προφίλ"
 
+#: .\templates\accounts\platform_admin_business_delete.html:4
 #, python-format
 msgid "Delete %(name)s"
 msgstr ""
 
+#: .\templates\accounts\platform_admin_business_delete.html:8
 msgid "Delete Business Account"
 msgstr ""
 
+#: .\templates\accounts\platform_admin_business_delete.html:11
 msgid "This cannot be undone"
 msgstr ""
 
+#: .\templates\accounts\platform_admin_business_delete.html:13
 #, python-format
 msgid ""
 "You are about to permanently delete <strong>%(name)s</strong> and everything "
 "associated with it:"
 msgstr ""
 
+#: .\templates\accounts\platform_admin_business_delete.html:15
 msgid "The user account and login"
 msgstr ""
 
+#: .\templates\accounts\platform_admin_business_delete.html:16
 #, python-format
 msgid "%(counter)s product"
 msgid_plural "%(counter)s products"
 msgstr[0] ""
 msgstr[1] ""
 
+#: .\templates\accounts\platform_admin_business_delete.html:17
 #, python-format
 msgid "%(counter)s order"
 msgid_plural "%(counter)s orders"
 msgstr[0] ""
 msgstr[1] ""
 
+#: .\templates\accounts\platform_admin_business_delete.html:18
 msgid "Any staff accounts under this business"
 msgstr ""
 
+#: .\templates\accounts\platform_admin_business_delete.html:20
 msgid ""
 "Use this only for spam/bot signups or accounts the owner has asked you to "
 "remove - not as a substitute for canceling a subscription."
 msgstr ""
 
+#: .\templates\accounts\platform_admin_business_delete.html:24
 msgid "Permanently delete"
 msgstr ""
 
+#: .\templates\accounts\platform_admin_business_detail.html:4
 msgid "Business Management"
 msgstr ""
 
+#: .\templates\accounts\platform_admin_business_detail.html:11
 msgid "Export data (JSON)"
 msgstr ""
 
+#: .\templates\accounts\platform_admin_business_detail.html:20
 msgid "Business Info"
 msgstr ""
 
+#: .\templates\accounts\platform_admin_business_detail.html:26
+#: .\templates\accounts\profile.html:14
 msgid "Tax ID"
 msgstr "ΑΦΜ"
 
+#: .\templates\accounts\platform_admin_business_detail.html:27
 msgid "Signed up"
 msgstr ""
 
+#: .\templates\accounts\platform_admin_business_detail.html:32
 msgid "Stats"
 msgstr ""
 
+#: .\templates\accounts\platform_admin_business_detail.html:34
+#: .\templates\accounts\platform_admin_dashboard.html:59
+#: .\templates\base.html:187 .\templates\orders\order_list.html:6
+#: .\templates\restaurants\dashboard.html:38
 msgid "Orders"
 msgstr "Παραγγελίες"
 
+#: .\templates\accounts\platform_admin_business_detail.html:35
 msgid "Total Revenue"
 msgstr ""
 
+#: .\templates\accounts\platform_admin_business_detail.html:36
+#: .\templates\base.html:220 .\templates\restaurants\staff_list.html:4
+#: .\templates\restaurants\staff_list.html:8
 msgid "Staff"
 msgstr "Προσωπικό"
 
+#: .\templates\accounts\platform_admin_business_detail.html:37
 msgid "Accepts Orders"
 msgstr ""
 
+#: .\templates\accounts\platform_admin_business_detail.html:39
 msgid "Yes"
 msgstr ""
 
+#: .\templates\accounts\platform_admin_business_detail.html:41
 msgid "No"
 msgstr ""
 
+#: .\templates\accounts\platform_admin_business_detail.html:50
 msgid "Manage Subscription"
 msgstr ""
 
+#: .\templates\accounts\platform_admin_business_detail.html:61
 msgid "Recent Payments"
 msgstr ""
 
+#: .\templates\accounts\platform_admin_dashboard.html:4
+#: .\templates\accounts\platform_admin_dashboard.html:9
 msgid "Platform Admin Dashboard"
 msgstr ""
 
+#: .\templates\accounts\platform_admin_dashboard.html:12
 msgid "Payments"
 msgstr ""
 
+#: .\templates\accounts\platform_admin_dashboard.html:18
+#: .\templates\base.html:246
 msgid "Django Admin"
 msgstr "Django Admin"
 
+#: .\templates\accounts\platform_admin_dashboard.html:22
 msgid ""
 "All businesses registered on GetMenuHub - plans, subscriptions and support."
 msgstr ""
 
+#: .\templates\accounts\platform_admin_dashboard.html:26
+#: .\templates\restaurants\loyalty_list.html:22
 msgid "Search"
 msgstr "Αναζήτηση"
 
+#: .\templates\accounts\platform_admin_dashboard.html:27
 msgid "Username, email, business..."
 msgstr ""
 
+#: .\templates\accounts\platform_admin_dashboard.html:32
+#: .\templates\accounts\platform_admin_payments.html:23
+#: .\templates\orders\order_list.html:9
 msgid "All"
 msgstr ""
 
+#: .\templates\accounts\platform_admin_dashboard.html:39
+#: .\templates\accounts\platform_admin_payments.html:29
 msgid "Filter"
 msgstr ""
 
+#: .\templates\accounts\platform_admin_dashboard.html:41
+#: .\templates\restaurants\loyalty_list.html:25
 msgid "Clear"
 msgstr "Καθαρισμός"
 
+#: .\templates\accounts\platform_admin_dashboard.html:57
+#: .\templates\base.html:182 .\templates\orders\order_detail.html:81
+#: .\templates\restaurants\product_list.html:6
 msgid "Products"
 msgstr "Προϊόντα"
 
+#: .\templates\accounts\platform_admin_dashboard.html:58
 msgid "Tables"
 msgstr ""
 
+#: .\templates\accounts\platform_admin_dashboard.html:60
 msgid "Revenue"
 msgstr ""
 
+#: .\templates\accounts\platform_admin_dashboard.html:61
 msgid "Registered"
 msgstr ""
 
+#: .\templates\accounts\platform_admin_dashboard.html:80
+#: .\templates\restaurants\promo_code_list.html:49
 msgid "Inactive"
 msgstr ""
 
+#: .\templates\accounts\platform_admin_dashboard.html:90
 msgid "Manage"
 msgstr ""
 
+#: .\templates\accounts\platform_admin_dashboard.html:96
 msgid "No businesses found"
 msgstr ""
 
+#: .\templates\accounts\platform_admin_dashboard.html:104
 msgid "Business pagination"
 msgstr ""
 
+#: .\templates\accounts\platform_admin_payments.html:4
+#: .\templates\accounts\platform_admin_payments.html:9
 msgid "Platform Payments"
 msgstr ""
 
+#: .\templates\accounts\platform_admin_payments.html:15
 msgid "Total Revenue (completed payments)"
 msgstr ""
 
+#: .\templates\accounts\platform_admin_payments.html:71
 msgid "No payments found"
 msgstr ""
 
+#: .\templates\accounts\profile.html:6 .\templates\base.html:283
 msgid "My Profile"
 msgstr "Το Προφίλ μου"
 
+#: .\templates\accounts\profile.html:24
 msgid "Expired"
 msgstr "Έληξε"
 
+#: .\templates\accounts\profile.html:29
 msgid "Renews/ends:"
 msgstr "Ανανεώνεται/λήγει:"
 
+#: .\templates\accounts\profile.html:33
 msgid ""
 "Your trial or subscription has ended - choose a plan to keep using the "
 "dashboard."
@@ -930,18 +1333,23 @@ msgstr ""
 "Η δοκιμή ή η συνδρομή σας έληξε - επιλέξτε ένα πλάνο για να συνεχίσετε να "
 "χρησιμοποιείτε τον πίνακα ελέγχου."
 
+#: .\templates\accounts\profile.html:40
 msgid "Choose a Plan"
 msgstr "Επιλέξτε Πλάνο"
 
+#: .\templates\accounts\profile.html:48
 msgid "Manage Billing"
 msgstr "Διαχείριση Χρέωσης"
 
+#: .\templates\accounts\profile.html:54 .\templates\accounts\profile.html:56
 msgid "Platform Admin"
 msgstr "Διαχείριση Πλατφόρμας"
 
+#: .\templates\accounts\signup.html:10
 msgid "Business Signup"
 msgstr "Εγγραφή Επιχείρησης"
 
+#: .\templates\accounts\signup.html:18
 #, python-format
 msgid ""
 "By signing up, you accept the <a href=\"%(terms_url)s\" "
@@ -950,15 +1358,19 @@ msgstr ""
 "Με την εγγραφή σας, αποδέχεστε τους <a href=\"%(terms_url)s\" "
 "target=\"_blank\">Όρους Χρήσης</a>."
 
+#: .\templates\accounts\signup.html:20 .\templates\base.html:307
 msgid "Sign Up"
 msgstr "Εγγραφή"
 
+#: .\templates\accounts\signup.html:23
 msgid "Already have an account? Log in"
 msgstr "Έχετε ήδη λογαριασμό; Συνδεθείτε"
 
+#: .\templates\base.html:14
 msgid "GetMenuHub - Digital QR Code Menus for Restaurants & Cafes"
 msgstr "GetMenuHub - Ψηφιακά Μενού QR για Εστιατόρια & Καφετέριες"
 
+#: .\templates\base.html:15
 msgid ""
 "Create your restaurant or cafe's digital QR code menu in 5 minutes. No "
 "printing, instant price updates, orders straight from the table."
@@ -967,119 +1379,165 @@ msgstr ""
 "λεπτά. Χωρίς εκτύπωση, άμεσες ενημερώσεις τιμών, παραγγελίες απευθείας από "
 "το τραπέζι."
 
+#: .\templates\base.html:22
 msgid "GetMenuHub - Digital QR Code Menus"
 msgstr "GetMenuHub - Ψηφιακά Μενού QR"
 
+#: .\templates\base.html:23
 msgid "Create your restaurant or cafe's digital QR code menu in 5 minutes."
 msgstr ""
 "Δημιουργήστε το ψηφιακό μενού QR του εστιατορίου ή της καφετέριάς σας σε 5 "
 "λεπτά."
 
+#: .\templates\base.html:124
 msgid "Home"
 msgstr "Αρχική"
 
+#: .\templates\base.html:130
 msgid "Pricing"
 msgstr "Τιμές"
 
+#: .\templates\base.html:136 .\templates\base.html:336
+#: .\templates\guides\index.html:31
 msgid "Guides"
 msgstr "Οδηγοί"
 
+#: .\templates\base.html:146
 msgid "Free QR Generator"
 msgstr "Δωρεάν Δημιουργός QR"
 
+#: .\templates\base.html:151 .\templates\base.html:339
 msgid "Printing Cost Calculator"
 msgstr "Υπολογιστής Κόστους Εκτύπωσης"
 
+#: .\templates\base.html:156 .\templates\base.html:340
+#: .\templates\tools\staff_efficiency_calculator.html:51
 msgid "Staff Efficiency Calculator"
 msgstr "Υπολογιστής Αποδοτικότητας Προσωπικού"
 
+#: .\templates\base.html:162
 msgid "Dashboard"
 msgstr "Πίνακας Ελέγχου"
 
+#: .\templates\base.html:176 .\templates\restaurants\category_list.html:6
+#: .\templates\restaurants\dashboard.html:30
 msgid "Categories"
 msgstr "Κατηγορίες"
 
+#: .\templates\base.html:196 .\templates\restaurants\table_list.html:4
+#: .\templates\restaurants\table_list.html:8
 msgid "Tables & Sunbeds"
 msgstr "Τραπέζια & Ξαπλώστρες"
 
+#: .\templates\base.html:201 .\templates\restaurants\promo_code_list.html:4
+#: .\templates\restaurants\promo_code_list.html:8
 msgid "Promo Codes"
 msgstr "Κωδικοί Προσφοράς"
 
+#: .\templates\base.html:213 .\templates\restaurants\stats_dashboard.html:4
+#: .\templates\restaurants\stats_upgrade.html:4
 msgid "Statistics"
 msgstr "Στατιστικά"
 
+#: .\templates\base.html:228
 msgid "Platform Administration"
 msgstr "Διαχείριση Πλατφόρμας"
 
+#: .\templates\base.html:253
 msgid "Toggle dark/light theme"
 msgstr "Εναλλαγή σκούρου/ανοιχτού θέματος"
 
+#: .\templates\base.html:285
 msgid "View my menu site"
 msgstr "Δείτε το site του μενού μου"
 
+#: .\templates\base.html:288 .\templates\restaurants\settings.html:6
 msgid "Restaurant Settings"
 msgstr "Ρυθμίσεις Εστιατορίου"
 
+#: .\templates\base.html:298
 msgid "Log Out"
 msgstr "Αποσύνδεση"
 
+#: .\templates\base.html:332
 msgid "Digital Menus for Restaurants & Cafes"
 msgstr "Ψηφιακά Μενού για Εστιατόρια & Καφετέριες"
 
+#: .\templates\base.html:335
 msgid "All Rights Reserved"
 msgstr "Με Επιφύλαξη Παντός Δικαιώματος"
 
+#: .\templates\base.html:338 .\templates\tools\free_qr_code_generator.html:106
 msgid "Free QR Code Generator"
 msgstr "Δωρεάν Δημιουργός QR"
 
+#: .\templates\base.html:341
 msgid "Staffing Shortage Solution"
 msgstr "Λύση για την Έλλειψη Προσωπικού"
 
+#: .\templates\base.html:342 .\templates\terms.html:4 .\templates\terms.html:10
 msgid "Terms of Use"
 msgstr "Όροι Χρήσης"
 
+#: .\templates\base.html:343 .\templates\privacy.html:4
+#: .\templates\privacy.html:10
 msgid "Privacy Policy"
 msgstr "Πολιτική Απορρήτου"
 
+#: .\templates\base.html:344 .\templates\refund_policy.html:4
+#: .\templates\refund_policy.html:10
 msgid "Refund Policy"
 msgstr "Πολιτική Επιστροφών"
 
+#: .\templates\base.html:352 .\templates\base.html:360
 msgid "Send feedback"
 msgstr "Αποστολή σχολίων"
 
+#: .\templates\base.html:364
 msgid "Found a bug, or have an idea to improve GetMenuHub? Let us know."
 msgstr ""
 "Βρήκατε κάποιο πρόβλημα ή έχετε μια ιδέα για να βελτιώσουμε το GetMenuHub; "
 "Πείτε μας."
 
+#: .\templates\base.html:365
 msgid "Your feedback..."
 msgstr "Το σχόλιό σας..."
 
+#: .\templates\base.html:367
 msgid "Thanks! Your feedback was sent."
 msgstr "Ευχαριστούμε! Το σχόλιό σας στάλθηκε."
 
+#: .\templates\base.html:370 .\templates\restaurants\public_menu.html:267
 msgid "Close"
 msgstr "Κλείσιμο"
 
+#: .\templates\base.html:371
 msgid "Send"
 msgstr "Αποστολή"
 
+#: .\templates\base.html:461
 msgid "Please write something first."
 msgstr "Παρακαλούμε γράψτε κάτι πρώτα."
 
+#: .\templates\base.html:475 .\templates\restaurants\product_edit.html:73
+#: .\templates\restaurants\public_menu.html:320
 msgid "Something went wrong. Please try again."
 msgstr "Κάτι πήγε στραβά. Δοκιμάστε ξανά."
 
+#: .\templates\base.html:479 .\templates\restaurants\public_menu.html:321
 msgid "Connection error. Please try again."
 msgstr "Σφάλμα σύνδεσης. Δοκιμάστε ξανά."
 
+#: .\templates\guides\base_guide.html:42
 msgid "All guides"
 msgstr "Όλοι οι οδηγοί"
 
+#: .\templates\guides\how_to_create_qr_menu.html:4
 msgid "How to Create a QR Code Menu for Your Restaurant (Step by Step)"
 msgstr ""
 "Πώς να Δημιουργήσετε ένα Μενού QR για το Εστιατόριό σας (Βήμα προς Βήμα)"
 
+#: .\templates\guides\how_to_create_qr_menu.html:5
 msgid ""
 "A complete step-by-step guide to creating a digital QR code menu for your "
 "restaurant, cafe, or bar - no technical skills or app required."
@@ -1088,9 +1546,13 @@ msgstr ""
 "το εστιατόριο, την καφετέρια ή το μπαρ σας - χωρίς τεχνικές γνώσεις ή "
 "εφαρμογή."
 
+#: .\templates\guides\how_to_create_qr_menu.html:6
+#: .\templates\guides\how_to_create_qr_menu.html:29
+#: .\templates\guides\index.html:33
 msgid "How to Create a QR Code Menu for Your Restaurant"
 msgstr "Πώς να Δημιουργήσετε ένα Μενού QR για το Εστιατόριό σας"
 
+#: .\templates\guides\how_to_create_qr_menu.html:7
 msgid ""
 "A complete step-by-step guide to creating a digital QR code menu - no "
 "technical skills required."
@@ -1098,6 +1560,7 @@ msgstr ""
 "Ένας πλήρης, βήμα προς βήμα οδηγός για τη δημιουργία ψηφιακού μενού QR - "
 "χωρίς απαιτούμενες τεχνικές γνώσεις."
 
+#: .\templates\guides\how_to_create_qr_menu.html:30
 msgid ""
 "You don't need a designer, a developer, or an app. Here's exactly how to go "
 "from a printed menu to a scannable digital one in about five minutes."
@@ -1106,9 +1569,11 @@ msgstr ""
 "περάσετε από ένα εκτυπωμένο μενού σε ένα σαρώσιμο ψηφιακό σε περίπου πέντε "
 "λεπτά."
 
+#: .\templates\guides\how_to_create_qr_menu.html:32
 msgid "1. Create an account"
 msgstr "1. Δημιουργήστε λογαριασμό"
 
+#: .\templates\guides\how_to_create_qr_menu.html:33
 msgid ""
 "Sign up with your business name, email, and a password. A restaurant profile "
 "is created for you automatically the moment you sign up, along with a 30-day "
@@ -1119,9 +1584,11 @@ msgstr ""
 "με δωρεάν δοκιμή 30 ημερών - δεν απαιτείται πιστωτική κάρτα για να "
 "ξεκινήσετε."
 
+#: .\templates\guides\how_to_create_qr_menu.html:35
 msgid "2. Organize your menu into categories"
 msgstr "2. Οργανώστε το μενού σας σε κατηγορίες"
 
+#: .\templates\guides\how_to_create_qr_menu.html:36
 msgid ""
 "Before adding individual dishes, set up your categories - Starters, Mains, "
 "Drinks, Desserts, or whatever structure fits your menu. You can reorder them "
@@ -1132,9 +1599,11 @@ msgstr ""
 "Μπορείτε να τις αναδιατάξετε οποτεδήποτε, και οι πελάτες τις βλέπουν ακριβώς "
 "όπως τις έχετε τακτοποιήσει."
 
+#: .\templates\guides\how_to_create_qr_menu.html:38
 msgid "3. Add your products"
 msgstr "3. Προσθέστε τα προϊόντα σας"
 
+#: .\templates\guides\how_to_create_qr_menu.html:39
 msgid ""
 "For each dish or drink, add a name, price, and a short description. You can "
 "attach a photo, mark items as vegan, vegetarian, gluten-free, or spicy, and "
@@ -1145,9 +1614,11 @@ msgstr ""
 "χορτοφαγικά, χωρίς γλουτένη ή πικάντικα, και να προσθέσετε προαιρετικά extra "
 "όπως «προσθήκη τυριού» με τη δική τους προσαρμογή τιμής."
 
+#: .\templates\guides\how_to_create_qr_menu.html:41
 msgid "4. Your QR code is generated automatically"
 msgstr "4. Ο κωδικός QR δημιουργείται αυτόματα"
 
+#: .\templates\guides\how_to_create_qr_menu.html:42
 msgid ""
 "As soon as your account is created, a unique QR code is generated for your "
 "menu - no design tool or third-party QR generator needed. If you take table-"
@@ -1160,9 +1631,11 @@ msgstr ""
 "τραπέζι ή ξαπλώστρα μπορεί επίσης να αποκτήσει τον δικό της κωδικό QR που "
 "καθηλώνει την παραγγελία σε αυτό ακριβώς το σημείο."
 
+#: .\templates\guides\how_to_create_qr_menu.html:44
 msgid "5. Print it once, use it everywhere"
 msgstr "5. Εκτυπώστε τον μία φορά, χρησιμοποιήστε τον παντού"
 
+#: .\templates\guides\how_to_create_qr_menu.html:45
 msgid ""
 "Print the QR code on a table tent, a sticker at the entrance, or a small "
 "sign at the bar. Customers scan it with their phone's camera - no app to "
@@ -1173,9 +1646,11 @@ msgstr ""
 "κάμερα του κινητού τους - χωρίς λήψη εφαρμογής - και το μενού ανοίγει "
 "ακαριαία στον browser τους."
 
+#: .\templates\guides\how_to_create_qr_menu.html:47
 msgid "6. Update your menu anytime, for free"
 msgstr "6. Ενημερώστε το μενού σας οποτεδήποτε, δωρεάν"
 
+#: .\templates\guides\how_to_create_qr_menu.html:48
 msgid ""
 "This is the real advantage over a printed menu: when a price changes, an "
 "item sells out, or you add a new seasonal dish, you update it from your "
@@ -1187,9 +1662,11 @@ msgstr ""
 "πιάτο, το ενημερώνετε από τον πίνακα ελέγχου σας και η αλλαγή είναι αμέσως "
 "ενεργή. Χωρίς επανεκτύπωση, χωρίς αναμονή, χωρίς επιπλέον κόστος."
 
+#: .\templates\guides\how_to_create_qr_menu.html:50
 msgid "What about taking orders?"
 msgstr "Τι γίνεται με τη λήψη παραγγελιών;"
 
+#: .\templates\guides\how_to_create_qr_menu.html:51
 msgid ""
 "If you want customers to order directly from their phone, table-side "
 "ordering can be turned on so each QR code is tied to a specific table. "
@@ -1202,9 +1679,11 @@ msgstr ""
 "πίνακα ελέγχου που το προσωπικό σας μπορεί να διαχειριστεί σε πραγματικό "
 "χρόνο, χωρίς να χρειάζεται επιπλέον εξοπλισμός."
 
+#: .\templates\guides\index.html:4
 msgid "Guides - GetMenuHub"
 msgstr "Οδηγοί - GetMenuHub"
 
+#: .\templates\guides\index.html:5
 msgid ""
 "Practical guides on digital QR code menus for restaurants, cafes, and bars - "
 "setup, pricing, and how it compares to printed menus."
@@ -1212,30 +1691,39 @@ msgstr ""
 "Πρακτικοί οδηγοί για ψηφιακά μενού QR για εστιατόρια, καφετέριες και μπαρ - "
 "ρύθμιση, τιμές, και πώς συγκρίνονται με τα εκτυπωμένα μενού."
 
+#: .\templates\guides\index.html:34
 msgid ""
 "A complete step-by-step guide, from signup to your first scanned QR code."
 msgstr ""
 "Ένας πλήρης, βήμα προς βήμα οδηγός, από την εγγραφή μέχρι τον πρώτο σαρωμένο "
 "κωδικό QR σας."
 
+#: .\templates\guides\index.html:37 .\templates\guides\qr_menu_cost.html:6
+#: .\templates\guides\qr_menu_cost.html:10
 msgid "How Much Does a QR Code Menu Cost?"
 msgstr "Πόσο Κοστίζει ένα Μενού QR;"
 
+#: .\templates\guides\index.html:38
 msgid ""
 "A clear pricing breakdown and how it compares to reprinting a physical menu."
 msgstr ""
 "Μια ξεκάθαρη ανάλυση τιμών και πώς συγκρίνεται με την επανεκτύπωση ενός "
 "φυσικού μενού."
 
+#: .\templates\guides\index.html:41
+#: .\templates\guides\qr_vs_printed_menu.html:6
 msgid "QR Code Menu vs. Printed Menu"
 msgstr "Μενού QR vs. Εκτυπωμένο Μενού"
 
+#: .\templates\guides\index.html:42
 msgid "Cost, flexibility, hygiene, and customer experience, compared."
 msgstr "Κόστος, ευελιξία, υγιεινή, και εμπειρία πελάτη, σε σύγκριση."
 
+#: .\templates\guides\qr_menu_cost.html:4
 msgid "How Much Does a QR Code Menu Cost? (2026 Pricing Breakdown)"
 msgstr "Πόσο Κοστίζει ένα Μενού QR; (Ανάλυση Τιμών 2026)"
 
+#: .\templates\guides\qr_menu_cost.html:5
 msgid ""
 "A clear breakdown of what a digital QR code menu costs for restaurants, "
 "cafes, and bars, and how it compares to the ongoing cost of printed menus."
@@ -1244,6 +1732,7 @@ msgstr ""
 "καφετέριες και μπαρ, και πώς συγκρίνεται με το συνεχές κόστος των "
 "εκτυπωμένων μενού."
 
+#: .\templates\guides\qr_menu_cost.html:7
 msgid ""
 "A clear breakdown of what a digital QR code menu costs, and how it compares "
 "to printed menus."
@@ -1251,6 +1740,7 @@ msgstr ""
 "Μια ξεκάθαρη ανάλυση του τι κοστίζει ένα ψηφιακό μενού QR, και πώς "
 "συγκρίνεται με τα εκτυπωμένα μενού."
 
+#: .\templates\guides\qr_menu_cost.html:11
 msgid ""
 "A digital QR menu is priced as a monthly subscription rather than a one-time "
 "print job. Here's what's actually included at each level, and how it stacks "
@@ -1260,20 +1750,25 @@ msgstr ""
 "εκτύπωση. Δείτε τι περιλαμβάνεται πραγματικά σε κάθε επίπεδο, και πώς "
 "συγκρίνεται με την επανεκτύπωση ενός φυσικού μενού."
 
+#: .\templates\guides\qr_menu_cost.html:13
 msgid "GetMenuHub pricing at a glance"
 msgstr "Οι τιμές του GetMenuHub με μια ματιά"
 
+#: .\templates\guides\qr_menu_cost.html:15
 msgid "Basic - $7/month:"
 msgstr "Basic - $7/μήνα:"
 
+#: .\templates\guides\qr_menu_cost.html:15
 msgid ""
 "unlimited categories and products, with an automatically generated QR code."
 msgstr ""
 "απεριόριστες κατηγορίες και προϊόντα, με αυτόματα δημιουργημένο κωδικό QR."
 
+#: .\templates\guides\qr_menu_cost.html:16
 msgid "Pro - $19/month:"
 msgstr "Pro - $19/μήνα:"
 
+#: .\templates\guides\qr_menu_cost.html:16
 msgid ""
 "everything in Basic, plus table-side ordering, loyalty points, and promo "
 "codes."
@@ -1281,9 +1776,11 @@ msgstr ""
 "όλα όσα περιλαμβάνει το Basic, συν παραγγελίες από το τραπέζι, πόντους "
 "Loyalty, και κωδικούς προσφοράς."
 
+#: .\templates\guides\qr_menu_cost.html:17
 msgid "Business - $39/month:"
 msgstr "Business - $39/μήνα:"
 
+#: .\templates\guides\qr_menu_cost.html:17
 msgid ""
 "everything in Pro, plus sales statistics and staff accounts with admin/"
 "employee permissions."
@@ -1291,6 +1788,7 @@ msgstr ""
 "όλα όσα περιλαμβάνει το Pro, συν στατιστικά πωλήσεων και λογαριασμούς "
 "προσωπικού με δικαιώματα διαχειριστή/υπαλλήλου."
 
+#: .\templates\guides\qr_menu_cost.html:19
 msgid ""
 "Every plan includes a 30-day free trial, so you can set up your full menu "
 "before paying anything."
@@ -1298,9 +1796,11 @@ msgstr ""
 "Κάθε πλάνο περιλαμβάνει δωρεάν δοκιμή 30 ημερών, ώστε να μπορείτε να "
 "ρυθμίσετε ολόκληρο το μενού σας πριν πληρώσετε οτιδήποτε."
 
+#: .\templates\guides\qr_menu_cost.html:21
 msgid "What drives the cost of a printed menu"
 msgstr "Τι καθορίζει το κόστος ενός εκτυπωμένου μενού"
 
+#: .\templates\guides\qr_menu_cost.html:22
 msgid ""
 "A printed menu looks cheaper upfront, but the real cost shows up over time: "
 "a price change, a seasonal dish, or a supplier shortage means a reprint - "
@@ -1314,9 +1814,11 @@ msgstr ""
 "μενού που είναι λάθος μέχρι να φτάσει η νέα παρτίδα. Πολλαπλασιάστε αυτό επί "
 "όσες φορές τον χρόνο αλλάζουν οι τιμές ή τα πιάτα σας."
 
+#: .\templates\guides\qr_menu_cost.html:24
 msgid "What you're actually paying for"
 msgstr "Για τι πληρώνετε πραγματικά"
 
+#: .\templates\guides\qr_menu_cost.html:25
 msgid ""
 "The subscription isn't just hosting a PDF online. It covers the QR code "
 "generation, unlimited menu edits with no reprinting cost, dietary labels, "
@@ -1328,9 +1830,11 @@ msgstr ""
 "διατροφικές ετικέτες, και - στα ανώτερα πλάνα - διαχείριση παραγγελιών και "
 "αναφορές πωλήσεων που ένα εκτυπωμένο μενού απλά δεν μπορεί να προσφέρει."
 
+#: .\templates\guides\qr_menu_cost.html:27
 msgid "Which plan should you pick?"
 msgstr "Ποιο πλάνο πρέπει να επιλέξετε;"
 
+#: .\templates\guides\qr_menu_cost.html:28
 msgid ""
 "If you just want to replace a printed menu with something always up to date, "
 "Basic covers it. If customers should be able to order directly from the "
@@ -1345,9 +1849,12 @@ msgstr ""
 "πολυάσχολη επιχείρηση με λογαριασμούς προσωπικού και θέλετε να δείτε ποια "
 "πιάτα πραγματικά πουλάνε, το Business προσθέτει το επίπεδο αναφορών από πάνω."
 
+#: .\templates\guides\qr_vs_printed_menu.html:4
+#: .\templates\guides\qr_vs_printed_menu.html:10
 msgid "QR Code Menu vs. Printed Menu: Which Is Right for Your Restaurant?"
 msgstr "Μενού QR vs. Εκτυπωμένο Μενού: Ποιο Ταιριάζει στο Εστιατόριό σας;"
 
+#: .\templates\guides\qr_vs_printed_menu.html:5
 msgid ""
 "A practical comparison of QR code menus and printed menus - cost, "
 "flexibility, hygiene, and customer experience - to help you decide what's "
@@ -1357,12 +1864,14 @@ msgstr ""
 "υγιεινή, και εμπειρία πελάτη - για να σας βοηθήσει να αποφασίσετε τι "
 "ταιριάζει στο εστιατόριό σας."
 
+#: .\templates\guides\qr_vs_printed_menu.html:7
 msgid ""
 "A practical comparison to help you decide what's right for your restaurant."
 msgstr ""
 "Μια πρακτική σύγκριση για να σας βοηθήσει να αποφασίσετε τι ταιριάζει στο "
 "εστιατόριό σας."
 
+#: .\templates\guides\qr_vs_printed_menu.html:11
 msgid ""
 "Most restaurants don't need to choose one exclusively - but understanding "
 "the trade-offs makes it obvious where each one wins."
@@ -1370,9 +1879,11 @@ msgstr ""
 "Τα περισσότερα εστιατόρια δεν χρειάζεται να επιλέξουν αποκλειστικά το ένα - "
 "αλλά η κατανόηση των συμβιβασμών κάνει προφανές πού υπερτερεί το καθένα."
 
+#: .\templates\guides\qr_vs_printed_menu.html:13
 msgid "Cost over time"
 msgstr "Κόστος με τον καιρό"
 
+#: .\templates\guides\qr_vs_printed_menu.html:14
 msgid ""
 "A printed menu has a low one-time cost but an ongoing one every time "
 "something changes - a price update, a sold-out dish, a new seasonal item. A "
@@ -1384,9 +1895,11 @@ msgstr ""
 "εποχιακό προϊόν. Ένα μενού QR έχει μικρό μηνιαίο κόστος αλλά οι ενημερώσεις "
 "είναι δωρεάν και ακαριαίες, όσο συχνά κι αν τις κάνετε."
 
+#: .\templates\guides\qr_vs_printed_menu.html:16
 msgid "Flexibility"
 msgstr "Ευελιξία"
 
+#: .\templates\guides\qr_vs_printed_menu.html:17
 msgid ""
 "Printed menus are fixed the moment they're printed. A digital menu can "
 "change prices mid-shift, mark a dish unavailable the second it sells out, or "
@@ -1397,9 +1910,11 @@ msgstr ""
 "ως μη διαθέσιμο τη στιγμή που εξαντλείται, ή να τρέξει μια προσφορά "
 "περιορισμένου χρόνου χωρίς να αγγίξει ούτε μία φυσική σελίδα."
 
+#: .\templates\guides\qr_vs_printed_menu.html:19
 msgid "Customer experience"
 msgstr "Εμπειρία πελάτη"
 
+#: .\templates\guides\qr_vs_printed_menu.html:20
 msgid ""
 "A QR menu opens instantly in a customer's own phone browser - no app to "
 "install - and can show photos, dietary tags, and live availability that a "
@@ -1413,9 +1928,11 @@ msgstr ""
 "φυσικού μενού, ιδιαίτερα μεγαλύτεροι σε ηλικία πελάτες που νιώθουν λιγότερο "
 "άνετα να σαρώνουν κωδικούς."
 
+#: .\templates\guides\qr_vs_printed_menu.html:22
 msgid "Hygiene and durability"
 msgstr "Υγιεινή και αντοχή"
 
+#: .\templates\guides\qr_vs_printed_menu.html:23
 msgid ""
 "Printed menus get handled by every table and need regular cleaning or "
 "replacing when they wear out. A QR code printed once on a table tent or "
@@ -1428,9 +1945,11 @@ msgstr ""
 "κανέναν αλλά σαρώνεται από όλους - και δεν χρειάζεται ποτέ αντικατάσταση "
 "εκτός αν φθαρεί φυσικά."
 
+#: .\templates\guides\qr_vs_printed_menu.html:25
 msgid "Ordering speed"
 msgstr "Ταχύτητα παραγγελίας"
 
+#: .\templates\guides\qr_vs_printed_menu.html:26
 msgid ""
 "With a printed menu, ordering still depends on flagging down a server. A QR "
 "menu with table-side ordering lets a customer send their order the moment "
@@ -1443,9 +1962,11 @@ msgstr ""
 "αποφασίσει, κάτι ιδιαίτερα χρήσιμο κατά τη διάρκεια πολυάσχολων βαρδιών ή σε "
 "μεγάλους υπαίθριους χώρους όπως τα beach bar."
 
+#: .\templates\guides\qr_vs_printed_menu.html:28
 msgid "So which should you choose?"
 msgstr "Ποιο λοιπόν να επιλέξετε;"
 
+#: .\templates\guides\qr_vs_printed_menu.html:29
 msgid ""
 "Most restaurants get the best result running both: a QR code as the primary, "
 "always-current menu, with a handful of printed copies on hand for guests who "
@@ -1458,11 +1979,13 @@ msgstr ""
 "έχουν μαζί τους smartphone. Έτσι αποκτάτε τα οφέλη κόστους και ευελιξίας του "
 "ψηφιακού χωρίς να χάνετε κανέναν."
 
+#: .\templates\home.html:4 .\templates\home.html:6
 msgid "GetMenuHub - QR Menu & Table Ordering, Less Staff Needed"
 msgstr ""
 "GetMenuHub - Ψηφιακό Μενού QR & Παραγγελίες από το Τραπέζι, Λιγότερο "
 "Προσωπικό"
 
+#: .\templates\home.html:5
 msgid ""
 "The staffing shortage solution for restaurants: customers scan and order "
 "themselves from the table, so your team runs service with fewer hands. Zero "
@@ -1472,6 +1995,7 @@ msgstr ""
 "παραγγέλνουν μόνοι τους από το τραπέζι, ώστε η ομάδα σας να καλύπτει το "
 "σέρβις με λιγότερα άτομα. Μηδενικό κόστος εκτυπώσεων. Από $7/μήνα."
 
+#: .\templates\home.html:7
 msgid ""
 "Customers scan and order themselves from the table, so your team runs "
 "service with fewer hands. Zero printing costs, instant price updates."
@@ -1480,6 +2004,7 @@ msgstr ""
 "ομάδα σας να καλύπτει το σέρβις με λιγότερα άτομα. Μηδενικό κόστος "
 "εκτυπώσεων, άμεσες ενημερώσεις τιμών."
 
+#: .\templates\home.html:366
 msgid ""
 "GetMenuHub is currently in free beta - every plan's features are unlocked at "
 "no cost while we finish rolling out paid billing."
@@ -1488,15 +2013,19 @@ msgstr ""
 "κάθε πλάνου είναι ξεκλείδωτες χωρίς κόστος όσο ολοκληρώνουμε την "
 "ενεργοποίηση των πληρωμών."
 
+#: .\templates\home.html:375
 msgid "Digital menu with QR code"
 msgstr "Ψηφιακό μενού με κωδικό QR"
 
+#: .\templates\home.html:376
 msgid "Your restaurant's menu,"
 msgstr "Το μενού του εστιατορίου σας,"
 
+#: .\templates\home.html:376
 msgid "always up to date"
 msgstr "πάντα ενημερωμένο"
 
+#: .\templates\home.html:378
 msgid ""
 "Create a digital QR code menu for your restaurant, cafe or bar in just a few "
 "minutes. Change prices and products whenever you like, with no reprinting, "
@@ -1506,47 +2035,61 @@ msgstr ""
 "σας σε λίγα μόνο λεπτά. Αλλάξτε τιμές και προϊόντα όποτε θέλετε, χωρίς "
 "επανεκτύπωση, και δεχτείτε παραγγελίες απευθείας από το τραπέζι."
 
+#: .\templates\home.html:382
 msgid "See the plans"
 msgstr "Δείτε τα πλάνα"
 
+#: .\templates\home.html:385
 msgid "No printing"
 msgstr "Χωρίς εκτύπωση"
 
+#: .\templates\home.html:386
 msgid "Ready in 5 minutes"
 msgstr "Έτοιμο σε 5 λεπτά"
 
+#: .\templates\home.html:387
 msgid "Works on every phone"
 msgstr "Λειτουργεί σε κάθε κινητό"
 
+#: .\templates\home.html:393
 msgid "Your Restaurant"
 msgstr "Το Εστιατόριό σας"
 
+#: .\templates\home.html:394
 msgid "Menu Category"
 msgstr "Κατηγορία Μενού"
 
+#: .\templates\home.html:398
 msgid "Dish 1"
 msgstr "Πιάτο 1"
 
+#: .\templates\home.html:402
 msgid "Dish 2"
 msgstr "Πιάτο 2"
 
+#: .\templates\home.html:406
 msgid "Dish 3"
 msgstr "Πιάτο 3"
 
+#: .\templates\home.html:410
 msgid "Dish 4"
 msgstr "Πιάτο 4"
 
+#: .\templates\home.html:414
 msgid "Accepts orders"
 msgstr "Δέχεται παραγγελίες"
 
+#: .\templates\home.html:427
 msgid "How it works"
 msgstr "Πώς λειτουργεί"
 
+#: .\templates\home.html:428
 msgid "From sign-up to the first scan, with no technical knowledge required."
 msgstr ""
 "Από την εγγραφή μέχρι το πρώτο σκανάρισμα, χωρίς να χρειάζονται τεχνικές "
 "γνώσεις."
 
+#: .\templates\home.html:435
 msgid ""
 "Add categories and products with prices, photos and dietary labels (vegan, "
 "gluten-free, spicy)."
@@ -1554,9 +2097,11 @@ msgstr ""
 "Προσθέστε κατηγορίες και προϊόντα με τιμές, φωτογραφίες και διατροφικές "
 "ετικέτες (vegan, χωρίς γλουτένη, πικάντικο)."
 
+#: .\templates\home.html:441
 msgid "Get your QR code"
 msgstr "Αποκτήστε τον κωδικό QR σας"
 
+#: .\templates\home.html:442
 msgid ""
 "The QR code is generated automatically. Print it once on a sign or table — "
 "customers scan it with their phone camera and see the menu instantly, no app "
@@ -1566,9 +2111,11 @@ msgstr ""
 "ή στο τραπέζι — οι πελάτες τον σκανάρουν με την κάμερα του κινητού τους και "
 "βλέπουν το μενού ακαριαία, χωρίς εφαρμογή."
 
+#: .\templates\home.html:448
 msgid "Serve & take orders"
 msgstr "Σερβίρετε & δεχτείτε παραγγελίες"
 
+#: .\templates\home.html:449
 msgid ""
 "With the Pro or Business plan, customers can order directly from their phone "
 "by scanning the table's QR code, without needing to get up."
@@ -1577,14 +2124,17 @@ msgstr ""
 "το κινητό τους σκανάροντας τον κωδικό QR του τραπεζιού, χωρίς να χρειάζεται "
 "να σηκωθούν."
 
+#: .\templates\home.html:461 .\templates\solutions\staff_shortage.html:106
 msgid "Built for today's staffing reality"
 msgstr "Σχεδιασμένο για τη σημερινή πραγματικότητα του προσωπικού"
 
+#: .\templates\home.html:462
 msgid "Short-staffed? Your menu can carry more of the workload."
 msgstr ""
 "Λείπει προσωπικό; Το μενού σας μπορεί να αναλάβει μεγαλύτερο μέρος του "
 "φόρτου εργασίας."
 
+#: .\templates\home.html:463
 msgid ""
 "Finding and keeping enough staff is one of the hardest parts of running a "
 "restaurant right now. With table-side ordering, customers order directly "
@@ -1599,25 +2149,32 @@ msgstr ""
 "μεταφέρει στην κουζίνα. Το προσωπικό που έχετε μπορεί να αφιερώσει τον χρόνο "
 "του στα κομμάτια της εξυπηρέτησης που πραγματικά χρειάζονται άνθρωπο."
 
+#: .\templates\home.html:465
 msgid "Fewer staff needed to run a full shift smoothly"
 msgstr ""
 "Λιγότερο προσωπικό χρειάζεται για ομαλή λειτουργία μιας ολόκληρης βάρδιας"
 
+#: .\templates\home.html:466
 msgid "Existing staff handle more tables, more efficiently"
 msgstr "Το υπάρχον προσωπικό εξυπηρετεί περισσότερα τραπέζια, πιο αποδοτικά"
 
+#: .\templates\home.html:467
 msgid "Zero reprinting costs when prices or dishes change"
 msgstr "Μηδενικά κόστη επανεκτύπωσης όταν αλλάζουν τιμές ή πιάτα"
 
+#: .\templates\home.html:470
 msgid "See how it works"
 msgstr "Δείτε πώς λειτουργεί"
 
+#: .\templates\home.html:471
 msgid "Read the full staffing guide"
 msgstr "Διαβάστε τον πλήρη οδηγό για το προσωπικό"
 
+#: .\templates\home.html:476 .\templates\solutions\staff_shortage.html:131
 msgid "Without digital ordering"
 msgstr "Χωρίς ψηφιακές παραγγελίες"
 
+#: .\templates\home.html:477
 msgid ""
 "A server notices the table is ready, walks over, takes the order, walks it "
 "to the kitchen - then repeats for the next table."
@@ -1626,9 +2183,12 @@ msgstr ""
 "την παραγγελία, τη μεταφέρει στην κουζίνα - και επαναλαμβάνει για το επόμενο "
 "τραπέζι."
 
+#: .\templates\home.html:479 .\templates\solutions\staff_shortage.html:137
+#: .\templates\tools\staff_efficiency_calculator.html:82
 msgid "With GetMenuHub"
 msgstr "Με το GetMenuHub"
 
+#: .\templates\home.html:480
 msgid ""
 "The customer scans the table's QR code and orders directly from their phone "
 "- it lands on your dashboard instantly, no walk needed."
@@ -1637,27 +2197,35 @@ msgstr ""
 "το κινητό του - η παραγγελία φτάνει ακαριαία στον πίνακα ελέγχου σας, χωρίς "
 "να χρειάζεται καμία μετακίνηση."
 
+#: .\templates\home.html:491
 msgid "See it in action"
 msgstr "Δείτε το σε δράση"
 
+#: .\templates\home.html:492
 msgid "Real, live QR code menus built with GetMenuHub - not mockups."
 msgstr "Πραγματικά, ζωντανά μενού QR φτιαγμένα με το GetMenuHub - όχι μακέτες."
 
+#: .\templates\home.html:506
 msgid "See our live menu examples"
 msgstr "Δείτε τα ζωντανά παραδείγματα μενού μας"
 
+#: .\templates\home.html:512
 msgid "See all live examples"
 msgstr "Δείτε όλα τα ζωντανά παραδείγματα"
 
+#: .\templates\home.html:521
 msgid "Everything your menu needs"
 msgstr "Όλα όσα χρειάζεται το μενού σας"
 
+#: .\templates\home.html:522
 msgid "Tools designed specifically for restaurants, cafes and bars."
 msgstr "Εργαλεία σχεδιασμένα ειδικά για εστιατόρια, καφετέριες και μπαρ."
 
+#: .\templates\home.html:528
 msgid "Automatic QR Code"
 msgstr "Αυτόματος Κωδικός QR"
 
+#: .\templates\home.html:529
 msgid ""
 "Every restaurant gets its own unique QR code, ready to print, with no extra "
 "steps."
@@ -1665,9 +2233,11 @@ msgstr ""
 "Κάθε εστιατόριο αποκτά τον δικό του μοναδικό κωδικό QR, έτοιμο για εκτύπωση, "
 "χωρίς επιπλέον βήματα."
 
+#: .\templates\home.html:535
 msgid "Organized into categories"
 msgstr "Οργανωμένο σε κατηγορίες"
 
+#: .\templates\home.html:536
 msgid ""
 "Split your menu into categories (appetizers, mains, drinks) in the display "
 "order you want."
@@ -1675,9 +2245,11 @@ msgstr ""
 "Χωρίστε το μενού σας σε κατηγορίες (ορεκτικά, κυρίως, ποτά) με τη σειρά "
 "εμφάνισης που θέλετε."
 
+#: .\templates\home.html:542 .\templates\home.html:588
 msgid "Dietary labels"
 msgstr "Διατροφικές ετικέτες"
 
+#: .\templates\home.html:543
 msgid ""
 "Mark dishes as vegan, vegetarian, gluten-free or spicy, so customers can "
 "choose easily."
@@ -1685,9 +2257,11 @@ msgstr ""
 "Επισημάνετε πιάτα ως vegan, χορτοφαγικά, χωρίς γλουτένη ή πικάντικα, ώστε οι "
 "πελάτες να επιλέγουν εύκολα."
 
+#: .\templates\home.html:549
 msgid "Orders from the table"
 msgstr "Παραγγελίες από το τραπέζι"
 
+#: .\templates\home.html:550
 msgid ""
 "With the Pro or Business plan, customers send their order directly from "
 "their phone."
@@ -1695,9 +2269,11 @@ msgstr ""
 "Με το πλάνο Pro ή Business, οι πελάτες στέλνουν την παραγγελία τους "
 "απευθείας από το κινητό τους."
 
+#: .\templates\home.html:556
 msgid "Management Dashboard"
 msgstr "Πίνακας Διαχείρισης"
 
+#: .\templates\home.html:557
 msgid ""
 "See orders, update their status and keep track of your products all in one "
 "place."
@@ -1705,107 +2281,142 @@ msgstr ""
 "Δείτε τις παραγγελίες, ενημερώστε την κατάστασή τους και παρακολουθήστε τα "
 "προϊόντα σας όλα σε ένα μέρος."
 
+#: .\templates\home.html:563
 msgid "Mobile friendly"
 msgstr "Φιλικό προς κινητά"
 
+#: .\templates\home.html:564
 msgid ""
 "The menu opens instantly in any phone's browser, with no app installation."
 msgstr ""
 "Το μενού ανοίγει ακαριαία στον browser οποιουδήποτε κινητού, χωρίς "
 "εγκατάσταση εφαρμογής."
 
+#: .\templates\home.html:576
 msgid "Simple pricing"
 msgstr "Απλή τιμολόγηση"
 
+#: .\templates\home.html:577
 msgid "Start with Basic or go Pro/Business for orders, loyalty and statistics."
 msgstr ""
 "Ξεκινήστε με το Basic ή επιλέξτε Pro/Business για παραγγελίες, loyalty και "
 "στατιστικά."
 
+#: .\templates\home.html:583 .\templates\home.html:608
+#: .\templates\home.html:633
 msgid "Your plan"
 msgstr "Το πλάνο σας"
 
+#: .\templates\home.html:586
 msgid "Unlimited categories & products"
 msgstr "Απεριόριστες κατηγορίες & προϊόντα"
 
+#: .\templates\home.html:587
 msgid "Automatic QR code"
 msgstr "Αυτόματος κωδικός QR"
 
+#: .\templates\home.html:589
 msgid "Product photos"
 msgstr "Φωτογραφίες προϊόντων"
 
+#: .\templates\home.html:590
 msgid "Multilingual menu"
 msgstr "Πολύγλωσσο μενού"
 
+#: .\templates\home.html:594 .\templates\home.html:620
+#: .\templates\home.html:644
 msgid "Your current plan"
 msgstr "Το τρέχον πλάνο σας"
 
+#: .\templates\home.html:596 .\templates\home.html:622
 msgid "Included in your plan"
 msgstr "Περιλαμβάνεται στο πλάνο σας"
 
+#: .\templates\home.html:598
 msgid "See your profile"
 msgstr "Δείτε το προφίλ σας"
 
+#: .\templates\home.html:601
 msgid "Start with Basic"
 msgstr "Ξεκινήστε με το Basic"
 
+#: .\templates\home.html:607
 msgid "Most popular"
 msgstr "Πιο δημοφιλές"
 
+#: .\templates\home.html:611
 msgid "Everything in Basic"
 msgstr "Όλα όσα περιλαμβάνει το Basic"
 
+#: .\templates\home.html:612
 msgid "Orders from table QR codes"
 msgstr "Παραγγελίες από κωδικούς QR τραπεζιού"
 
+#: .\templates\home.html:613
 msgid "Real-time order management"
 msgstr "Διαχείριση παραγγελιών σε πραγματικό χρόνο"
 
+#: .\templates\home.html:614
 msgid "Loyalty points for customers"
 msgstr "Πόντοι Loyalty για πελάτες"
 
+#: .\templates\home.html:615
 msgid "Discount codes"
 msgstr "Κωδικοί έκπτωσης"
 
+#: .\templates\home.html:616
 msgid "Zero commission per order"
 msgstr "Μηδενική προμήθεια ανά παραγγελία"
 
+#: .\templates\home.html:624
 msgid "Upgrade to Pro"
 msgstr "Αναβάθμιση σε Pro"
 
+#: .\templates\home.html:627
 msgid "Start with Pro"
 msgstr "Ξεκινήστε με το Pro"
 
+#: .\templates\home.html:636
 msgid "Everything in Pro"
 msgstr "Όλα όσα περιλαμβάνει το Pro"
 
+#: .\templates\home.html:637
 msgid "Sales statistics & reports"
 msgstr "Στατιστικά πωλήσεων & αναφορές"
 
+#: .\templates\home.html:638
 msgid "Export orders to CSV"
 msgstr "Εξαγωγή παραγγελιών σε CSV"
 
+#: .\templates\home.html:639
 msgid "Role-based staff management"
 msgstr "Διαχείριση προσωπικού βάσει ρόλων"
 
+#: .\templates\home.html:640
 msgid "Staff activity log"
 msgstr "Ιστορικό δραστηριότητας προσωπικού"
 
+#: .\templates\home.html:646
 msgid "Upgrade to Business"
 msgstr "Αναβάθμιση σε Business"
 
+#: .\templates\home.html:649
 msgid "Start with Business"
 msgstr "Ξεκινήστε με το Business"
 
+#: .\templates\home.html:663 .\templates\tools\free_qr_code_generator.html:222
 msgid "Frequently asked questions"
 msgstr "Συχνές ερωτήσεις"
 
+#: .\templates\home.html:664
 msgid "Everything you need to know before you start."
 msgstr "Όλα όσα χρειάζεται να ξέρετε πριν ξεκινήσετε."
 
+#: .\templates\home.html:672
 msgid "What is a digital menu with QR code?"
 msgstr "Τι είναι το ψηφιακό μενού με κωδικό QR;"
 
+#: .\templates\home.html:677
 msgid ""
 "It's a restaurant menu that customers view by scanning a QR code with their "
 "phone, with no app install required. The menu opens instantly in the phone's "
@@ -1815,9 +2426,11 @@ msgstr ""
 "QR με το κινητό τους, χωρίς να χρειάζεται εγκατάσταση εφαρμογής. Το μενού "
 "ανοίγει ακαριαία στον browser του κινητού."
 
+#: .\templates\home.html:684
 msgid "How much does GetMenuHub cost?"
 msgstr "Πόσο κοστίζει το GetMenuHub;"
 
+#: .\templates\home.html:689
 msgid ""
 "The Basic plan starts at $7/month and includes unlimited categories and "
 "products with an automatic QR code. The Pro plan costs $19/month and adds "
@@ -1831,9 +2444,11 @@ msgstr ""
 "με μηδενική προμήθεια. Το πλάνο Business κοστίζει $39/μήνα και προσθέτει "
 "στατιστικά, αναφορές και διαχείριση προσωπικού."
 
+#: .\templates\home.html:696
 msgid "Do I need programming skills?"
 msgstr "Χρειάζομαι γνώσεις προγραμματισμού;"
 
+#: .\templates\home.html:701
 msgid ""
 "No. Creating a menu is done through a simple form: you add categories, "
 "products, prices and photos, and the QR code is generated automatically."
@@ -1842,9 +2457,11 @@ msgstr ""
 "κατηγορίες, προϊόντα, τιμές και φωτογραφίες, και ο κωδικός QR δημιουργείται "
 "αυτόματα."
 
+#: .\templates\home.html:708
 msgid "Can I accept orders from the table?"
 msgstr "Μπορώ να δέχομαι παραγγελίες από το τραπέζι;"
 
+#: .\templates\home.html:713
 msgid ""
 "Yes, with the Pro or Business plan customers can send an order directly from "
 "the digital menu by scanning their table's QR code, which you see in real "
@@ -1854,9 +2471,11 @@ msgstr ""
 "απευθείας από το ψηφιακό μενού σκανάροντας τον κωδικό QR του τραπεζιού τους, "
 "την οποία βλέπετε σε πραγματικό χρόνο στον πίνακα διαχείρισης παραγγελιών."
 
+#: .\templates\home.html:720
 msgid "How quickly do menu prices update?"
 msgstr "Πόσο γρήγορα ενημερώνονται οι τιμές του μενού;"
 
+#: .\templates\home.html:725
 msgid ""
 "Instantly. When you change a price or add a product from the dashboard, the "
 "change appears immediately on the menu customers see, with no reprinting "
@@ -1866,9 +2485,11 @@ msgstr ""
 "ελέγχου, η αλλαγή εμφανίζεται αμέσως στο μενού που βλέπουν οι πελάτες, χωρίς "
 "να χρειάζεται επανεκτύπωση."
 
+#: .\templates\home.html:732
 msgid "Does the menu work on all phones?"
 msgstr "Λειτουργεί το μενού σε όλα τα κινητά;"
 
+#: .\templates\home.html:737
 msgid ""
 "Yes, the digital menu is fully mobile-first and opens correctly in any "
 "phone's browser, with no app installation required."
@@ -1876,11 +2497,13 @@ msgstr ""
 "Ναι, το ψηφιακό μενού είναι πλήρως προσαρμοσμένο σε κινητά και ανοίγει σωστά "
 "στον browser οποιουδήποτε κινητού, χωρίς να απαιτείται εγκατάσταση εφαρμογής."
 
+#: .\templates\home.html:744
 msgid "Can a digital menu help if my restaurant is short-staffed?"
 msgstr ""
 "Μπορεί ένα ψηφιακό μενού να βοηθήσει αν το εστιατόριό μου έχει έλλειψη "
 "προσωπικού;"
 
+#: .\templates\home.html:749
 msgid ""
 "Yes. Table-side ordering lets customers order directly from their phone by "
 "scanning the table's QR code, without a server having to walk over, take the "
@@ -1895,61 +2518,87 @@ msgstr ""
 "ομαλή λειτουργία μιας ολόκληρης βάρδιας, και το προσωπικό που έχετε μπορεί "
 "να επικεντρωθεί στην εξυπηρέτηση που πραγματικά χρειάζεται άνθρωπο."
 
+#: .\templates\home.html:764
 msgid "Create an account and get your menu's QR code today."
 msgstr ""
 "Δημιουργήστε λογαριασμό και αποκτήστε τον κωδικό QR του μενού σας σήμερα."
 
+#: .\templates\home.html:765
 msgid "Create an account"
 msgstr "Δημιουργία λογαριασμού"
 
+#: .\templates\orders\order_detail.html:7
 msgid "Order"
 msgstr "Παραγγελία"
 
+#: .\templates\orders\order_detail.html:10
+#: .\templates\orders\order_list.html:44
 msgid "Are you sure you want to delete this order?"
 msgstr "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτή την παραγγελία;"
 
+#: .\templates\orders\order_detail.html:25
 msgid "Order Details"
 msgstr "Στοιχεία Παραγγελίας"
 
+#: .\templates\orders\order_detail.html:32
+#: .\templates\orders\order_list.html:20
 msgid "Customer"
 msgstr "Πελάτης"
 
+#: .\templates\orders\order_detail.html:36
 msgid "Notes"
 msgstr "Σημειώσεις"
 
+#: .\templates\orders\order_detail.html:44
 msgid "Change Status"
 msgstr "Αλλαγή Κατάστασης"
 
+#: .\templates\orders\order_detail.html:58
 msgid "Update"
 msgstr "Ενημέρωση"
 
+#: .\templates\orders\order_detail.html:65
 msgid "Summary"
 msgstr "Σύνοψη"
 
+#: .\templates\orders\order_detail.html:68
 msgid "Subtotal"
 msgstr "Υποσύνολο"
 
+#: .\templates\orders\order_detail.html:70
+#: .\templates\restaurants\promo_code_list.html:31
 msgid "Discount"
 msgstr "Έκπτωση"
 
+#: .\templates\orders\order_detail.html:72
 msgid "VAT"
 msgstr "ΦΠΑ"
 
+#: .\templates\orders\order_detail.html:73
+#: .\templates\orders\order_detail.html:90
+#: .\templates\orders\order_list.html:22
+#: .\templates\restaurants\public_menu.html:226
+#: .\templates\restaurants\public_menu.html:323
 msgid "Total"
 msgstr "Σύνολο"
 
+#: .\templates\orders\order_detail.html:87
 msgid "Product"
 msgstr "Προϊόν"
 
+#: .\templates\orders\order_detail.html:88
 msgid "Quantity"
 msgstr "Ποσότητα"
 
+#: .\templates\orders\order_detail.html:109
 msgid "Activity History"
 msgstr "Ιστορικό Δραστηριότητας"
 
+#: .\templates\orders\order_detail.html:112
 msgid "Unknown"
 msgstr "Άγνωστο"
 
+#: .\templates\orders\order_detail.html:116
 #, python-format
 msgid ""
 "\n"
@@ -1962,33 +2611,45 @@ msgstr ""
 "από <em>%(old)s</em> σε <em>%(new)s</em>\n"
 "                        "
 
+#: .\templates\orders\order_detail.html:122
 msgid "No status changes yet"
 msgstr "Καμία αλλαγή κατάστασης ακόμα"
 
+#: .\templates\orders\order_list.html:19
 msgid "Order No."
 msgstr "Αρ. Παραγγελίας"
 
+#: .\templates\orders\order_list.html:21
 msgid "Table/Sunbed"
 msgstr "Τραπέζι/Ξαπλώστρα"
 
+#: .\templates\orders\order_list.html:25
+#: .\templates\restaurants\loyalty_list.html:40
 msgid "Actions"
 msgstr "Ενέργειες"
 
+#: .\templates\orders\order_list.html:42
 msgid "Details"
 msgstr "Λεπτομέρειες"
 
+#: .\templates\orders\order_list.html:55
 msgid "No orders found"
 msgstr "Δεν βρέθηκαν παραγγελίες"
 
+#: .\templates\orders\order_list.html:63
 msgid "Order pagination"
 msgstr "Σελιδοποίηση παραγγελιών"
 
+#: .\templates\privacy.html:11 .\templates\refund_policy.html:11
+#: .\templates\terms.html:11
 msgid "Last updated"
 msgstr "Τελευταία ενημέρωση"
 
+#: .\templates\privacy.html:13
 msgid "Who we are"
 msgstr "Ποιοι είμαστε"
 
+#: .\templates\privacy.html:14
 msgid ""
 "GetMenuHub is operated by an individual (sole trader), not a registered "
 "company. Throughout this policy, \"we\" or \"the provider\" refers to the "
@@ -1998,9 +2659,11 @@ msgstr ""
 "εγγεγραμμένη εταιρεία. Σε όλη αυτή την πολιτική, οι όροι «εμείς» ή «ο "
 "πάροχος» αναφέρονται στο φυσικό πρόσωπο που λειτουργεί το GetMenuHub."
 
+#: .\templates\privacy.html:16
 msgid "What information we collect"
 msgstr "Ποιες πληροφορίες συλλέγουμε"
 
+#: .\templates\privacy.html:17
 msgid ""
 "When you create a business account, we collect your username, email address, "
 "business name, business type, phone number, and optional VAT/Tax ID. When "
@@ -2015,9 +2678,11 @@ msgstr ""
 "εφόσον δοθούν, το όνομα και τον αριθμό τηλεφώνου του πελάτη (που "
 "χρησιμοποιούνται για πόντους Loyalty)."
 
+#: .\templates\privacy.html:19
 msgid "How we use your information"
 msgstr "Πώς χρησιμοποιούμε τις πληροφορίες σας"
 
+#: .\templates\privacy.html:20
 msgid ""
 "We use this information to operate the Service: creating and managing your "
 "account and restaurant menu, processing and displaying orders, calculating "
@@ -2030,9 +2695,11 @@ msgstr ""
 "επικοινωνία μαζί σας σχετικά με τον λογαριασμό σας. Δεν πουλάμε τα προσωπικά "
 "σας δεδομένα σε τρίτους."
 
+#: .\templates\privacy.html:22
 msgid "Payment processing"
 msgstr "Επεξεργασία πληρωμών"
 
+#: .\templates\privacy.html:23
 msgid ""
 "Subscription payments are handled entirely by Paddle.com, our Merchant of "
 "Record. Paddle collects and processes your payment card details directly - "
@@ -2045,9 +2712,11 @@ msgstr ""
 "τα στοιχεία της κάρτας σας στους διακομιστές μας. Η δική της πολιτική "
 "απορρήτου της Paddle διέπει τον τρόπο διαχείρισης αυτών των δεδομένων."
 
+#: .\templates\privacy.html:25
 msgid "Data storage and hosting"
 msgstr "Αποθήκευση δεδομένων και φιλοξενία"
 
+#: .\templates\privacy.html:26
 msgid ""
 "Your account and menu data is stored on infrastructure provided by our "
 "hosting provider. Uploaded images (logos, product photos) may be stored on "
@@ -2058,9 +2727,11 @@ msgstr ""
 "φωτογραφίες προϊόντων) μπορεί να αποθηκεύονται σε cloud storage όπου έχει "
 "ρυθμιστεί."
 
+#: .\templates\privacy.html:28
 msgid "Cookies"
 msgstr "Cookies"
 
+#: .\templates\privacy.html:29
 msgid ""
 "We use a session cookie to keep you logged in and a CSRF-protection cookie "
 "for security. We do not use advertising or tracking cookies."
@@ -2069,9 +2740,11 @@ msgstr ""
 "cookie προστασίας CSRF για ασφάλεια. Δεν χρησιμοποιούμε cookies διαφήμισης ή "
 "παρακολούθησης."
 
+#: .\templates\privacy.html:31
 msgid "Data retention"
 msgstr "Διατήρηση δεδομένων"
 
+#: .\templates\privacy.html:32
 msgid ""
 "We retain your account and order data for as long as your account is active. "
 "If you close your account, you can request deletion of your personal data by "
@@ -2084,9 +2757,11 @@ msgstr ""
 "μαζί μας, με την επιφύλαξη τυχόν αρχείων που είμαστε υποχρεωμένοι να τηρούμε "
 "για φορολογικούς ή νομικούς λόγους."
 
+#: .\templates\privacy.html:34
 msgid "Your rights"
 msgstr "Τα δικαιώματά σας"
 
+#: .\templates\privacy.html:35
 msgid ""
 "Depending on where you're located, you may have the right to access, "
 "correct, export, or delete your personal data. To exercise any of these "
@@ -2097,9 +2772,11 @@ msgstr ""
 "ασκήσετε οποιοδήποτε από αυτά τα δικαιώματα, επικοινωνήστε μαζί μας "
 "χρησιμοποιώντας τα παρακάτω στοιχεία."
 
+#: .\templates\privacy.html:37
 msgid "Changes to this policy"
 msgstr "Αλλαγές σε αυτή την πολιτική"
 
+#: .\templates\privacy.html:38
 msgid ""
 "We may update this policy from time to time. Continued use of the Service "
 "after a change constitutes acceptance of the updated policy."
@@ -2108,9 +2785,12 @@ msgstr ""
 "συνεχιζόμενη χρήση της Υπηρεσίας μετά από μια αλλαγή συνιστά αποδοχή της "
 "ενημερωμένης πολιτικής."
 
+#: .\templates\privacy.html:40 .\templates\refund_policy.html:28
+#: .\templates\terms.html:34 .\templates\tools\free_qr_code_generator.html:133
 msgid "Contact"
 msgstr "Επαφή"
 
+#: .\templates\privacy.html:41
 msgid ""
 "For questions about this Privacy Policy or to exercise your data rights, "
 "contact us at <a href=\"mailto:info@getmenuhub.com\">info@getmenuhub.com</a>."
@@ -2119,9 +2799,11 @@ msgstr ""
 "δικαιώματά σας επί των δεδομένων, επικοινωνήστε μαζί μας στο <a "
 "href=\"mailto:info@getmenuhub.com\">info@getmenuhub.com</a>."
 
+#: .\templates\refund_policy.html:13
 msgid "Subscriptions"
 msgstr "Συνδρομές"
 
+#: .\templates\refund_policy.html:14
 msgid ""
 "GetMenuHub subscriptions (Basic, Pro, Business) are billed monthly in "
 "advance. Payments are non-refundable, including for partial billing periods."
@@ -2129,9 +2811,11 @@ msgstr ""
 "Οι συνδρομές του GetMenuHub (Basic, Pro, Business) χρεώνονται μηνιαία εκ των "
 "προτέρων. Οι πληρωμές δεν επιστρέφονται, ούτε για μερικές περιόδους χρέωσης."
 
+#: .\templates\refund_policy.html:16
 msgid "Cancellation"
 msgstr "Ακύρωση"
 
+#: .\templates\refund_policy.html:17
 msgid ""
 "You can cancel your subscription at any time from your account or Paddle's "
 "customer portal. Cancelling stops future billing, but does not refund the "
@@ -2144,9 +2828,11 @@ msgstr ""
 "πρόσβαση στο πληρωμένο πλάνο σας μέχρι το τέλος της περιόδου που έχετε ήδη "
 "πληρώσει."
 
+#: .\templates\refund_policy.html:19
 msgid "Free trial"
 msgstr "Δωρεάν δοκιμή"
 
+#: .\templates\refund_policy.html:20
 msgid ""
 "New accounts start on a free trial. You are not charged during the trial, "
 "and can cancel at any point before it ends with no charge."
@@ -2155,9 +2841,11 @@ msgstr ""
 "διάρκεια της δοκιμής, και μπορείτε να ακυρώσετε ανά πάσα στιγμή πριν λήξει "
 "χωρίς χρέωση."
 
+#: .\templates\refund_policy.html:22
 msgid "Exceptions"
 msgstr "Εξαιρέσεις"
 
+#: .\templates\refund_policy.html:23
 msgid ""
 "If you were charged due to a proven technical error on our part (for "
 "example, a duplicate charge), contact us and we will review and correct it. "
@@ -2169,9 +2857,11 @@ msgstr ""
 "και θα το διορθώσουμε. Τα αιτήματα επιστροφής εξετάζονται κατά περίπτωση, "
 "κατά την κρίση μας, εκτός αυτού του σεναρίου."
 
+#: .\templates\refund_policy.html:25
 msgid "How payments are processed"
 msgstr "Πώς επεξεργάζονται οι πληρωμές"
 
+#: .\templates\refund_policy.html:26
 msgid ""
 "All payments are processed by Paddle.com, our Merchant of Record, who also "
 "handles applicable taxes. Any dispute regarding a specific charge can also "
@@ -2182,6 +2872,7 @@ msgstr ""
 "αμφισβήτηση σχετικά με συγκεκριμένη χρέωση μπορεί επίσης να τεθεί απευθείας "
 "στην Paddle."
 
+#: .\templates\refund_policy.html:29
 msgid ""
 "For questions about this Refund Policy, contact us at <a "
 "href=\"mailto:info@getmenuhub.com\">info@getmenuhub.com</a>."
@@ -2189,199 +2880,296 @@ msgstr ""
 "Για ερωτήσεις σχετικά με αυτή την Πολιτική Επιστροφών, επικοινωνήστε μαζί "
 "μας στο <a href=\"mailto:info@getmenuhub.com\">info@getmenuhub.com</a>."
 
+#: .\templates\restaurants\category_list.html:10
 msgid "New Category"
 msgstr "Νέα Κατηγορία"
 
+#: .\templates\restaurants\category_list.html:15
+#: .\templates\restaurants\product_list.html:16
+#: .\templates\restaurants\promo_code_list.html:17
+#: .\templates\restaurants\staff_list.html:18
+#: .\templates\restaurants\table_list.html:18
 msgid "Create"
 msgstr "Δημιουργία"
 
+#: .\templates\restaurants\category_list.html:22
 msgid "Category List"
 msgstr "Λίστα Κατηγοριών"
 
+#: .\templates\restaurants\category_list.html:29
+#: .\templates\restaurants\public_menu.html:208
 msgid "products"
 msgstr "προϊόντα"
 
+#: .\templates\restaurants\category_list.html:33
 msgid "Are you sure you want to delete this category?"
 msgstr "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτή την κατηγορία;"
 
+#: .\templates\restaurants\category_list.html:39
 msgid "No categories yet"
 msgstr "Καμία κατηγορία ακόμα"
 
+#: .\templates\restaurants\dashboard.html:6
 #, python-format
 msgid "Welcome, %(user)s!"
 msgstr "Καλώς ήρθατε, %(user)s!"
 
+#: .\templates\restaurants\dashboard.html:7
 msgid "This is your restaurant's dashboard."
 msgstr "Αυτός είναι ο πίνακας ελέγχου του εστιατορίου σας."
 
+#: .\templates\restaurants\dashboard.html:14
 msgid "Total Products"
 msgstr "Σύνολο Προϊόντων"
 
+#: .\templates\restaurants\dashboard.html:22
 msgid "Available Products"
 msgstr "Διαθέσιμα Προϊόντα"
 
+#: .\templates\restaurants\feature_upgrade.html:11
 msgid "View Plans"
 msgstr "Προβολή Πλάνων"
 
+#: .\templates\restaurants\loyalty_edit.html:4
 msgid "Edit Loyalty"
 msgstr "Επεξεργασία Loyalty"
 
+#: .\templates\restaurants\loyalty_edit.html:8
 msgid "Edit Loyalty Account"
 msgstr "Επεξεργασία Λογαριασμού Loyalty"
 
+#: .\templates\restaurants\loyalty_list.html:4
+#: .\templates\restaurants\loyalty_list.html:8
 msgid "Customer Loyalty"
 msgstr "Loyalty Πελατών"
 
+#: .\templates\restaurants\loyalty_list.html:9
 msgid ""
 "Customers earn 1 point per euro they spend, tracked by their phone number."
 msgstr ""
 "Οι πελάτες κερδίζουν 1 πόντο ανά ευρώ που ξοδεύουν, με καταγραφή μέσω του "
 "αριθμού τηλεφώνου τους."
 
+#: .\templates\restaurants\loyalty_list.html:13
 msgid "Loyalty is currently disabled - customers are not earning points."
 msgstr "Το Loyalty είναι απενεργοποιημένο - οι πελάτες δεν κερδίζουν πόντους."
 
+#: .\templates\restaurants\loyalty_list.html:14
 msgid "Enable from Settings"
 msgstr "Ενεργοποίηση από τις Ρυθμίσεις"
 
+#: .\templates\restaurants\loyalty_list.html:20
 msgid "Search by phone..."
 msgstr "Αναζήτηση με τηλέφωνο..."
 
+#: .\templates\restaurants\loyalty_list.html:31
 msgid "Points Ranking"
 msgstr "Κατάταξη Πόντων"
 
+#: .\templates\restaurants\loyalty_list.html:39
 msgid "Last Updated"
 msgstr "Τελευταία Ενημέρωση"
 
+#: .\templates\restaurants\loyalty_list.html:53
 msgid "Are you sure you want to delete this loyalty account?"
 msgstr "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτόν τον λογαριασμό Loyalty;"
 
+#: .\templates\restaurants\loyalty_list.html:65
 msgid "No results found"
 msgstr "Δεν βρέθηκαν αποτελέσματα"
 
+#: .\templates\restaurants\loyalty_list.html:67
 msgid "No loyalty points yet"
 msgstr "Κανένας πόντος Loyalty ακόμα"
 
+#: .\templates\restaurants\loyalty_list.html:77
 msgid "Loyalty pagination"
 msgstr "Σελιδοποίηση Loyalty"
 
+#: .\templates\restaurants\product_edit.html:6
 msgid "Edit Product"
 msgstr "Επεξεργασία Προϊόντος"
 
-msgid "New Product"
-msgstr "Νέο Προϊόν"
+#: .\templates\restaurants\product_edit.html:22
+msgid "Options & choices"
+msgstr "Επιλογές & δυνατότητες"
 
-msgid "Product List"
-msgstr "Λίστα Προϊόντων"
+#: .\templates\restaurants\product_edit.html:24
+msgid ""
+"Add extra choices customers pick when ordering this product. Give two or "
+"more options the same group name to make them mutually exclusive — for "
+"example a group called Sweetness with the options Plain, Medium and Sweet. "
+"Leave the group blank for an independent add-on, like Extra cheese (+$1)."
+msgstr "Προσθέστε επιπλέον επιλογές που διαλέγουν οι πελάτες όταν παραγγέλνουν αυτό το προϊόν. Δώστε σε δύο ή περισσότερες επιλογές το ίδιο όνομα ομάδας για να γίνουν αμοιβαία αποκλειόμενες — για παράδειγμα μια ομάδα με όνομα Γλυκύτητα με τις επιλογές Σκέτος, Μέτριος και Γλυκός. Αφήστε την ομάδα κενή για μια ανεξάρτητη πρόσθετη επιλογή, όπως Έξτρα τυρί (+$1)."
 
-msgid "Unavailable"
-msgstr "Μη Διαθέσιμο"
+#: .\templates\restaurants\product_edit.html:32
+msgid "e.g. Sweetness"
+msgstr "π.χ. Γλυκύτητα"
 
-msgid "Are you sure you want to delete this product?"
-msgstr "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το προϊόν;"
-
-msgid "No products yet"
-msgstr "Κανένα προϊόν ακόμα"
-
-msgid "Product pagination"
-msgstr "Σελιδοποίηση προϊόντων"
-
-msgid "New Promo Code"
-msgstr "Νέος Κωδικός Προσφοράς"
-
-msgid "Promo Code List"
-msgstr "Λίστα Κωδικών Προσφοράς"
-
-msgid "Uses"
-msgstr "Χρήσεις"
-
-msgid "Valid Until"
-msgstr "Ισχύει Έως"
-
-msgid "Are you sure you want to delete this promo code?"
-msgstr "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτόν τον κωδικό προσφοράς;"
-
-msgid "No promo codes yet"
-msgstr "Κανένας κωδικός προσφοράς ακόμα"
-
-msgid "Menu"
-msgstr "Μενού"
-
-msgid "Accepting orders"
-msgstr "Δέχεται παραγγελίες"
-
+#: .\templates\restaurants\product_edit.html:49
+#: .\templates\restaurants\public_menu.html:180
 msgid "Add"
 msgstr "Προσθήκη"
 
+#: .\templates\restaurants\product_edit.html:70
+msgid "No options yet."
+msgstr "Δεν υπάρχουν επιλογές ακόμα."
+
+#: .\templates\restaurants\product_edit.html:72
+msgid "Remove"
+msgstr "Αφαίρεση"
+
+#: .\templates\restaurants\product_list.html:11
+msgid "New Product"
+msgstr "Νέο Προϊόν"
+
+#: .\templates\restaurants\product_list.html:24
+msgid "Product List"
+msgstr "Λίστα Προϊόντων"
+
+#: .\templates\restaurants\product_list.html:36
+msgid "Unavailable"
+msgstr "Μη Διαθέσιμο"
+
+#: .\templates\restaurants\product_list.html:46
+msgid "Are you sure you want to delete this product?"
+msgstr "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το προϊόν;"
+
+#: .\templates\restaurants\product_list.html:55
+msgid "No products yet"
+msgstr "Κανένα προϊόν ακόμα"
+
+#: .\templates\restaurants\product_list.html:60
+msgid "Product pagination"
+msgstr "Σελιδοποίηση προϊόντων"
+
+#: .\templates\restaurants\promo_code_list.html:12
+msgid "New Promo Code"
+msgstr "Νέος Κωδικός Προσφοράς"
+
+#: .\templates\restaurants\promo_code_list.html:24
+msgid "Promo Code List"
+msgstr "Λίστα Κωδικών Προσφοράς"
+
+#: .\templates\restaurants\promo_code_list.html:32
+msgid "Uses"
+msgstr "Χρήσεις"
+
+#: .\templates\restaurants\promo_code_list.html:33
+msgid "Valid Until"
+msgstr "Ισχύει Έως"
+
+#: .\templates\restaurants\promo_code_list.html:55
+msgid "Are you sure you want to delete this promo code?"
+msgstr "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτόν τον κωδικό προσφοράς;"
+
+#: .\templates\restaurants\promo_code_list.html:63
+msgid "No promo codes yet"
+msgstr "Κανένας κωδικός προσφοράς ακόμα"
+
+#: .\templates\restaurants\public_menu.html:4
+msgid "Menu"
+msgstr "Μενού"
+
+#: .\templates\restaurants\public_menu.html:114
+msgid "Accepting orders"
+msgstr "Δέχεται παραγγελίες"
+
+#: .\templates\restaurants\public_menu.html:193
 msgid "No products available"
 msgstr "Δεν υπάρχουν διαθέσιμα προϊόντα"
 
+#: .\templates\restaurants\public_menu.html:201
 msgid "Powered by"
 msgstr "Με την υποστήριξη του"
 
+#: .\templates\restaurants\public_menu.html:210
 msgid "View order"
 msgstr "Προβολή παραγγελίας"
 
+#: .\templates\restaurants\public_menu.html:219
 msgid "Your Order"
 msgstr "Η Παραγγελία σας"
 
+#: .\templates\restaurants\public_menu.html:231
 msgid "Table number"
 msgstr "Αριθμός τραπεζιού"
 
+#: .\templates\restaurants\public_menu.html:242
 msgid "Name (optional)"
 msgstr "Όνομα (προαιρετικό)"
 
+#: .\templates\restaurants\public_menu.html:247
 msgid "Phone (optional, for Loyalty points)"
 msgstr "Τηλέφωνο (προαιρετικό, για πόντους Loyalty)"
 
+#: .\templates\restaurants\public_menu.html:252
 msgid "Promo Code (optional)"
 msgstr "Κωδικός Προσφοράς (προαιρετικό)"
 
+#: .\templates\restaurants\public_menu.html:255
 msgid "Apply"
 msgstr "Εφαρμογή"
 
+#: .\templates\restaurants\public_menu.html:260
 msgid "Notes (optional)"
 msgstr "Σημειώσεις (προαιρετικό)"
 
+#: .\templates\restaurants\public_menu.html:268
+#: .\templates\restaurants\public_menu.html:319
 msgid "Send Order"
 msgstr "Αποστολή Παραγγελίας"
 
+#: .\templates\restaurants\public_menu.html:316
 msgid "Your cart is empty."
 msgstr "Το καλάθι σας είναι άδειο."
 
+#: .\templates\restaurants\public_menu.html:317
 msgid "Added"
 msgstr "Προστέθηκε"
 
+#: .\templates\restaurants\public_menu.html:318
 msgid "Sending..."
 msgstr "Αποστολή..."
 
+#: .\templates\restaurants\public_menu.html:322
 msgid "Your order has been sent! Number"
 msgstr "Η παραγγελία σας στάλθηκε! Αριθμός"
 
+#: .\templates\restaurants\public_menu.html:324
 msgid "You will earn Loyalty points once your order is confirmed."
 msgstr "Θα κερδίσετε πόντους Loyalty μόλις επιβεβαιωθεί η παραγγελία σας."
 
+#: .\templates\restaurants\public_menu.html:325
 msgid "Invalid promo code."
 msgstr "Μη έγκυρος κωδικός προσφοράς."
 
+#: .\templates\restaurants\public_menu.html:326
 msgid "Promo code applied!"
 msgstr "Ο κωδικός προσφοράς εφαρμόστηκε!"
 
+#: .\templates\restaurants\settings.html:22
 msgid "Your Menu Site"
 msgstr "Ο Ιστότοπος του Μενού σας"
 
+#: .\templates\restaurants\settings.html:26
 msgid "Change the subdomain in the form to the left."
 msgstr "Αλλάξτε τον υποτομέα στη φόρμα στα αριστερά."
 
+#: .\templates\restaurants\settings.html:34
 msgid "Scan to view the menu"
 msgstr "Σαρώστε για να δείτε το μενού"
 
+#: .\templates\restaurants\settings.html:36
+#: .\templates\restaurants\table_list.html:40
 msgid "Download"
 msgstr "Λήψη"
 
+#: .\templates\restaurants\settings.html:39
 msgid "The QR Code will be generated automatically"
 msgstr "Ο κωδικός QR θα δημιουργηθεί αυτόματα"
 
+#: .\templates\restaurants\staff_list.html:9
 msgid ""
 "Create accounts for your staff. The \"Admin\" has access to almost "
 "everything except staff management. The \"Employee\" only sees the products "
@@ -2391,51 +3179,69 @@ msgstr ""
 "πρόσβαση σχεδόν σε όλα εκτός από τη διαχείριση προσωπικού. Ο «Υπάλληλος» "
 "βλέπει μόνο τα προϊόντα και διαχειρίζεται παραγγελίες."
 
+#: .\templates\restaurants\staff_list.html:13
 msgid "New Account"
 msgstr "Νέος Λογαριασμός"
 
+#: .\templates\restaurants\staff_list.html:25
 msgid "Staff List"
 msgstr "Λίστα Προσωπικού"
 
+#: .\templates\restaurants\staff_list.html:38
 msgid "Are you sure you want to remove this account?"
 msgstr "Είστε βέβαιοι ότι θέλετε να αφαιρέσετε αυτόν τον λογαριασμό;"
 
+#: .\templates\restaurants\staff_list.html:44
 msgid "No staff yet"
 msgstr "Κανένα προσωπικό ακόμα"
 
+#: .\templates\restaurants\stats_dashboard.html:9
 msgid "Sales Statistics"
 msgstr "Στατιστικά Πωλήσεων"
 
+#: .\templates\restaurants\stats_dashboard.html:11
 msgid "Export CSV"
 msgstr "Εξαγωγή CSV"
 
+#: .\templates\restaurants\stats_dashboard.html:19
 msgid "Today"
 msgstr "Σήμερα"
 
+#: .\templates\restaurants\stats_dashboard.html:21
+#: .\templates\restaurants\stats_dashboard.html:30
+#: .\templates\restaurants\stats_dashboard.html:39
 msgid "orders"
 msgstr "παραγγελίες"
 
+#: .\templates\restaurants\stats_dashboard.html:28
 msgid "This Week"
 msgstr "Αυτή την Εβδομάδα"
 
+#: .\templates\restaurants\stats_dashboard.html:37
 msgid "This Month"
 msgstr "Αυτόν τον Μήνα"
 
+#: .\templates\restaurants\stats_dashboard.html:48
 msgid "Revenue - Last 14 Days"
 msgstr "Έσοδα - Τελευταίες 14 Ημέρες"
 
+#: .\templates\restaurants\stats_dashboard.html:56
 msgid "Popular Products"
 msgstr "Δημοφιλή Προϊόντα"
 
+#: .\templates\restaurants\stats_dashboard.html:65
 msgid "No sales yet"
 msgstr "Καμία πώληση ακόμα"
 
+#: .\templates\restaurants\stats_dashboard.html:88
 msgid "Revenue ($)"
 msgstr "Έσοδα ($)"
 
+#: .\templates\restaurants\stats_upgrade.html:9
 msgid "Statistics are available on the Business plan"
 msgstr "Τα στατιστικά είναι διαθέσιμα στο πλάνο Business"
 
+#: .\templates\restaurants\stats_upgrade.html:11
 msgid ""
 "Upgrade to the Business plan to see daily/weekly/monthly revenue,\n"
 "        popular products and sales trends."
@@ -2444,9 +3250,11 @@ msgstr ""
 "έσοδα,\n"
 "        δημοφιλή προϊόντα και τάσεις πωλήσεων."
 
+#: .\templates\restaurants\stats_upgrade.html:14
 msgid "View plans"
 msgstr "προβολή πλάνων"
 
+#: .\templates\restaurants\table_list.html:9
 msgid ""
 "Create a QR code for each table or sunbed. Anyone who scans it sees the menu "
 "with their location already selected and can order directly."
@@ -2455,20 +3263,26 @@ msgstr ""
 "βλέπει το μενού με την τοποθεσία του ήδη επιλεγμένη και μπορεί να "
 "παραγγείλει απευθείας."
 
+#: .\templates\restaurants\table_list.html:13
 msgid "New Location"
 msgstr "Νέα Τοποθεσία"
 
+#: .\templates\restaurants\table_list.html:45
 msgid "Are you sure you want to delete this?"
 msgstr "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό;"
 
+#: .\templates\restaurants\table_list.html:55
 msgid "No tables or sunbeds yet"
 msgstr "Κανένα τραπέζι ή ξαπλώστρα ακόμα"
 
+#: .\templates\solutions\staff_shortage.html:4
+#: .\templates\solutions\staff_shortage.html:6
 msgid "Less Staff, More Orders: The Restaurant Staffing Shortage Solution"
 msgstr ""
 "Λιγότερο Προσωπικό, Περισσότερες Παραγγελίες: Η Λύση στην Έλλειψη Προσωπικού "
 "Εστιατορίων"
 
+#: .\templates\solutions\staff_shortage.html:5
 msgid ""
 "Short-staffed restaurant? Table-side QR ordering lets customers order "
 "themselves, so your existing team runs a full shift without extra hires. See "
@@ -2479,6 +3293,7 @@ msgstr ""
 "σας να καλύπτει ολόκληρη τη βάρδια χωρίς νέες προσλήψεις. Δείτε πώς "
 "λειτουργεί."
 
+#: .\templates\solutions\staff_shortage.html:7
 msgid ""
 "Table-side QR ordering lets customers order themselves, so your existing "
 "team runs a full shift without extra hires."
@@ -2487,11 +3302,13 @@ msgstr ""
 "μόνοι τους, ώστε η υπάρχουσα ομάδα σας να καλύπτει ολόκληρη τη βάρδια χωρίς "
 "νέες προσλήψεις."
 
+#: .\templates\solutions\staff_shortage.html:107
 msgid "Less Staff, More Orders: The Solution to Your Staffing Shortage"
 msgstr ""
 "Λιγότερο Προσωπικό, Περισσότερες Παραγγελίες: Η Λύση στην Έλλειψή σας σε "
 "Προσωπικό"
 
+#: .\templates\solutions\staff_shortage.html:108
 msgid ""
 "Don't lose tables because your servers can't keep up. With GetMenuHub, "
 "customers scan, order for themselves, and your existing staff spend their "
@@ -2502,9 +3319,11 @@ msgstr ""
 "προσωπικό σας αφιερώνει τον χρόνο του στο σέρβις - όχι στο πήγαινε-έλα για "
 "να πάρει παραγγελίες."
 
+#: .\templates\solutions\staff_shortage.html:112
 msgid "The problem: not enough hands, same number of tables"
 msgstr "Το πρόβλημα: λιγότερα χέρια, ίδιος αριθμός τραπεζιών"
 
+#: .\templates\solutions\staff_shortage.html:113
 msgid ""
 "Finding and keeping enough staff is one of the hardest parts of running a "
 "restaurant right now. When you're short-handed, the first thing that suffers "
@@ -2517,9 +3336,11 @@ msgstr ""
 "περισσότερο για να παραγγείλουν, η κουζίνα μένει πίσω, και το προσωπικό που "
 "έχετε καταλήγει να τρέχει σε πάρα πολλά πράγματα ταυτόχρονα."
 
+#: .\templates\solutions\staff_shortage.html:117
 msgid "How GetMenuHub helps"
 msgstr "Πώς βοηθάει το GetMenuHub"
 
+#: .\templates\solutions\staff_shortage.html:118
 msgid ""
 "Table-side ordering removes the single most repetitive part of service: "
 "walking to a table, writing down an order, and walking it back to the "
@@ -2529,24 +3350,29 @@ msgstr ""
 "σέρβις: το πήγαινε-έλα στο τραπέζι, τη σημείωση της παραγγελίας και τη "
 "μεταφορά της στην κουζίνα."
 
+#: .\templates\solutions\staff_shortage.html:120
 msgid "Customers scan the table's QR code and order directly from their phone"
 msgstr ""
 "Οι πελάτες σκανάρουν τον κωδικό QR του τραπεζιού και παραγγέλνουν απευθείας "
 "από το κινητό τους"
 
+#: .\templates\solutions\staff_shortage.html:121
 msgid "Orders land on your dashboard instantly - no relaying, no lost tickets"
 msgstr ""
 "Οι παραγγελίες φτάνουν στον πίνακα ελέγχου σας αμέσως - χωρίς ενδιάμεσους, "
 "χωρίς χαμένες σημειώσεις"
 
+#: .\templates\solutions\staff_shortage.html:122
 msgid "Existing staff cover more tables without feeling stretched thin"
 msgstr ""
 "Το υπάρχον προσωπικό καλύπτει περισσότερα τραπέζια χωρίς να νιώθει "
 "υπερφορτωμένο"
 
+#: .\templates\solutions\staff_shortage.html:123
 msgid "Menu changes go live immediately, with zero reprinting"
 msgstr "Οι αλλαγές στο μενού ενημερώνονται άμεσα, χωρίς καμία επανεκτύπωση"
 
+#: .\templates\solutions\staff_shortage.html:132
 msgid ""
 "A server notices the table is ready, walks over, takes the order by hand, "
 "walks it to the kitchen - then repeats for the next table, one at a time."
@@ -2555,6 +3381,7 @@ msgstr ""
 "παραγγελία με το χέρι, τη μεταφέρει στην κουζίνα - και επαναλαμβάνει για το "
 "επόμενο τραπέζι, ένα-ένα."
 
+#: .\templates\solutions\staff_shortage.html:138
 msgid ""
 "The customer scans the table's QR code and orders directly from their phone. "
 "It lands on your dashboard instantly, so your staff can go straight to what "
@@ -2565,9 +3392,11 @@ msgstr ""
 "προσωπικό σας να ασχολείται κατευθείαν με ό,τι χρειάζεται πραγματικά έναν "
 "άνθρωπο."
 
+#: .\templates\solutions\staff_shortage.html:145
 msgid "How many hours could you free up?"
 msgstr "Πόσες ώρες θα μπορούσατε να εξοικονομήσετε;"
 
+#: .\templates\solutions\staff_shortage.html:146
 msgid ""
 "Use the free Staff Efficiency Calculator to estimate the staff time table-"
 "side ordering could save your restaurant every day."
@@ -2576,28 +3405,35 @@ msgstr ""
 "υπολογίσετε πόσο χρόνο προσωπικού θα μπορούσαν να εξοικονομήσουν καθημερινά "
 "οι παραγγελίες από το τραπέζι στο εστιατόριό σας."
 
+#: .\templates\solutions\staff_shortage.html:148
 msgid "Try the Staff Efficiency Calculator"
 msgstr "Δοκιμάστε τον Υπολογιστή Αποδοτικότητας Προσωπικού"
 
+#: .\templates\solutions\staff_shortage.html:153
 msgid "Related reading"
 msgstr "Σχετικά άρθρα"
 
+#: .\templates\solutions\staff_shortage.html:155
 msgid "Staff Shortage in Restaurants: How QR Ordering Saves Your Season"
 msgstr ""
 "Έλλειψη Προσωπικού στα Εστιατόρια: Πώς οι Παραγγελίες QR Σώζουν τη Σεζόν σας"
 
+#: .\templates\solutions\staff_shortage.html:156
 msgid "Cost Breakdown: A $19/Month Digital Menu vs. Hiring Extra Staff"
 msgstr ""
 "Ανάλυση Κόστους: Ψηφιακό Μενού $19/μήνα έναντι Πρόσληψης Επιπλέον Προσωπικού"
 
+#: .\templates\solutions\staff_shortage.html:157
 msgid "How to Increase Table Turnover at Peak Hours, Even With Fewer Staff"
 msgstr ""
 "Πώς να Αυξήσετε την Εναλλαγή Τραπεζιών στις Ώρες Αιχμής, Ακόμα και με "
 "Λιγότερο Προσωπικό"
 
+#: .\templates\solutions\staff_shortage.html:162
 msgid "Let your menu carry more of the workload"
 msgstr "Αφήστε το μενού σας να αναλάβει μεγαλύτερο μέρος του φόρτου εργασίας"
 
+#: .\templates\solutions\staff_shortage.html:163
 msgid ""
 "Set up your digital menu in about 5 minutes. No printer, no extra hire, no "
 "app for your customers to install."
@@ -2605,12 +3441,15 @@ msgstr ""
 "Δημιουργήστε το ψηφιακό σας μενού σε περίπου 5 λεπτά. Χωρίς εκτυπωτή, χωρίς "
 "νέα πρόσληψη, χωρίς εφαρμογή που να πρέπει να εγκαταστήσουν οι πελάτες σας."
 
+#: .\templates\solutions\staff_shortage.html:164
 msgid "Start free"
 msgstr "Ξεκινήστε δωρεάν"
 
+#: .\templates\terms.html:13
 msgid "Scope"
 msgstr "Πεδίο Εφαρμογής"
 
+#: .\templates\terms.html:14
 msgid ""
 "The GetMenuHub service (\"the Service\") is operated by an individual (sole "
 "trader) and is available to businesses worldwide. A valid VAT/Tax ID is not "
@@ -2622,9 +3461,11 @@ msgstr ""
 "έγκυρος ΑΦΜ για την εγγραφή, αλλά μπορεί να ζητηθεί όπου ισχύει για "
 "τιμολόγηση ή φορολογική συμμόρφωση."
 
+#: .\templates\terms.html:16
 msgid "Service Description"
 msgstr "Περιγραφή Υπηρεσίας"
 
+#: .\templates\terms.html:17
 msgid ""
 "GetMenuHub provides a platform for creating a digital QR-code menu, managing "
 "products/categories, taking orders (depending on subscription plan), and "
@@ -2636,9 +3477,11 @@ msgstr ""
 "συνδρομής), και σχετικά εργαλεία (loyalty, κωδικοί έκπτωσης, στατιστικά). Η "
 "Υπηρεσία βρίσκεται σε beta και μπορεί να αλλάξει χωρίς προειδοποίηση."
 
+#: .\templates\terms.html:19
 msgid "Plans & Billing"
 msgstr "Πλάνα & Χρέωση"
 
+#: .\templates\terms.html:20
 msgid ""
 "Subscription plan prices are listed on the pricing page. Payments are "
 "processed by Paddle.com, our authorized reseller and Merchant of Record, who "
@@ -2649,9 +3492,11 @@ msgstr ""
 "Merchant of Record μας, η οποία διαχειρίζεται τη χρέωση, τους ισχύοντες "
 "φόρους, και την τιμολόγηση για λογαριασμό μας."
 
+#: .\templates\terms.html:22
 msgid "User Responsibility"
 msgstr "Ευθύνη Χρήστη"
 
+#: .\templates\terms.html:23
 msgid ""
 "The user is solely responsible for the accuracy of the information they "
 "enter (prices, descriptions, photos, dietary labels) and for managing their "
@@ -2661,9 +3506,11 @@ msgstr ""
 "εισάγει (τιμές, περιγραφές, φωτογραφίες, διατροφικές ετικέτες) και για τη "
 "διαχείριση της πρόσβασης του προσωπικού του στην πλατφόρμα."
 
+#: .\templates\terms.html:25
 msgid "Limitation of Liability"
 msgstr "Περιορισμός Ευθύνης"
 
+#: .\templates\terms.html:26
 msgid ""
 "The Service is provided \"as is\", without any guarantee of uninterrupted "
 "operation. The provider is not liable for indirect damages arising from use "
@@ -2673,9 +3520,11 @@ msgstr ""
 "Ο πάροχος δεν φέρει ευθύνη για έμμεσες ζημίες που προκύπτουν από τη χρήση ή "
 "την αδυναμία χρήσης της Υπηρεσίας."
 
+#: .\templates\terms.html:28
 msgid "Governing Law"
 msgstr "Εφαρμοστέο Δίκαιο"
 
+#: .\templates\terms.html:29
 msgid ""
 "These Terms are governed by the laws applicable in the provider's place of "
 "business, without regard to conflict-of-law principles."
@@ -2683,9 +3532,11 @@ msgstr ""
 "Αυτοί οι Όροι διέπονται από τους νόμους που ισχύουν στον τόπο δραστηριότητας "
 "του παρόχου, χωρίς αναφορά σε αρχές σύγκρουσης δικαίου."
 
+#: .\templates\terms.html:31
 msgid "Changes"
 msgstr "Αλλαγές"
 
+#: .\templates\terms.html:32
 msgid ""
 "These Terms may be updated from time to time. Continued use of the Service "
 "after a change constitutes acceptance of the new terms."
@@ -2693,6 +3544,7 @@ msgstr ""
 "Αυτοί οι Όροι ενδέχεται να ενημερώνονται από καιρό σε καιρό. Η συνεχιζόμενη "
 "χρήση της Υπηρεσίας μετά από μια αλλαγή συνιστά αποδοχή των νέων όρων."
 
+#: .\templates\terms.html:35
 msgid ""
 "For questions about these Terms of Use, contact us at <a "
 "href=\"mailto:info@getmenuhub.com\">info@getmenuhub.com</a>."
@@ -2700,9 +3552,11 @@ msgstr ""
 "Για ερωτήσεις σχετικά με αυτούς τους Όρους Χρήσης, επικοινωνήστε μαζί μας "
 "στο <a href=\"mailto:info@getmenuhub.com\">info@getmenuhub.com</a>."
 
+#: .\templates\tools\free_qr_code_generator.html:4
 msgid "Free QR Code Generator - No Sign-up Required"
 msgstr "Δωρεάν Δημιουργός QR - Χωρίς Εγγραφή"
 
+#: .\templates\tools\free_qr_code_generator.html:5
 msgid ""
 "Generate a free QR code for a URL, text, phone number, email, SMS, Wi-Fi "
 "login, or contact card. No sign-up, no watermark."
@@ -2710,6 +3564,7 @@ msgstr ""
 "Δημιουργήστε δωρεάν κωδικό QR για URL, κείμενο, αριθμό τηλεφώνου, email, "
 "SMS, σύνδεση Wi-Fi ή κάρτα επαφής. Χωρίς εγγραφή, χωρίς υδατογράφημα."
 
+#: .\templates\tools\free_qr_code_generator.html:107
 msgid ""
 "Pick a type, fill in the details, get a downloadable QR code. No account, no "
 "watermark, no catch."
@@ -2717,72 +3572,98 @@ msgstr ""
 "Επιλέξτε τύπο, συμπληρώστε τα στοιχεία, αποκτήστε έναν κωδικό QR έτοιμο για "
 "λήψη. Χωρίς λογαριασμό, χωρίς υδατογράφημα, χωρίς παγίδα."
 
+#: .\templates\tools\free_qr_code_generator.html:113
 msgid "QR code type"
 msgstr "Τύπος κωδικού QR"
 
+#: .\templates\tools\free_qr_code_generator.html:115
 msgid "URL"
 msgstr "URL"
 
+#: .\templates\tools\free_qr_code_generator.html:118
+#: .\templates\tools\free_qr_code_generator.html:142
 msgid "Text"
 msgstr "Κείμενο"
 
+#: .\templates\tools\free_qr_code_generator.html:124
 msgid "Email"
 msgstr "Email"
 
+#: .\templates\tools\free_qr_code_generator.html:127
 msgid "SMS"
 msgstr "SMS"
 
+#: .\templates\tools\free_qr_code_generator.html:130
 msgid "Wi-Fi"
 msgstr "Wi-Fi"
 
+#: .\templates\tools\free_qr_code_generator.html:137
 msgid "URL to encode"
 msgstr "URL προς κωδικοποίηση"
 
+#: .\templates\tools\free_qr_code_generator.html:147
+#: .\templates\tools\free_qr_code_generator.html:161
 msgid "Phone number"
 msgstr "Αριθμός τηλεφώνου"
 
+#: .\templates\tools\free_qr_code_generator.html:152
 msgid "Email address"
 msgstr "Διεύθυνση email"
 
+#: .\templates\tools\free_qr_code_generator.html:154
 msgid "Subject (optional)"
 msgstr "Θέμα (προαιρετικό)"
 
+#: .\templates\tools\free_qr_code_generator.html:156
+#: .\templates\tools\free_qr_code_generator.html:163
 msgid "Message (optional)"
 msgstr "Μήνυμα (προαιρετικό)"
 
+#: .\templates\tools\free_qr_code_generator.html:168
 msgid "Network name (SSID)"
 msgstr "Όνομα δικτύου (SSID)"
 
+#: .\templates\tools\free_qr_code_generator.html:172
 msgid "Security"
 msgstr "Ασφάλεια"
 
+#: .\templates\tools\free_qr_code_generator.html:176
 msgid "No password"
 msgstr "Χωρίς κωδικό"
 
+#: .\templates\tools\free_qr_code_generator.html:181
 msgid "Name"
 msgstr "Όνομα"
 
+#: .\templates\tools\free_qr_code_generator.html:183
 msgid "Phone (optional)"
 msgstr "Τηλέφωνο (προαιρετικό)"
 
+#: .\templates\tools\free_qr_code_generator.html:185
 msgid "Email (optional)"
 msgstr "Email (προαιρετικό)"
 
+#: .\templates\tools\free_qr_code_generator.html:187
 msgid "Company (optional)"
 msgstr "Εταιρεία (προαιρετικό)"
 
+#: .\templates\tools\free_qr_code_generator.html:194
 msgid "Generate QR Code"
 msgstr "Δημιουργία Κωδικού QR"
 
+#: .\templates\tools\free_qr_code_generator.html:199
 msgid "Generated QR code"
 msgstr "Δημιουργημένος κωδικός QR"
 
+#: .\templates\tools\free_qr_code_generator.html:202
 msgid "Download PNG"
 msgstr "Λήψη PNG"
 
+#: .\templates\tools\free_qr_code_generator.html:210
 msgid "Run a restaurant, cafe, or bar?"
 msgstr "Διαχειρίζεστε εστιατόριο, καφετέρια ή μπαρ;"
 
+#: .\templates\tools\free_qr_code_generator.html:211
 msgid ""
 "A plain QR code just opens a link. GetMenuHub turns it into a full digital "
 "menu you can update instantly - no reprinting, ever - with optional ordering "
@@ -2793,12 +3674,16 @@ msgstr ""
 "επανεκτύπωση - με προαιρετική δυνατότητα παραγγελίας απευθείας από το "
 "τραπέζι."
 
+#: .\templates\tools\free_qr_code_generator.html:212
+#: .\templates\tools\qr_menu_examples.html:67
 msgid "Create your free QR menu"
 msgstr "Δημιουργήστε το δωρεάν μενού QR σας"
 
+#: .\templates\tools\free_qr_code_generator.html:216
 msgid "How this QR code works"
 msgstr "Πώς λειτουργεί αυτός ο κωδικός QR"
 
+#: .\templates\tools\free_qr_code_generator.html:217
 msgid ""
 "Scanning the code with any phone camera reads back exactly what you entered "
 "- a link opens instantly, a Wi-Fi code offers to join the network, a contact "
@@ -2811,22 +3696,28 @@ msgstr ""
 "εξαρτάται από τη λειτουργία του GetMenuHub εκτός από τους κωδικούς URL, οι "
 "οποίοι απλώς ανοίγουν τον σύνδεσμο που δώσατε."
 
+#: .\templates\tools\free_qr_code_generator.html:218
 msgid "Curious what a QR code menu actually looks like in practice?"
 msgstr "Θέλετε να δείτε πώς μοιάζει στην πράξη ένα μενού QR;"
 
+#: .\templates\tools\free_qr_code_generator.html:218
 msgid "See how to create one"
 msgstr "Δείτε πώς να το δημιουργήσετε"
 
+#: .\templates\tools\free_qr_code_generator.html:218
 msgid "or"
 msgstr "ή"
 
+#: .\templates\tools\free_qr_code_generator.html:218
 msgid "browse live examples"
 msgstr "δείτε ζωντανά παραδείγματα"
 
+#: .\templates\tools\free_qr_code_generator.html:224
 msgid "Can I use this to make a QR code for a bank transfer?"
 msgstr ""
 "Μπορώ να το χρησιμοποιήσω για να φτιάξω κωδικό QR για τραπεζικό έμβασμα;"
 
+#: .\templates\tools\free_qr_code_generator.html:225
 msgid ""
 "Not directly. This tool generates a standard QR code that opens a link or "
 "encodes text, a phone number, Wi-Fi login, or similar - it doesn't format "
@@ -2842,9 +3733,11 @@ msgstr ""
 "EPC QR code, την οποία παρέχει απευθείας η τράπεζά σας μέσα από τη δική της "
 "εφαρμογή ή το online banking."
 
+#: .\templates\tools\free_qr_code_generator.html:228
 msgid "Is this QR code generator really free?"
 msgstr "Είναι πραγματικά δωρεάν αυτός ο δημιουργός κωδικών QR;"
 
+#: .\templates\tools\free_qr_code_generator.html:229
 msgid ""
 "Yes. No account, no watermark, no usage limit. You can generate and download "
 "as many QR codes as you want."
@@ -2852,9 +3745,11 @@ msgstr ""
 "Ναι. Χωρίς λογαριασμό, χωρίς υδατογράφημα, χωρίς όριο χρήσης. Μπορείτε να "
 "δημιουργήσετε και να κατεβάσετε όσους κωδικούς QR θέλετε."
 
+#: .\templates\tools\free_qr_code_generator.html:232
 msgid "Does the QR code expire?"
 msgstr "Λήγει ο κωδικός QR;"
 
+#: .\templates\tools\free_qr_code_generator.html:233
 msgid ""
 "No. The QR code itself never expires - a URL code will keep working for as "
 "long as the destination URL stays live; a text, phone, Wi-Fi, or contact "
@@ -2865,9 +3760,11 @@ msgstr ""
 "κειμένου, τηλεφώνου, Wi-Fi ή επαφής έχει τις πληροφορίες ενσωματωμένες και "
 "λειτουργεί για πάντα."
 
+#: .\templates\tools\free_qr_code_generator.html:236
 msgid "What types of QR codes can I create?"
 msgstr "Τι τύπους κωδικών QR μπορώ να δημιουργήσω;"
 
+#: .\templates\tools\free_qr_code_generator.html:237
 msgid ""
 "A website link, plain text, a phone number, an email address, an SMS "
 "message, a Wi-Fi network login, or a contact card (vCard) that saves "
@@ -2877,9 +3774,11 @@ msgstr ""
 "SMS, σύνδεση δικτύου Wi-Fi, ή κάρτα επαφής (vCard) που αποθηκεύεται "
 "απευθείας στις επαφές του κινητού όταν σαρωθεί."
 
+#: .\templates\tools\printing_cost_calculator.html:4
 msgid "Menu Printing Cost Calculator - Free Tool"
 msgstr "Υπολογιστής Κόστους Εκτύπωσης Μενού - Δωρεάν Εργαλείο"
 
+#: .\templates\tools\printing_cost_calculator.html:5
 msgid ""
 "See exactly how much you spend reprinting menus every year, and what "
 "switching to a QR code menu would save you."
@@ -2887,9 +3786,11 @@ msgstr ""
 "Δείτε ακριβώς πόσα ξοδεύετε κάθε χρόνο σε επανεκτυπώσεις μενού, και πόσα θα "
 "εξοικονομούσατε αν περνούσατε σε μενού QR."
 
+#: .\templates\tools\printing_cost_calculator.html:50
 msgid "Menu Printing Cost Calculator"
 msgstr "Υπολογιστής Κόστους Εκτύπωσης Μενού"
 
+#: .\templates\tools\printing_cost_calculator.html:51
 msgid ""
 "See how much reprinting your menu actually costs you per year - and what a "
 "QR code menu would save."
@@ -2897,36 +3798,47 @@ msgstr ""
 "Δείτε πόσο σας κοστίζει πραγματικά η επανεκτύπωση του μενού σας ανά έτος - "
 "και πόσα θα εξοικονομούσε ένα μενού QR."
 
+#: .\templates\tools\printing_cost_calculator.html:56
 msgid "Menus printed each time"
 msgstr "Μενού που εκτυπώνονται κάθε φορά"
 
+#: .\templates\tools\printing_cost_calculator.html:60
 msgid "Reprints per year"
 msgstr "Επανεκτυπώσεις ανά έτος"
 
+#: .\templates\tools\printing_cost_calculator.html:62
 msgid "Price changes, seasonal menus, wear and tear"
 msgstr "Αλλαγές τιμών, εποχιακά μενού, φθορά"
 
+#: .\templates\tools\printing_cost_calculator.html:65
 msgid "Cost per printed menu ($)"
 msgstr "Κόστος ανά εκτυπωμένο μενού ($)"
 
+#: .\templates\tools\printing_cost_calculator.html:69
 msgid "Design/layout cost per revision ($)"
 msgstr "Κόστος σχεδίασης/διάταξης ανά αναθεώρηση ($)"
 
+#: .\templates\tools\printing_cost_calculator.html:71
 msgid "Leave at 0 if you design it yourself"
 msgstr "Αφήστε το 0 αν το σχεδιάζετε μόνοι σας"
 
+#: .\templates\tools\printing_cost_calculator.html:78
 msgid "Printed menus"
 msgstr "Εκτυπωμένα μενού"
 
+#: .\templates\tools\printing_cost_calculator.html:85
 msgid "GetMenuHub (Basic)"
 msgstr "GetMenuHub (Basic)"
 
+#: .\templates\tools\printing_cost_calculator.html:94
 msgid "Fill in your numbers above to see your savings."
 msgstr "Συμπληρώστε τα νούμερά σας παραπάνω για να δείτε την εξοικονόμησή σας."
 
+#: .\templates\tools\printing_cost_calculator.html:100
 msgid "Stop paying for reprints"
 msgstr "Σταματήστε να πληρώνετε για επανεκτυπώσεις"
 
+#: .\templates\tools\printing_cost_calculator.html:101
 msgid ""
 "Update your menu instantly from your phone or computer - no printer, no "
 "graphic designer, no waiting."
@@ -2934,15 +3846,19 @@ msgstr ""
 "Ενημερώστε το μενού σας ακαριαία από το κινητό ή τον υπολογιστή σας - χωρίς "
 "εκτυπωτή, χωρίς γραφίστα, χωρίς αναμονή."
 
+#: .\templates\tools\printing_cost_calculator.html:102
 msgid "Switch to a QR menu"
 msgstr "Περάστε σε μενού QR"
 
+#: .\templates\tools\printing_cost_calculator.html:150
 msgid "You could save about"
 msgstr "Θα μπορούσατε να εξοικονομήσετε περίπου"
 
+#: .\templates\tools\printing_cost_calculator.html:150
 msgid "a year by switching to a QR menu."
 msgstr "τον χρόνο αν περνούσατε σε μενού QR."
 
+#: .\templates\tools\printing_cost_calculator.html:154
 msgid ""
 "Your printing costs are already low - but you would also get instant "
 "updates, no waiting on a print shop."
@@ -2950,9 +3866,11 @@ msgstr ""
 "Τα κόστη εκτύπωσής σας είναι ήδη χαμηλά - αλλά θα αποκτούσατε επίσης "
 "ακαριαίες ενημερώσεις, χωρίς αναμονή σε τυπογραφείο."
 
+#: .\templates\tools\qr_menu_examples.html:4
 msgid "QR Menu Examples - See GetMenuHub in Action"
 msgstr "Παραδείγματα Μενού QR - Δείτε το GetMenuHub σε Δράση"
 
+#: .\templates\tools\qr_menu_examples.html:5
 msgid ""
 "See real, live QR code menu examples for a cafe, a taverna, and a beach bar "
 "- built with GetMenuHub. No sign-up needed to look."
@@ -2961,9 +3879,11 @@ msgstr ""
 "ταβέρνα και ένα beach bar - φτιαγμένα με το GetMenuHub. Δεν χρειάζεται "
 "εγγραφή για να τα δείτε."
 
+#: .\templates\tools\qr_menu_examples.html:44
 msgid "See GetMenuHub in Action"
 msgstr "Δείτε το GetMenuHub σε Δράση"
 
+#: .\templates\tools\qr_menu_examples.html:45
 msgid ""
 "Real, live digital menus built with GetMenuHub - scan them with your own "
 "phone, or just click through. No sign-up needed to look around."
@@ -2972,15 +3892,19 @@ msgstr ""
 "το δικό σας κινητό, ή απλά κάντε κλικ για να τα δείτε. Δεν χρειάζεται "
 "εγγραφή."
 
+#: .\templates\tools\qr_menu_examples.html:55
 msgid "View live demo"
 msgstr "Προβολή ζωντανής επίδειξης"
 
+#: .\templates\tools\qr_menu_examples.html:61
 msgid "Examples coming soon."
 msgstr "Παραδείγματα σύντομα."
 
+#: .\templates\tools\qr_menu_examples.html:65
 msgid "Like what you see?"
 msgstr "Σας άρεσε αυτό που είδατε;"
 
+#: .\templates\tools\qr_menu_examples.html:66
 msgid ""
 "Build your own menu in about 5 minutes - your own categories, products, "
 "photos, and an automatic QR code."
@@ -2988,9 +3912,11 @@ msgstr ""
 "Δημιουργήστε το δικό σας μενού σε περίπου 5 λεπτά - δικές σας κατηγορίες, "
 "προϊόντα, φωτογραφίες, και αυτόματο κωδικό QR."
 
+#: .\templates\tools\staff_efficiency_calculator.html:4
 msgid "Staff Efficiency Calculator - Free Tool"
 msgstr "Υπολογιστής Αποδοτικότητας Προσωπικού - Δωρεάν Εργαλείο"
 
+#: .\templates\tools\staff_efficiency_calculator.html:5
 msgid ""
 "See how many hours of staff time table-side QR ordering could free up in "
 "your restaurant every day - based on your own numbers."
@@ -2999,6 +3925,7 @@ msgstr ""
 "στο εστιατόριό σας με τις παραγγελίες QR από το τραπέζι - με βάση τα δικά "
 "σας νούμερα."
 
+#: .\templates\tools\staff_efficiency_calculator.html:52
 msgid ""
 "See how many hours of staff time you could free up every day by letting "
 "customers order straight from the table."
@@ -3006,28 +3933,36 @@ msgstr ""
 "Δείτε πόσες ώρες χρόνου προσωπικού θα μπορούσατε να εξοικονομείτε καθημερινά "
 "αφήνοντας τους πελάτες να παραγγέλνουν απευθείας από το τραπέζι."
 
+#: .\templates\tools\staff_efficiency_calculator.html:57
 msgid "Table orders per day"
 msgstr "Παραγγελίες τραπεζιού ανά ημέρα"
 
+#: .\templates\tools\staff_efficiency_calculator.html:59
 msgid "Roughly how many times a table places an order"
 msgstr "Περίπου πόσες φορές ένα τραπέζι κάνει παραγγελία"
 
+#: .\templates\tools\staff_efficiency_calculator.html:62
 msgid "Minutes per order today"
 msgstr "Λεπτά ανά παραγγελία σήμερα"
 
+#: .\templates\tools\staff_efficiency_calculator.html:64
 msgid "From table ready to order reaching the kitchen"
 msgstr "Από το τραπέζι έτοιμο για παραγγελία μέχρι να φτάσει στην κουζίνα"
 
+#: .\templates\tools\staff_efficiency_calculator.html:67
 msgid "Staff cost per hour ($, optional)"
 msgstr "Κόστος προσωπικού ανά ώρα ($, προαιρετικό)"
 
+#: .\templates\tools\staff_efficiency_calculator.html:75
 msgid "Without GetMenuHub"
 msgstr "Χωρίς το GetMenuHub"
 
+#: .\templates\tools\staff_efficiency_calculator.html:91
 msgid "Fill in your numbers above to see your time savings."
 msgstr ""
 "Συμπληρώστε τα νούμερά σας παραπάνω για να δείτε την εξοικονόμηση χρόνου σας."
 
+#: .\templates\tools\staff_efficiency_calculator.html:93
 msgid ""
 "Estimate based on the minutes you enter above. Assumes table-side ordering "
 "still takes about 1 minute of staff attention per order (delivering food, "
@@ -3037,9 +3972,11 @@ msgstr ""
 "παραγγελίες από το τραπέζι απαιτούν ακόμα περίπου 1 λεπτό προσοχής "
 "προσωπικού ανά παραγγελία (σερβίρισμα, έλεγχος τραπεζιού)."
 
+#: .\templates\tools\staff_efficiency_calculator.html:98
 msgid "Give your staff that time back"
 msgstr "Δώστε στο προσωπικό σας αυτόν τον χρόνο πίσω"
 
+#: .\templates\tools\staff_efficiency_calculator.html:99
 msgid ""
 "Customers scan, browse, and order straight from their phone - no walk to the "
 "table needed just to take an order."
@@ -3048,24 +3985,32 @@ msgstr ""
 "τους - χωρίς να χρειάζεται να πάτε στο τραπέζι μόνο για να πάρετε την "
 "παραγγελία."
 
+#: .\templates\tools\staff_efficiency_calculator.html:100
 msgid "Try GetMenuHub free"
 msgstr "Δοκιμάστε το GetMenuHub δωρεάν"
 
+#: .\templates\tools\staff_efficiency_calculator.html:139
+#: .\templates\tools\staff_efficiency_calculator.html:140
 msgid "min/day"
 msgstr "λεπτά/ημέρα"
 
+#: .\templates\tools\staff_efficiency_calculator.html:146
 msgid "That is about"
 msgstr "Αυτό ισοδυναμεί με περίπου"
 
+#: .\templates\tools\staff_efficiency_calculator.html:146
 msgid "hours of staff time freed up every day."
 msgstr "ώρες χρόνου προσωπικού που εξοικονομούνται καθημερινά."
 
+#: .\templates\tools\staff_efficiency_calculator.html:149
 msgid "Roughly"
 msgstr "Περίπου"
 
+#: .\templates\tools\staff_efficiency_calculator.html:149
 msgid "in staff time per day."
 msgstr "σε χρόνο προσωπικού την ημέρα."
 
+#: .\templates\tools\staff_efficiency_calculator.html:155
 msgid "Enter your numbers above to see your estimated time savings."
 msgstr ""
 "Εισάγετε τα νούμερά σας παραπάνω για να δείτε την εκτιμώμενη εξοικονόμηση "

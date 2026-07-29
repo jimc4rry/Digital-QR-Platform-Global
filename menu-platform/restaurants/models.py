@@ -165,7 +165,28 @@ class Product(models.Model):
         if get_language() == 'en' and self.name_en:
             return self.name_en
         return self.name
-    
+
+    def get_option_groups(self):
+        """Options bucketed by group_name, for the public menu.
+        Options that share a non-blank group_name are mutually exclusive
+        (radio buttons); each such group gets exactly one 'checked' option
+        (its is_default option, or the first one if none is marked default).
+        Options with a blank group_name are independent add-ons (checkboxes)
+        and keep their own is_default as their checked state."""
+        from itertools import groupby
+        groups = []
+        for group_name, opts_iter in groupby(self.options.all(), key=lambda o: o.group_name):
+            opts = list(opts_iter)
+            if group_name:
+                has_default = any(o.is_default for o in opts)
+                for i, o in enumerate(opts):
+                    o.checked = o.is_default or (not has_default and i == 0)
+            else:
+                for o in opts:
+                    o.checked = o.is_default
+            groups.append({'name': group_name, 'options': opts})
+        return groups
+
     def optimize_image(self):
         try:
             img = Image.open(self.image.path)
@@ -226,10 +247,22 @@ class RestaurantTable(models.Model):
 
 class ProductOption(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='options')
+    # Options sharing the same non-blank group_name are mutually exclusive
+    # (rendered as a radio group on the menu, e.g. "Sweetness: Plain / Medium /
+    # Sweet"). Options with a blank group_name are independent add-ons
+    # (rendered as checkboxes, e.g. "Extra cheese +$1").
+    group_name = models.CharField(max_length=100, blank=True, help_text=_(
+        'Optional. Give two or more options the same group name to make them mutually '
+        'exclusive (e.g. group "Sweetness" with options "Plain", "Medium", "Sweet"). '
+        'Leave blank for an independent add-on.'
+    ))
     name = models.CharField(max_length=100)
     price_adjustment = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
     is_default = models.BooleanField(default=False)
-    
+
+    class Meta:
+        ordering = ['group_name', 'id']
+
     def __str__(self):
         return f"{self.product.name} - {self.name}"
 

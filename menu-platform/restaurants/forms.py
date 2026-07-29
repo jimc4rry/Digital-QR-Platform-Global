@@ -109,11 +109,12 @@ class ProductForm(forms.ModelForm):
 class ProductOptionForm(forms.ModelForm):
     class Meta:
         model = ProductOption
-        fields = ['name', 'price_adjustment', 'is_default']
+        fields = ['group_name', 'name', 'price_adjustment', 'is_default']
         widgets = {
             'price_adjustment': forms.NumberInput(attrs={'class': 'form-control', 'step': '0.01'}),
         }
         labels = {
+            'group_name': _('Group (optional)'),
             'name': _('Option Name'),
             'price_adjustment': _('Price Adjustment'),
             'is_default': _('Default'),

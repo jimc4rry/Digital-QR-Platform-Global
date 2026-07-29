@@ -22,7 +22,8 @@ class ProductAdmin(admin.ModelAdmin):
 
 @admin.register(ProductOption)
 class ProductOptionAdmin(admin.ModelAdmin):
-    list_display = ['name', 'product', 'price_adjustment', 'is_default']
+    list_display = ['name', 'group_name', 'product', 'price_adjustment', 'is_default']
+    list_filter = ['product__category__restaurant']
 
 @admin.register(StaffMember)
 class StaffMemberAdmin(admin.ModelAdmin):

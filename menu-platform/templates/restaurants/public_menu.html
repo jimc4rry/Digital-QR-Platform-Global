@@ -154,18 +154,25 @@
                                         {% if allow_ordering %}
                                             {% if product.options.all %}
                                                 <div class="product-options small mb-2">
-                                                    {% for option in product.options.all %}
-                                                        <div class="form-check">
-                                                            <input class="form-check-input product-option-checkbox" type="checkbox"
-                                                                   value="{{ option.id }}"
-                                                                   data-price-adjustment="{{ option.price_adjustment }}"
-                                                                   data-option-name="{{ option.name }}"
-                                                                   id="opt-{{ option.id }}"
-                                                                   {% if option.is_default %}checked{% endif %}>
-                                                            <label class="form-check-label" for="opt-{{ option.id }}">
-                                                                {{ option.name }}{% if option.price_adjustment %} (+${{ option.price_adjustment|floatformat:2 }}){% endif %}
-                                                            </label>
-                                                        </div>
+                                                    {% for group in product.get_option_groups %}
+                                                        {% if group.name %}
+                                                            <div class="fw-semibold text-muted" style="font-size:.8em;">{{ group.name }}</div>
+                                                        {% endif %}
+                                                        {% for option in group.options %}
+                                                            <div class="form-check">
+                                                                <input class="form-check-input product-option-checkbox"
+                                                                       type="{% if group.name %}radio{% else %}checkbox{% endif %}"
+                                                                       {% if group.name %}name="opt-group-{{ product.id }}-{{ group.name|slugify }}"{% endif %}
+                                                                       value="{{ option.id }}"
+                                                                       data-price-adjustment="{{ option.price_adjustment }}"
+                                                                       data-option-name="{{ option.name }}"
+                                                                       id="opt-{{ option.id }}"
+                                                                       {% if option.checked %}checked{% endif %}>
+                                                                <label class="form-check-label" for="opt-{{ option.id }}">
+                                                                    {{ option.name }}{% if option.price_adjustment %} (+${{ option.price_adjustment|floatformat:2 }}){% endif %}
+                                                                </label>
+                                                            </div>
+                                                        {% endfor %}
                                                     {% endfor %}
                                                 </div>
                                             {% endif %}

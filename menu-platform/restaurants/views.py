@@ -277,6 +277,7 @@ def product_option_add(request):
         option = ProductOption.objects.create(
             product=product,
             name=data['name'],
+            group_name=data.get('group_name', ''),
             price_adjustment=data.get('price_adjustment', 0),
             is_default=data.get('is_default', False)
         )
@@ -287,7 +288,9 @@ def product_option_add(request):
         'success': True,
         'id': option.id,
         'name': option.name,
+        'group_name': option.group_name,
         'price_adjustment': str(option.price_adjustment),
+        'is_default': option.is_default,
     })
 
 @restaurant_role_required('admin')
