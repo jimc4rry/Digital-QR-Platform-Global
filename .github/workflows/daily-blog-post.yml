@@ -1,0 +1,19 @@
+name: Daily blog post
+
+on:
+  schedule:
+    - cron: "0 8 * * *"  # 08:00 UTC daily
+  workflow_dispatch: {}   # allows a manual "Run workflow" from the Actions tab
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Railway CLI
+        run: npm install -g @railway/cli
+
+      - name: Publish the next marketing post on production
+        env:
+          RAILWAY_TOKEN: ${{ secrets.RAILWAY_PRODUCTION_TOKEN }}
+        run: |
+          railway ssh --service Digital-QR-Platform-Global --environment production -- python manage.py publish_next_marketing_post
