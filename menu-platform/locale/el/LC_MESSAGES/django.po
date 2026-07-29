@@ -892,8 +892,8 @@ msgstr "Η κατηγορία ενημερώθηκε με επιτυχία!"
 #, python-format
 msgid "%(count)d product was moved to \"Other\"."
 msgid_plural "%(count)d products were moved to \"Other\"."
-msgstr[0] "%(count)d προϊόν μετακινήθηκε στο \"Άλλο\"."
-msgstr[1] "%(count)d προϊόντα μετακινήθηκαν στο \"Άλλο\"."
+msgstr[0] "%(count)d προϊόν μετακινήθηκε στο \"Other\"."
+msgstr[1] "%(count)d προϊόντα μετακινήθηκαν στο \"Other\"."
 
 #: .\restaurants\views.py:254
 msgid "Category deleted successfully!"

@@ -238,8 +238,13 @@ def category_delete(request, pk):
 
     product_count = category.products.count()
     if product_count:
+        # Deliberately not translated: it's an auto-generated fallback bucket
+        # name, not user-facing prose - "Other" reused the business_type
+        # choice's translation (neuter, e.g. Greek "Άλλο"), which read wrong
+        # agreeing with "category" (feminine, "Άλλη"). Keeping it a plain
+        # literal sidesteps needing a second, context-specific translation.
         other_category, _created = Category.objects.get_or_create(
-            restaurant=request.restaurant, name=_('Other'),
+            restaurant=request.restaurant, name='Other',
             defaults={'order': 9999},
         )
         if other_category.pk != category.pk:

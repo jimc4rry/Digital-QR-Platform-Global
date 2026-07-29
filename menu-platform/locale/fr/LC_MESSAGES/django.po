@@ -895,8 +895,8 @@ msgstr "Catégorie mise à jour avec succès !"
 #, python-format
 msgid "%(count)d product was moved to \"Other\"."
 msgid_plural "%(count)d products were moved to \"Other\"."
-msgstr[0] "%(count)d produit a été déplacé vers \"Autre\"."
-msgstr[1] "%(count)d produits ont été déplacés vers \"Autre\"."
+msgstr[0] "%(count)d produit a été déplacé vers \"Other\"."
+msgstr[1] "%(count)d produits ont été déplacés vers \"Other\"."
 
 #: .\restaurants\views.py:254
 msgid "Category deleted successfully!"
