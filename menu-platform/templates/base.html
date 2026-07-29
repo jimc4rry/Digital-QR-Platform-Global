@@ -80,6 +80,31 @@
                 row-gap: .25rem;
             }
         }
+        /* Below the lg breakpoint there are enough nav items (dashboard,
+           tools, user menu, logout...) that the open menu can be taller
+           than a small phone's screen. Without this it just grows the page
+           in normal flow, so items past the fold - like Logout - are only
+           reachable by scrolling the whole page, which isn't obvious. Turn
+           it into a proper mobile drawer instead: pinned below the navbar,
+           capped to the remaining viewport height, scrollable on its own. */
+        @media (max-width: 991.98px) {
+            .navbar > .container-fluid {
+                position: relative;
+            }
+            .navbar-collapse.show {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                max-height: calc(100vh - 4.5rem);
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
+                background: var(--mh-bg);
+                box-shadow: 0 16px 32px -12px rgba(0,0,0,.35);
+                padding: .75rem 1rem 1.25rem;
+                z-index: 1040;
+            }
+        }
     </style>
     {% block extra_css %}{% endblock %}
 </head>
