@@ -35,4 +35,7 @@ jobs:
           # auth succeed non-interactively.
           RAILWAY_API_TOKEN: ${{ secrets.RAILWAY_ACCOUNT_TOKEN }}
         run: |
+          # An account token isn't scoped to one project, so unlike a project
+          # token there's no implicit project context - link explicitly first.
+          railway link --project 8c929850-4b01-4dd1-bbfd-fde79c7d3fbc --environment production --service Digital-QR-Platform-Global
           railway ssh --service Digital-QR-Platform-Global --environment production -- python manage.py publish_next_marketing_post
