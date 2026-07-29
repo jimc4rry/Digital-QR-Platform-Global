@@ -28,6 +28,11 @@ jobs:
 
       - name: Publish the next marketing post on production
         env:
-          RAILWAY_TOKEN: ${{ secrets.RAILWAY_PRODUCTION_TOKEN }}
+          # railway ssh needs to verify which *account* the connecting SSH key
+          # belongs to, which a project-scoped RAILWAY_TOKEN can't do - it
+          # only proves access to this project's variables/deploys, not
+          # identity. RAILWAY_API_TOKEN (an account token) is what makes SSH
+          # auth succeed non-interactively.
+          RAILWAY_API_TOKEN: ${{ secrets.RAILWAY_ACCOUNT_TOKEN }}
         run: |
           railway ssh --service Digital-QR-Platform-Global --environment production -- python manage.py publish_next_marketing_post
