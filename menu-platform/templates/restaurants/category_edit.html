@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags i18n %}
+
+{% block content %}
+<div class="container py-4">
+    <h1>{% trans "Edit Category" %}</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <button type="submit" class="btn btn-primary">{% trans "Save" %}</button>
+                        <a href="{% url 'category_list' %}" class="btn btn-secondary">{% trans "Back" %}</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

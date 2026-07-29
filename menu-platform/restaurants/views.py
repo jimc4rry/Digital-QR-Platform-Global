@@ -8,7 +8,7 @@ from django.db.models import Count, Sum, F
 from django.db.models.functions import TruncDate
 from django.http import HttpResponse, JsonResponse, Http404, HttpResponseForbidden
 from django.utils import timezone
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext as _, ngettext
 from django.views.decorators.cache import never_cache
 from django.views.decorators.http import require_http_methods
 from accounts.models import User
@@ -168,7 +168,7 @@ def restaurant_settings(request):
 @restaurant_role_required('admin')
 def category_list(request):
     restaurant = request.restaurant
-    categories = Category.objects.filter(restaurant=restaurant).annotate(product_count=Count('products'))
+    categories = Category.objects.filter(restaurant=restaurant).annotate(product_count=Count('products')).order_by('order', 'name')
 
     if request.method == 'POST':
         form = CategoryForm(request.POST)
@@ -189,9 +189,67 @@ def category_list(request):
     return render(request, 'restaurants/category_list.html', context)
 
 @restaurant_role_required('admin')
+def category_edit(request, pk):
+    restaurant = request.restaurant
+    category = get_object_or_404(Category, pk=pk, restaurant=restaurant)
+
+    if request.method == 'POST':
+        form = CategoryForm(request.POST, instance=category)
+        if form.is_valid():
+            form.save()
+            messages.success(request, _('Category updated successfully!'))
+            return redirect('category_list')
+    else:
+        form = CategoryForm(instance=category)
+
+    context = {
+        'form': form,
+        'category': category,
+        'restaurant': restaurant,
+    }
+    return render(request, 'restaurants/category_edit.html', context)
+
+@restaurant_role_required('admin')
+@require_http_methods(["POST"])
+def category_move(request, pk, direction):
+    restaurant = request.restaurant
+    category = get_object_or_404(Category, pk=pk, restaurant=restaurant)
+    categories = list(Category.objects.filter(restaurant=restaurant).order_by('order', 'name'))
+    index = next((i for i, c in enumerate(categories) if c.pk == category.pk), None)
+
+    if direction == 'up' and index is not None and index > 0:
+        neighbor = categories[index - 1]
+    elif direction == 'down' and index is not None and index < len(categories) - 1:
+        neighbor = categories[index + 1]
+    else:
+        neighbor = None
+
+    if neighbor is not None:
+        category.order, neighbor.order = neighbor.order, category.order
+        category.save(update_fields=['order'])
+        neighbor.save(update_fields=['order'])
+
+    return redirect('category_list')
+
+@restaurant_role_required('admin')
 @require_http_methods(["POST"])
 def category_delete(request, pk):
     category = get_object_or_404(Category, pk=pk, restaurant=request.restaurant)
+
+    product_count = category.products.count()
+    if product_count:
+        other_category, _created = Category.objects.get_or_create(
+            restaurant=request.restaurant, name=_('Other'),
+            defaults={'order': 9999},
+        )
+        if other_category.pk != category.pk:
+            category.products.update(category=other_category)
+            messages.info(request, ngettext(
+                '%(count)d product was moved to "Other".',
+                '%(count)d products were moved to "Other".',
+                product_count,
+            ) % {'count': product_count})
+
     category.delete()
     messages.success(request, _('Category deleted successfully!'))
     return redirect('category_list')

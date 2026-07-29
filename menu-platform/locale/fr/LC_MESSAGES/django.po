@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-29 13:08+0300\n"
+"POT-Creation-Date: 2026-07-29 13:31+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -100,7 +100,7 @@ msgstr "Bar"
 msgid "Beach Bar"
 msgstr "Bar de plage"
 
-#: .\accounts\models.py:15
+#: .\accounts\models.py:15 .\restaurants\views.py:242
 msgid "Other"
 msgstr "Autre"
 
@@ -251,6 +251,7 @@ msgstr ""
 #: .\templates\accounts\platform_admin_business_detail.html:13
 #: .\templates\accounts\platform_admin_payments.html:10
 #: .\templates\orders\order_detail.html:17
+#: .\templates\restaurants\category_edit.html:15
 #: .\templates\restaurants\loyalty_edit.html:17
 #: .\templates\restaurants\product_edit.html:15
 msgid "Back"
@@ -258,6 +259,7 @@ msgstr "Retour"
 
 #: .\blog\templates\blog\admin_form.html:25
 #: .\templates\accounts\platform_admin_business_detail.html:55
+#: .\templates\restaurants\category_edit.html:14
 #: .\templates\restaurants\loyalty_edit.html:16
 #: .\templates\restaurants\product_edit.html:14
 #: .\templates\restaurants\settings.html:14
@@ -885,31 +887,42 @@ msgstr "Paramètres enregistrés avec succès !"
 msgid "Category created successfully!"
 msgstr "Catégorie créée avec succès !"
 
-#: .\restaurants\views.py:196
+#: .\restaurants\views.py:200
+msgid "Category updated successfully!"
+msgstr "Catégorie mise à jour avec succès !"
+
+#: .\restaurants\views.py:248
+#, python-format
+msgid "%(count)d product was moved to \"Other\"."
+msgid_plural "%(count)d products were moved to \"Other\"."
+msgstr[0] "%(count)d produit a été déplacé vers \"Autre\"."
+msgstr[1] "%(count)d produits ont été déplacés vers \"Autre\"."
+
+#: .\restaurants\views.py:254
 msgid "Category deleted successfully!"
 msgstr "Catégorie supprimée avec succès !"
 
-#: .\restaurants\views.py:212
+#: .\restaurants\views.py:270
 msgid "Product created successfully!"
 msgstr "Produit créé avec succès !"
 
-#: .\restaurants\views.py:217
+#: .\restaurants\views.py:275
 msgid "You do not have permission to add products."
 msgstr "Vous n'avez pas la permission d'ajouter des produits."
 
-#: .\restaurants\views.py:248
+#: .\restaurants\views.py:306
 msgid "Product updated successfully!"
 msgstr "Produit mis à jour avec succès !"
 
-#: .\restaurants\views.py:268
+#: .\restaurants\views.py:326
 msgid "Product deleted successfully!"
 msgstr "Produit supprimé avec succès !"
 
-#: .\restaurants\views.py:376
+#: .\restaurants\views.py:434
 msgid "Staff management is available on the Business plan"
 msgstr "La gestion du personnel est disponible avec la formule Business"
 
-#: .\restaurants\views.py:377
+#: .\restaurants\views.py:435
 msgid ""
 "Upgrade to the Business plan to add admin and employee accounts with "
 "separate permissions."
@@ -917,23 +930,23 @@ msgstr ""
 "Passez à la formule Business pour ajouter des comptes administrateur et "
 "employé avec des permissions distinctes."
 
-#: .\restaurants\views.py:394
+#: .\restaurants\views.py:452
 msgid "Staff account created successfully!"
 msgstr "Compte du personnel créé avec succès !"
 
-#: .\restaurants\views.py:410
+#: .\restaurants\views.py:468
 msgid "Staff management is available on the Business plan."
 msgstr "La gestion du personnel est disponible avec la formule Business."
 
-#: .\restaurants\views.py:415
+#: .\restaurants\views.py:473
 msgid "Staff account removed."
 msgstr "Compte du personnel supprimé."
 
-#: .\restaurants\views.py:425
+#: .\restaurants\views.py:483
 msgid "QR ordering tables are available from the Pro plan"
 msgstr "Les tables de commande QR sont disponibles à partir de la formule Pro"
 
-#: .\restaurants\views.py:426
+#: .\restaurants\views.py:484
 msgid ""
 "Upgrade to the Pro or Business plan to create table QR codes and accept "
 "orders."
@@ -941,69 +954,69 @@ msgstr ""
 "Passez à la formule Pro ou Business pour créer des codes QR de table et "
 "accepter les commandes."
 
-#: .\restaurants\views.py:437
+#: .\restaurants\views.py:495
 msgid "Table added successfully!"
 msgstr "Table ajoutée avec succès !"
 
-#: .\restaurants\views.py:440
+#: .\restaurants\views.py:498
 msgid "This number already exists for this type."
 msgstr "Ce numéro existe déjà pour ce type."
 
-#: .\restaurants\views.py:455
+#: .\restaurants\views.py:513
 msgid "Tables are available from the Pro plan."
 msgstr "Les tables sont disponibles à partir de la formule Pro."
 
-#: .\restaurants\views.py:458
+#: .\restaurants\views.py:516
 msgid "Table deleted."
 msgstr "Table supprimée."
 
-#: .\restaurants\views.py:468
+#: .\restaurants\views.py:526
 msgid "Promo codes are available from the Pro plan"
 msgstr "Les codes promo sont disponibles à partir de la formule Pro"
 
-#: .\restaurants\views.py:469
+#: .\restaurants\views.py:527
 msgid ""
 "Upgrade to the Pro or Business plan to create promo codes for your customers."
 msgstr ""
 "Passez à la formule Pro ou Business pour créer des codes promo pour vos "
 "clients."
 
-#: .\restaurants\views.py:480
+#: .\restaurants\views.py:538
 msgid "Promo code created successfully!"
 msgstr "Code promo créé avec succès !"
 
-#: .\restaurants\views.py:483
+#: .\restaurants\views.py:541
 msgid "This code already exists."
 msgstr "Ce code existe déjà."
 
-#: .\restaurants\views.py:498
+#: .\restaurants\views.py:556
 msgid "Promo codes are available from the Pro plan."
 msgstr "Les codes promo sont disponibles à partir de la formule Pro."
 
-#: .\restaurants\views.py:501
+#: .\restaurants\views.py:559
 msgid "Promo code deleted."
 msgstr "Code promo supprimé."
 
-#: .\restaurants\views.py:512
+#: .\restaurants\views.py:570
 msgid "Loyalty is available from the Pro plan"
 msgstr "La fidélité est disponible à partir de la formule Pro"
 
-#: .\restaurants\views.py:513
+#: .\restaurants\views.py:571
 msgid ""
 "Upgrade to the Pro or Business plan to give loyalty points to your customers."
 msgstr ""
 "Passez à la formule Pro ou Business pour offrir des points de fidélité à vos "
 "clients."
 
-#: .\restaurants\views.py:534 .\restaurants\views.py:557
+#: .\restaurants\views.py:592 .\restaurants\views.py:615
 msgid "Loyalty is available from the Pro plan."
 msgstr "La fidélité est disponible à partir de la formule Pro."
 
-#: .\restaurants\views.py:541
+#: .\restaurants\views.py:599
 msgid "Loyalty account updated!"
 msgstr "Compte de fidélité mis à jour !"
 
-#: .\restaurants\views.py:560
+#: .\restaurants\views.py:618
 msgid "Loyalty account deleted."
 msgstr "Compte de fidélité supprimé."
 
@@ -1308,9 +1321,10 @@ msgid "Registered"
 msgstr ""
 
 #: .\templates\accounts\platform_admin_dashboard.html:80
+#: .\templates\restaurants\category_list.html:29
 #: .\templates\restaurants\promo_code_list.html:49
 msgid "Inactive"
-msgstr ""
+msgstr "Inactif"
 
 #: .\templates\accounts\platform_admin_dashboard.html:90
 msgid "Manage"
@@ -2898,6 +2912,10 @@ msgstr ""
 "Pour toute question concernant cette Politique de Remboursement, contactez-"
 "nous à <a href=\"mailto:info@getmenuhub.com\">info@getmenuhub.com</a>."
 
+#: .\templates\restaurants\category_edit.html:6
+msgid "Edit Category"
+msgstr "Modifier la catégorie"
+
 #: .\templates\restaurants\category_list.html:10
 msgid "New Category"
 msgstr "Nouvelle catégorie"
@@ -2914,16 +2932,24 @@ msgstr "Créer"
 msgid "Category List"
 msgstr "Liste des catégories"
 
-#: .\templates\restaurants\category_list.html:29
+#: .\templates\restaurants\category_list.html:30
 #: .\templates\restaurants\public_menu.html:208
 msgid "products"
 msgstr "produits"
 
-#: .\templates\restaurants\category_list.html:33
+#: .\templates\restaurants\category_list.html:35
+msgid "Move up"
+msgstr "Monter"
+
+#: .\templates\restaurants\category_list.html:41
+msgid "Move down"
+msgstr "Descendre"
+
+#: .\templates\restaurants\category_list.html:50
 msgid "Are you sure you want to delete this category?"
 msgstr "Êtes-vous sûr de vouloir supprimer cette catégorie ?"
 
-#: .\templates\restaurants\category_list.html:39
+#: .\templates\restaurants\category_list.html:57
 msgid "No categories yet"
 msgstr "Aucune catégorie pour le moment"
 
