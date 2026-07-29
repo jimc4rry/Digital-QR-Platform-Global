@@ -62,6 +62,7 @@
 (function() {
     const csrftoken = "{{ csrf_token }}";
     const addUrl = "{% url 'product_option_add' %}";
+    const deleteUrlTemplate = "{% url 'product_option_delete' 0 %}";
     const productId = {{ product.id }};
     const list = document.getElementById('options-list');
     const errorBox = document.getElementById('option-error');
@@ -86,7 +87,7 @@
     ];
 
     function deleteUrl(id) {
-        return `/api/product-option/${id}/delete/`;
+        return deleteUrlTemplate.replace('/0/delete/', `/${id}/delete/`);
     }
 
     function render() {
