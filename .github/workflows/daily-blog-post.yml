@@ -22,6 +22,13 @@ jobs:
           # public key sitting next to it. Not a secret, safe to hardcode.
           echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKvmZiiGZCTMfmh/7AXHesWCyh9wXI2efnDU7mDLiw7a github-actions-daily-blog-post" > ~/.ssh/id_ed25519.pub
           chmod 644 ~/.ssh/id_ed25519.pub
+          # A fresh runner has an empty known_hosts, so the default strict
+          # host key check fails on first connect (no TTY to confirm it
+          # interactively, unlike a real terminal). Railway's ssh gateway
+          # host rotates/isn't a fixed address worth pinning here, so this
+          # is a pragmatic "trust on first connect" for an ephemeral runner.
+          echo -e "Host *\n  StrictHostKeyChecking no\n  UserKnownHostsFile /dev/null" > ~/.ssh/config
+          chmod 600 ~/.ssh/config
           ls -la ~/.ssh/
         env:
           RAILWAY_SSH_PRIVATE_KEY: ${{ secrets.RAILWAY_SSH_PRIVATE_KEY }}
