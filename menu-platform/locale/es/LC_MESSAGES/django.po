@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-29 13:31+0300\n"
+"POT-Creation-Date: 2026-07-29 19:33+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -100,7 +100,7 @@ msgstr "Bar"
 msgid "Beach Bar"
 msgstr "Bar de playa"
 
-#: .\accounts\models.py:15 .\restaurants\views.py:242
+#: .\accounts\models.py:15
 msgid "Other"
 msgstr "Otro"
 
@@ -816,29 +816,33 @@ msgstr "%(restaurant)s — Desarrollado por GetMenuHub — Página %(page)s"
 msgid "No products available yet."
 msgstr "Aún no hay productos disponibles."
 
-#: .\restaurants\models.py:124
+#: .\restaurants\models.py:63 .\templates\restaurants\settings.html:34
+msgid "Scan to view the menu"
+msgstr "Escanee para ver el menú"
+
+#: .\restaurants\models.py:204
 msgid "English name (optional) - if left blank, the name above is shown"
 msgstr ""
 "Nombre en inglés (opcional) - si se deja en blanco, se muestra el nombre "
 "anterior"
 
-#: .\restaurants\models.py:140
+#: .\restaurants\models.py:220
 msgid "Preparation time in minutes"
 msgstr "Tiempo de preparación en minutos"
 
-#: .\restaurants\models.py:201 .\templates\orders\order_detail.html:31
+#: .\restaurants\models.py:281 .\templates\orders\order_detail.html:31
 msgid "Table"
 msgstr "Mesa"
 
-#: .\restaurants\models.py:202
+#: .\restaurants\models.py:282
 msgid "Sunbed"
 msgstr "Tumbona"
 
-#: .\restaurants\models.py:207
+#: .\restaurants\models.py:287
 msgid "e.g. 1, 2, Patio A"
 msgstr "p. ej. 1, 2, Patio A"
 
-#: .\restaurants\models.py:255
+#: .\restaurants\models.py:341
 msgid ""
 "Optional. Give two or more options the same group name to make them mutually "
 "exclusive (e.g. group \"Sweetness\" with options \"Plain\", \"Medium\", "
@@ -849,15 +853,15 @@ msgstr ""
 "\"Natural\", \"Media\", \"Dulce\"). Déjelo en blanco para un complemento "
 "independiente."
 
-#: .\restaurants\models.py:271
+#: .\restaurants\models.py:357
 msgid "Admin"
 msgstr "Administrador"
 
-#: .\restaurants\models.py:272
+#: .\restaurants\models.py:358
 msgid "Employee"
 msgstr "Empleado"
 
-#: .\restaurants\models.py:307
+#: .\restaurants\models.py:393
 msgid "Leave blank for unlimited uses"
 msgstr "Deje en blanco para usos ilimitados"
 
@@ -889,38 +893,38 @@ msgstr "¡Categoría creada correctamente!"
 msgid "Category updated successfully!"
 msgstr "¡Categoría actualizada con éxito!"
 
-#: .\restaurants\views.py:248
+#: .\restaurants\views.py:253
 #, python-format
 msgid "%(count)d product was moved to \"Other\"."
 msgid_plural "%(count)d products were moved to \"Other\"."
 msgstr[0] "%(count)d producto se movió a \"Other\"."
 msgstr[1] "%(count)d productos se movieron a \"Other\"."
 
-#: .\restaurants\views.py:254
+#: .\restaurants\views.py:259
 msgid "Category deleted successfully!"
 msgstr "¡Categoría eliminada correctamente!"
 
-#: .\restaurants\views.py:270
+#: .\restaurants\views.py:275
 msgid "Product created successfully!"
 msgstr "¡Producto creado correctamente!"
 
-#: .\restaurants\views.py:275
+#: .\restaurants\views.py:280
 msgid "You do not have permission to add products."
 msgstr "No tiene permiso para añadir productos."
 
-#: .\restaurants\views.py:306
+#: .\restaurants\views.py:311
 msgid "Product updated successfully!"
 msgstr "¡Producto actualizado correctamente!"
 
-#: .\restaurants\views.py:326
+#: .\restaurants\views.py:331
 msgid "Product deleted successfully!"
 msgstr "¡Producto eliminado correctamente!"
 
-#: .\restaurants\views.py:434
+#: .\restaurants\views.py:439
 msgid "Staff management is available on the Business plan"
 msgstr "La gestión de personal está disponible en el plan Business"
 
-#: .\restaurants\views.py:435
+#: .\restaurants\views.py:440
 msgid ""
 "Upgrade to the Business plan to add admin and employee accounts with "
 "separate permissions."
@@ -928,23 +932,23 @@ msgstr ""
 "Actualice al plan Business para añadir cuentas de administrador y empleado "
 "con permisos separados."
 
-#: .\restaurants\views.py:452
+#: .\restaurants\views.py:457
 msgid "Staff account created successfully!"
 msgstr "¡Cuenta de personal creada correctamente!"
 
-#: .\restaurants\views.py:468
+#: .\restaurants\views.py:473
 msgid "Staff management is available on the Business plan."
 msgstr "La gestión de personal está disponible en el plan Business."
 
-#: .\restaurants\views.py:473
+#: .\restaurants\views.py:478
 msgid "Staff account removed."
 msgstr "Cuenta de personal eliminada."
 
-#: .\restaurants\views.py:483
+#: .\restaurants\views.py:488
 msgid "QR ordering tables are available from the Pro plan"
 msgstr "Las mesas de pedido con QR están disponibles desde el plan Pro"
 
-#: .\restaurants\views.py:484
+#: .\restaurants\views.py:489
 msgid ""
 "Upgrade to the Pro or Business plan to create table QR codes and accept "
 "orders."
@@ -952,69 +956,69 @@ msgstr ""
 "Actualice al plan Pro o Business para crear códigos QR de mesa y aceptar "
 "pedidos."
 
-#: .\restaurants\views.py:495
+#: .\restaurants\views.py:500
 msgid "Table added successfully!"
 msgstr "¡Mesa añadida correctamente!"
 
-#: .\restaurants\views.py:498
+#: .\restaurants\views.py:503
 msgid "This number already exists for this type."
 msgstr "Este número ya existe para este tipo."
 
-#: .\restaurants\views.py:513
+#: .\restaurants\views.py:518
 msgid "Tables are available from the Pro plan."
 msgstr "Las mesas están disponibles desde el plan Pro."
 
-#: .\restaurants\views.py:516
+#: .\restaurants\views.py:521
 msgid "Table deleted."
 msgstr "Mesa eliminada."
 
-#: .\restaurants\views.py:526
+#: .\restaurants\views.py:531
 msgid "Promo codes are available from the Pro plan"
 msgstr "Los códigos promocionales están disponibles desde el plan Pro"
 
-#: .\restaurants\views.py:527
+#: .\restaurants\views.py:532
 msgid ""
 "Upgrade to the Pro or Business plan to create promo codes for your customers."
 msgstr ""
 "Actualice al plan Pro o Business para crear códigos promocionales para sus "
 "clientes."
 
-#: .\restaurants\views.py:538
+#: .\restaurants\views.py:543
 msgid "Promo code created successfully!"
 msgstr "¡Código promocional creado correctamente!"
 
-#: .\restaurants\views.py:541
+#: .\restaurants\views.py:546
 msgid "This code already exists."
 msgstr "Este código ya existe."
 
-#: .\restaurants\views.py:556
+#: .\restaurants\views.py:561
 msgid "Promo codes are available from the Pro plan."
 msgstr "Los códigos promocionales están disponibles desde el plan Pro."
 
-#: .\restaurants\views.py:559
+#: .\restaurants\views.py:564
 msgid "Promo code deleted."
 msgstr "Código promocional eliminado."
 
-#: .\restaurants\views.py:570
+#: .\restaurants\views.py:575
 msgid "Loyalty is available from the Pro plan"
 msgstr "La fidelización está disponible desde el plan Pro"
 
-#: .\restaurants\views.py:571
+#: .\restaurants\views.py:576
 msgid ""
 "Upgrade to the Pro or Business plan to give loyalty points to your customers."
 msgstr ""
 "Actualice al plan Pro o Business para dar puntos de fidelización a sus "
 "clientes."
 
-#: .\restaurants\views.py:592 .\restaurants\views.py:615
+#: .\restaurants\views.py:597 .\restaurants\views.py:620
 msgid "Loyalty is available from the Pro plan."
 msgstr "La fidelización está disponible desde el plan Pro."
 
-#: .\restaurants\views.py:599
+#: .\restaurants\views.py:604
 msgid "Loyalty account updated!"
 msgstr "¡Cuenta de fidelización actualizada!"
 
-#: .\restaurants\views.py:618
+#: .\restaurants\views.py:623
 msgid "Loyalty account deleted."
 msgstr "Cuenta de fidelización eliminada."
 
@@ -3196,10 +3200,6 @@ msgstr "Su sitio de menú"
 #: .\templates\restaurants\settings.html:26
 msgid "Change the subdomain in the form to the left."
 msgstr "Cambie el subdominio en el formulario de la izquierda."
-
-#: .\templates\restaurants\settings.html:34
-msgid "Scan to view the menu"
-msgstr "Escanee para ver el menú"
 
 #: .\templates\restaurants\settings.html:36
 #: .\templates\restaurants\table_list.html:40

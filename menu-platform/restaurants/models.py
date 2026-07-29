@@ -5,7 +5,7 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 from django.utils import timezone
 from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
-from PIL import Image
+from PIL import Image, ImageDraw, ImageFont
 import qrcode
 from io import BytesIO
 from django.core.files import File
@@ -14,6 +14,86 @@ import os
 from .utils import validate_image_file_size, generate_unique_slug
 
 logger = logging.getLogger(__name__)
+
+# Same DejaVu Sans used by the PDF menu export (restaurants/menu_pdf.py) -
+# PIL's default font has no Greek/accented glyphs, which would silently
+# corrupt a restaurant name printed on a table QR card.
+_FONTS_DIR = os.path.join(os.path.dirname(__file__), 'fonts')
+_QR_CARD_PRIMARY = (99, 102, 241)   # #6366f1
+_QR_CARD_TEXT = (31, 41, 55)        # #1f2937
+_QR_CARD_MUTED = (107, 114, 128)    # #6b7280
+
+
+def _fit_font(measurer, text, max_width, bold, max_size, min_size=16):
+    """Largest font size (within [min_size, max_size]) that keeps `text` no
+    wider than max_width. Falls back to min_size (letting long text run to
+    the edge) rather than shrinking indefinitely - a card's name should
+    stay readable even if it doesn't fully avoid a tight fit."""
+    weight = 'DejaVuSans-Bold.ttf' if bold else 'DejaVuSans.ttf'
+    path = os.path.join(_FONTS_DIR, weight)
+    for size in range(max_size, min_size - 1, -2):
+        font = ImageFont.truetype(path, size)
+        left, top, right, bottom = measurer.textbbox((0, 0), text, font=font)
+        if right - left <= max_width:
+            return font
+    return ImageFont.truetype(path, min_size)
+
+
+def _build_table_qr_card(qr_img, restaurant_name, label_text):
+    """Composites a bare QR code into a printable card: restaurant name and
+    a short tagline above it, the location's label (e.g. "Table 1") below
+    it in a colored badge - so a downloaded/printed QR always says what
+    table it's for, not just a scannable square."""
+    measurer = ImageDraw.Draw(Image.new('RGB', (10, 10)))
+
+    def text_size(text, font):
+        left, top, right, bottom = measurer.textbbox((0, 0), text, font=font)
+        return right - left, bottom - top
+
+    padding_x = 50
+    qr_width, qr_height = qr_img.size
+    canvas_width = max(qr_width, 420) + padding_x * 2
+    max_text_width = canvas_width - padding_x * 2
+
+    # Long restaurant names would otherwise overflow the card - shrink the
+    # font to fit instead of letting it run off both edges.
+    name_font = _fit_font(measurer, restaurant_name, max_text_width, bold=True, max_size=32)
+    tagline_font = ImageFont.truetype(os.path.join(_FONTS_DIR, 'DejaVuSans.ttf'), 18)
+    label_font = ImageFont.truetype(os.path.join(_FONTS_DIR, 'DejaVuSans-Bold.ttf'), 28)
+    tagline_text = str(_('Scan to view the menu'))
+
+    name_w, name_h = text_size(restaurant_name, name_font)
+    tagline_w, tagline_h = text_size(tagline_text, tagline_font)
+    label_w, label_h = text_size(label_text, label_font)
+
+    top_margin, gap_small, gap_medium, bottom_margin = 40, 8, 24, 36
+    badge_pad_x, badge_pad_y = 28, 14
+
+    canvas_height = (
+        top_margin + name_h + gap_small + tagline_h + gap_medium
+        + qr_height + gap_medium
+        + label_h + badge_pad_y * 2 + bottom_margin
+    )
+
+    card = Image.new('RGB', (canvas_width, canvas_height), 'white')
+    draw = ImageDraw.Draw(card)
+
+    y = top_margin
+    draw.text(((canvas_width - name_w) / 2, y), restaurant_name, font=name_font, fill=_QR_CARD_TEXT)
+    y += name_h + gap_small
+    draw.text(((canvas_width - tagline_w) / 2, y), tagline_text, font=tagline_font, fill=_QR_CARD_MUTED)
+    y += tagline_h + gap_medium
+
+    card.paste(qr_img, ((canvas_width - qr_width) // 2, y))
+    y += qr_height + gap_medium
+
+    badge_w, badge_h = label_w + badge_pad_x * 2, label_h + badge_pad_y * 2
+    badge_x = (canvas_width - badge_w) // 2
+    draw.rounded_rectangle([badge_x, y, badge_x + badge_w, y + badge_h], radius=badge_h // 2, fill=_QR_CARD_PRIMARY)
+    draw.text((badge_x + badge_pad_x, y + badge_pad_y), label_text, font=label_font, fill='white')
+
+    return card
+
 
 class Restaurant(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='restaurant')
@@ -226,7 +306,11 @@ class RestaurantTable(models.Model):
             super().save(update_fields=['qr_code'])
 
     def generate_qr_code(self):
-        """Populate self.qr_code with a freshly generated image. Does not save the model."""
+        """Populate self.qr_code with a freshly generated image: the QR
+        code plus the restaurant name and this location's label (e.g.
+        "Table 1"), laid out as a printable card - not just a bare QR
+        square with no indication of which table it belongs to. Does not
+        save the model."""
         url = f"{settings.SITE_URL}/menu/{self.restaurant.qr_code_token}/table/{self.pk}/"
         qr = qrcode.QRCode(
             version=1,
@@ -237,10 +321,12 @@ class RestaurantTable(models.Model):
         qr.add_data(url)
         qr.make(fit=True)
 
-        qr_img = qr.make_image(fill_color="black", back_color="white")
+        qr_img = qr.make_image(fill_color="black", back_color="white").get_image().convert('RGB')
+        label_text = f'{self.get_table_type_display()} {self.number}'
+        card = _build_table_qr_card(qr_img, self.restaurant.name, label_text)
 
         buffer = BytesIO()
-        qr_img.save(buffer, 'PNG')
+        card.save(buffer, 'PNG')
 
         filename = f"qr_table_{self.restaurant.slug}_{self.pk}.png"
         self.qr_code.save(filename, File(buffer), save=False)
