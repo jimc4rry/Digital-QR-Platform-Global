@@ -17,6 +17,12 @@ jobs:
           mkdir -p ~/.ssh
           echo "$RAILWAY_SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
+          # Railway's CLI discovers local keys by scanning ~/.ssh/*.pub, so the
+          # private half alone isn't enough - it needs to see the matching
+          # public key sitting next to it. Not a secret, safe to hardcode.
+          echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKvmZiiGZCTMfmh/7AXHesWCyh9wXI2efnDU7mDLiw7a github-actions-daily-blog-post" > ~/.ssh/id_ed25519.pub
+          chmod 644 ~/.ssh/id_ed25519.pub
+          ls -la ~/.ssh/
         env:
           RAILWAY_SSH_PRIVATE_KEY: ${{ secrets.RAILWAY_SSH_PRIVATE_KEY }}
 
