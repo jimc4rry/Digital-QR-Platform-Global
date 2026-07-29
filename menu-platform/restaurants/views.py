@@ -6,7 +6,7 @@ from django.core.paginator import Paginator
 from django.db import transaction, IntegrityError
 from django.db.models import Count, Sum, F
 from django.db.models.functions import TruncDate
-from django.http import JsonResponse, Http404, HttpResponseForbidden
+from django.http import HttpResponse, JsonResponse, Http404, HttpResponseForbidden
 from django.utils import timezone
 from django.utils.translation import gettext as _
 from django.views.decorators.cache import never_cache
@@ -15,6 +15,7 @@ from accounts.models import User
 from .models import Restaurant, Category, Product, ProductOption, StaffMember, PromoCode, LoyaltyAccount, RestaurantTable
 from .forms import RestaurantForm, CategoryForm, ProductForm, ProductOptionForm, StaffCreationForm, PromoCodeForm, RestaurantTableForm, LoyaltyAccountForm
 from .permissions import restaurant_role_required
+from .menu_pdf import build_menu_pdf
 import json
 
 # Same escaping django.utils.html.json_script uses internally - required because this
@@ -225,6 +226,15 @@ def product_list(request):
         'can_manage': can_manage,
     }
     return render(request, 'restaurants/product_list.html', context)
+
+@restaurant_role_required('employee')
+def menu_pdf_export(request):
+    restaurant = request.restaurant
+    categories = restaurant.categories.filter(is_active=True).prefetch_related('products').order_by('order', 'name')
+    buffer = build_menu_pdf(restaurant, categories)
+    response = HttpResponse(buffer, content_type='application/pdf')
+    response['Content-Disposition'] = f'attachment; filename="{restaurant.slug}-menu.pdf"'
+    return response
 
 @restaurant_role_required('admin')
 def product_edit(request, pk):

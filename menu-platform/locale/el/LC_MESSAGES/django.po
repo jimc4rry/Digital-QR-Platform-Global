@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-29 11:04+0300\n"
+"POT-Creation-Date: 2026-07-29 13:08+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -491,7 +491,7 @@ msgstr ""
 #: .\templates\accounts\platform_admin_payments.html:85
 #: .\templates\orders\order_list.html:71
 #: .\templates\restaurants\loyalty_list.html:85
-#: .\templates\restaurants\product_list.html:68
+#: .\templates\restaurants\product_list.html:73
 #, python-format
 msgid "Page %(current)s of %(total)s"
 msgstr "Σελίδα %(current)s από %(total)s"
@@ -718,7 +718,7 @@ msgstr "Παλιά Τιμή"
 msgid "Photo"
 msgstr "Φωτογραφία"
 
-#: .\restaurants\forms.py:99 .\templates\restaurants\product_list.html:34
+#: .\restaurants\forms.py:99 .\templates\restaurants\product_list.html:39
 msgid "Available"
 msgstr "Διαθέσιμο"
 
@@ -726,11 +726,11 @@ msgstr "Διαθέσιμο"
 msgid "Featured"
 msgstr "Προτεινόμενο"
 
-#: .\restaurants\forms.py:103
+#: .\restaurants\forms.py:103 .\restaurants\menu_pdf.py:30
 msgid "Gluten-Free"
 msgstr "Χωρίς Γλουτένη"
 
-#: .\restaurants\forms.py:104
+#: .\restaurants\forms.py:104 .\restaurants\menu_pdf.py:31
 msgid "Spicy"
 msgstr "Πικάντικο"
 
@@ -751,7 +751,7 @@ msgid "Price Adjustment"
 msgstr "Προσαρμογή Τιμής"
 
 #: .\restaurants\forms.py:120 .\templates\restaurants\product_edit.html:45
-#: .\templates\restaurants\product_edit.html:71
+#: .\templates\restaurants\product_edit.html:72
 msgid "Default"
 msgstr "Προεπιλογή"
 
@@ -797,6 +797,23 @@ msgstr "Ισχύει Έως (προαιρετικό)"
 msgid "Max Uses (optional)"
 msgstr "Μέγιστες Χρήσεις (προαιρετικό)"
 
+#: .\restaurants\menu_pdf.py:28
+msgid "Vegan"
+msgstr "Vegan"
+
+#: .\restaurants\menu_pdf.py:29
+msgid "Vegetarian"
+msgstr "Χορτοφαγικό"
+
+#: .\restaurants\menu_pdf.py:92
+#, python-format
+msgid "%(restaurant)s — Powered by GetMenuHub — Page %(page)s"
+msgstr "%(restaurant)s — Με την υποστήριξη του GetMenuHub — Σελίδα %(page)s"
+
+#: .\restaurants\menu_pdf.py:186
+msgid "No products available yet."
+msgstr "Δεν υπάρχουν διαθέσιμα προϊόντα ακόμα."
+
 #: .\restaurants\models.py:124
 msgid "English name (optional) - if left blank, the name above is shown"
 msgstr ""
@@ -823,7 +840,11 @@ msgid ""
 "Optional. Give two or more options the same group name to make them mutually "
 "exclusive (e.g. group \"Sweetness\" with options \"Plain\", \"Medium\", "
 "\"Sweet\"). Leave blank for an independent add-on."
-msgstr "Προαιρετικό. Δώστε σε δύο ή περισσότερες επιλογές το ίδιο όνομα ομάδας για να γίνουν αμοιβαία αποκλειόμενες (π.χ. ομάδα \"Γλυκύτητα\" με επιλογές \"Σκέτος\", \"Μέτριος\", \"Γλυκός\"). Αφήστε το κενό για μια ανεξάρτητη πρόσθετη επιλογή."
+msgstr ""
+"Προαιρετικό. Δώστε σε δύο ή περισσότερες επιλογές το ίδιο όνομα ομάδας για "
+"να γίνουν αμοιβαία αποκλειόμενες (π.χ. ομάδα \"Γλυκύτητα\" με επιλογές "
+"\"Σκέτος\", \"Μέτριος\", \"Γλυκός\"). Αφήστε το κενό για μια ανεξάρτητη "
+"πρόσθετη επιλογή."
 
 #: .\restaurants\models.py:271
 msgid "Admin"
@@ -853,39 +874,39 @@ msgstr "Η συνδρομή της επιχείρησης έληξε. Επικο
 msgid "You do not have permission to access this page."
 msgstr "Δεν έχετε δικαίωμα πρόσβασης σε αυτή τη σελίδα."
 
-#: .\restaurants\views.py:156
+#: .\restaurants\views.py:157
 msgid "Settings saved successfully!"
 msgstr "Οι ρυθμίσεις αποθηκεύτηκαν με επιτυχία!"
 
-#: .\restaurants\views.py:178
+#: .\restaurants\views.py:179
 msgid "Category created successfully!"
 msgstr "Η κατηγορία δημιουργήθηκε με επιτυχία!"
 
-#: .\restaurants\views.py:195
+#: .\restaurants\views.py:196
 msgid "Category deleted successfully!"
 msgstr "Η κατηγορία διαγράφηκε με επιτυχία!"
 
-#: .\restaurants\views.py:211
+#: .\restaurants\views.py:212
 msgid "Product created successfully!"
 msgstr "Το προϊόν δημιουργήθηκε με επιτυχία!"
 
-#: .\restaurants\views.py:216
+#: .\restaurants\views.py:217
 msgid "You do not have permission to add products."
 msgstr "Δεν έχετε δικαίωμα προσθήκης προϊόντων."
 
-#: .\restaurants\views.py:238
+#: .\restaurants\views.py:248
 msgid "Product updated successfully!"
 msgstr "Το προϊόν ενημερώθηκε με επιτυχία!"
 
-#: .\restaurants\views.py:258
+#: .\restaurants\views.py:268
 msgid "Product deleted successfully!"
 msgstr "Το προϊόν διαγράφηκε με επιτυχία!"
 
-#: .\restaurants\views.py:366
+#: .\restaurants\views.py:376
 msgid "Staff management is available on the Business plan"
 msgstr "Η διαχείριση προσωπικού είναι διαθέσιμη στο πλάνο Business"
 
-#: .\restaurants\views.py:367
+#: .\restaurants\views.py:377
 msgid ""
 "Upgrade to the Business plan to add admin and employee accounts with "
 "separate permissions."
@@ -893,23 +914,23 @@ msgstr ""
 "Αναβαθμίστε στο πλάνο Business για να προσθέσετε λογαριασμούς διαχειριστή "
 "και υπαλλήλου με ξεχωριστά δικαιώματα."
 
-#: .\restaurants\views.py:384
+#: .\restaurants\views.py:394
 msgid "Staff account created successfully!"
 msgstr "Ο λογαριασμός προσωπικού δημιουργήθηκε με επιτυχία!"
 
-#: .\restaurants\views.py:400
+#: .\restaurants\views.py:410
 msgid "Staff management is available on the Business plan."
 msgstr "Η διαχείριση προσωπικού είναι διαθέσιμη στο πλάνο Business."
 
-#: .\restaurants\views.py:405
+#: .\restaurants\views.py:415
 msgid "Staff account removed."
 msgstr "Ο λογαριασμός προσωπικού αφαιρέθηκε."
 
-#: .\restaurants\views.py:415
+#: .\restaurants\views.py:425
 msgid "QR ordering tables are available from the Pro plan"
 msgstr "Τα τραπέζια παραγγελίας QR είναι διαθέσιμα από το πλάνο Pro"
 
-#: .\restaurants\views.py:416
+#: .\restaurants\views.py:426
 msgid ""
 "Upgrade to the Pro or Business plan to create table QR codes and accept "
 "orders."
@@ -917,69 +938,69 @@ msgstr ""
 "Αναβαθμίστε στο πλάνο Pro ή Business για να δημιουργήσετε κωδικούς QR "
 "τραπεζιού και να δέχεστε παραγγελίες."
 
-#: .\restaurants\views.py:427
+#: .\restaurants\views.py:437
 msgid "Table added successfully!"
 msgstr "Το τραπέζι προστέθηκε με επιτυχία!"
 
-#: .\restaurants\views.py:430
+#: .\restaurants\views.py:440
 msgid "This number already exists for this type."
 msgstr "Αυτός ο αριθμός υπάρχει ήδη για αυτόν τον τύπο."
 
-#: .\restaurants\views.py:445
+#: .\restaurants\views.py:455
 msgid "Tables are available from the Pro plan."
 msgstr "Τα τραπέζια είναι διαθέσιμα από το πλάνο Pro."
 
-#: .\restaurants\views.py:448
+#: .\restaurants\views.py:458
 msgid "Table deleted."
 msgstr "Το τραπέζι διαγράφηκε."
 
-#: .\restaurants\views.py:458
+#: .\restaurants\views.py:468
 msgid "Promo codes are available from the Pro plan"
 msgstr "Οι κωδικοί προσφοράς είναι διαθέσιμοι από το πλάνο Pro"
 
-#: .\restaurants\views.py:459
+#: .\restaurants\views.py:469
 msgid ""
 "Upgrade to the Pro or Business plan to create promo codes for your customers."
 msgstr ""
 "Αναβαθμίστε στο πλάνο Pro ή Business για να δημιουργήσετε κωδικούς προσφοράς "
 "για τους πελάτες σας."
 
-#: .\restaurants\views.py:470
+#: .\restaurants\views.py:480
 msgid "Promo code created successfully!"
 msgstr "Ο κωδικός προσφοράς δημιουργήθηκε με επιτυχία!"
 
-#: .\restaurants\views.py:473
+#: .\restaurants\views.py:483
 msgid "This code already exists."
 msgstr "Αυτός ο κωδικός υπάρχει ήδη."
 
-#: .\restaurants\views.py:488
+#: .\restaurants\views.py:498
 msgid "Promo codes are available from the Pro plan."
 msgstr "Οι κωδικοί προσφοράς είναι διαθέσιμοι από το πλάνο Pro."
 
-#: .\restaurants\views.py:491
+#: .\restaurants\views.py:501
 msgid "Promo code deleted."
 msgstr "Ο κωδικός προσφοράς διαγράφηκε."
 
-#: .\restaurants\views.py:502
+#: .\restaurants\views.py:512
 msgid "Loyalty is available from the Pro plan"
 msgstr "Το Loyalty είναι διαθέσιμο από το πλάνο Pro"
 
-#: .\restaurants\views.py:503
+#: .\restaurants\views.py:513
 msgid ""
 "Upgrade to the Pro or Business plan to give loyalty points to your customers."
 msgstr ""
 "Αναβαθμίστε στο πλάνο Pro ή Business για να δίνετε πόντους Loyalty στους "
 "πελάτες σας."
 
-#: .\restaurants\views.py:524 .\restaurants\views.py:547
+#: .\restaurants\views.py:534 .\restaurants\views.py:557
 msgid "Loyalty is available from the Pro plan."
 msgstr "Το Loyalty είναι διαθέσιμο από το πλάνο Pro."
 
-#: .\restaurants\views.py:531
+#: .\restaurants\views.py:541
 msgid "Loyalty account updated!"
 msgstr "Ο λογαριασμός Loyalty ενημερώθηκε!"
 
-#: .\restaurants\views.py:550
+#: .\restaurants\views.py:560
 msgid "Loyalty account deleted."
 msgstr "Ο λογαριασμός Loyalty διαγράφηκε."
 
@@ -1267,7 +1288,7 @@ msgstr "Καθαρισμός"
 
 #: .\templates\accounts\platform_admin_dashboard.html:57
 #: .\templates\base.html:182 .\templates\orders\order_detail.html:81
-#: .\templates\restaurants\product_list.html:6
+#: .\templates\restaurants\product_list.html:7
 msgid "Products"
 msgstr "Προϊόντα"
 
@@ -1519,7 +1540,7 @@ msgstr "Αποστολή"
 msgid "Please write something first."
 msgstr "Παρακαλούμε γράψτε κάτι πρώτα."
 
-#: .\templates\base.html:475 .\templates\restaurants\product_edit.html:73
+#: .\templates\base.html:475 .\templates\restaurants\product_edit.html:74
 #: .\templates\restaurants\public_menu.html:320
 msgid "Something went wrong. Please try again."
 msgstr "Κάτι πήγε στραβά. Δοκιμάστε ξανά."
@@ -2885,7 +2906,7 @@ msgid "New Category"
 msgstr "Νέα Κατηγορία"
 
 #: .\templates\restaurants\category_list.html:15
-#: .\templates\restaurants\product_list.html:16
+#: .\templates\restaurants\product_list.html:21
 #: .\templates\restaurants\promo_code_list.html:17
 #: .\templates\restaurants\staff_list.html:18
 #: .\templates\restaurants\table_list.html:18
@@ -3000,7 +3021,12 @@ msgid ""
 "more options the same group name to make them mutually exclusive — for "
 "example a group called Sweetness with the options Plain, Medium and Sweet. "
 "Leave the group blank for an independent add-on, like Extra cheese (+$1)."
-msgstr "Προσθέστε επιπλέον επιλογές που διαλέγουν οι πελάτες όταν παραγγέλνουν αυτό το προϊόν. Δώστε σε δύο ή περισσότερες επιλογές το ίδιο όνομα ομάδας για να γίνουν αμοιβαία αποκλειόμενες — για παράδειγμα μια ομάδα με όνομα Γλυκύτητα με τις επιλογές Σκέτος, Μέτριος και Γλυκός. Αφήστε την ομάδα κενή για μια ανεξάρτητη πρόσθετη επιλογή, όπως Έξτρα τυρί (+$1)."
+msgstr ""
+"Προσθέστε επιπλέον επιλογές που διαλέγουν οι πελάτες όταν παραγγέλνουν αυτό "
+"το προϊόν. Δώστε σε δύο ή περισσότερες επιλογές το ίδιο όνομα ομάδας για να "
+"γίνουν αμοιβαία αποκλειόμενες — για παράδειγμα μια ομάδα με όνομα Γλυκύτητα "
+"με τις επιλογές Σκέτος, Μέτριος και Γλυκός. Αφήστε την ομάδα κενή για μια "
+"ανεξάρτητη πρόσθετη επιλογή, όπως Έξτρα τυρί (+$1)."
 
 #: .\templates\restaurants\product_edit.html:32
 msgid "e.g. Sweetness"
@@ -3011,35 +3037,39 @@ msgstr "π.χ. Γλυκύτητα"
 msgid "Add"
 msgstr "Προσθήκη"
 
-#: .\templates\restaurants\product_edit.html:70
+#: .\templates\restaurants\product_edit.html:71
 msgid "No options yet."
 msgstr "Δεν υπάρχουν επιλογές ακόμα."
 
-#: .\templates\restaurants\product_edit.html:72
+#: .\templates\restaurants\product_edit.html:73
 msgid "Remove"
 msgstr "Αφαίρεση"
 
-#: .\templates\restaurants\product_list.html:11
+#: .\templates\restaurants\product_list.html:9
+msgid "Export Menu (PDF)"
+msgstr "Εξαγωγή Μενού (PDF)"
+
+#: .\templates\restaurants\product_list.html:16
 msgid "New Product"
 msgstr "Νέο Προϊόν"
 
-#: .\templates\restaurants\product_list.html:24
+#: .\templates\restaurants\product_list.html:29
 msgid "Product List"
 msgstr "Λίστα Προϊόντων"
 
-#: .\templates\restaurants\product_list.html:36
+#: .\templates\restaurants\product_list.html:41
 msgid "Unavailable"
 msgstr "Μη Διαθέσιμο"
 
-#: .\templates\restaurants\product_list.html:46
+#: .\templates\restaurants\product_list.html:51
 msgid "Are you sure you want to delete this product?"
 msgstr "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το προϊόν;"
 
-#: .\templates\restaurants\product_list.html:55
+#: .\templates\restaurants\product_list.html:60
 msgid "No products yet"
 msgstr "Κανένα προϊόν ακόμα"
 
-#: .\templates\restaurants\product_list.html:60
+#: .\templates\restaurants\product_list.html:65
 msgid "Product pagination"
 msgstr "Σελιδοποίηση προϊόντων"
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-29 11:04+0300\n"
+"POT-Creation-Date: 2026-07-29 13:08+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -492,7 +492,7 @@ msgstr ""
 #: .\templates\accounts\platform_admin_payments.html:85
 #: .\templates\orders\order_list.html:71
 #: .\templates\restaurants\loyalty_list.html:85
-#: .\templates\restaurants\product_list.html:68
+#: .\templates\restaurants\product_list.html:73
 #, python-format
 msgid "Page %(current)s of %(total)s"
 msgstr "Page %(current)s sur %(total)s"
@@ -720,7 +720,7 @@ msgstr "Ancien prix"
 msgid "Photo"
 msgstr "Photo"
 
-#: .\restaurants\forms.py:99 .\templates\restaurants\product_list.html:34
+#: .\restaurants\forms.py:99 .\templates\restaurants\product_list.html:39
 msgid "Available"
 msgstr "Disponible"
 
@@ -728,11 +728,11 @@ msgstr "Disponible"
 msgid "Featured"
 msgstr "En vedette"
 
-#: .\restaurants\forms.py:103
+#: .\restaurants\forms.py:103 .\restaurants\menu_pdf.py:30
 msgid "Gluten-Free"
 msgstr "Sans gluten"
 
-#: .\restaurants\forms.py:104
+#: .\restaurants\forms.py:104 .\restaurants\menu_pdf.py:31
 msgid "Spicy"
 msgstr "Épicé"
 
@@ -753,7 +753,7 @@ msgid "Price Adjustment"
 msgstr "Ajustement de prix"
 
 #: .\restaurants\forms.py:120 .\templates\restaurants\product_edit.html:45
-#: .\templates\restaurants\product_edit.html:71
+#: .\templates\restaurants\product_edit.html:72
 msgid "Default"
 msgstr "Par défaut"
 
@@ -799,6 +799,23 @@ msgstr "Valable jusqu'au (facultatif)"
 msgid "Max Uses (optional)"
 msgstr "Utilisations maximales (facultatif)"
 
+#: .\restaurants\menu_pdf.py:28
+msgid "Vegan"
+msgstr "Végétalien"
+
+#: .\restaurants\menu_pdf.py:29
+msgid "Vegetarian"
+msgstr "Végétarien"
+
+#: .\restaurants\menu_pdf.py:92
+#, python-format
+msgid "%(restaurant)s — Powered by GetMenuHub — Page %(page)s"
+msgstr "%(restaurant)s — Propulsé par GetMenuHub — Page %(page)s"
+
+#: .\restaurants\menu_pdf.py:186
+msgid "No products available yet."
+msgstr "Aucun produit disponible pour le moment."
+
 #: .\restaurants\models.py:124
 msgid "English name (optional) - if left blank, the name above is shown"
 msgstr ""
@@ -825,7 +842,11 @@ msgid ""
 "Optional. Give two or more options the same group name to make them mutually "
 "exclusive (e.g. group \"Sweetness\" with options \"Plain\", \"Medium\", "
 "\"Sweet\"). Leave blank for an independent add-on."
-msgstr "Optionnel. Donnez à deux options ou plus le même nom de groupe pour les rendre mutuellement exclusives (par exemple le groupe «Douceur» avec les options «Nature», «Moyen», «Sucré»). Laissez vide pour un supplément indépendant."
+msgstr ""
+"Optionnel. Donnez à deux options ou plus le même nom de groupe pour les "
+"rendre mutuellement exclusives (par exemple le groupe «Douceur» avec les "
+"options «Nature», «Moyen», «Sucré»). Laissez vide pour un supplément "
+"indépendant."
 
 #: .\restaurants\models.py:271
 msgid "Admin"
@@ -856,39 +877,39 @@ msgstr "L'abonnement de l'entreprise a expiré. Contactez le propriétaire."
 msgid "You do not have permission to access this page."
 msgstr "Vous n'avez pas la permission d'accéder à cette page."
 
-#: .\restaurants\views.py:156
+#: .\restaurants\views.py:157
 msgid "Settings saved successfully!"
 msgstr "Paramètres enregistrés avec succès !"
 
-#: .\restaurants\views.py:178
+#: .\restaurants\views.py:179
 msgid "Category created successfully!"
 msgstr "Catégorie créée avec succès !"
 
-#: .\restaurants\views.py:195
+#: .\restaurants\views.py:196
 msgid "Category deleted successfully!"
 msgstr "Catégorie supprimée avec succès !"
 
-#: .\restaurants\views.py:211
+#: .\restaurants\views.py:212
 msgid "Product created successfully!"
 msgstr "Produit créé avec succès !"
 
-#: .\restaurants\views.py:216
+#: .\restaurants\views.py:217
 msgid "You do not have permission to add products."
 msgstr "Vous n'avez pas la permission d'ajouter des produits."
 
-#: .\restaurants\views.py:238
+#: .\restaurants\views.py:248
 msgid "Product updated successfully!"
 msgstr "Produit mis à jour avec succès !"
 
-#: .\restaurants\views.py:258
+#: .\restaurants\views.py:268
 msgid "Product deleted successfully!"
 msgstr "Produit supprimé avec succès !"
 
-#: .\restaurants\views.py:366
+#: .\restaurants\views.py:376
 msgid "Staff management is available on the Business plan"
 msgstr "La gestion du personnel est disponible avec la formule Business"
 
-#: .\restaurants\views.py:367
+#: .\restaurants\views.py:377
 msgid ""
 "Upgrade to the Business plan to add admin and employee accounts with "
 "separate permissions."
@@ -896,23 +917,23 @@ msgstr ""
 "Passez à la formule Business pour ajouter des comptes administrateur et "
 "employé avec des permissions distinctes."
 
-#: .\restaurants\views.py:384
+#: .\restaurants\views.py:394
 msgid "Staff account created successfully!"
 msgstr "Compte du personnel créé avec succès !"
 
-#: .\restaurants\views.py:400
+#: .\restaurants\views.py:410
 msgid "Staff management is available on the Business plan."
 msgstr "La gestion du personnel est disponible avec la formule Business."
 
-#: .\restaurants\views.py:405
+#: .\restaurants\views.py:415
 msgid "Staff account removed."
 msgstr "Compte du personnel supprimé."
 
-#: .\restaurants\views.py:415
+#: .\restaurants\views.py:425
 msgid "QR ordering tables are available from the Pro plan"
 msgstr "Les tables de commande QR sont disponibles à partir de la formule Pro"
 
-#: .\restaurants\views.py:416
+#: .\restaurants\views.py:426
 msgid ""
 "Upgrade to the Pro or Business plan to create table QR codes and accept "
 "orders."
@@ -920,69 +941,69 @@ msgstr ""
 "Passez à la formule Pro ou Business pour créer des codes QR de table et "
 "accepter les commandes."
 
-#: .\restaurants\views.py:427
+#: .\restaurants\views.py:437
 msgid "Table added successfully!"
 msgstr "Table ajoutée avec succès !"
 
-#: .\restaurants\views.py:430
+#: .\restaurants\views.py:440
 msgid "This number already exists for this type."
 msgstr "Ce numéro existe déjà pour ce type."
 
-#: .\restaurants\views.py:445
+#: .\restaurants\views.py:455
 msgid "Tables are available from the Pro plan."
 msgstr "Les tables sont disponibles à partir de la formule Pro."
 
-#: .\restaurants\views.py:448
+#: .\restaurants\views.py:458
 msgid "Table deleted."
 msgstr "Table supprimée."
 
-#: .\restaurants\views.py:458
+#: .\restaurants\views.py:468
 msgid "Promo codes are available from the Pro plan"
 msgstr "Les codes promo sont disponibles à partir de la formule Pro"
 
-#: .\restaurants\views.py:459
+#: .\restaurants\views.py:469
 msgid ""
 "Upgrade to the Pro or Business plan to create promo codes for your customers."
 msgstr ""
 "Passez à la formule Pro ou Business pour créer des codes promo pour vos "
 "clients."
 
-#: .\restaurants\views.py:470
+#: .\restaurants\views.py:480
 msgid "Promo code created successfully!"
 msgstr "Code promo créé avec succès !"
 
-#: .\restaurants\views.py:473
+#: .\restaurants\views.py:483
 msgid "This code already exists."
 msgstr "Ce code existe déjà."
 
-#: .\restaurants\views.py:488
+#: .\restaurants\views.py:498
 msgid "Promo codes are available from the Pro plan."
 msgstr "Les codes promo sont disponibles à partir de la formule Pro."
 
-#: .\restaurants\views.py:491
+#: .\restaurants\views.py:501
 msgid "Promo code deleted."
 msgstr "Code promo supprimé."
 
-#: .\restaurants\views.py:502
+#: .\restaurants\views.py:512
 msgid "Loyalty is available from the Pro plan"
 msgstr "La fidélité est disponible à partir de la formule Pro"
 
-#: .\restaurants\views.py:503
+#: .\restaurants\views.py:513
 msgid ""
 "Upgrade to the Pro or Business plan to give loyalty points to your customers."
 msgstr ""
 "Passez à la formule Pro ou Business pour offrir des points de fidélité à vos "
 "clients."
 
-#: .\restaurants\views.py:524 .\restaurants\views.py:547
+#: .\restaurants\views.py:534 .\restaurants\views.py:557
 msgid "Loyalty is available from the Pro plan."
 msgstr "La fidélité est disponible à partir de la formule Pro."
 
-#: .\restaurants\views.py:531
+#: .\restaurants\views.py:541
 msgid "Loyalty account updated!"
 msgstr "Compte de fidélité mis à jour !"
 
-#: .\restaurants\views.py:550
+#: .\restaurants\views.py:560
 msgid "Loyalty account deleted."
 msgstr "Compte de fidélité supprimé."
 
@@ -1270,7 +1291,7 @@ msgstr "Effacer"
 
 #: .\templates\accounts\platform_admin_dashboard.html:57
 #: .\templates\base.html:182 .\templates\orders\order_detail.html:81
-#: .\templates\restaurants\product_list.html:6
+#: .\templates\restaurants\product_list.html:7
 msgid "Products"
 msgstr "Produits"
 
@@ -1520,7 +1541,7 @@ msgstr "Envoyer"
 msgid "Please write something first."
 msgstr "Veuillez d'abord écrire quelque chose."
 
-#: .\templates\base.html:475 .\templates\restaurants\product_edit.html:73
+#: .\templates\base.html:475 .\templates\restaurants\product_edit.html:74
 #: .\templates\restaurants\public_menu.html:320
 msgid "Something went wrong. Please try again."
 msgstr "Une erreur s'est produite. Veuillez réessayer."
@@ -2882,7 +2903,7 @@ msgid "New Category"
 msgstr "Nouvelle catégorie"
 
 #: .\templates\restaurants\category_list.html:15
-#: .\templates\restaurants\product_list.html:16
+#: .\templates\restaurants\product_list.html:21
 #: .\templates\restaurants\promo_code_list.html:17
 #: .\templates\restaurants\staff_list.html:18
 #: .\templates\restaurants\table_list.html:18
@@ -2999,7 +3020,12 @@ msgid ""
 "more options the same group name to make them mutually exclusive — for "
 "example a group called Sweetness with the options Plain, Medium and Sweet. "
 "Leave the group blank for an independent add-on, like Extra cheese (+$1)."
-msgstr "Ajoutez des choix supplémentaires que les clients sélectionnent en commandant ce produit. Donnez à deux options ou plus le même nom de groupe pour les rendre mutuellement exclusives — par exemple un groupe appelé Douceur avec les options Nature, Moyen et Sucré. Laissez le groupe vide pour un supplément indépendant, comme Fromage supplémentaire (+$1)."
+msgstr ""
+"Ajoutez des choix supplémentaires que les clients sélectionnent en "
+"commandant ce produit. Donnez à deux options ou plus le même nom de groupe "
+"pour les rendre mutuellement exclusives — par exemple un groupe appelé "
+"Douceur avec les options Nature, Moyen et Sucré. Laissez le groupe vide pour "
+"un supplément indépendant, comme Fromage supplémentaire (+$1)."
 
 #: .\templates\restaurants\product_edit.html:32
 msgid "e.g. Sweetness"
@@ -3010,35 +3036,39 @@ msgstr "p. ex. Douceur"
 msgid "Add"
 msgstr "Ajouter"
 
-#: .\templates\restaurants\product_edit.html:70
+#: .\templates\restaurants\product_edit.html:71
 msgid "No options yet."
 msgstr "Pas encore d'options."
 
-#: .\templates\restaurants\product_edit.html:72
+#: .\templates\restaurants\product_edit.html:73
 msgid "Remove"
 msgstr "Supprimer"
 
-#: .\templates\restaurants\product_list.html:11
+#: .\templates\restaurants\product_list.html:9
+msgid "Export Menu (PDF)"
+msgstr "Exporter le menu (PDF)"
+
+#: .\templates\restaurants\product_list.html:16
 msgid "New Product"
 msgstr "Nouveau produit"
 
-#: .\templates\restaurants\product_list.html:24
+#: .\templates\restaurants\product_list.html:29
 msgid "Product List"
 msgstr "Liste des produits"
 
-#: .\templates\restaurants\product_list.html:36
+#: .\templates\restaurants\product_list.html:41
 msgid "Unavailable"
 msgstr "Indisponible"
 
-#: .\templates\restaurants\product_list.html:46
+#: .\templates\restaurants\product_list.html:51
 msgid "Are you sure you want to delete this product?"
 msgstr "Êtes-vous sûr de vouloir supprimer ce produit ?"
 
-#: .\templates\restaurants\product_list.html:55
+#: .\templates\restaurants\product_list.html:60
 msgid "No products yet"
 msgstr "Aucun produit pour le moment"
 
-#: .\templates\restaurants\product_list.html:60
+#: .\templates\restaurants\product_list.html:65
 msgid "Product pagination"
 msgstr "Pagination des produits"
 
