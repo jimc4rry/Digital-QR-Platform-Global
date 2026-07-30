@@ -4523,3 +4523,8 @@ msgstr "Έτοιμοι να μετατρέψετε τις σαρώσεις σε 
 msgid "The growth platform that starts at your QR code"
 msgstr "Η πλατφόρμα ανάπτυξης που ξεκινά από τον κωδικό QR σας"
 
+
+# New string - homepage features section, complete-system framing
+msgid "A complete system for managing your menu, orders, staff and customers - grouped below by what it actually does for you, not by menu item."
+msgstr "Ένα ολοκληρωμένο σύστημα διαχείρισης του μενού, των παραγγελιών, του προσωπικού και των πελατών σας - ομαδοποιημένο παρακάτω ανάλογα με το τι κάνει πραγματικά για εσάς."
+

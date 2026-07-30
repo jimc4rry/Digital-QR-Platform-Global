@@ -4520,3 +4520,8 @@ msgstr "Prêt à transformer les scans en habitués ?"
 msgid "The growth platform that starts at your QR code"
 msgstr "La plateforme de croissance qui commence à votre QR code"
 
+
+# New string - homepage features section, complete-system framing
+msgid "A complete system for managing your menu, orders, staff and customers - grouped below by what it actually does for you, not by menu item."
+msgstr "Un système complet pour gérer votre menu, vos commandes, votre personnel et vos clients - regroupé ci-dessous selon ce qu'il fait réellement pour vous."
+
