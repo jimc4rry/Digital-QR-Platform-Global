@@ -218,16 +218,18 @@ def category_move(request, pk, direction):
     index = next((i for i, c in enumerate(categories) if c.pk == category.pk), None)
 
     if direction == 'up' and index is not None and index > 0:
-        neighbor = categories[index - 1]
+        categories[index - 1], categories[index] = categories[index], categories[index - 1]
     elif direction == 'down' and index is not None and index < len(categories) - 1:
-        neighbor = categories[index + 1]
-    else:
-        neighbor = None
+        categories[index], categories[index + 1] = categories[index + 1], categories[index]
 
-    if neighbor is not None:
-        category.order, neighbor.order = neighbor.order, category.order
-        category.save(update_fields=['order'])
-        neighbor.save(update_fields=['order'])
+    # Renumber everyone sequentially rather than just swapping the two
+    # `order` values: most categories are still at the default order=0
+    # (nothing forces an owner to set one), so swapping two equal values
+    # is a no-op - the move would silently do nothing.
+    for position, cat in enumerate(categories):
+        if cat.order != position:
+            cat.order = position
+            cat.save(update_fields=['order'])
 
     return redirect('category_list')
 
