@@ -11,6 +11,25 @@ the positioning notes at the end to write copy.
 > [`menu-platform/README.md`](menu-platform/README.md). This file is the
 > product/marketing companion to it.
 
+### The demo account (reusable — don't rebuild this each time)
+
+The same "Aegean Breeze Café" account used for every screenshot below lives
+permanently on staging, so it never has to be rebuilt from scratch:
+
+```
+https://uat-staging.getmenuhub.com/
+
+Owner:     demo_cafe        / DemoCafe2026!
+Admin:     demo_cafe_admin  / DemoCafe2026!
+Employee:  demo_cafe_staff  / DemoCafe2026!
+
+Public menu: https://uat-staging.getmenuhub.com/menu/bcacac343b5d4d9f838d/
+```
+
+This is a **staging** account only — it doesn't affect the real production
+site or real customers. Use it directly for demos, screen recordings, or
+walking someone through the product; there's no need to seed a fresh one.
+
 ## Contents
 
 1. [The pitch, in one paragraph](#the-pitch-in-one-paragraph)
@@ -30,13 +49,14 @@ the positioning notes at the end to write copy.
 
 ## The pitch, in one paragraph
 
-GetMenuHub is a restaurant growth platform disguised as a QR menu: a business
-signs up, builds a menu in minutes, and gets a QR code that replaces printed
-menus forever — but underneath that is a full toolkit that keeps customers
-coming back and keeps the owner in control: table-side ordering with zero
-commission, a loyalty program that needs no app, promo codes for slow
-nights, role-based staff accounts, and sales analytics. Every plan includes
-the digital menu; Pro and Business unlock the growth layer on top.
+Every restaurant remembers its menu. Almost none remember its customers —
+that's the gap GetMenuHub actually closes. A business signs up, builds a
+menu in minutes, and gets a QR code that replaces printed menus forever —
+but underneath that is a full toolkit that turns a one-time visitor into a
+regular and keeps the owner in control: table-side ordering with zero
+commission, a loyalty program that needs no app or card, promo codes for
+slow nights, role-based staff accounts, and sales analytics. Every plan
+includes the digital menu; Pro and Business unlock the growth layer on top.
 
 ---
 
@@ -192,10 +212,20 @@ overwhelming.
 
 ## 9. The marketing site
 
-The homepage leads with the full platform, not just the menu — and
-foregrounds the free-beta offer instead of burying it in a banner:
+The homepage leads with the outcome, not the mechanism: *"Turn every scan
+into a regular."* The QR code proves the claim a sentence later, instead of
+being the whole pitch — and the free-beta offer sits in the hero itself
+instead of a banner above it.
 
 ![Homepage](docs/showcase/01-homepage.png)
+
+Right under the hero, a short problem section names exactly what the product
+solves before explaining how: *"Every restaurant remembers its menu. Almost
+none remember its customers."* Further down, the feature grid is grouped
+into five customer-value pillars — **Get Found, Capture the Order, Bring
+Them Back, Run the Floor, Know Your Numbers** — instead of a flat list of
+eleven unrelated cards, so the page itself teaches a visitor what kind of
+platform this is, not just what buttons exist.
 
 Every major feature also has its own dedicated landing page — good for SEO,
 and good for linking directly from an ad instead of dropping traffic on the
@@ -244,42 +274,43 @@ A few notes to turn the screenshots above into actual ads, written from a
 
 ### The core hook (use this before anything else)
 
-> **Menu, orders, loyalty and staff — all from one QR code.**
+> **Turn every scan into a regular.**
 
-This single line does the most work: it opens with the QR code (which every
-restaurant owner already recognizes and associates with "modern"), and
-closes the sentence by revealing the platform is bigger than a menu, before
-anyone can dismiss it as "just another QR menu app."
+This is the outcome, not the mechanism — it doesn't open with "QR code" or
+"menu," because those words immediately cap what a restaurant owner expects
+to pay and how seriously they take the product. Let the QR code prove
+itself a sentence later ("GetMenuHub is the growth platform that starts at
+your QR code…"); lead the ad itself with what the owner actually wants.
 
 ### Sample ad copy
 
 **Meta / Instagram (feed, square or 4:5 image — use the public-menu or
 table-order-cart screenshot):**
 
-> Your menu, always up to date. Orders straight from the table. Customers
-> who actually come back. One QR code does it all — set up free in 5
-> minutes, no printer, no app for your customers to download.
-> **Create your free menu →**
+> A regular who ate here Tuesday shouldn't look like a stranger on Friday.
+> GetMenuHub remembers them automatically — no app, no card, just the QR
+> code already on your table. Free during beta, every feature unlocked.
+> **Turn every scan into a regular →**
 
 **Meta / Instagram, staffing angle (use the dashboard or new-order screenshot):**
 
 > Short-staffed? Let customers order themselves. Table-side ordering means
-> fewer trips back and forth for your team — and it's free to try, every
-> feature unlocked.
+> fewer trips back and forth for your team — zero commission, free to try.
 > **See how it works →**
 
 **Google Search ad (headline / description pairs):**
 
-- H1: `QR Menu + Table Ordering` · H2: `Free During Beta — No Card` ·
-  Desc: `Digital menu, orders, loyalty & staff tools in one dashboard. Set up in 5 minutes.`
-- H1: `Stop Reprinting Your Menu` · H2: `Update Prices Instantly` ·
-  Desc: `QR code menu with zero reprinting. Every plan feature free during beta.`
+- H1: `Turn Scans Into Regulars` · H2: `Free During Beta — No Card` ·
+  Desc: `Digital menu, ordering, loyalty & staff tools in one dashboard. Zero commission. Live in 5 minutes.`
+- H1: `Stop Losing Repeat Customers` · H2: `No App, No Card Needed` ·
+  Desc: `Loyalty that just works from the QR code already on your table. Free during beta.`
 
 **Greek-language variant (for local/tourist-area targeting):**
 
-> Το μενού σας πάντα ενημερωμένο, παραγγελίες από το τραπέζι, πελάτες που
-> ξαναγυρνάνε. Όλα από έναν κωδικό QR. Δωρεάν δοκιμή, χωρίς κάρτα.
-> **Δημιουργήστε το δωρεάν μενού σας →**
+> Ένας σταθερός πελάτης δεν πρέπει να μοιάζει με άγνωστο την επόμενη φορά.
+> Το GetMenuHub τον θυμάται αυτόματα — χωρίς app, χωρίς κάρτα, μόνο ο
+> κωδικός QR που ήδη έχετε στο τραπέζι. Δωρεάν κατά τη διάρκεια beta.
+> **Μετατρέψτε κάθε σάρωση σε σταθερό πελάτη →**
 
 ### Which screenshot to use for which angle
 

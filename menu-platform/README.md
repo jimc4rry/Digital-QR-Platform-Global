@@ -1,13 +1,16 @@
-# GetMenuHub — Digital QR Code Menus for Restaurants, Cafes, Bars & Beach Bars
+# GetMenuHub — Restaurant Growth Platform (Digital Menu, Ordering, Loyalty & Staff Tools)
 
-Django SaaS platform ([getmenuhub.com](https://getmenuhub.com)) that lets
-restaurants/cafes/bars/beach bars create a digital menu accessible via QR
-code, with optional online ordering (from a table **or** a sunbed), staff
-management, loyalty points, discount codes, sales statistics, and real
-subscription billing via **Paddle** (Merchant of Record — handles
-international VAT/sales tax automatically). Includes a separate mobile app
+Django SaaS platform ([getmenuhub.com](https://getmenuhub.com)) built around
+a QR code: a digital menu, optional table/sunbed ordering (zero commission),
+a phone-number loyalty program, promo codes, role-based staff accounts, sales
+statistics, and real subscription billing via **Paddle** (Merchant of
+Record — handles international VAT/sales tax automatically). See
+[`PRODUCT_SHOWCASE.md`](../PRODUCT_SHOWCASE.md) at the repo root for a
+screenshot-driven walkthrough of the product and its market positioning;
+this file is the engineering reference. Includes a separate mobile app
 (Flutter) for owners/staff, and a marketing/SEO site (guides, blog, free
-tools, per-restaurant subdomains) built to attract organic signups.
+tools, dedicated `/features/*` pages, per-restaurant subdomains) built to
+attract organic signups.
 
 Available to businesses worldwide, billed in USD through Paddle. The
 dashboard/marketing site is available in **English, Greek, Spanish and
@@ -28,7 +31,19 @@ order directly from there.
 
 The business manages everything from a dashboard (web) or the mobile app:
 menu, orders, tables/sunbeds, staff, discount codes, customer loyalty, sales
-statistics, and their subscription.
+statistics, and their subscription. Staff can also build and submit an order
+themselves (`/orders/new/`) — same product picker and server-side pricing as
+the public menu, for phone orders or walk-ins — and the full menu can be
+exported as a branded, print-ready PDF at any time (`menu_pdf.py`).
+
+The authenticated dashboard nav is deliberately **separate from the public
+marketing nav** the moment someone is logged in — grouped into Dashboard /
+Menu / Orders / Growth (Loyalty + Promo Codes) / Statistics / Staff, instead
+of mixing app links with marketing links (Guides, Blog, free tools) in one
+flat bar (`templates/base.html`). A brand-new signup also sees a short
+onboarding checklist on the Dashboard (create a category → add a product →
+add a table → preview the menu) that disappears automatically once done
+(`restaurants/views.py::dashboard`).
 
 ## 2. User Flow
 
@@ -43,9 +58,16 @@ statistics, and their subscription.
    with the new business's name/type/username/email/phone
    (`accounts/views.py::signup`) - see §5.5 for why this can't block the
    request.
-2. **Creates Categories** (e.g. "Starters", "Mains") and **Products** (price,
+2. **Creates Categories** (e.g. "Starters", "Mains" — reorderable with a
+   click; a category deleted later re-homes its products to an auto-created
+   "Other" category instead of destroying them) and **Products** (price,
    photo, dietary labels: vegan/vegetarian/gluten-free/spicy, optional
-   per-product "options" like size/filling with a price adjustment).
+   per-product "options" like size/filling with a price adjustment, either
+   mutually-exclusive radio groups or independent add-on checkboxes). The
+   Products page supports search, category filtering, and **bulk actions**
+   (select multiple → mark available/unavailable, move to another category,
+   or delete) for restaurants running 40+ items
+   (`restaurants/views.py::product_bulk_action`).
 3. **Enables ordering** (`allow_ordering`) from Settings, if their
    subscription plan allows it (see §4), and creates **Tables or Sunbeds**
    (`/restaurant/tables/`) — each gets its own QR code; the same number can
@@ -87,6 +109,14 @@ statistics, and their subscription.
 3. Every change is logged in `OrderStatusLog` (who, when, from which status to
    which) — visible on the order page as an "Activity Log", so the owner can
    see every staff member's actions.
+4. Staff (employee/admin/owner) can also **create an order themselves**
+   (`/orders/new/`, `orders/views.py::staff_create_order`) — for a phone
+   order or a walk-in, or when a customer would rather just ask. It reuses
+   the exact same product picker, option groups, and server-side pricing
+   engine as the public menu (`_populate_order_items_and_totals`, shared by
+   both `create_order_api` and `staff_create_order_api`), except the table is
+   optional (blank = takeaway/phone order) and there's no rate limit, since
+   the caller is authenticated staff rather than an anonymous scan.
 
 ## 3. Roles & Permissions
 
@@ -330,7 +360,12 @@ organic search traffic and get linked/shared:
 
 - **Guides** (`/guides/...`) - static how-to/cost-comparison articles.
 - **Blog** (`/blog/...`) - DB-backed (`blog.Post`), written either through
-  Django admin or the in-app editor at `/blog/manage/`.
+  Django admin or the in-app editor at `/blog/manage/`. A pre-written queue
+  of marketing/ROI-angled posts (`blog/content/marketing_posts.py`) publishes
+  automatically, one per day, via a GitHub Actions cron
+  (`.github/workflows/daily-blog-post.yml`) that SSHes into production and
+  runs `manage.py publish_next_marketing_post` — idempotent, no-ops once the
+  queue is exhausted.
 - **Free tools** - `/free-qr-code-generator/`, `/tools/printing-cost-calculator/`,
   `/tools/staff-efficiency-calculator/` - no login required, meant to earn
   backlinks/traffic and funnel into signup.
@@ -361,6 +396,39 @@ subdomain URL for the same menu.
 Requires a wildcard DNS record (`*.getmenuhub.com`) and, on Railway, a plan
 that allows more than one custom domain - not yet enabled on the current
 plan, so this feature is code-complete but not yet reachable in production.
+
+### 5.9 Dashboard UX & feature marketing pages
+
+- **Table/sunbed QR cards**: `RestaurantTable.generate_qr_code()` composites
+  the raw QR code onto a printable card with the restaurant's name and the
+  table/sunbed label rendered on it (`restaurants/models.py::_build_table_qr_card`,
+  Pillow-based, auto-shrinks the name's font to fit), so a printed stack of
+  codes never gets mixed up. Reused for the restaurant's main QR too.
+- **PDF menu export** (`restaurants/menu_pdf.py`, ReportLab): generated and
+  streamed on request, never stored — no storage growth. Embeds DejaVu Sans
+  for full Greek/Latin glyph coverage (base-14 PDF fonts don't cover Greek).
+- **Dedicated feature pages** (`/features/<slug>/`,
+  `menu_platform/feature_pages.py` + `feature_detail` view) — one per major
+  capability (loyalty, table ordering, promo codes, analytics, staff
+  management, multi-language menu), each with its own meta tags and a
+  benefit-first pitch, linked from the homepage feature grid and included in
+  `sitemap.xml` — built so a feature can be linked directly from an ad
+  instead of always dropping traffic on the generic homepage.
+- **Homepage feature grid** is grouped by customer value, not by database
+  table: **Get Found** (QR code, mobile, multi-language) → **Capture the
+  Order** (categories, dietary labels, table ordering) → **Bring Them Back**
+  (loyalty, promo codes) → **Run the Floor** (dashboard, staff) → **Know
+  Your Numbers** (analytics) — `templates/home.html`.
+- **Empty states** across every list page (products, categories, orders,
+  staff, promo codes, loyalty, tables, statistics) show an icon and a
+  next-action line instead of plain "No X yet" text.
+- **Settings** (`/restaurant/settings/`) is split into tabs (General,
+  Branding, Contact, Ordering & Loyalty) as the form has grown; a validation
+  error in a non-default tab auto-switches to that tab on reload so it's
+  never hidden.
+- **Statistics chart** (`stats_dashboard.html`) uses a gradient area fill
+  under the revenue trend line with an emphasized final data point, rather
+  than a bare line.
 
 ## 6. Tech Stack
 
@@ -423,13 +491,18 @@ like Stripe's.
 
 Production runs on [Railway](https://railway.com) (project **GetMenuHub**,
 service `Digital-QR-Platform-Global`), auto-deploying on every push to
-`main`. `railway status`/`railway logs`/`railway ssh` (CLI, run from
-`menu-platform/`) are the fastest way to check deploy state or run a
-one-off management command against the production database - `railway ssh`
-in particular runs the command **inside** the deployed container, which is
-required for anything touching Postgres since `DATABASE_URL` uses Railway's
-internal hostname (unreachable from outside their network, so plain
-`railway run` - which only injects env vars locally - can't reach it).
+`main`. A genuinely separate staging service (`digital-qr-platform-staging`,
+its own Postgres, its own media volume, `staging` branch → auto-deploy) is
+reachable at `uat-staging.getmenuhub.com` - the standard workflow is: commit
+to `staging`, verify live on uat-staging, then fast-forward merge `staging`
+into `main`. `railway status`/`railway logs`/`railway ssh` (CLI, run from
+`menu-platform/`, pick the service+environment with `railway link` first)
+are the fastest way to check deploy state or run a one-off management
+command against a database - `railway ssh` in particular runs the command
+**inside** the deployed container, which is required for anything touching
+Postgres since `DATABASE_URL` uses Railway's internal hostname (unreachable
+from outside their network, so plain `railway run` - which only injects env
+vars locally - can't reach it).
 
 GitHub Actions (`.github/workflows/ci.yml`) runs `manage.py test` on every
 push/PR; `SECURE_SSL_REDIRECT` is forced `False` in CI only (it defaults
