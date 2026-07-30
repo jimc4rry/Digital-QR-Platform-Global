@@ -356,6 +356,76 @@
     }
     .lp-cta h2 { color: #fff; }
     .lp-cta p { color: rgba(255,255,255,.75); }
+
+    .lp-showcase { max-width: 900px; margin: 0 auto; }
+    .lp-showcase-frame {
+        border-radius: 16px;
+        overflow: hidden;
+        border: 1px solid var(--lp-border);
+        box-shadow: 0 30px 70px -30px rgba(15,23,42,.4), 0 0 0 1px rgba(99,102,241,.08);
+        background: var(--lp-surface);
+    }
+    .lp-showcase-chrome {
+        display: flex;
+        gap: 7px;
+        align-items: center;
+        padding: 12px 16px;
+        background: var(--lp-bg-soft);
+        border-bottom: 1px solid var(--lp-border);
+    }
+    .lp-showcase-chrome span {
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+        background: var(--lp-border);
+        display: inline-block;
+    }
+    .lp-showcase-slides {
+        position: relative;
+        height: 460px;
+        background: #0b0b14;
+    }
+    .lp-showcase-slide {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        transition: opacity .6s ease;
+        pointer-events: none;
+    }
+    .lp-showcase-slide.active { opacity: 1; pointer-events: auto; }
+    .lp-showcase-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top center;
+        display: block;
+    }
+    .lp-showcase-caption {
+        text-align: center;
+        margin: 22px 0 14px;
+        font-weight: 600;
+        color: var(--lp-text);
+        min-height: 1.5em;
+    }
+    .lp-showcase-dots {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+    }
+    .lp-showcase-dots button {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        border: none;
+        padding: 0;
+        background: var(--lp-border);
+        cursor: pointer;
+        transition: background-color .2s, width .2s;
+    }
+    .lp-showcase-dots button.active { background: var(--lp-primary); width: 22px; border-radius: 4px; }
+    @media (max-width: 767px) {
+        .lp-showcase-slides { height: 260px; }
+    }
 </style>
 {% endblock %}
 
@@ -434,6 +504,43 @@
                         <p class="text-muted-lp mb-0 small">{% trans "The same QR code that shows your menu also captures the order, remembers the customer, and brings them back - automatically, without a marketing team." %}</p>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Real product showcase -->
+    <section class="lp-section">
+        <div class="container">
+            <div class="lp-section-head mh-reveal">
+                <h2>{% trans "Real screens. Real data. No mockups." %}</h2>
+                <p>{% trans "Every screenshot below is the actual product, captured live from a real account." %}</p>
+            </div>
+            <div class="lp-showcase mh-reveal">
+                <div class="lp-showcase-frame">
+                    <div class="lp-showcase-chrome"><span></span><span></span><span></span></div>
+                    <div class="lp-showcase-slides" id="lp-showcase-slides">
+                        <div class="lp-showcase-slide active" data-caption="{% trans 'Your dashboard, the moment you log in' %}">
+                            <img src="{% static 'images/showcase/carousel-dashboard.png' %}" alt="{% trans 'Owner dashboard' %}" loading="lazy">
+                        </div>
+                        <div class="lp-showcase-slide" data-caption="{% trans 'Search, filter, and bulk-edit your whole menu' %}">
+                            <img src="{% static 'images/showcase/carousel-products.png' %}" alt="{% trans 'Products page' %}" loading="lazy">
+                        </div>
+                        <div class="lp-showcase-slide" data-caption="{% trans 'Revenue and your best sellers, always current' %}">
+                            <img src="{% static 'images/showcase/carousel-statistics.png' %}" alt="{% trans 'Sales statistics' %}" loading="lazy">
+                        </div>
+                        <div class="lp-showcase-slide" data-caption="{% trans 'Every regular, ranked automatically' %}">
+                            <img src="{% static 'images/showcase/carousel-loyalty.png' %}" alt="{% trans 'Customer loyalty ranking' %}" loading="lazy">
+                        </div>
+                        <div class="lp-showcase-slide" data-caption="{% trans 'Take an order yourself, in seconds' %}">
+                            <img src="{% static 'images/showcase/carousel-neworder.png' %}" alt="{% trans 'Staff order creation' %}" loading="lazy">
+                        </div>
+                        <div class="lp-showcase-slide" data-caption="{% trans 'A storefront that is actually yours' %}">
+                            <img src="{% static 'images/showcase/carousel-publicmenu.png' %}" alt="{% trans 'Public menu storefront' %}" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+                <p class="lp-showcase-caption" id="lp-showcase-caption">{% trans "Your dashboard, the moment you log in" %}</p>
+                <div class="lp-showcase-dots" id="lp-showcase-dots"></div>
             </div>
         </div>
     </section>
@@ -860,4 +967,59 @@
     </section>
 
 </div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+(function () {
+    const slidesWrap = document.getElementById('lp-showcase-slides');
+    if (!slidesWrap) return;
+    const slides = Array.from(slidesWrap.querySelectorAll('.lp-showcase-slide'));
+    const dotsWrap = document.getElementById('lp-showcase-dots');
+    const captionEl = document.getElementById('lp-showcase-caption');
+    if (!slides.length || !dotsWrap || !captionEl) return;
+
+    slides.forEach((slide, i) => {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.setAttribute('aria-label', 'Slide ' + (i + 1));
+        if (i === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => goTo(i));
+        dotsWrap.appendChild(dot);
+    });
+    const dots = Array.from(dotsWrap.children);
+
+    let current = 0;
+    let timer = null;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function goTo(index) {
+        slides[current].classList.remove('active');
+        dots[current].classList.remove('active');
+        current = index;
+        slides[current].classList.add('active');
+        dots[current].classList.add('active');
+        captionEl.textContent = slides[current].dataset.caption;
+    }
+
+    function next() {
+        goTo((current + 1) % slides.length);
+    }
+
+    function start() {
+        if (prefersReducedMotion || timer) return;
+        timer = setInterval(next, 3500);
+    }
+
+    function stop() {
+        clearInterval(timer);
+        timer = null;
+    }
+
+    const showcase = slidesWrap.closest('.lp-showcase');
+    showcase.addEventListener('mouseenter', stop);
+    showcase.addEventListener('mouseleave', start);
+    start();
+})();
+</script>
 {% endblock %}

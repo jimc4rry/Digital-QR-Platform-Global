@@ -4528,3 +4528,47 @@ msgstr "Η πλατφόρμα ανάπτυξης που ξεκινά από το
 msgid "A complete system for managing your menu, orders, staff and customers - grouped below by what it actually does for you, not by menu item."
 msgstr "Ένα ολοκληρωμένο σύστημα διαχείρισης του μενού, των παραγγελιών, του προσωπικού και των πελατών σας - ομαδοποιημένο παρακάτω ανάλογα με το τι κάνει πραγματικά για εσάς."
 
+
+# New strings - homepage real-screenshot carousel
+msgid "Real screens. Real data. No mockups."
+msgstr "Πραγματικές οθόνες. Πραγματικά δεδομένα. Όχι μακέτες."
+
+msgid "Every screenshot below is the actual product, captured live from a real account."
+msgstr "Κάθε στιγμιότυπο παρακάτω είναι το ίδιο το προϊόν, τραβηγμένο ζωντανά από έναν πραγματικό λογαριασμό."
+
+msgid "Your dashboard, the moment you log in"
+msgstr "Ο πίνακας ελέγχου σας, τη στιγμή που συνδέεστε"
+
+msgid "Owner dashboard"
+msgstr "Πίνακας ελέγχου ιδιοκτήτη"
+
+msgid "Search, filter, and bulk-edit your whole menu"
+msgstr "Αναζητήστε, φιλτράρετε και επεξεργαστείτε μαζικά ολόκληρο το μενού σας"
+
+msgid "Products page"
+msgstr "Σελίδα προϊόντων"
+
+msgid "Revenue and your best sellers, always current"
+msgstr "Έσοδα και τα προϊόντα με τις καλύτερες πωλήσεις, πάντα ενημερωμένα"
+
+msgid "Sales statistics"
+msgstr "Στατιστικά πωλήσεων"
+
+msgid "Every regular, ranked automatically"
+msgstr "Κάθε τακτικός πελάτης, κατατεταγμένος αυτόματα"
+
+msgid "Customer loyalty ranking"
+msgstr "Κατάταξη πιστότητας πελατών"
+
+msgid "Take an order yourself, in seconds"
+msgstr "Καταχωρήστε μια παραγγελία μόνοι σας, σε δευτερόλεπτα"
+
+msgid "Staff order creation"
+msgstr "Δημιουργία παραγγελίας από προσωπικό"
+
+msgid "A storefront that is actually yours"
+msgstr "Μια βιτρίνα που είναι πραγματικά δική σας"
+
+msgid "Public menu storefront"
+msgstr "Δημόσια βιτρίνα μενού"
+

@@ -4498,3 +4498,47 @@ msgstr "La plataforma de crecimiento que empieza en tu código QR"
 msgid "A complete system for managing your menu, orders, staff and customers - grouped below by what it actually does for you, not by menu item."
 msgstr "Un sistema completo para gestionar tu menú, pedidos, personal y clientes - agrupado abajo según lo que realmente hace por ti."
 
+
+# New strings - homepage real-screenshot carousel
+msgid "Real screens. Real data. No mockups."
+msgstr "Pantallas reales. Datos reales. Sin maquetas."
+
+msgid "Every screenshot below is the actual product, captured live from a real account."
+msgstr "Cada captura a continuación es el producto real, tomada en vivo desde una cuenta real."
+
+msgid "Your dashboard, the moment you log in"
+msgstr "Tu panel, en el momento en que inicias sesión"
+
+msgid "Owner dashboard"
+msgstr "Panel del propietario"
+
+msgid "Search, filter, and bulk-edit your whole menu"
+msgstr "Busca, filtra y edita en lote todo tu menú"
+
+msgid "Products page"
+msgstr "Página de productos"
+
+msgid "Revenue and your best sellers, always current"
+msgstr "Ingresos y tus productos más vendidos, siempre actualizados"
+
+msgid "Sales statistics"
+msgstr "Estadísticas de ventas"
+
+msgid "Every regular, ranked automatically"
+msgstr "Cada cliente habitual, clasificado automáticamente"
+
+msgid "Customer loyalty ranking"
+msgstr "Clasificación de fidelidad de clientes"
+
+msgid "Take an order yourself, in seconds"
+msgstr "Toma un pedido tú mismo, en segundos"
+
+msgid "Staff order creation"
+msgstr "Creación de pedidos por el personal"
+
+msgid "A storefront that is actually yours"
+msgstr "Un escaparate que realmente es tuyo"
+
+msgid "Public menu storefront"
+msgstr "Escaparate del menú público"
+
