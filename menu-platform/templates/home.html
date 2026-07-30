@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 {% load static i18n %}
 
-{% block title %}{% blocktrans %}GetMenuHub - QR Menu & Table Ordering, Less Staff Needed{% endblocktrans %}{% endblock %}
-{% block meta_description %}{% blocktrans %}The staffing shortage solution for restaurants: customers scan and order themselves from the table, so your team runs service with fewer hands. Zero printing costs. From $7/month.{% endblocktrans %}{% endblock %}
-{% block og_title %}{% blocktrans %}GetMenuHub - QR Menu & Table Ordering, Less Staff Needed{% endblocktrans %}{% endblock %}
-{% block og_description %}{% blocktrans %}Customers scan and order themselves from the table, so your team runs service with fewer hands. Zero printing costs, instant price updates.{% endblocktrans %}{% endblock %}
+{% block title %}{% blocktrans %}GetMenuHub - Digital Menu, Ordering & Loyalty for Restaurants{% endblocktrans %}{% endblock %}
+{% block meta_description %}{% blocktrans %}Turn every QR code scan into a regular. Digital menu, table ordering, loyalty and staff tools in one dashboard - zero commission, live in 5 minutes.{% endblocktrans %}{% endblock %}
+{% block og_title %}{% blocktrans %}GetMenuHub - Turn Every Scan Into a Regular{% endblocktrans %}{% endblock %}
+{% block og_description %}{% blocktrans %}Digital menu, table ordering, loyalty and staff tools in one dashboard - zero commission, live in 5 minutes.{% endblocktrans %}{% endblock %}
 
 {% block structured_data %}
 <script type="application/ld+json">
@@ -236,6 +236,8 @@
     .lp-section-soft { background: var(--lp-bg-soft); }
     .lp-section-head { max-width: 640px; margin: 0 auto 48px; text-align: center; }
     .lp-section-head p { color: var(--lp-muted); }
+    .lp-group-head { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 20px; }
+    .lp-group-head .lp-eyebrow { margin-bottom: 0; }
 
     .lp-card {
         border: 1px solid var(--lp-border);
@@ -370,13 +372,13 @@
                     {% else %}
                         <span class="lp-eyebrow"><i class="bi bi-qr-code"></i> {% trans "Digital menu with QR code" %}</span>
                     {% endif %}
-                    <h1>{% trans "Menu, orders, loyalty and staff —" %} <br class="d-none d-lg-block"><span class="lp-gradient-text">{% trans "all from one QR code." %}</span></h1>
+                    <h1>{% trans "Turn every scan into" %} <span class="lp-gradient-text">{% trans "a regular." %}</span></h1>
                     <p class="lead mt-3">
-                        {% blocktrans trimmed %}Create your digital menu in minutes, then grow with it: table-side ordering, a loyalty program that brings customers back, promo codes for slow nights, and staff tools — all in one dashboard. No printing, no reprinting, ever.{% endblocktrans %}
+                        {% blocktrans trimmed %}GetMenuHub is the growth platform that starts at your QR code: menu, table ordering, loyalty and staff tools in one dashboard, live in 5 minutes — with zero commission on every order.{% endblocktrans %}
                     </p>
                     <div class="d-flex flex-wrap gap-3 mt-4">
                         <a href="{% url 'signup' %}" class="btn btn-lp-primary btn-lg">{% trans "Create your free account" %}</a>
-                        <a href="#pricing" class="btn btn-lp-outline btn-lg">{% trans "See the plans" %}</a>
+                        <a href="{% url 'qr_menu_examples' %}" class="btn btn-lp-outline btn-lg">{% trans "See a real menu" %}</a>
                     </div>
                     <div class="d-flex flex-wrap gap-4 mt-4 text-muted-lp small">
                         <span><i class="bi bi-check2-circle text-primary"></i> {% trans "No printing" %}</span>
@@ -411,6 +413,25 @@
                                 <span class="badge bg-success">{% trans "Accepts orders" %}</span>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The problem GetMenuHub owns -->
+    <section class="lp-section">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-7 mh-reveal">
+                    <h2>{% trans "Every restaurant remembers its menu." %} <span class="lp-gradient-text">{% trans "Almost none remember its customers." %}</span></h2>
+                    <p class="text-muted-lp">{% blocktrans trimmed %}A regular who ate here Tuesday and could eat here again Friday looks, to most restaurants, exactly like a stranger - because nothing in the building is keeping score. That's not a marketing gap. It's the most expensive thing an independent restaurant fails to do.{% endblocktrans %}</p>
+                </div>
+                <div class="col-lg-5 mh-reveal">
+                    <div class="lp-card">
+                        <div class="lp-icon-circle"><i class="bi bi-arrow-repeat"></i></div>
+                        <h3 class="h6">{% trans "GetMenuHub closes that loop" %}</h3>
+                        <p class="text-muted-lp mb-0 small">{% trans "The same QR code that shows your menu also captures the order, remembers the customer, and brings them back - automatically, without a marketing team." %}</p>
                     </div>
                 </div>
             </div>
@@ -511,14 +532,19 @@
         </div>
     </section>
 
-    <!-- Features -->
+    <!-- Features, organized by what they do for the business - not by database table -->
     <section class="lp-section">
         <div class="container">
             <div class="lp-section-head mh-reveal">
-                <h2>{% trans "Everything your menu needs" %}</h2>
-                <p>{% trans "Tools designed specifically for restaurants, cafes and bars." %}</p>
+                <h2>{% trans "One QR code. Five ways it grows your restaurant." %}</h2>
+                <p>{% trans "Every tool below starts at the same scan - grouped by what it actually does for you, not by menu item." %}</p>
             </div>
-            <div class="row g-4">
+
+            <div class="lp-group-head mh-reveal">
+                <span class="lp-eyebrow"><i class="bi bi-signpost-2"></i> {% trans "Get Found" %}</span>
+                <p class="text-muted-lp small mb-0">{% trans "Look as good online as your food tastes." %}</p>
+            </div>
+            <div class="row g-4 mb-5">
                 <div class="col-md-6 col-lg-4">
                     <div class="lp-card mh-reveal">
                         <div class="lp-icon-circle"><i class="bi bi-qr-code-scan"></i></div>
@@ -528,72 +554,100 @@
                 </div>
                 <div class="col-md-6 col-lg-4">
                     <div class="lp-card mh-reveal" style="transition-delay:.06s">
-                        <div class="lp-icon-circle"><i class="bi bi-grid-3x3-gap"></i></div>
-                        <h3 class="h6">{% trans "Organized into categories" %}</h3>
-                        <p class="text-muted-lp mb-0 small">{% trans "Split your menu into categories (appetizers, mains, drinks) in the display order you want." %}</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="lp-card mh-reveal" style="transition-delay:.12s">
-                        <div class="lp-icon-circle"><i class="bi bi-flower1"></i></div>
-                        <h3 class="h6">{% trans "Dietary labels" %}</h3>
-                        <p class="text-muted-lp mb-0 small">{% trans "Mark dishes as vegan, vegetarian, gluten-free or spicy, so customers can choose easily." %}</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <a href="{% url 'feature_detail' 'table-ordering' %}" class="lp-card mh-reveal text-decoration-none text-reset d-block" style="transition-delay:.18s">
-                        <div class="lp-icon-circle"><i class="bi bi-bag-check"></i></div>
-                        <h3 class="h6">{% trans "Orders from the table" %}</h3>
-                        <p class="text-muted-lp mb-0 small">{% trans "With the Pro or Business plan, customers send their order directly from their phone." %}</p>
-                    </a>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="lp-card mh-reveal" style="transition-delay:.24s">
-                        <div class="lp-icon-circle"><i class="bi bi-speedometer2"></i></div>
-                        <h3 class="h6">{% trans "Management Dashboard" %}</h3>
-                        <p class="text-muted-lp mb-0 small">{% trans "See orders, update their status and keep track of your products all in one place." %}</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="lp-card mh-reveal" style="transition-delay:.3s">
                         <div class="lp-icon-circle"><i class="bi bi-phone"></i></div>
                         <h3 class="h6">{% trans "Mobile friendly" %}</h3>
                         <p class="text-muted-lp mb-0 small">{% trans "The menu opens instantly in any phone's browser, with no app installation." %}</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
-                    <a href="{% url 'feature_detail' 'loyalty-program' %}" class="lp-card mh-reveal text-decoration-none text-reset d-block" style="transition-delay:.36s">
+                    <a href="{% url 'feature_detail' 'multi-language-menu' %}" class="lp-card mh-reveal text-decoration-none text-reset d-block" style="transition-delay:.12s">
+                        <div class="lp-icon-circle"><i class="bi bi-translate"></i></div>
+                        <h3 class="h6">{% trans "Multi-language menu" %}</h3>
+                        <p class="text-muted-lp mb-0 small">{% trans "Serve tourists and locals alike - your menu adapts to the visitor's language automatically." %}</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="lp-group-head mh-reveal">
+                <span class="lp-eyebrow"><i class="bi bi-bag-check"></i> {% trans "Capture the Order" %}</span>
+                <p class="text-muted-lp small mb-0">{% trans "Never miss or mishandle an order." %}</p>
+            </div>
+            <div class="row g-4 mb-5">
+                <div class="col-md-6 col-lg-4">
+                    <div class="lp-card mh-reveal">
+                        <div class="lp-icon-circle"><i class="bi bi-grid-3x3-gap"></i></div>
+                        <h3 class="h6">{% trans "Organized into categories" %}</h3>
+                        <p class="text-muted-lp mb-0 small">{% trans "Split your menu into categories (appetizers, mains, drinks) in the display order you want." %}</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="lp-card mh-reveal" style="transition-delay:.06s">
+                        <div class="lp-icon-circle"><i class="bi bi-flower1"></i></div>
+                        <h3 class="h6">{% trans "Dietary labels" %}</h3>
+                        <p class="text-muted-lp mb-0 small">{% trans "Mark dishes as vegan, vegetarian, gluten-free or spicy, so customers can choose easily." %}</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a href="{% url 'feature_detail' 'table-ordering' %}" class="lp-card mh-reveal text-decoration-none text-reset d-block" style="transition-delay:.12s">
+                        <div class="lp-icon-circle"><i class="bi bi-bag-check"></i></div>
+                        <h3 class="h6">{% trans "Orders from the table" %}</h3>
+                        <p class="text-muted-lp mb-0 small">{% trans "With the Pro or Business plan, customers send their order directly from their phone, zero commission." %}</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="lp-group-head mh-reveal">
+                <span class="lp-eyebrow"><i class="bi bi-arrow-repeat"></i> {% trans "Bring Them Back" %}</span>
+                <p class="text-muted-lp small mb-0">{% trans "Turn a visit into a habit." %}</p>
+            </div>
+            <div class="row g-4 mb-5">
+                <div class="col-md-6 col-lg-6">
+                    <a href="{% url 'feature_detail' 'loyalty-program' %}" class="lp-card mh-reveal text-decoration-none text-reset d-block">
                         <div class="lp-icon-circle"><i class="bi bi-star"></i></div>
                         <h3 class="h6">{% trans "Loyalty program" %}</h3>
                         <p class="text-muted-lp mb-0 small">{% trans "Turn one-time visitors into regulars, automatically - no app for them to download." %}</p>
                     </a>
                 </div>
-                <div class="col-md-6 col-lg-4">
-                    <a href="{% url 'feature_detail' 'promo-codes' %}" class="lp-card mh-reveal text-decoration-none text-reset d-block" style="transition-delay:.42s">
+                <div class="col-md-6 col-lg-6">
+                    <a href="{% url 'feature_detail' 'promo-codes' %}" class="lp-card mh-reveal text-decoration-none text-reset d-block" style="transition-delay:.06s">
                         <div class="lp-icon-circle"><i class="bi bi-tag"></i></div>
                         <h3 class="h6">{% trans "Promo codes" %}</h3>
                         <p class="text-muted-lp mb-0 small">{% trans "Fill a slow night without discounting every night - send a code only when you need it." %}</p>
                     </a>
                 </div>
-                <div class="col-md-6 col-lg-4">
-                    <a href="{% url 'feature_detail' 'analytics' %}" class="lp-card mh-reveal text-decoration-none text-reset d-block" style="transition-delay:.48s">
-                        <div class="lp-icon-circle"><i class="bi bi-graph-up"></i></div>
-                        <h3 class="h6">{% trans "Sales analytics" %}</h3>
-                        <p class="text-muted-lp mb-0 small">{% trans "Know your best - and worst - selling dish before you run out, or over-order." %}</p>
-                    </a>
+            </div>
+
+            <div class="lp-group-head mh-reveal">
+                <span class="lp-eyebrow"><i class="bi bi-people"></i> {% trans "Run the Floor" %}</span>
+                <p class="text-muted-lp small mb-0">{% trans "Manage service without more hires." %}</p>
+            </div>
+            <div class="row g-4 mb-5">
+                <div class="col-md-6 col-lg-6">
+                    <div class="lp-card mh-reveal">
+                        <div class="lp-icon-circle"><i class="bi bi-speedometer2"></i></div>
+                        <h3 class="h6">{% trans "Management Dashboard" %}</h3>
+                        <p class="text-muted-lp mb-0 small">{% trans "See orders, update their status and keep track of your products all in one place." %}</p>
+                    </div>
                 </div>
-                <div class="col-md-6 col-lg-4">
-                    <a href="{% url 'feature_detail' 'staff-management' %}" class="lp-card mh-reveal text-decoration-none text-reset d-block" style="transition-delay:.54s">
+                <div class="col-md-6 col-lg-6">
+                    <a href="{% url 'feature_detail' 'staff-management' %}" class="lp-card mh-reveal text-decoration-none text-reset d-block" style="transition-delay:.06s">
                         <div class="lp-icon-circle"><i class="bi bi-people"></i></div>
                         <h3 class="h6">{% trans "Staff management" %}</h3>
                         <p class="text-muted-lp mb-0 small">{% trans "See what your team's doing, with role-based access, without standing over their shoulder." %}</p>
                     </a>
                 </div>
-                <div class="col-md-6 col-lg-4">
-                    <a href="{% url 'feature_detail' 'multi-language-menu' %}" class="lp-card mh-reveal text-decoration-none text-reset d-block" style="transition-delay:.6s">
-                        <div class="lp-icon-circle"><i class="bi bi-translate"></i></div>
-                        <h3 class="h6">{% trans "Multi-language menu" %}</h3>
-                        <p class="text-muted-lp mb-0 small">{% trans "Serve tourists and locals alike - your menu adapts to the visitor's language automatically." %}</p>
+            </div>
+
+            <div class="lp-group-head mh-reveal">
+                <span class="lp-eyebrow"><i class="bi bi-graph-up"></i> {% trans "Know Your Numbers" %}</span>
+                <p class="text-muted-lp small mb-0">{% trans "Decide on data, not gut feel." %}</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-6">
+                    <a href="{% url 'feature_detail' 'analytics' %}" class="lp-card mh-reveal text-decoration-none text-reset d-block">
+                        <div class="lp-icon-circle"><i class="bi bi-graph-up"></i></div>
+                        <h3 class="h6">{% trans "Sales analytics" %}</h3>
+                        <p class="text-muted-lp mb-0 small">{% trans "Know your best - and worst - selling dish before you run out, or over-order." %}</p>
                     </a>
                 </div>
             </div>
@@ -605,7 +659,7 @@
     <section class="lp-section lp-section-soft" id="pricing">
         <div class="container">
             <div class="lp-section-head mh-reveal">
-                <h2>{% trans "Simple pricing" %}</h2>
+                <h2>{% trans "Simple pricing. No commission, ever." %}</h2>
                 <p>{% trans "Start with Basic or go Pro/Business for orders, loyalty and statistics." %}</p>
             </div>
             {% with current_plan=active_restaurant.user.subscription_plan %}
@@ -792,7 +846,7 @@
     <section class="lp-section">
         <div class="container">
             <div class="lp-cta mh-reveal">
-                <h2>{% trans "Ready to run a better shift?" %}</h2>
+                <h2>{% trans "Ready to turn scans into regulars?" %}</h2>
                 <p class="mb-4">
                     {% if beta_mode %}
                         {% trans "Create your free account and get your menu's QR code today — every feature is unlocked free during beta." %}

@@ -4431,3 +4431,92 @@ msgid_plural "%(count)d products deleted."
 msgstr[0] "%(count)d produit supprimé."
 msgstr[1] "%(count)d produits supprimés."
 
+
+# New strings - GetMenuHub repositioning pass (homepage hero/problem/features/pricing/footer)
+msgid "GetMenuHub - Digital Menu, Ordering & Loyalty for Restaurants"
+msgstr "GetMenuHub - Menu Numérique, Commandes et Fidélité pour Restaurants"
+
+msgid "Turn every QR code scan into a regular. Digital menu, table ordering, loyalty and staff tools in one dashboard - zero commission, live in 5 minutes."
+msgstr "Transformez chaque scan de votre QR code en habitué. Menu numérique, commandes à table, fidélité et outils pour le personnel dans un seul tableau de bord - zéro commission, prêt en 5 minutes."
+
+msgid "GetMenuHub - Turn Every Scan Into a Regular"
+msgstr "GetMenuHub - Transformez Chaque Scan en Habitué"
+
+msgid "Digital menu, table ordering, loyalty and staff tools in one dashboard - zero commission, live in 5 minutes."
+msgstr "Menu numérique, commandes à table, fidélité et outils pour le personnel dans un seul tableau de bord - zéro commission, prêt en 5 minutes."
+
+msgid "Turn every scan into"
+msgstr "Transformez chaque scan en"
+
+msgid "a regular."
+msgstr "un habitué."
+
+msgid "GetMenuHub is the growth platform that starts at your QR code: menu, table ordering, loyalty and staff tools in one dashboard, live in 5 minutes — with zero commission on every order."
+msgstr "GetMenuHub est la plateforme de croissance qui commence à votre QR code : menu, commandes à table, fidélité et outils pour le personnel dans un seul tableau de bord, prêt en 5 minutes — avec zéro commission sur chaque commande."
+
+msgid "See a real menu"
+msgstr "Voir un vrai menu"
+
+msgid "Every restaurant remembers its menu."
+msgstr "Chaque restaurant se souvient de son menu."
+
+msgid "Almost none remember its customers."
+msgstr "Presque aucun ne se souvient de ses clients."
+
+msgid "A regular who ate here Tuesday and could eat here again Friday looks, to most restaurants, exactly like a stranger - because nothing in the building is keeping score. That's not a marketing gap. It's the most expensive thing an independent restaurant fails to do."
+msgstr "Un habitué qui a mangé ici mardi et pourrait revenir vendredi ressemble, pour la plupart des restaurants, exactement à un inconnu - parce que rien dans l'établissement ne garde la trace. Ce n'est pas un manque de marketing. C'est la chose la plus coûteuse qu'un restaurant indépendant ne fait pas."
+
+msgid "GetMenuHub closes that loop"
+msgstr "GetMenuHub referme cette boucle"
+
+msgid "The same QR code that shows your menu also captures the order, remembers the customer, and brings them back - automatically, without a marketing team."
+msgstr "Le même QR code qui affiche votre menu capture aussi la commande, se souvient du client, et le fait revenir - automatiquement, sans équipe marketing."
+
+msgid "One QR code. Five ways it grows your restaurant."
+msgstr "Un QR code. Cinq façons de faire grandir votre restaurant."
+
+msgid "Every tool below starts at the same scan - grouped by what it actually does for you, not by menu item."
+msgstr "Chaque outil ci-dessous part du même scan - regroupé selon ce qu'il fait réellement pour vous, pas par élément de menu."
+
+msgid "Get Found"
+msgstr "Soyez Visible"
+
+msgid "Look as good online as your food tastes."
+msgstr "Soyez aussi convaincant en ligne que votre cuisine l'est en bouche."
+
+msgid "Capture the Order"
+msgstr "Capturez la Commande"
+
+msgid "Never miss or mishandle an order."
+msgstr "Ne manquez ni ne gérez jamais mal une commande."
+
+msgid "With the Pro or Business plan, customers send their order directly from their phone, zero commission."
+msgstr "Avec le forfait Pro ou Business, les clients envoient leur commande directement depuis leur téléphone, sans commission."
+
+msgid "Bring Them Back"
+msgstr "Faites-les Revenir"
+
+msgid "Turn a visit into a habit."
+msgstr "Transformez une visite en habitude."
+
+msgid "Run the Floor"
+msgstr "Gérez la Salle"
+
+msgid "Manage service without more hires."
+msgstr "Gérez le service sans embaucher davantage."
+
+msgid "Know Your Numbers"
+msgstr "Connaissez vos Chiffres"
+
+msgid "Decide on data, not gut feel."
+msgstr "Décidez avec des données, pas à l'instinct."
+
+msgid "Simple pricing. No commission, ever."
+msgstr "Tarification simple. Aucune commission, jamais."
+
+msgid "Ready to turn scans into regulars?"
+msgstr "Prêt à transformer les scans en habitués ?"
+
+msgid "The growth platform that starts at your QR code"
+msgstr "La plateforme de croissance qui commence à votre QR code"
+

@@ -4434,3 +4434,92 @@ msgid_plural "%(count)d products deleted."
 msgstr[0] "Το %(count)d προϊόν διαγράφηκε."
 msgstr[1] "Τα %(count)d προϊόντα διαγράφηκαν."
 
+
+# New strings - GetMenuHub repositioning pass (homepage hero/problem/features/pricing/footer)
+msgid "GetMenuHub - Digital Menu, Ordering & Loyalty for Restaurants"
+msgstr "GetMenuHub - Ψηφιακό Μενού, Παραγγελίες & Loyalty για Εστιατόρια"
+
+msgid "Turn every QR code scan into a regular. Digital menu, table ordering, loyalty and staff tools in one dashboard - zero commission, live in 5 minutes."
+msgstr "Μετατρέψτε κάθε σάρωση QR σε σταθερό πελάτη. Ψηφιακό μενού, παραγγελίες από το τραπέζι, loyalty και εργαλεία προσωπικού σε ένα dashboard - μηδενική προμήθεια, έτοιμο σε 5 λεπτά."
+
+msgid "GetMenuHub - Turn Every Scan Into a Regular"
+msgstr "GetMenuHub - Μετατρέψτε Κάθε Σάρωση σε Σταθερό Πελάτη"
+
+msgid "Digital menu, table ordering, loyalty and staff tools in one dashboard - zero commission, live in 5 minutes."
+msgstr "Ψηφιακό μενού, παραγγελίες από το τραπέζι, loyalty και εργαλεία προσωπικού σε ένα dashboard - μηδενική προμήθεια, έτοιμο σε 5 λεπτά."
+
+msgid "Turn every scan into"
+msgstr "Μετατρέψτε κάθε σάρωση σε"
+
+msgid "a regular."
+msgstr "σταθερό πελάτη."
+
+msgid "GetMenuHub is the growth platform that starts at your QR code: menu, table ordering, loyalty and staff tools in one dashboard, live in 5 minutes — with zero commission on every order."
+msgstr "Το GetMenuHub είναι η πλατφόρμα ανάπτυξης που ξεκινά από τον κωδικό QR σας: μενού, παραγγελίες από το τραπέζι, loyalty και εργαλεία προσωπικού σε ένα dashboard, έτοιμο σε 5 λεπτά — με μηδενική προμήθεια σε κάθε παραγγελία."
+
+msgid "See a real menu"
+msgstr "Δείτε ένα πραγματικό μενού"
+
+msgid "Every restaurant remembers its menu."
+msgstr "Κάθε εστιατόριο θυμάται το μενού του."
+
+msgid "Almost none remember its customers."
+msgstr "Σχεδόν κανένα δεν θυμάται τους πελάτες του."
+
+msgid "A regular who ate here Tuesday and could eat here again Friday looks, to most restaurants, exactly like a stranger - because nothing in the building is keeping score. That's not a marketing gap. It's the most expensive thing an independent restaurant fails to do."
+msgstr "Ένας σταθερός πελάτης που έφαγε εδώ την Τρίτη και θα μπορούσε να ξαναφάει την Παρασκευή, μοιάζει, για τα περισσότερα εστιατόρια, ακριβώς σαν άγνωστος - γιατί τίποτα μέσα στο κατάστημα δεν κρατάει σκορ. Αυτό δεν είναι κενό στο μάρκετινγκ. Είναι το πιο ακριβό πράγμα που αποτυγχάνει να κάνει ένα ανεξάρτητο εστιατόριο."
+
+msgid "GetMenuHub closes that loop"
+msgstr "Το GetMenuHub κλείνει αυτόν τον κύκλο"
+
+msgid "The same QR code that shows your menu also captures the order, remembers the customer, and brings them back - automatically, without a marketing team."
+msgstr "Ο ίδιος κωδικός QR που δείχνει το μενού σας καταγράφει επίσης την παραγγελία, θυμάται τον πελάτη, και τον φέρνει πίσω - αυτόματα, χωρίς ομάδα μάρκετινγκ."
+
+msgid "One QR code. Five ways it grows your restaurant."
+msgstr "Ένας κωδικός QR. Πέντε τρόποι να αναπτύξετε το εστιατόριό σας."
+
+msgid "Every tool below starts at the same scan - grouped by what it actually does for you, not by menu item."
+msgstr "Κάθε εργαλείο παρακάτω ξεκινά από την ίδια σάρωση - ομαδοποιημένο ανάλογα με το τι κάνει πραγματικά για εσάς, όχι ανά στοιχείο μενού."
+
+msgid "Get Found"
+msgstr "Γίνετε Ορατοί"
+
+msgid "Look as good online as your food tastes."
+msgstr "Δείξτε online τόσο καλά όσο είναι νόστιμο το φαγητό σας."
+
+msgid "Capture the Order"
+msgstr "Καταγράψτε την Παραγγελία"
+
+msgid "Never miss or mishandle an order."
+msgstr "Μην χάνετε ποτέ και μην κάνετε ποτέ λάθος σε μια παραγγελία."
+
+msgid "With the Pro or Business plan, customers send their order directly from their phone, zero commission."
+msgstr "Με το πλάνο Pro ή Business, οι πελάτες στέλνουν την παραγγελία τους απευθείας από το κινητό τους, με μηδενική προμήθεια."
+
+msgid "Bring Them Back"
+msgstr "Φέρτε τους Πίσω"
+
+msgid "Turn a visit into a habit."
+msgstr "Μετατρέψτε μια επίσκεψη σε συνήθεια."
+
+msgid "Run the Floor"
+msgstr "Διαχειριστείτε την Αίθουσα"
+
+msgid "Manage service without more hires."
+msgstr "Διαχειριστείτε την εξυπηρέτηση χωρίς περισσότερες προσλήψεις."
+
+msgid "Know Your Numbers"
+msgstr "Γνωρίστε τα Νούμερά σας"
+
+msgid "Decide on data, not gut feel."
+msgstr "Αποφασίστε με δεδομένα, όχι με διαίσθηση."
+
+msgid "Simple pricing. No commission, ever."
+msgstr "Απλή τιμολόγηση. Καμία προμήθεια, ποτέ."
+
+msgid "Ready to turn scans into regulars?"
+msgstr "Έτοιμοι να μετατρέψετε τις σαρώσεις σε σταθερούς πελάτες;"
+
+msgid "The growth platform that starts at your QR code"
+msgstr "Η πλατφόρμα ανάπτυξης που ξεκινά από τον κωδικό QR σας"
+
