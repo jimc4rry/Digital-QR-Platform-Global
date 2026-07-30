@@ -6,6 +6,39 @@
     <h1>{% blocktrans %}Welcome, {{ user }}!{% endblocktrans %}</h1>
     <p>{% trans "This is your restaurant's dashboard." %}</p>
 
+    {% if show_onboarding_checklist %}
+        <div class="card mb-4 border-primary-subtle">
+            <div class="card-body">
+                <h2 class="h6 mb-1">{% trans "Get your menu live" %}</h2>
+                <p class="text-muted small mb-3">{% trans "A few quick steps to go from empty dashboard to a menu customers can actually scan." %}</p>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item d-flex align-items-center bg-transparent px-0">
+                        <i class="bi {% if total_categories %}bi-check-circle-fill text-success{% else %}bi-circle text-muted{% endif %} me-2 fs-5"></i>
+                        <span class="flex-grow-1 {% if total_categories %}text-decoration-line-through text-muted{% endif %}">{% trans "Create your first category" %}</span>
+                        {% if not total_categories %}<a href="{% url 'category_list' %}" class="btn btn-sm btn-primary">{% trans "Add category" %}</a>{% endif %}
+                    </li>
+                    <li class="list-group-item d-flex align-items-center bg-transparent px-0">
+                        <i class="bi {% if total_products %}bi-check-circle-fill text-success{% else %}bi-circle text-muted{% endif %} me-2 fs-5"></i>
+                        <span class="flex-grow-1 {% if total_products %}text-decoration-line-through text-muted{% endif %}">{% trans "Add your first product" %}</span>
+                        {% if not total_products %}<a href="{% url 'product_list' %}" class="btn btn-sm btn-primary">{% trans "Add product" %}</a>{% endif %}
+                    </li>
+                    {% if can_use_pro_features %}
+                        <li class="list-group-item d-flex align-items-center bg-transparent px-0">
+                            <i class="bi {% if total_tables %}bi-check-circle-fill text-success{% else %}bi-circle text-muted{% endif %} me-2 fs-5"></i>
+                            <span class="flex-grow-1 {% if total_tables %}text-decoration-line-through text-muted{% endif %}">{% trans "Set up a table for QR ordering" %}</span>
+                            {% if not total_tables %}<a href="{% url 'table_list' %}" class="btn btn-sm btn-primary">{% trans "Add table" %}</a>{% endif %}
+                        </li>
+                    {% endif %}
+                    <li class="list-group-item d-flex align-items-center bg-transparent px-0">
+                        <i class="bi bi-circle text-muted me-2 fs-5"></i>
+                        <span class="flex-grow-1">{% trans "Preview your live menu" %}</span>
+                        <a href="{{ restaurant.get_subdomain_url }}" target="_blank" rel="noopener" class="btn btn-sm btn-outline-primary">{% trans "Preview" %}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    {% endif %}
+
     <div class="row mt-4">
         <div class="col-md-3">
             <div class="card text-center">

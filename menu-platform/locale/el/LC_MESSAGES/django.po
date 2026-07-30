@@ -4114,3 +4114,86 @@ msgstr ""
 #~ "Δημιουργήστε το ψηφιακό σας μενού σε 5 λεπτά. Αυτόματος κωδικός QR, "
 #~ "ενημερώσεις τιμών σε πραγματικό χρόνο, διατροφικές ετικέτες, παραγγελίες "
 #~ "από το τραπέζι."
+
+# New strings - product/growth audit navigation & landing page pass
+msgid "Growth"
+msgstr "Ανάπτυξη"
+
+msgid "Loyalty"
+msgstr "Loyalty"
+
+msgid "Preview"
+msgstr "Προεπισκόπηση"
+
+msgid "Free during beta — every feature, $0, no card required"
+msgstr "Δωρεάν κατά τη beta — όλες οι λειτουργίες, $0, χωρίς κάρτα"
+
+msgid "Menu, orders, loyalty and staff —"
+msgstr "Μενού, παραγγελίες, loyalty και προσωπικό —"
+
+msgid "all from one QR code."
+msgstr "όλα από έναν κωδικό QR."
+
+msgid "Create your free account"
+msgstr "Δημιουργήστε τον δωρεάν λογαριασμό σας"
+
+msgid "Ready to run a better shift?"
+msgstr "Έτοιμοι για μια καλύτερη βάρδια;"
+
+msgid "Loyalty program"
+msgstr "Πρόγραμμα Loyalty"
+
+msgid "Turn one-time visitors into regulars, automatically - no app for them to download."
+msgstr "Μετατρέψτε τους περιστασιακούς επισκέπτες σε σταθερούς πελάτες, αυτόματα - χωρίς εφαρμογή που πρέπει να κατεβάσουν."
+
+msgid "Promo codes"
+msgstr "Κωδικοί προσφοράς"
+
+msgid "Fill a slow night without discounting every night - send a code only when you need it."
+msgstr "Γεμίστε ένα βράδυ με χαμηλή κίνηση χωρίς έκπτωση κάθε βράδυ - στείλτε έναν κωδικό μόνο όταν το χρειάζεστε."
+
+msgid "Sales analytics"
+msgstr "Στατιστικά πωλήσεων"
+
+msgid "Know your best - and worst - selling dish before you run out, or over-order."
+msgstr "Μάθετε ποιο πιάτο πουλάει καλύτερα - και ποιο χειρότερα - πριν εξαντληθεί το απόθεμά σας ή παραγγείλετε παραπάνω από όσο χρειάζεται."
+
+msgid "Staff management"
+msgstr "Διαχείριση προσωπικού"
+
+msgid "See what your team's doing, with role-based access, without standing over their shoulder."
+msgstr "Δείτε τι κάνει η ομάδα σας, με πρόσβαση βάσει ρόλων, χωρίς να στέκεστε από πάνω τους."
+
+msgid "Multi-language menu"
+msgstr "Πολύγλωσσο μενού"
+
+msgid "Serve tourists and locals alike - your menu adapts to the visitor's language automatically."
+msgstr "Εξυπηρετήστε τουρίστες και ντόπιους εξίσου - το μενού σας προσαρμόζεται αυτόματα στη γλώσσα του επισκέπτη."
+
+msgid "Get your menu live"
+msgstr "Ενεργοποιήστε το μενού σας"
+
+msgid "A few quick steps to go from empty dashboard to a menu customers can actually scan."
+msgstr "Μερικά γρήγορα βήματα για να περάσετε από έναν άδειο πίνακα ελέγχου σε ένα μενού που οι πελάτες μπορούν πραγματικά να σκανάρουν."
+
+msgid "Create your first category"
+msgstr "Δημιουργήστε την πρώτη σας κατηγορία"
+
+msgid "Add category"
+msgstr "Προσθήκη κατηγορίας"
+
+msgid "Add your first product"
+msgstr "Προσθέστε το πρώτο σας προϊόν"
+
+msgid "Add product"
+msgstr "Προσθήκη προϊόντος"
+
+msgid "Set up a table for QR ordering"
+msgstr "Ρυθμίστε ένα τραπέζι για παραγγελίες μέσω QR"
+
+msgid "Add table"
+msgstr "Προσθήκη τραπεζιού"
+
+msgid "Preview your live menu"
+msgstr "Προεπισκόπηση του ενεργού μενού σας"
+

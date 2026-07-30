@@ -119,92 +119,52 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'home' %}">
-                            <i class="bi bi-house"></i> {% trans "Home" %}
-                        </a>
-                    </li>
-                    {% if not user.is_authenticated %}
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'home' %}#pricing">
-                                <i class="bi bi-tag"></i> {% trans "Pricing" %}
-                            </a>
-                        </li>
-                    {% endif %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'guides_index' %}">
-                            <i class="bi bi-book"></i> {% trans "Guides" %}
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'blog:blog_list' %}">
-                            <i class="bi bi-file-earmark-text"></i> {% trans "Blog" %}
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'free_qr_code_generator' %}">
-                            <i class="bi bi-qr-code"></i> {% trans "Free QR Generator" %}
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'printing_cost_calculator' %}">
-                            <i class="bi bi-calculator"></i> {% trans "Printing Cost Calculator" %}
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'staff_efficiency_calculator' %}">
-                            <i class="bi bi-stopwatch"></i> {% trans "Staff Efficiency Calculator" %}
-                        </a>
-                    </li>
                     {% if staff_role %}
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'restaurant_dashboard' %}">
                                 <i class="bi bi-speedometer2"></i> {% trans "Dashboard" %}
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'feedback:notification_list' %}">
-                                <i class="bi bi-bell"></i> {% trans "Notifications" %}
-                                {% if unread_notification_count %}
-                                    <span class="badge bg-danger rounded-pill">{{ unread_notification_count }}</span>
-                                {% endif %}
-                            </a>
-                        </li>
                         {% if can_manage_menu %}
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-grid"></i> {% trans "Menu" %}
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="{% url 'category_list' %}"><i class="bi bi-grid"></i> {% trans "Categories" %}</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'product_list' %}"><i class="bi bi-box"></i> {% trans "Products" %}</a></li>
+                                </ul>
+                            </li>
+                        {% else %}
                             <li class="nav-item">
-                                <a class="nav-link" href="{% url 'category_list' %}">
-                                    <i class="bi bi-grid"></i> {% trans "Categories" %}
+                                <a class="nav-link" href="{% url 'product_list' %}">
+                                    <i class="bi bi-box"></i> {% trans "Products" %}
                                 </a>
                             </li>
                         {% endif %}
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'product_list' %}">
-                                <i class="bi bi-box"></i> {% trans "Products" %}
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'order_list' %}">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="bi bi-bag"></i> {% trans "Orders" %}
                                 {% if restaurant_accepts_orders %}
                                     <span id="pending-orders-badge" class="badge bg-danger rounded-pill d-none"></span>
                                 {% endif %}
                             </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="{% url 'order_list' %}"><i class="bi bi-bag"></i> {% trans "Orders" %}</a></li>
+                                {% if can_use_pro_features %}
+                                    <li><a class="dropdown-item" href="{% url 'table_list' %}"><i class="bi bi-qr-code"></i> {% trans "Tables & Sunbeds" %}</a></li>
+                                {% endif %}
+                            </ul>
                         </li>
                         {% if can_use_pro_features %}
-                            <li class="nav-item">
-                                <a class="nav-link" href="{% url 'table_list' %}">
-                                    <i class="bi bi-qr-code"></i> {% trans "Tables & Sunbeds" %}
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-graph-up-arrow"></i> {% trans "Growth" %}
                                 </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{% url 'promo_code_list' %}">
-                                    <i class="bi bi-tag"></i> {% trans "Promo Codes" %}
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{% url 'loyalty_list' %}">
-                                    <i class="bi bi-star"></i> Loyalty
-                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="{% url 'loyalty_list' %}"><i class="bi bi-star"></i> {% trans "Loyalty" %}</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'promo_code_list' %}"><i class="bi bi-tag"></i> {% trans "Promo Codes" %}</a></li>
+                                </ul>
                             </li>
                         {% endif %}
                         {% if can_view_stats %}
@@ -221,34 +181,87 @@
                                 </a>
                             </li>
                         {% endif %}
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'home' %}">
+                                <i class="bi bi-house"></i> {% trans "Home" %}
+                            </a>
+                        </li>
+                        {% if not user.is_authenticated %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'home' %}#pricing">
+                                    <i class="bi bi-tag"></i> {% trans "Pricing" %}
+                                </a>
+                            </li>
+                        {% endif %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'guides_index' %}">
+                                <i class="bi bi-book"></i> {% trans "Guides" %}
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'blog:blog_list' %}">
+                                <i class="bi bi-file-earmark-text"></i> {% trans "Blog" %}
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'free_qr_code_generator' %}">
+                                <i class="bi bi-qr-code"></i> {% trans "Free QR Generator" %}
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'printing_cost_calculator' %}">
+                                <i class="bi bi-calculator"></i> {% trans "Printing Cost Calculator" %}
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'staff_efficiency_calculator' %}">
+                                <i class="bi bi-stopwatch"></i> {% trans "Staff Efficiency Calculator" %}
+                            </a>
+                        </li>
                     {% endif %}
                     {% if user.is_superuser %}
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'platform_admin_dashboard' %}">
-                                <i class="bi bi-hdd-network"></i> {% trans "Platform Administration" %}
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'blog:admin_list' %}">
-                                <i class="bi bi-file-earmark-text"></i> {% trans "Manage Blog" %}
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'feedback:admin_list' %}">
-                                <i class="bi bi-chat-left-text"></i> {% trans "Feedback" %}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-hdd-network"></i> {% trans "Admin" %}
                                 {% if unread_feedback_count %}
                                     <span class="badge bg-danger rounded-pill">{{ unread_feedback_count }}</span>
                                 {% endif %}
                             </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/admin/">
-                                <i class="bi bi-shield-lock"></i> {% trans "Django Admin" %}
-                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="{% url 'platform_admin_dashboard' %}"><i class="bi bi-hdd-network"></i> {% trans "Platform Administration" %}</a></li>
+                                <li><a class="dropdown-item" href="{% url 'blog:admin_list' %}"><i class="bi bi-file-earmark-text"></i> {% trans "Manage Blog" %}</a></li>
+                                <li>
+                                    <a class="dropdown-item" href="{% url 'feedback:admin_list' %}">
+                                        <i class="bi bi-chat-left-text"></i> {% trans "Feedback" %}
+                                        {% if unread_feedback_count %}
+                                            <span class="badge bg-danger rounded-pill">{{ unread_feedback_count }}</span>
+                                        {% endif %}
+                                    </a>
+                                </li>
+                                <li><a class="dropdown-item" href="/admin/"><i class="bi bi-shield-lock"></i> {% trans "Django Admin" %}</a></li>
+                            </ul>
                         </li>
                     {% endif %}
                 </ul>
                 <ul class="navbar-nav align-items-lg-center">
+                    {% if staff_role and active_restaurant %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ active_restaurant.get_subdomain_url }}" target="_blank" rel="noopener" title="{% trans 'View my menu site' %}">
+                                <i class="bi bi-box-arrow-up-right"></i> <span class="d-lg-none">{% trans "View my menu site" %}</span>
+                            </a>
+                        </li>
+                    {% endif %}
+                    {% if staff_role %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'feedback:notification_list' %}" title="{% trans 'Notifications' %}">
+                                <i class="bi bi-bell"></i> <span class="d-lg-none">{% trans "Notifications" %}</span>
+                                {% if unread_notification_count %}
+                                    <span class="badge bg-danger rounded-pill">{{ unread_notification_count }}</span>
+                                {% endif %}
+                            </a>
+                        </li>
+                    {% endif %}
                     <li class="nav-item">
                         <button type="button" id="mh-theme-toggle" class="nav-link border-0 bg-transparent" aria-label="{% trans 'Toggle dark/light theme' %}">
                             <i class="bi bi-sun-fill" id="mh-theme-icon"></i>
@@ -281,9 +294,6 @@
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end">
                                     <li><a class="dropdown-item" href="{% url 'profile' %}"><i class="bi bi-person"></i> {% trans "My Profile" %}</a></li>
-                                    {% if active_restaurant %}
-                                        <li><a class="dropdown-item" href="{{ active_restaurant.get_subdomain_url }}" target="_blank" rel="noopener"><i class="bi bi-box-arrow-up-right"></i> {% trans "View my menu site" %}</a></li>
-                                    {% endif %}
                                     {% if can_manage_menu %}
                                         <li><a class="dropdown-item" href="{% url 'restaurant_settings' %}"><i class="bi bi-shop"></i> {% trans "Restaurant Settings" %}</a></li>
                                     {% endif %}

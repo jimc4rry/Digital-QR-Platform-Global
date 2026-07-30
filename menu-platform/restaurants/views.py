@@ -134,6 +134,7 @@ def dashboard(request):
     active_products = Product.objects.filter(category__restaurant=restaurant, is_available=True).count()
     total_categories = Category.objects.filter(restaurant=restaurant).count()
     total_orders = restaurant.orders.count()
+    total_tables = restaurant.tables.count()
     recent_orders = restaurant.orders.all()[:10]
 
     context = {
@@ -142,7 +143,11 @@ def dashboard(request):
         'active_products': active_products,
         'total_categories': total_categories,
         'total_orders': total_orders,
+        'total_tables': total_tables,
         'recent_orders': recent_orders,
+        'show_onboarding_checklist': not (
+            total_categories and total_products and (total_tables or not restaurant.user.has_ordering())
+        ),
     }
     return render(request, 'restaurants/dashboard.html', context)
 

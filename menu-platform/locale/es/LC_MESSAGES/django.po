@@ -4084,3 +4084,86 @@ msgstr "Introduce tus números arriba para ver tu ahorro de tiempo estimado."
 #~ msgstr ""
 #~ "Cree su menú digital en 5 minutos. Código QR automático, actualizaciones "
 #~ "de precios en vivo, etiquetas dietéticas, pedidos desde la mesa."
+
+# New strings - product/growth audit navigation & landing page pass
+msgid "Growth"
+msgstr "Crecimiento"
+
+msgid "Loyalty"
+msgstr "Fidelización"
+
+msgid "Preview"
+msgstr "Vista previa"
+
+msgid "Free during beta — every feature, $0, no card required"
+msgstr "Gratis durante la beta — todas las funciones, $0, sin tarjeta"
+
+msgid "Menu, orders, loyalty and staff —"
+msgstr "Menú, pedidos, fidelización y personal —"
+
+msgid "all from one QR code."
+msgstr "todo desde un único código QR."
+
+msgid "Create your free account"
+msgstr "Crea tu cuenta gratuita"
+
+msgid "Ready to run a better shift?"
+msgstr "¿Listo para un turno mejor?"
+
+msgid "Loyalty program"
+msgstr "Programa de fidelización"
+
+msgid "Turn one-time visitors into regulars, automatically - no app for them to download."
+msgstr "Convierte a los visitantes ocasionales en clientes habituales, automáticamente - sin ninguna app que tengan que descargar."
+
+msgid "Promo codes"
+msgstr "Códigos promocionales"
+
+msgid "Fill a slow night without discounting every night - send a code only when you need it."
+msgstr "Llena una noche floja sin tener que descontar todas las noches - envía un código solo cuando lo necesites."
+
+msgid "Sales analytics"
+msgstr "Estadísticas de ventas"
+
+msgid "Know your best - and worst - selling dish before you run out, or over-order."
+msgstr "Descubre tu plato más - y menos - vendido antes de quedarte sin él, o de pedir de más."
+
+msgid "Staff management"
+msgstr "Gestión de personal"
+
+msgid "See what your team's doing, with role-based access, without standing over their shoulder."
+msgstr "Ve lo que hace tu equipo, con acceso por roles, sin tener que estar encima de ellos."
+
+msgid "Multi-language menu"
+msgstr "Menú multilingüe"
+
+msgid "Serve tourists and locals alike - your menu adapts to the visitor's language automatically."
+msgstr "Atiende a turistas y locales por igual - tu menú se adapta automáticamente al idioma del visitante."
+
+msgid "Get your menu live"
+msgstr "Pon tu menú en marcha"
+
+msgid "A few quick steps to go from empty dashboard to a menu customers can actually scan."
+msgstr "Unos pocos pasos rápidos para pasar de un panel vacío a un menú que tus clientes puedan escanear de verdad."
+
+msgid "Create your first category"
+msgstr "Crea tu primera categoría"
+
+msgid "Add category"
+msgstr "Añadir categoría"
+
+msgid "Add your first product"
+msgstr "Añade tu primer producto"
+
+msgid "Add product"
+msgstr "Añadir producto"
+
+msgid "Set up a table for QR ordering"
+msgstr "Configura una mesa para pedidos por QR"
+
+msgid "Add table"
+msgstr "Añadir mesa"
+
+msgid "Preview your live menu"
+msgstr "Vista previa de tu menú en vivo"
+
