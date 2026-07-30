@@ -47,12 +47,12 @@
                                 <td><span class="badge bg-primary">{{ account.points }}</span></td>
                                 <td>{{ account.updated_at|date:"d/m/Y H:i" }}</td>
                                 <td>
-                                    <a href="{% url 'loyalty_edit' account.id %}" class="btn btn-sm btn-secondary">
+                                    <a href="{% url 'loyalty_edit' account.id %}" class="btn btn-sm btn-secondary" title="{% trans 'Edit' %}">
                                         <i class="bi bi-pencil"></i>
                                     </a>
                                     <form method="post" action="{% url 'loyalty_delete' account.id %}" class="d-inline" onsubmit="return confirm('{% trans "Are you sure you want to delete this loyalty account?" %}')">
                                         {% csrf_token %}
-                                        <button type="submit" class="btn btn-sm btn-danger">
+                                        <button type="submit" class="btn btn-sm btn-danger" title="{% trans 'Delete' %}">
                                             <i class="bi bi-trash"></i>
                                         </button>
                                     </form>
@@ -60,11 +60,13 @@
                             </tr>
                         {% empty %}
                             <tr>
-                                <td colspan="4" class="text-center text-muted">
+                                <td colspan="4" class="text-center py-5">
                                     {% if search_query %}
-                                        {% trans "No results found" %}
+                                        <i class="bi bi-search display-4 text-muted"></i>
+                                        <p class="text-muted mt-2 mb-0">{% trans "No results found." %}</p>
                                     {% else %}
-                                        {% trans "No loyalty points yet" %}
+                                        <i class="bi bi-star display-4 text-muted"></i>
+                                        <p class="text-muted mt-2 mb-0">{% trans "No loyalty points yet — accounts appear automatically once a customer gives their phone number with an order." %}</p>
                                     {% endif %}
                                 </td>
                             </tr>

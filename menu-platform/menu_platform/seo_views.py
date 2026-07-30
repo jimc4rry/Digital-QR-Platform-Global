@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.urls import reverse
 from blog.models import Post
 from restaurants.models import Restaurant
+from .feature_pages import FEATURE_PAGES
 
 
 def robots_txt(request):
@@ -33,6 +34,8 @@ def sitemap_xml(request):
         request.build_absolute_uri(reverse('solution_staff_shortage')),
         request.build_absolute_uri(reverse('qr_menu_examples')),
     ]
+    for feature_slug in FEATURE_PAGES:
+        urls.append(request.build_absolute_uri(reverse('feature_detail', args=[feature_slug])))
     for post in Post.objects.filter(is_published=True):
         urls.append(request.build_absolute_uri(reverse('blog:blog_detail', args=[post.slug])))
     for restaurant in Restaurant.objects.filter(is_active=True):

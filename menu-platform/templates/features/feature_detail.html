@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{{ feature.h1 }} | GetMenuHub{% endblock %}
+{% block meta_description %}{{ feature.meta_description }}{% endblock %}
+{% block og_title %}{{ feature.h1 }}{% endblock %}
+{% block og_description %}{{ feature.meta_description }}{% endblock %}
+
+{% block extra_css %}
+<style>
+    .solution-page { padding: 56px 0 72px; }
+    .solution-hero { text-align: center; max-width: 760px; margin: 0 auto 48px; }
+    .solution-hero .eyebrow {
+        display: inline-block; font-size: .78rem; font-weight: 700; letter-spacing: .03em;
+        text-transform: uppercase; color: var(--mh-primary); background: var(--mh-primary-light);
+        padding: 6px 14px; border-radius: 999px; margin-bottom: 16px;
+    }
+    .solution-hero h1 { font-size: clamp(1.9rem, 4.2vw, 2.6rem); font-weight: 800; margin-bottom: 16px; }
+    .solution-hero p { color: var(--mh-text-muted); font-size: 1.05rem; }
+    .solution-section { max-width: 900px; margin: 0 auto 56px; }
+    .solution-section h2 { font-size: 1.5rem; font-weight: 800; margin-bottom: 14px; }
+    .solution-section p { color: var(--mh-text-muted); }
+    .solution-list { list-style: none; padding: 0; margin: 20px 0 0; }
+    .solution-list li {
+        display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px; font-weight: 500;
+    }
+    .solution-list li i { color: var(--mh-primary); margin-top: 3px; }
+    .plan-note {
+        max-width: 900px; margin: 0 auto 56px; background: var(--mh-bg-subtle); border: 1px solid var(--mh-border);
+        border-radius: 14px; padding: 16px 20px; display: flex; align-items: center; gap: 12px; font-weight: 600;
+    }
+    .plan-note i { color: var(--mh-primary); font-size: 1.3rem; }
+    .related-features { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+    .related-features a {
+        display: flex; align-items: center; gap: 10px; background: var(--mh-bg); border: 1px solid var(--mh-border);
+        border-radius: 14px; padding: 16px 18px; text-decoration: none; color: inherit; font-weight: 600; font-size: .92rem;
+    }
+    .related-features a:hover { border-color: var(--mh-primary); }
+    .related-features a i { color: var(--mh-primary); font-size: 1.1rem; }
+    .qr-upsell {
+        background: #0f172a; border-radius: 20px; padding: 36px 28px; color: #fff;
+        text-align: center; max-width: 900px; margin: 0 auto;
+    }
+    .qr-upsell h2 { color: #fff; font-size: 1.4rem; margin-top: 0; }
+    .qr-upsell p { color: rgba(255,255,255,.75); }
+    .btn-lp-primary {
+        background: var(--mh-primary); border-color: var(--mh-primary); color: #fff; font-weight: 600;
+        border-radius: 10px; padding: 12px 28px; display: inline-block; text-decoration: none;
+        margin-top: 8px;
+    }
+    .btn-lp-primary:hover { background: var(--mh-primary-dark); border-color: var(--mh-primary-dark); color: #fff; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="solution-page">
+    <div class="container">
+
+        <div class="solution-hero">
+            <span class="eyebrow"><i class="bi {{ feature.icon }}"></i> {{ feature.eyebrow }}</span>
+            <h1>{{ feature.h1 }}</h1>
+            <p>{{ feature.intro }}</p>
+        </div>
+
+        <div class="solution-section">
+            <h2>{{ feature.problem_title }}</h2>
+            <p>{{ feature.problem_text }}</p>
+        </div>
+
+        <div class="solution-section">
+            <h2>{% trans "How GetMenuHub helps" %}</h2>
+            <ul class="solution-list">
+                {% for benefit in feature.benefits %}
+                    <li><i class="bi bi-check2-circle"></i> {{ benefit }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="plan-note">
+            <i class="bi bi-info-circle"></i>
+            <span>{{ feature.plan_note }}</span>
+        </div>
+
+        <div class="solution-section">
+            <h2>{% trans "Explore more" %}</h2>
+            <div class="related-features">
+                {% for other_slug, other_feature in features.items %}
+                    {% if other_slug != slug %}
+                        <a href="{% url 'feature_detail' other_slug %}"><i class="bi {{ other_feature.icon }}"></i> {{ other_feature.nav_label }}</a>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="qr-upsell">
+            <h2>{% trans "See it running in your own dashboard" %}</h2>
+            <p>{% trans "Set up your digital menu in about 5 minutes, then turn this on whenever you're ready." %}</p>
+            <a href="{% url 'signup' %}" class="btn-lp-primary">{% trans "Start free" %}</a>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

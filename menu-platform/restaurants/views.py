@@ -4,10 +4,12 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.core.paginator import Paginator
 from django.db import transaction, IntegrityError
-from django.db.models import Count, Sum, F
+from django.db.models import Count, Sum, F, Q
 from django.db.models.functions import TruncDate
 from django.http import HttpResponse, JsonResponse, Http404, HttpResponseForbidden
+from django.urls import reverse
 from django.utils import timezone
+from django.utils.http import url_has_allowed_host_and_scheme
 from django.utils.translation import gettext as _, ngettext
 from django.views.decorators.cache import never_cache
 from django.views.decorators.http import require_http_methods
@@ -272,6 +274,14 @@ def product_list(request):
     products = Product.objects.filter(category__restaurant=restaurant).select_related('category')
     can_manage = request.staff_role in ('owner', 'admin')
 
+    search_query = request.GET.get('q', '').strip()
+    if search_query:
+        products = products.filter(Q(name__icontains=search_query) | Q(name_en__icontains=search_query))
+
+    category_filter = request.GET.get('category', '').strip()
+    if category_filter:
+        products = products.filter(category_id=category_filter)
+
     form = None
     if can_manage:
         if request.method == 'POST':
@@ -294,8 +304,59 @@ def product_list(request):
         'form': form,
         'restaurant': restaurant,
         'can_manage': can_manage,
+        'categories': Category.objects.filter(restaurant=restaurant).order_by('order', 'name'),
+        'search_query': search_query,
+        'category_filter': category_filter,
     }
     return render(request, 'restaurants/product_list.html', context)
+
+
+@restaurant_role_required('admin')
+@require_http_methods(["POST"])
+def product_bulk_action(request):
+    """Applies one action to a staff-selected batch of products: mark
+    available/unavailable, move to another category, or delete."""
+    restaurant = request.restaurant
+    action = request.POST.get('bulk_action')
+    product_ids = request.POST.getlist('product_ids')
+    next_url = request.POST.get('next') or ''
+    if not url_has_allowed_host_and_scheme(next_url, allowed_hosts={request.get_host()}, require_https=request.is_secure()):
+        next_url = reverse('product_list')
+
+    products = Product.objects.filter(pk__in=product_ids, category__restaurant=restaurant)
+    if not products.exists():
+        messages.error(request, _('No products selected.'))
+        return redirect(next_url)
+
+    if action == 'mark_available':
+        count = products.update(is_available=True)
+        messages.success(request, ngettext(
+            '%(count)d product marked available.', '%(count)d products marked available.', count,
+        ) % {'count': count})
+    elif action == 'mark_unavailable':
+        count = products.update(is_available=False)
+        messages.success(request, ngettext(
+            '%(count)d product marked unavailable.', '%(count)d products marked unavailable.', count,
+        ) % {'count': count})
+    elif action == 'move_category':
+        target_category = Category.objects.filter(pk=request.POST.get('target_category'), restaurant=restaurant).first()
+        if not target_category:
+            messages.error(request, _('Choose a category to move the selected products to.'))
+            return redirect(next_url)
+        count = products.update(category=target_category)
+        messages.success(request, ngettext(
+            '%(count)d product moved to "%(category)s".', '%(count)d products moved to "%(category)s".', count,
+        ) % {'count': count, 'category': target_category.name})
+    elif action == 'delete':
+        count = products.count()
+        products.delete()
+        messages.success(request, ngettext(
+            '%(count)d product deleted.', '%(count)d products deleted.', count,
+        ) % {'count': count})
+    else:
+        messages.error(request, _('Unknown action.'))
+
+    return redirect(next_url)
 
 @restaurant_role_required('employee')
 def menu_pdf_export(request):

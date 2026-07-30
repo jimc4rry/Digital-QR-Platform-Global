@@ -4196,3 +4196,211 @@ msgstr "¡Pedido creado! Número"
 msgid "Taking orders requires the Pro or Business plan."
 msgstr "Tomar pedidos requiere el plan Pro o Business."
 
+
+# New strings - bulk actions, empty states, settings tabs, feature pages (round 2)
+msgid "Table Ordering"
+msgstr "Pedidos en Mesa"
+
+msgid "Table-Side Ordering"
+msgstr "Pedidos desde la Mesa"
+
+msgid "Orders straight from the table — zero commission, every time"
+msgstr "Pedidos directamente desde la mesa — cero comisión, siempre"
+
+msgid "Order-taking is the most repetitive part of service"
+msgstr "Tomar pedidos es la parte más repetitiva del servicio"
+
+msgid "Zero commission per order — unlike third-party delivery apps"
+msgstr "Cero comisión por pedido — a diferencia de las apps de reparto de terceros"
+
+msgid "Discounting every night trains customers to wait for one"
+msgstr "Descontar todas las noches enseña a los clientes a esperar el descuento"
+
+msgid "Create a code in seconds — percentage off, usage limit, expiry date"
+msgstr "Crea un código en segundos — porcentaje de descuento, límite de usos, fecha de caducidad"
+
+msgid "Send it only to the customers and nights that need it"
+msgstr "Envíalo solo a los clientes y noches que lo necesiten"
+
+msgid "Track exactly how many times each code was used"
+msgstr "Controla exactamente cuántas veces se usó cada código"
+
+msgid "Analytics"
+msgstr "Estadísticas"
+
+msgid "Sales Analytics"
+msgstr "Estadísticas de Ventas"
+
+msgid "Know your best — and worst — selling dish before it costs you"
+msgstr "Descubre tu plato más — y menos — vendido antes de que te cueste caro"
+
+msgid "The data exists. It is just not usable at 11pm after a shift."
+msgstr "Los datos existen. Simplemente no son útiles a las 11 de la noche después de un turno."
+
+msgid "See revenue for today, this week, and this month at a glance"
+msgstr "Consulta los ingresos de hoy, esta semana y este mes de un vistazo"
+
+msgid "Spot your top-selling products before you run out of stock"
+msgstr "Detecta tus productos más vendidos antes de quedarte sin stock"
+
+msgid "Export every order to CSV for your own bookkeeping"
+msgstr "Exporta cada pedido a CSV para tu propia contabilidad"
+
+msgid "No spreadsheets to maintain — it updates as orders come in"
+msgstr "Sin hojas de cálculo que mantener — se actualiza a medida que llegan los pedidos"
+
+msgid "Included in the Business plan."
+msgstr "Incluido en el plan Business."
+
+msgid "Staff Management"
+msgstr "Gestión de Personal"
+
+msgid "See what your team's doing without standing over their shoulder"
+msgstr "Ve lo que hace tu equipo sin tener que estar encima de ellos"
+
+msgid "One shared password is a liability, not a shortcut"
+msgstr "Una contraseña compartida es un riesgo, no un atajo"
+
+msgid "Give each staff member their own login — Admin or Employee"
+msgstr "Da a cada miembro del personal su propio acceso — Admin o Employee"
+
+msgid "Every status change is logged with who made it and when"
+msgstr "Cada cambio de estado queda registrado con quién lo hizo y cuándo"
+
+msgid "Remove access instantly the moment someone leaves"
+msgstr "Elimina el acceso al instante en cuanto alguien se va"
+
+msgid "Multi-language Menu"
+msgstr "Menú Multilingüe"
+
+msgid "Serve tourists and locals alike — automatically"
+msgstr "Atiende a turistas y locales por igual — automáticamente"
+
+msgid "Printing two menus is not a real solution"
+msgstr "Imprimir dos menús no es una solución real"
+
+msgid "Set an English name for any dish alongside its original name"
+msgstr "Añade un nombre en inglés a cualquier plato junto a su nombre original"
+
+msgid "The menu shows the right language to each visitor automatically"
+msgstr "El menú muestra el idioma correcto a cada visitante automáticamente"
+
+msgid "No duplicate menus to keep in sync when something changes"
+msgstr "Sin menús duplicados que sincronizar cuando algo cambia"
+
+msgid "Available on every plan, starting from Basic"
+msgstr "Disponible en todos los planes, desde el Basic"
+
+msgid "Included in every plan, starting from Basic."
+msgstr "Incluido en todos los planes, desde el Basic."
+
+msgid "Punch cards get lost. Apps do not get downloaded."
+msgstr "Las tarjetas de puntos se pierden. Las apps no se descargan."
+
+msgid "No app, no account, no card to carry or lose"
+msgstr "Sin app, sin cuenta, sin tarjeta que llevar ni perder"
+
+msgid "See your top customers ranked by points, right from your dashboard"
+msgstr "Consulta tus mejores clientes clasificados por puntos, directamente desde tu panel"
+
+msgid "Turn it on or off anytime from Settings — no commitment"
+msgstr "Actívalo o desactívalo cuando quieras desde Configuración — sin compromiso"
+
+msgid "Included in the Pro and Business plans."
+msgstr "Incluido en los planes Pro y Business."
+
+msgid "Turn one-time visitors into regulars — automatically"
+msgstr "Convierte a los visitantes ocasionales en clientes habituales — automáticamente"
+
+msgid "Explore more"
+msgstr "Explora más"
+
+msgid "See it running in your own dashboard"
+msgstr "Míralo funcionar en tu propio panel"
+
+msgid "No products selected."
+msgstr "No se seleccionaron productos."
+
+msgid "Choose a category to move the selected products to."
+msgstr "Elige una categoría a la que mover los productos seleccionados."
+
+msgid "Unknown action."
+msgstr "Acción desconocida."
+
+msgid "No orders with this status."
+msgstr "No hay pedidos con este estado."
+
+msgid "No categories yet — create your first one using the form on the left."
+msgstr "Aún no hay categorías — crea la primera usando el formulario de la izquierda."
+
+msgid "Clear filters"
+msgstr "Borrar filtros"
+
+msgid "Select all"
+msgstr "Seleccionar todo"
+
+msgid "selected"
+msgstr "seleccionados"
+
+msgid "Delete the selected products? This cannot be undone."
+msgstr "¿Eliminar los productos seleccionados? Esta acción no se puede deshacer."
+
+msgid "No products yet — add your first one using the form on the left."
+msgstr "Aún no hay productos — añade el primero usando el formulario de la izquierda."
+
+msgid "No promo codes yet — create your first one using the form on the left."
+msgstr "Aún no hay códigos promocionales — crea el primero usando el formulario de la izquierda."
+
+msgid "General"
+msgstr "General"
+
+msgid "No sales yet — your best-selling products will show up here."
+msgstr "Aún no hay ventas — tus productos más vendidos aparecerán aquí."
+
+msgid "Branding"
+msgstr "Marca"
+
+msgid "Ordering & Loyalty"
+msgstr "Pedidos y Fidelización"
+
+msgid "Search products..."
+msgstr "Buscar productos..."
+
+msgid "All categories"
+msgstr "Todas las categorías"
+
+msgid "Move to category..."
+msgstr "Mover a categoría..."
+
+msgid "Move"
+msgstr "Mover"
+
+msgid "Mark available"
+msgstr "Marcar como disponible"
+
+msgid "Mark unavailable"
+msgstr "Marcar como no disponible"
+
+msgid "Delete selected"
+msgstr "Eliminar seleccionados"
+
+msgid "%(count)d product marked available."
+msgid_plural "%(count)d products marked available."
+msgstr[0] "%(count)d producto marcado como disponible."
+msgstr[1] "%(count)d productos marcados como disponibles."
+
+msgid "%(count)d product marked unavailable."
+msgid_plural "%(count)d products marked unavailable."
+msgstr[0] "%(count)d producto marcado como no disponible."
+msgstr[1] "%(count)d productos marcados como no disponibles."
+
+msgid "%(count)d product moved to \"%(category)s\"."
+msgid_plural "%(count)d products moved to \"%(category)s\"."
+msgstr[0] "%(count)d producto movido a \"%(category)s\"."
+msgstr[1] "%(count)d productos movidos a \"%(category)s\"."
+
+msgid "%(count)d product deleted."
+msgid_plural "%(count)d products deleted."
+msgstr[0] "%(count)d producto eliminado."
+msgstr[1] "%(count)d productos eliminados."
+

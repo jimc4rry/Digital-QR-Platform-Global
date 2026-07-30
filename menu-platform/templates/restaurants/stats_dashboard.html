@@ -62,7 +62,10 @@
                                 <span class="badge bg-primary rounded-pill">{{ product.total_quantity }}x</span>
                             </li>
                         {% empty %}
-                            <li class="list-group-item text-muted text-center">{% trans "No sales yet" %}</li>
+                            <li class="list-group-item text-center py-4">
+                                <i class="bi bi-graph-up display-4 text-muted"></i>
+                                <p class="text-muted mt-2 mb-0">{% trans "No sales yet — your best-selling products will show up here." %}</p>
+                            </li>
                         {% endfor %}
                     </ul>
                 </div>
@@ -80,7 +83,15 @@
     const trendLabels = JSON.parse(document.getElementById('trend-labels-data').textContent);
     const trendValues = JSON.parse(document.getElementById('trend-values-data').textContent);
 
-    new Chart(document.getElementById('revenueTrendChart'), {
+    const trendCanvas = document.getElementById('revenueTrendChart');
+    const trendCtx = trendCanvas.getContext('2d');
+    const fillGradient = trendCtx.createLinearGradient(0, 0, 0, trendCanvas.height || 120);
+    fillGradient.addColorStop(0, 'rgba(79, 70, 229, 0.25)');
+    fillGradient.addColorStop(1, 'rgba(79, 70, 229, 0)');
+
+    const lastIndex = trendValues.length - 1;
+
+    new Chart(trendCtx, {
         type: 'line',
         data: {
             labels: trendLabels,
@@ -88,9 +99,15 @@
                 label: '{% trans "Revenue ($)" %}',
                 data: trendValues,
                 borderColor: '#4f46e5',
-                backgroundColor: 'rgba(79, 70, 229, 0.1)',
+                backgroundColor: fillGradient,
+                borderWidth: 2,
                 tension: 0.3,
                 fill: true,
+                pointRadius: function(ctx) { return ctx.dataIndex === lastIndex ? 5 : 0; },
+                pointHoverRadius: 6,
+                pointBackgroundColor: '#4f46e5',
+                pointBorderColor: '#fff',
+                pointBorderWidth: 2,
             }]
         },
         options: {
