@@ -4194,3 +4194,32 @@ msgstr "Ajouter une table"
 msgid "Preview your live menu"
 msgstr "Aperçu de votre menu en ligne"
 
+
+# New strings - staff-facing order creation feature
+msgid "New Order"
+msgstr "Nouvelle commande"
+
+msgid "Back to Orders"
+msgstr "Retour aux commandes"
+
+msgid "Current Order"
+msgstr "Commande en cours"
+
+msgid "No table (takeaway / phone order)"
+msgstr "Sans table (à emporter / commande téléphonique)"
+
+msgid "Customer name (optional)"
+msgstr "Nom du client (facultatif)"
+
+msgid "Submit Order"
+msgstr "Valider la commande"
+
+msgid "Add at least one product to the order."
+msgstr "Ajoutez au moins un produit à la commande."
+
+msgid "Order created! Number"
+msgstr "Commande créée ! Numéro"
+
+msgid "Taking orders requires the Pro or Business plan."
+msgstr "La prise de commandes nécessite le forfait Pro ou Business."
+

@@ -12,7 +12,7 @@ from django.contrib import messages
 from django.utils import timezone
 from django.utils.translation import gettext as _
 from .models import Order, OrderItem, OrderStatusLog
-from restaurants.models import Restaurant, Product, ProductOption, PromoCode, LoyaltyAccount, RestaurantTable
+from restaurants.models import Restaurant, Category, Product, ProductOption, PromoCode, LoyaltyAccount, RestaurantTable
 from restaurants.permissions import restaurant_role_required
 import json
 
@@ -150,6 +150,81 @@ def validate_promo_code(request, token):
 
     return JsonResponse({'valid': True, 'code': promo.code, 'discount_percent': promo.discount_percent})
 
+def _populate_order_items_and_totals(order, restaurant, data):
+    """Fills in an already-created Order's items, applies a promo code if
+    given, and computes subtotal/discount/tax/total. Shared by the public
+    storefront order API and the staff-facing one. Raises KeyError/ValueError
+    on invalid input; caller must run this inside transaction.atomic()."""
+    items_data = data.get('items', [])
+    if not items_data:
+        raise ValueError('No items in order')
+
+    items_snapshot = []
+    subtotal = Decimal('0')
+
+    for item_data in items_data:
+        quantity = int(item_data.get('quantity', 1))
+        if not (1 <= quantity <= 100):
+            raise ValueError('Invalid quantity')
+
+        try:
+            # Only products belonging to this restaurant can be ordered.
+            product = Product.objects.get(pk=item_data['product_id'], category__restaurant=restaurant)
+        except Product.DoesNotExist:
+            raise ValueError('Invalid product in order')
+
+        option_ids = item_data.get('options', [])
+        options = list(ProductOption.objects.filter(pk__in=option_ids, product=product))
+        if len(options) != len(set(option_ids)):
+            raise ValueError('Invalid product option')
+
+        # Prices are always recomputed server-side; client-supplied prices are ignored.
+        unit_price = product.price + sum((o.price_adjustment for o in options), Decimal('0'))
+        line_total = unit_price * quantity
+        subtotal += line_total
+
+        OrderItem.objects.create(
+            order=order,
+            product=product,
+            name=product.get_display_name(),
+            price=unit_price,
+            quantity=quantity,
+            options=[{'id': o.id, 'name': o.name, 'price_adjustment': str(o.price_adjustment)} for o in options],
+            notes=_truncate(item_data.get('notes', ''), 1000),
+        )
+        items_snapshot.append({
+            'product_id': product.id,
+            'name': product.get_display_name(),
+            'price': str(unit_price),
+            'quantity': quantity,
+        })
+
+    promo = None
+    promo_code_input = _truncate(data.get('promo_code', ''), 30).upper().strip()
+    if promo_code_input:
+        promo = PromoCode.objects.filter(restaurant=restaurant, code=promo_code_input).first()
+        if not promo or not promo.is_valid_now():
+            raise ValueError('Invalid promo code')
+
+    discount = Decimal('0')
+    if promo:
+        discount = (subtotal * (Decimal(promo.discount_percent) / 100)).quantize(Decimal('0.01'))
+
+    discounted_subtotal = subtotal - discount
+    tax = (discounted_subtotal * (restaurant.tax_rate / 100)).quantize(Decimal('0.01'))
+    total = (discounted_subtotal + tax).quantize(Decimal('0.01'))
+    order.items = items_snapshot
+    order.subtotal = subtotal.quantize(Decimal('0.01'))
+    order.discount = discount
+    order.promo_code = promo.code if promo else ''
+    order.tax = tax
+    order.total = total
+    order.save(update_fields=['items', 'subtotal', 'discount', 'promo_code', 'tax', 'total'])
+
+    if promo:
+        PromoCode.objects.filter(pk=promo.pk).update(used_count=F('used_count') + 1)
+
+
 def create_order_api(request, token):
     """API endpoint for creating orders from public menu"""
     if request.method != 'POST':
@@ -167,10 +242,6 @@ def create_order_api(request, token):
         data = json.loads(request.body)
     except json.JSONDecodeError:
         return JsonResponse({'success': False, 'error': 'Invalid JSON'}, status=400)
-
-    items_data = data.get('items', [])
-    if not items_data:
-        return JsonResponse({'success': False, 'error': 'No items in order'}, status=400)
 
     # Ordering is only allowed from a table's/sunbed's own QR code - the main restaurant QR is view-only.
     # Re-validate server-side too, so a scripted request can't bypass the UI gating.
@@ -194,71 +265,79 @@ def create_order_api(request, token):
                 customer_phone=_truncate(data.get('customer_phone', ''), 20),
                 customer_notes=_truncate(data.get('notes', ''), 1000),
             )
+            _populate_order_items_and_totals(order, restaurant, data)
+    except (KeyError, ValueError, TypeError, DatabaseError):
+        return JsonResponse({'success': False, 'error': 'Invalid order data'}, status=400)
 
-            items_snapshot = []
-            subtotal = Decimal('0')
+    notify_new_order(order)
 
-            for item_data in items_data:
-                quantity = int(item_data.get('quantity', 1))
-                if not (1 <= quantity <= 100):
-                    raise ValueError('Invalid quantity')
+    return JsonResponse({
+        'success': True,
+        'order_id': order.id,
+        'order_number': order.order_number,
+        'total': str(order.total),
+    })
 
-                try:
-                    # Only products belonging to this restaurant can be ordered.
-                    product = Product.objects.get(pk=item_data['product_id'], category__restaurant=restaurant)
-                except Product.DoesNotExist:
-                    raise ValueError('Invalid product in order')
 
-                option_ids = item_data.get('options', [])
-                options = list(ProductOption.objects.filter(pk__in=option_ids, product=product))
-                if len(options) != len(set(option_ids)):
-                    raise ValueError('Invalid product option')
+@restaurant_role_required('employee')
+def staff_create_order(request):
+    """Page where any staff member (employee/admin/owner) builds and submits
+    an order on a customer's behalf - phone orders, walk-ins, or a customer
+    asking staff to place it for them at the table."""
+    restaurant = request.restaurant
+    if not restaurant.user.has_ordering():
+        messages.error(request, _('Taking orders requires the Pro or Business plan.'))
+        return redirect('order_list')
 
-                # Prices are always recomputed server-side; client-supplied prices are ignored.
-                unit_price = product.price + sum((o.price_adjustment for o in options), Decimal('0'))
-                line_total = unit_price * quantity
-                subtotal += line_total
+    categories = Category.objects.filter(restaurant=restaurant).prefetch_related('products__options').order_by('order', 'name')
+    tables = RestaurantTable.objects.filter(restaurant=restaurant).order_by('table_type', 'number')
 
-                OrderItem.objects.create(
-                    order=order,
-                    product=product,
-                    name=product.get_display_name(),
-                    price=unit_price,
-                    quantity=quantity,
-                    options=[{'id': o.id, 'name': o.name, 'price_adjustment': str(o.price_adjustment)} for o in options],
-                    notes=_truncate(item_data.get('notes', ''), 1000),
-                )
-                items_snapshot.append({
-                    'product_id': product.id,
-                    'name': product.get_display_name(),
-                    'price': str(unit_price),
-                    'quantity': quantity,
-                })
+    context = {
+        'restaurant': restaurant,
+        'categories': categories,
+        'tables': tables,
+    }
+    return render(request, 'orders/staff_create_order.html', context)
 
-            promo = None
-            promo_code_input = _truncate(data.get('promo_code', ''), 30).upper().strip()
-            if promo_code_input:
-                promo = PromoCode.objects.filter(restaurant=restaurant, code=promo_code_input).first()
-                if not promo or not promo.is_valid_now():
-                    raise ValueError('Invalid promo code')
 
-            discount = Decimal('0')
-            if promo:
-                discount = (subtotal * (Decimal(promo.discount_percent) / 100)).quantize(Decimal('0.01'))
+@restaurant_role_required('employee')
+@require_http_methods(["POST"])
+def staff_create_order_api(request):
+    """Staff-authenticated counterpart to create_order_api: same pricing and
+    validation logic, but the table is optional (phone orders/walk-ins have
+    none) and there's no rate limit - the caller is an authenticated staff
+    member, not an anonymous scan."""
+    restaurant = request.restaurant
 
-            discounted_subtotal = subtotal - discount
-            tax = (discounted_subtotal * (restaurant.tax_rate / 100)).quantize(Decimal('0.01'))
-            total = (discounted_subtotal + tax).quantize(Decimal('0.01'))
-            order.items = items_snapshot
-            order.subtotal = subtotal.quantize(Decimal('0.01'))
-            order.discount = discount
-            order.promo_code = promo.code if promo else ''
-            order.tax = tax
-            order.total = total
-            order.save(update_fields=['items', 'subtotal', 'discount', 'promo_code', 'tax', 'total'])
+    if not restaurant.user.has_ordering():
+        return JsonResponse({'success': False, 'error': 'Taking orders requires the Pro or Business plan'}, status=403)
 
-            if promo:
-                PromoCode.objects.filter(pk=promo.pk).update(used_count=F('used_count') + 1)
+    try:
+        data = json.loads(request.body)
+    except json.JSONDecodeError:
+        return JsonResponse({'success': False, 'error': 'Invalid JSON'}, status=400)
+
+    table_number = _truncate(data.get('table_number', ''), 10).strip()
+    table_type = data.get('table_type') or 'table'
+    if table_type not in dict(RestaurantTable.TABLE_TYPE_CHOICES):
+        table_type = 'table'
+    if table_number and not RestaurantTable.objects.filter(
+        restaurant=restaurant, number=table_number, table_type=table_type,
+    ).exists():
+        return JsonResponse({'success': False, 'error': 'Invalid table'}, status=400)
+
+    try:
+        with transaction.atomic():
+            order = Order.objects.create(
+                restaurant=restaurant,
+                table_number=table_number,
+                table_type=table_type if table_number else '',
+                customer_name=_truncate(data.get('customer_name', ''), 100),
+                customer_email=_truncate(data.get('customer_email', ''), 254),
+                customer_phone=_truncate(data.get('customer_phone', ''), 20),
+                customer_notes=_truncate(data.get('notes', ''), 1000),
+            )
+            _populate_order_items_and_totals(order, restaurant, data)
     except (KeyError, ValueError, TypeError, DatabaseError):
         return JsonResponse({'success': False, 'error': 'Invalid order data'}, status=400)
 

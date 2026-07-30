@@ -151,6 +151,9 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="{% url 'order_list' %}"><i class="bi bi-bag"></i> {% trans "Orders" %}</a></li>
+                                {% if active_restaurant.user.has_ordering %}
+                                    <li><a class="dropdown-item" href="{% url 'staff_create_order' %}"><i class="bi bi-plus-circle"></i> {% trans "New Order" %}</a></li>
+                                {% endif %}
                                 {% if can_use_pro_features %}
                                     <li><a class="dropdown-item" href="{% url 'table_list' %}"><i class="bi bi-qr-code"></i> {% trans "Tables & Sunbeds" %}</a></li>
                                 {% endif %}

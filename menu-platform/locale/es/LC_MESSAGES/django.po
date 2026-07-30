@@ -4167,3 +4167,32 @@ msgstr "Añadir mesa"
 msgid "Preview your live menu"
 msgstr "Vista previa de tu menú en vivo"
 
+
+# New strings - staff-facing order creation feature
+msgid "New Order"
+msgstr "Nuevo pedido"
+
+msgid "Back to Orders"
+msgstr "Volver a los pedidos"
+
+msgid "Current Order"
+msgstr "Pedido actual"
+
+msgid "No table (takeaway / phone order)"
+msgstr "Sin mesa (para llevar / pedido telefónico)"
+
+msgid "Customer name (optional)"
+msgstr "Nombre del cliente (opcional)"
+
+msgid "Submit Order"
+msgstr "Enviar pedido"
+
+msgid "Add at least one product to the order."
+msgstr "Añade al menos un producto al pedido."
+
+msgid "Order created! Number"
+msgstr "¡Pedido creado! Número"
+
+msgid "Taking orders requires the Pro or Business plan."
+msgstr "Tomar pedidos requiere el plan Pro o Business."
+

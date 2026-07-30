@@ -1,0 +1,405 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "New Order" %} - {{ restaurant.name }}{% endblock %}
+
+{% block extra_css %}
+<style>
+    .staff-order-category-nav {
+        display: flex;
+        gap: 8px;
+        overflow-x: auto;
+        padding: 4px 0 12px;
+        scrollbar-width: none;
+    }
+    .staff-order-category-nav::-webkit-scrollbar { display: none; }
+    .staff-order-category-nav a {
+        flex-shrink: 0;
+        padding: 6px 14px;
+        border-radius: 999px;
+        background: var(--mh-bg-subtle);
+        color: var(--mh-text-muted);
+        font-weight: 600;
+        font-size: .85rem;
+        text-decoration: none;
+    }
+    .staff-order-category-nav a.active,
+    .staff-order-category-nav a:hover {
+        background: var(--mh-primary);
+        color: #fff;
+    }
+    .staff-order-category-section {
+        scroll-margin-top: 70px;
+    }
+    .staff-order-product-card .card-body { padding: .9rem; }
+    #staff-order-summary { top: 84px; }
+    #staff-cart-items-list .cart-line + .cart-line { border-top: 1px solid var(--mh-border); padding-top: .5rem; margin-top: .5rem; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid py-4">
+    <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
+        <h1 class="h3 mb-0">{% trans "New Order" %}</h1>
+        <a href="{% url 'order_list' %}" class="btn btn-outline-secondary btn-sm">
+            <i class="bi bi-arrow-left"></i> {% trans "Back to Orders" %}
+        </a>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-lg-8">
+            {% if categories %}
+                <div class="staff-order-category-nav" id="staff-order-category-nav">
+                    {% for category in categories %}
+                        <a href="#staff-cat-{{ category.id }}" data-cat-id="staff-cat-{{ category.id }}">{{ category.name }}</a>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            {% for category in categories %}
+                <div class="mb-4 staff-order-category-section" id="staff-cat-{{ category.id }}">
+                    <h2 class="h5 mb-3">{{ category.name }}</h2>
+                    <div class="row">
+                        {% for product in category.products.all %}
+                            {% if product.is_available %}
+                                <div class="col-md-6 col-xl-4 mb-3">
+                                    <div class="card product-card staff-order-product-card h-100" data-product-id="{{ product.id }}" data-product-name="{{ product.get_display_name }}" data-product-price="{{ product.price }}">
+                                        <div class="card-body">
+                                            <div class="d-flex justify-content-between align-items-start">
+                                                <h3 class="h6 card-title mb-1">{{ product.get_display_name }}</h3>
+                                                <span class="badge bg-primary">${{ product.price|floatformat:2 }}</span>
+                                            </div>
+                                            {% if product.options.all %}
+                                                <div class="product-options small mb-2">
+                                                    {% for group in product.get_option_groups %}
+                                                        {% if group.name %}
+                                                            <div class="fw-semibold text-muted" style="font-size:.8em;">{{ group.name }}</div>
+                                                        {% endif %}
+                                                        {% for option in group.options %}
+                                                            <div class="form-check">
+                                                                <input class="form-check-input product-option-checkbox"
+                                                                       type="{% if group.name %}radio{% else %}checkbox{% endif %}"
+                                                                       {% if group.name %}name="staff-opt-group-{{ product.id }}-{{ group.name|slugify }}"{% endif %}
+                                                                       value="{{ option.id }}"
+                                                                       data-price-adjustment="{{ option.price_adjustment }}"
+                                                                       data-option-name="{{ option.name }}"
+                                                                       id="staff-opt-{{ option.id }}"
+                                                                       {% if option.checked %}checked{% endif %}>
+                                                                <label class="form-check-label" for="staff-opt-{{ option.id }}">
+                                                                    {{ option.name }}{% if option.price_adjustment %} (+${{ option.price_adjustment|floatformat:2 }}){% endif %}
+                                                                </label>
+                                                            </div>
+                                                        {% endfor %}
+                                                    {% endfor %}
+                                                </div>
+                                            {% endif %}
+                                            <button type="button" class="btn btn-sm btn-primary w-100 add-to-cart-btn">
+                                                <i class="bi bi-plus-lg"></i> {% trans "Add" %}
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            {% empty %}
+                <div class="text-center py-5 text-muted">
+                    <i class="bi bi-emoji-frown display-1"></i>
+                    <h3>{% trans "No products available" %}</h3>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="col-lg-4">
+            <div class="card sticky-top" id="staff-order-summary">
+                <div class="card-body">
+                    <h2 class="h5">{% trans "Current Order" %}</h2>
+
+                    <div class="mb-3">
+                        <label class="form-label">{% trans "Table" %}</label>
+                        <select class="form-select" id="order-table-select">
+                            <option value="">{% trans "No table (takeaway / phone order)" %}</option>
+                            {% for table in tables %}
+                                <option value="{{ table.number }}" data-table-type="{{ table.table_type }}">{{ table.get_table_type_display }} {{ table.number }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">{% trans "Customer name (optional)" %}</label>
+                        <input type="text" class="form-control" id="order-customer-name">
+                    </div>
+                    {% if restaurant.loyalty_enabled %}
+                        <div class="mb-3">
+                            <label class="form-label">{% trans "Phone (optional, for Loyalty points)" %}</label>
+                            <input type="tel" class="form-control" id="order-customer-phone" autocomplete="tel">
+                        </div>
+                    {% endif %}
+                    <div class="mb-3">
+                        <label class="form-label">{% trans "Promo Code (optional)" %}</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="order-promo-code">
+                            <button type="button" class="btn btn-outline-secondary" id="apply-promo-btn">{% trans "Apply" %}</button>
+                        </div>
+                        <div id="promo-feedback" class="small mt-1"></div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">{% trans "Notes (optional)" %}</label>
+                        <textarea class="form-control" id="order-notes" rows="2"></textarea>
+                    </div>
+
+                    <hr>
+                    <div id="staff-cart-items-list"></div>
+                    <div class="d-flex justify-content-between fw-bold my-3">
+                        <span>{% trans "Total" %}</span>
+                        <span id="staff-cart-total">$0.00</span>
+                    </div>
+
+                    <div id="order-error" class="alert alert-danger d-none"></div>
+                    <div id="order-success" class="alert alert-success d-none"></div>
+
+                    <button type="button" class="btn btn-primary w-100" id="submit-order-btn" disabled>
+                        <i class="bi bi-bag-check"></i> {% trans "Submit Order" %}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+(function() {
+    const navLinks = document.querySelectorAll('#staff-order-category-nav a');
+    if (!navLinks.length) return;
+    const sections = Array.from(navLinks).map(a => document.getElementById(a.dataset.catId)).filter(Boolean);
+    if (!sections.length) return;
+
+    const setActive = (id) => navLinks.forEach(a => a.classList.toggle('active', a.dataset.catId === id));
+    setActive(sections[0].id);
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => { if (entry.isIntersecting) setActive(entry.target.id); });
+    }, { rootMargin: '-120px 0px -70% 0px', threshold: 0 });
+    sections.forEach(s => observer.observe(s));
+
+    navLinks.forEach(a => a.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = document.getElementById(a.dataset.catId);
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+    }));
+})();
+</script>
+<script>
+(function() {
+    const csrftoken = "{{ csrf_token }}";
+    const orderApiUrl = "{% url 'staff_create_order_api' %}";
+    const validatePromoUrl = "{% url 'validate_promo_code' restaurant.qr_code_token %}";
+    const orderDetailBaseUrl = "{% url 'order_detail' 1 %}".replace(/1\/?$/, '');
+    const i18nText = {
+        cartEmpty: "{% trans 'Add at least one product to the order.' %}",
+        added: "{% trans 'Added' %}",
+        sending: "{% trans 'Sending...' %}",
+        submitOrder: "{% trans 'Submit Order' %}",
+        genericError: "{% trans 'Something went wrong. Please try again.' %}",
+        connectionError: "{% trans 'Connection error. Please try again.' %}",
+        orderSentPrefix: "{% trans 'Order created! Number' %}",
+        totalLabel: "{% trans 'Total' %}",
+        invalidPromo: "{% trans 'Invalid promo code.' %}",
+        promoApplied: "{% trans 'Promo code applied!' %}",
+        viewOrder: "{% trans 'View order' %}",
+    };
+    let cart = [];
+    let appliedPromo = null;
+
+    function formatMoney(v) { return '$' + v.toFixed(2); }
+    function optionsKey(options) { return options.map(o => o.id).sort().join(','); }
+    function cartSubtotal() { return cart.reduce((s, i) => s + i.unitPrice * i.quantity, 0); }
+    function cartTotal() {
+        const subtotal = cartSubtotal();
+        return appliedPromo ? subtotal * (1 - appliedPromo.discount_percent / 100) : subtotal;
+    }
+
+    function renderCart() {
+        const submitBtn = document.getElementById('submit-order-btn');
+        document.getElementById('staff-cart-total').textContent = formatMoney(cartTotal());
+        submitBtn.disabled = cart.length === 0;
+
+        const list = document.getElementById('staff-cart-items-list');
+        list.textContent = '';
+
+        if (cart.length === 0) {
+            const empty = document.createElement('p');
+            empty.className = 'text-muted mb-0 small';
+            empty.textContent = i18nText.cartEmpty;
+            list.appendChild(empty);
+            return;
+        }
+
+        cart.forEach((item, idx) => {
+            const row = document.createElement('div');
+            row.className = 'cart-line d-flex justify-content-between align-items-start';
+
+            const infoDiv = document.createElement('div');
+            const titleDiv = document.createElement('div');
+            titleDiv.textContent = `${item.quantity}x ${item.name}`;
+            infoDiv.appendChild(titleDiv);
+            if (item.options.length) {
+                const optionsSmall = document.createElement('small');
+                optionsSmall.className = 'text-muted';
+                optionsSmall.textContent = item.options.map(o => o.name).join(', ');
+                infoDiv.appendChild(optionsSmall);
+            }
+
+            const actionsDiv = document.createElement('div');
+            actionsDiv.className = 'd-flex align-items-center gap-2';
+            const priceSpan = document.createElement('span');
+            priceSpan.textContent = formatMoney(item.unitPrice * item.quantity);
+            const removeBtn = document.createElement('button');
+            removeBtn.type = 'button';
+            removeBtn.className = 'btn btn-sm btn-outline-danger';
+            removeBtn.textContent = '×';
+            removeBtn.addEventListener('click', () => { cart.splice(idx, 1); renderCart(); });
+
+            actionsDiv.appendChild(priceSpan);
+            actionsDiv.appendChild(removeBtn);
+            row.appendChild(infoDiv);
+            row.appendChild(actionsDiv);
+            list.appendChild(row);
+        });
+    }
+
+    document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const card = btn.closest('.product-card');
+            const productId = parseInt(card.dataset.productId, 10);
+            const name = card.dataset.productName;
+            const basePrice = parseFloat(card.dataset.productPrice);
+            const options = Array.from(card.querySelectorAll('.product-option-checkbox:checked')).map(cb => ({
+                id: parseInt(cb.value, 10),
+                name: cb.dataset.optionName,
+                priceAdjustment: parseFloat(cb.dataset.priceAdjustment)
+            }));
+            const unitPrice = options.reduce((sum, o) => sum + o.priceAdjustment, basePrice);
+
+            const key = optionsKey(options);
+            const existing = cart.find(i => i.productId === productId && optionsKey(i.options) === key);
+            if (existing) {
+                existing.quantity += 1;
+            } else {
+                cart.push({ productId, name, unitPrice, quantity: 1, options });
+            }
+            renderCart();
+
+            const originalHtml = btn.innerHTML;
+            btn.innerHTML = `<i class="bi bi-check2"></i> ${i18nText.added}`;
+            setTimeout(() => { btn.innerHTML = originalHtml; }, 900);
+        });
+    });
+
+    const applyPromoBtn = document.getElementById('apply-promo-btn');
+    if (applyPromoBtn) {
+        applyPromoBtn.addEventListener('click', async () => {
+            const code = document.getElementById('order-promo-code').value.trim();
+            const feedback = document.getElementById('promo-feedback');
+            if (!code) return;
+            try {
+                const res = await fetch(validatePromoUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'X-CSRFToken': csrftoken },
+                    body: JSON.stringify({ code, subtotal: cartSubtotal().toFixed(2) })
+                });
+                const data = await res.json();
+                if (res.ok && data.valid) {
+                    appliedPromo = { code: data.code, discount_percent: data.discount_percent };
+                    feedback.textContent = `${i18nText.promoApplied} (-${data.discount_percent}%)`;
+                    feedback.className = 'small mt-1 text-success';
+                } else {
+                    appliedPromo = null;
+                    feedback.textContent = (data && data.error) || i18nText.invalidPromo;
+                    feedback.className = 'small mt-1 text-danger';
+                }
+            } catch (e) {
+                feedback.textContent = i18nText.connectionError;
+                feedback.className = 'small mt-1 text-danger';
+            }
+            renderCart();
+        });
+    }
+
+    const submitBtn = document.getElementById('submit-order-btn');
+    submitBtn.addEventListener('click', async () => {
+        const errorBox = document.getElementById('order-error');
+        const successBox = document.getElementById('order-success');
+        errorBox.classList.add('d-none');
+        successBox.classList.add('d-none');
+
+        if (cart.length === 0) return;
+
+        const tableSelect = document.getElementById('order-table-select');
+        const selectedOption = tableSelect.options[tableSelect.selectedIndex];
+        const phoneField = document.getElementById('order-customer-phone');
+
+        const payload = {
+            table_number: tableSelect.value,
+            table_type: tableSelect.value ? selectedOption.dataset.tableType : '',
+            customer_name: document.getElementById('order-customer-name').value,
+            customer_phone: phoneField ? phoneField.value : '',
+            notes: document.getElementById('order-notes').value,
+            promo_code: appliedPromo ? appliedPromo.code : '',
+            items: cart.map(i => ({
+                product_id: i.productId,
+                quantity: i.quantity,
+                options: i.options.map(o => o.id)
+            }))
+        };
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = i18nText.sending;
+
+        try {
+            const res = await fetch(orderApiUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'X-CSRFToken': csrftoken },
+                body: JSON.stringify(payload)
+            });
+            const data = await res.json();
+            if (res.ok && data.success) {
+                successBox.textContent = '';
+                const msg = document.createElement('span');
+                msg.textContent = `${i18nText.orderSentPrefix} #${data.order_number} · ${i18nText.totalLabel} $${data.total} · `;
+                const link = document.createElement('a');
+                link.href = orderDetailBaseUrl + data.order_id + '/';
+                link.textContent = i18nText.viewOrder;
+                link.className = 'alert-link';
+                successBox.appendChild(msg);
+                successBox.appendChild(link);
+                successBox.classList.remove('d-none');
+
+                cart = [];
+                appliedPromo = null;
+                document.getElementById('order-customer-name').value = '';
+                if (phoneField) phoneField.value = '';
+                document.getElementById('order-notes').value = '';
+                document.getElementById('order-promo-code').value = '';
+                document.getElementById('promo-feedback').textContent = '';
+                tableSelect.selectedIndex = 0;
+                renderCart();
+            } else {
+                errorBox.textContent = (data && data.error) || i18nText.genericError;
+                errorBox.classList.remove('d-none');
+            }
+        } catch (e) {
+            errorBox.textContent = i18nText.connectionError;
+            errorBox.classList.remove('d-none');
+        } finally {
+            submitBtn.textContent = i18nText.submitOrder;
+            renderCart();
+        }
+    });
+
+    renderCart();
+})();
+</script>
+{% endblock %}

@@ -2,11 +2,11 @@ import json
 from decimal import Decimal
 
 from django.core.cache import cache
-from django.test import TestCase
+from django.test import TestCase, override_settings
 from django.urls import reverse
 
 from accounts.models import User
-from restaurants.models import Category, Product, ProductOption, PromoCode, Restaurant, RestaurantTable
+from restaurants.models import Category, Product, ProductOption, PromoCode, Restaurant, RestaurantTable, StaffMember
 from .models import Order
 
 
@@ -139,3 +139,89 @@ class CreateOrderApiTestCase(TestCase):
 
         response = self.post(self.valid_payload())
         self.assertEqual(response.status_code, 429)
+
+
+class StaffCreateOrderApiTestCase(TestCase):
+    """Covers orders/views.py::staff_create_order_api - lets an admin/employee
+    place an order on a customer's behalf (phone orders, walk-ins)."""
+
+    def setUp(self):
+        self.owner = User.objects.create_user(
+            username='owner2', password='pw12345!', subscription_plan='pro',
+        )
+        self.restaurant = Restaurant.objects.create(
+            user=self.owner, name='Staff Order Restaurant', tax_rate=Decimal('10.00'),
+        )
+        self.employee = User.objects.create_user(username='employee1', password='pw12345!')
+        StaffMember.objects.create(user=self.employee, restaurant=self.restaurant, role='employee')
+
+        self.category = Category.objects.create(restaurant=self.restaurant, name='Mains')
+        self.product = Product.objects.create(category=self.category, name='Burger', price=Decimal('10.00'))
+        self.option = ProductOption.objects.create(product=self.product, name='Extra cheese', price_adjustment=Decimal('1.50'))
+        self.table = RestaurantTable.objects.create(restaurant=self.restaurant, table_type='table', number='5')
+
+        self.other_owner = User.objects.create_user(username='other_owner2', password='pw12345!', subscription_plan='pro')
+        self.other_product = Product.objects.create(
+            category=Category.objects.create(restaurant=Restaurant.objects.create(user=self.other_owner, name='Other'), name='Other Mains'),
+            price=Decimal('5.00'),
+        )
+
+        self.url = reverse('staff_create_order_api')
+
+    def post(self, data):
+        return self.client.post(self.url, data=json.dumps(data), content_type='application/json')
+
+    def valid_payload(self, **overrides):
+        payload = {
+            'items': [{'product_id': self.product.id, 'quantity': 2, 'options': [self.option.id]}],
+        }
+        payload.update(overrides)
+        return payload
+
+    def test_requires_login(self):
+        response = self.post(self.valid_payload())
+        self.assertEqual(response.status_code, 302)  # redirected to login
+
+    def test_employee_can_create_order_without_a_table(self):
+        self.client.force_login(self.employee)
+        response = self.post(self.valid_payload())
+        self.assertEqual(response.status_code, 200)
+        body = response.json()
+        self.assertTrue(body['success'])
+        order = Order.objects.get(pk=body['order_id'])
+        self.assertEqual(order.table_number, '')
+        # (10.00 + 1.50) * 2 = 23.00 subtotal, +10% tax = 25.30 total
+        self.assertEqual(order.total, Decimal('25.30'))
+
+    def test_owner_can_create_order_with_a_table(self):
+        self.client.force_login(self.owner)
+        response = self.post(self.valid_payload(table_number=self.table.number, table_type=self.table.table_type))
+        self.assertEqual(response.status_code, 200)
+        order = Order.objects.get(pk=response.json()['order_id'])
+        self.assertEqual(order.table_number, self.table.number)
+
+    def test_rejects_unknown_table(self):
+        self.client.force_login(self.employee)
+        response = self.post(self.valid_payload(table_number='does-not-exist'))
+        self.assertEqual(response.status_code, 400)
+        self.assertEqual(Order.objects.filter(restaurant=self.restaurant).count(), 0)
+
+    def test_rejects_product_from_another_restaurant(self):
+        self.client.force_login(self.employee)
+        response = self.post(self.valid_payload(items=[{'product_id': self.other_product.id, 'quantity': 1, 'options': []}]))
+        self.assertEqual(response.status_code, 400)
+        self.assertEqual(Order.objects.filter(restaurant=self.restaurant).count(), 0)
+
+    @override_settings(BETA_MODE=False)
+    def test_rejects_when_plan_lacks_ordering(self):
+        self.owner.subscription_plan = 'basic'
+        self.owner.save()
+        self.client.force_login(self.employee)
+        response = self.post(self.valid_payload())
+        self.assertEqual(response.status_code, 403)
+        self.assertEqual(Order.objects.filter(restaurant=self.restaurant).count(), 0)
+
+    def test_rejects_empty_items(self):
+        self.client.force_login(self.employee)
+        response = self.post(self.valid_payload(items=[]))
+        self.assertEqual(response.status_code, 400)

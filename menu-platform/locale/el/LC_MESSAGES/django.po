@@ -4197,3 +4197,32 @@ msgstr "Προσθήκη τραπεζιού"
 msgid "Preview your live menu"
 msgstr "Προεπισκόπηση του ενεργού μενού σας"
 
+
+# New strings - staff-facing order creation feature
+msgid "New Order"
+msgstr "Νέα Παραγγελία"
+
+msgid "Back to Orders"
+msgstr "Επιστροφή στις Παραγγελίες"
+
+msgid "Current Order"
+msgstr "Τρέχουσα Παραγγελία"
+
+msgid "No table (takeaway / phone order)"
+msgstr "Χωρίς τραπέζι (take away / τηλεφωνική παραγγελία)"
+
+msgid "Customer name (optional)"
+msgstr "Όνομα πελάτη (προαιρετικό)"
+
+msgid "Submit Order"
+msgstr "Καταχώρηση Παραγγελίας"
+
+msgid "Add at least one product to the order."
+msgstr "Προσθέστε τουλάχιστον ένα προϊόν στην παραγγελία."
+
+msgid "Order created! Number"
+msgstr "Η παραγγελία δημιουργήθηκε! Αριθμός"
+
+msgid "Taking orders requires the Pro or Business plan."
+msgstr "Η λήψη παραγγελιών απαιτεί το πλάνο Pro ή Business."
+
